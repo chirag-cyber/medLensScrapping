@@ -1,0 +1,17 @@
+{
+  "name": "pdp-link-scraper",
+  "version": "1.0.0",
+  "description": "Web scraper that extracts Product Detail Page (PDP) links from any website URL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "scrape": "node cli.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.0",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.0",
+    "puppeteer": "^24.40.0"
+  }
+}
