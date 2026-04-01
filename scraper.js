@@ -27,15 +27,8 @@ const PDP_PATTERNS = [
   /\/prescriptions?\//i,
   /\/online-medicine-order\/[\w-]+/i,
   /\/drugs\/[\w-]+/i,
-  /\/health-care\/[\w-]+/i,
-  /\/medical-devices?\//i,
-  /\/wellness\/[\w-]+/i,
-  /\/ayush\/[\w-]+/i,
-  /\/healthcare-products?\//i,
-  /\/medicine\/[\w-]+/i,
   /\/lab-tests?\/[\w-]+/i,
   /\/otc-product\/[\w-]+/i,
-  /\/surgical\/[\w-]+/i,
 ];
 
 // Patterns to EXCLUDE (category pages, search pages, etc.)
