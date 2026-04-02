@@ -2,8 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { scrapePDPLinks } = require("./scraper");
 const { scrapeProductDetails, scrapeProductDetail } = require("./productScraper");
-const { saveScrapeResult, getSavedScrapes, getSavedScrapeById, getSavedScrapeByUrl } = require("./db");
-
+const { runETL } = require("./etl/pipeline");
 const app = express();
 const PORT = process.env.PORT || 8000;
 
@@ -30,11 +29,6 @@ app.get("/", (_req, res) => {
         method: "GET",
         path: "/product-detail?url=<encoded_pdp_url>",
         description: "Extract product details from a single PDP URL.",
-      },
-      savedData: {
-        method: "GET",
-        path: "/saved-data?includeJson=false",
-        description: "Fetch previously saved scrape results from the local database.",
       },
     },
   });
@@ -63,19 +57,6 @@ app.get("/scrape", async (req, res) => {
   }
 
   try {
-    // Check Cache
-    const cachedScrape = await getSavedScrapeByUrl(url);
-    if (cachedScrape && cachedScrape.result_json) {
-      const needsDetails = req.query.fetchDetails === "true";
-      const hasDetails = cachedScrape.products_scraped > 0;
-      
-      // If user doesn't need details, or if it already has details
-      if (!needsDetails || hasDetails) {
-        console.log(`[CACHE HIT] Returning saved data for: ${url}`);
-        return res.json(cachedScrape.result_json);
-      }
-    }
-    
     const options = {
       sameDomain: sameDomain !== "false",
       timeout: timeout ? parseInt(timeout, 10) : 15000,
@@ -101,9 +82,6 @@ app.get("/scrape", async (req, res) => {
       result.products = products;
       result.productsScraped = products.length;
     }
-
-    // Save to database
-    await saveScrapeResult(result);
 
     return res.json(result);
   } catch (err) {
@@ -138,13 +116,6 @@ app.get("/scrape-details", async (req, res) => {
   }
 
   try {
-    // Check cache
-    const cachedScrape = await getSavedScrapeByUrl(url);
-    if (cachedScrape && cachedScrape.result_json && cachedScrape.products_scraped > 0) {
-      console.log(`[CACHE HIT] Returning saved detailed data for: ${url}`);
-      return res.json(cachedScrape.result_json);
-    }
-
     const scrapeOpts = {
       sameDomain: sameDomain !== "false",
       timeout: timeout ? parseInt(timeout, 10) : 15000,
@@ -219,8 +190,25 @@ app.get("/scrape-details", async (req, res) => {
       products: finalProductsToReturn,
     };
 
-    // Save to database
-    await saveScrapeResult(finalResult);
+    // Run the extracted products through the internal MongoDB ETL Pipeline silently
+    const etlPayload = finalProductsToReturn.map((p) => {
+      let platform = "unknown";
+      if (p.url.includes("pharmeasy.in")) platform = "pharmeasy";
+      else if (p.url.includes("1mg.com")) platform = "1mg";
+      else if (p.url.includes("netmeds.com")) platform = "netmeds";
+      else if (p.url.includes("apollopharmacy")) platform = "apollo";
+      
+      return {
+        name: p.name,
+        price: p.price,
+        url: p.url,
+        platform: platform,
+        salt: null // Standard Scraper DOM doesn't get salt natively yet
+      };
+    });
+    // Fire and forget the pipeline
+    runETL(etlPayload).catch(e => console.error("[ETL BACKGROUND ERROR]", e));
+
 
     return res.json(finalResult);
   } catch (err) {
@@ -276,34 +264,7 @@ app.get("/product-detail", async (req, res) => {
   }
 });
 
-// ─── DB Endpoints ───────────────────────────────────────────────────
-app.get("/saved-data", async (req, res) => {
-  const includeJson = req.query.includeJson === "true";
-  const limit = parseInt(req.query.limit, 10) || 50;
-
-  try {
-    const scrapes = await getSavedScrapes(includeJson, limit);
-    return res.json({
-      success: true,
-      count: scrapes.length,
-      data: scrapes,
-    });
-  } catch (err) {
-    return res.status(500).json({ success: false, error: "Failed to read database" });
-  }
-});
-
-app.get("/saved-data/:id", async (req, res) => {
-  try {
-    const scrape = await getSavedScrapeById(req.params.id);
-    if (!scrape) {
-      return res.status(404).json({ success: false, error: "Scrape not found" });
-    }
-    return res.json({ success: true, data: scrape });
-  } catch (err) {
-    return res.status(500).json({ success: false, error: "Failed to read database" });
-  }
-});
+// Database routes removed in favor of direct ETL pipelining.
 
 // ─── Start server ────────────────────────────────────────────────────
 app.listen(PORT, () => {
@@ -315,7 +276,6 @@ app.listen(PORT, () => {
 ║  PDP Links       : GET /scrape?url=<url>                      ║
 ║  Links+Details   : GET /scrape-details?url=<url>&limit=10     ║
 ║  Single Product  : GET /product-detail?url=<pdp_url>          ║
-║  View DB Data    : GET /saved-data                            ║
 ╚════════════════════════════════════════════════════════════════╝
   `);
 });
