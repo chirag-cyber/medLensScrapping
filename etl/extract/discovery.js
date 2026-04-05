@@ -11,6 +11,26 @@ const {
 const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function safeGet(url, config = {}) {
+  const maxRetries = 2;
+  const backoffMs = 20000;
+
+  for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
+    try {
+      return await axios.get(url, config);
+    } catch (error) {
+      if (error.response?.status === 429 && attempt < maxRetries) {
+        console.warn(`[RATE LIMIT] 429 detected for ${url}. Waiting ${backoffMs / 1000}s...`);
+        await sleep(backoffMs + Math.random() * 5000);
+        continue;
+      }
+      throw error;
+    }
+  }
+}
+
 const MEDICINE_INFO_PATTERNS = [
   /\/drugs?\//i,
   /\/medicines?\//i,
@@ -131,8 +151,8 @@ async function searchPlatformViaWeb(query, platform, options = {}) {
   const domainQuery = platform.domains[0];
   const searchQuery = `site:${domainQuery} "${query}" medicine`;
 
-  const response = await axios.get("https://html.duckduckgo.com/html/", {
-    timeout,
+  const response = await safeGet("https://html.duckduckgo.com/html/", {
+    timeout: Math.max(timeout, 30000), // Ensure at least 30s for web search
     params: { q: searchQuery },
     headers: {
       "User-Agent": UA,
@@ -178,7 +198,7 @@ async function discoverPharmEasyUrls(query, options = {}) {
   const seen = new Set();
 
   try {
-    const response = await axios.get(apiUrl, {
+    const response = await safeGet(apiUrl, {
       timeout,
       headers: {
         "User-Agent": UA,
@@ -230,7 +250,7 @@ async function discoverPharmEasyUrls(query, options = {}) {
   }
 
   try {
-    const response = await axios.get(searchUrl, {
+    const response = await safeGet(searchUrl, {
       timeout,
       headers: {
         "User-Agent": UA,
@@ -281,7 +301,7 @@ async function discoverNetmedsUrls(query, options = {}) {
   const seen = new Set();
 
   try {
-    const response = await axios.get(searchUrl, {
+    const response = await safeGet(searchUrl, {
       timeout,
       headers: {
         "User-Agent": UA,
@@ -430,6 +450,9 @@ async function discoverFromPlatformSearchPages(query, options = {}) {
           `[DISCOVERY] Platform search failed for ${platform.id}: ${error.message}`
         );
       }
+
+      // Consistent delay between platforms to avoid detection
+      await sleep(1500 + Math.random() * 1500);
     }
   }
 
@@ -439,7 +462,7 @@ async function discoverFromPlatformSearchPages(query, options = {}) {
 async function discoverMedicineUrls(query, options = {}) {
   const {
     includeWebSearch = true,
-    timeout = 15000,
+    timeout = 30000,
     mode = "auto",
     platformIds,
   } = options;
@@ -470,6 +493,9 @@ async function discoverMedicineUrls(query, options = {}) {
           `[DISCOVERY] Web search failed for ${platform.id}: ${error.message}`
         );
       }
+      
+      // Intentional delay between web search platform calls
+      await sleep(2000 + Math.random() * 2000);
     }
   }
 

@@ -7,6 +7,7 @@
     "start": "node server.js",
     "scrape": "node cli.js",
     "batch:ingest": "node batch-job.js",
+    "populate:salts": "node populate-salts.js",
     "test:actual": "node test-actual.js"
   },
   "dependencies": {

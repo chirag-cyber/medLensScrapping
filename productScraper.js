@@ -4,6 +4,26 @@ const puppeteer = require("puppeteer");
 const { detectPlatform } = require("./etl/extract/platforms");
 const { extractDosage } = require("./etl/transform/transformer");
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function safeAxios(config) {
+  const maxRetries = 2;
+  const backoffMs = 25000;
+
+  for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
+    try {
+      return await axios(config);
+    } catch (error) {
+      if (error.response?.status === 429 && attempt < maxRetries) {
+        console.warn(`[RATE LIMIT] 429 on ${config.url}. Waiting ${backoffMs / 1000}s reset...`);
+        await sleep(backoffMs + Math.random() * 5000);
+        continue;
+      }
+      throw error;
+    }
+  }
+}
+
 // ─── Common User-Agent ──────────────────────────────────────────────
 const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
@@ -728,7 +748,9 @@ function extractFromSelectors($) {
  * Fetch HTML from a URL using Axios.
  */
 async function fetchPageHTML(url, timeout = 15000) {
-  const response = await axios.get(url, {
+  const response = await safeAxios({
+    url,
+    method: "get",
     timeout,
     headers: {
       "User-Agent": UA,
@@ -748,6 +770,9 @@ async function fetchPageHTML(url, timeout = 15000) {
  * Fetch HTML using Puppeteer (for JS-rendered pages).
  */
 async function fetchPageHTMLWithBrowser(url, timeout = 30000) {
+  // Add randomized offset before launching browser to avoid multi-process spikes
+  await sleep(500 + Math.random() * 2000);
+
   let browser;
   try {
     browser = await puppeteer.launch({
