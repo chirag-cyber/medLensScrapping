@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "scrape": "node cli.js"
+    "scrape": "node cli.js",
+    "batch:ingest": "node batch-job.js",
+    "test:actual": "node test-actual.js"
   },
   "dependencies": {
     "axios": "^1.7.0",

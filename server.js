@@ -3,8 +3,23 @@ const cors = require("cors");
 const { scrapePDPLinks } = require("./scraper");
 const { scrapeProductDetails, scrapeProductDetail } = require("./productScraper");
 const { runETL } = require("./etl/pipeline");
+const { ingestMedicineQuery, runBatchIngestion } = require("./etl/batchJob");
+const connectDB = require("./etl/load/db");
+const { searchMedicines } = require("./etl/search");
 const app = express();
 const PORT = process.env.PORT || 8000;
+
+function parsePerPlatformLimit(value) {
+  if (value === undefined || value === null) return null;
+
+  const normalized = String(value).trim().toLowerCase();
+  if (!normalized || normalized === "all" || normalized === "none" || normalized === "0") {
+    return null;
+  }
+
+  const parsed = parseInt(normalized, 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
+}
 
 app.use(cors());
 app.use(express.json());
@@ -13,7 +28,7 @@ app.use(express.json());
 app.get("/", (_req, res) => {
   res.json({
     service: "PDP Link Scraper + Product Detail Extractor",
-    version: "2.0.0",
+    version: "3.0.0",
     endpoints: {
       scrape: {
         method: "GET",
@@ -29,6 +44,24 @@ app.get("/", (_req, res) => {
         method: "GET",
         path: "/product-detail?url=<encoded_pdp_url>",
         description: "Extract product details from a single PDP URL.",
+      },
+      searchMedicines: {
+        method: "GET",
+        path: "/search-medicines?query=<salt_or_medicine_name>",
+        description:
+          "Return canonical medicines grouped with per-platform prices, useful for salt queries like paracetamol.",
+      },
+      ingestMedicine: {
+        method: "GET",
+        path: "/ingest-medicine?query=<medicine_name>&perPlatformLimit=all",
+        description:
+          "Discover medicine pages across platforms via platform search + web search, scrape them, and bulk upsert into MongoDB.",
+      },
+      ingestBatch: {
+        method: "POST",
+        path: "/ingest-batch",
+        description:
+          "Run the medicine discovery + ETL flow for multiple medicine queries in controlled batches.",
       },
     },
   });
@@ -203,7 +236,13 @@ app.get("/scrape-details", async (req, res) => {
         price: p.price,
         url: p.url,
         platform: platform,
-        salt: null // Standard Scraper DOM doesn't get salt natively yet
+        image: p.image || null,
+        salt: p.salt || null,
+        description: p.description || null,
+        dosage: p.dosage || null,
+        sideEffects: p.sideEffects || [],
+        faq: p.faq || [],
+        sourceType: p.sourceType || "product",
       };
     });
     // Fire and forget the pipeline
@@ -260,6 +299,117 @@ app.get("/product-detail", async (req, res) => {
       success: false,
       error: err.message,
       source: url,
+    });
+  }
+});
+
+app.get("/search-medicines", async (req, res) => {
+  const { query } = req.query;
+
+  if (!query) {
+    return res.status(400).json({
+      success: false,
+      error: "Missing required query parameter: query",
+      usage: "GET /search-medicines?query=paracetamol",
+    });
+  }
+
+  try {
+    await connectDB();
+    const results = await searchMedicines(query);
+
+    return res.json({
+      success: true,
+      searchedAt: new Date().toISOString(),
+      query,
+      totalMedicines: results.length,
+      results,
+    });
+  } catch (error) {
+    console.error(`[SEARCH-MEDICINES ERROR] ${error.message}`);
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+      query,
+    });
+  }
+});
+
+app.get("/ingest-medicine", async (req, res) => {
+  const { query, perPlatformLimit, concurrency, timeout, mode, includeWebSearch } = req.query;
+  const useWebSearch = includeWebSearch !== "false";
+
+  if (!query) {
+    return res.status(400).json({
+      success: false,
+      error: "Missing required query parameter: query",
+      usage: "GET /ingest-medicine?query=<medicine_name>&perPlatformLimit=all",
+    });
+  }
+
+  try {
+    const result = await ingestMedicineQuery(query, {
+      perPlatformLimit: parsePerPlatformLimit(perPlatformLimit),
+      concurrency: concurrency ? parseInt(concurrency, 10) : 4,
+      timeout: timeout ? parseInt(timeout, 10) : 15000,
+      mode: mode || "auto",
+      includeWebSearch: useWebSearch,
+    });
+
+    return res.json({
+      success: true,
+      ingestedAt: new Date().toISOString(),
+      result,
+    });
+  } catch (error) {
+    console.error(`[INGEST-MEDICINE ERROR] ${error.message}`);
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+      query,
+    });
+  }
+});
+
+app.post("/ingest-batch", async (req, res) => {
+  const { queries, queryBatchSize, perPlatformLimit, concurrency, timeout, mode, includeWebSearch } =
+    req.body || {};
+  const useWebSearch = !(includeWebSearch === false || includeWebSearch === "false");
+
+  const normalizedQueries = Array.isArray(queries)
+    ? queries
+    : typeof queries === "string"
+      ? queries.split(",").map((query) => query.trim()).filter(Boolean)
+      : [];
+
+  if (normalizedQueries.length === 0) {
+    return res.status(400).json({
+      success: false,
+      error: "Request body must include a non-empty queries array or comma-separated string.",
+      usage: 'POST /ingest-batch { "queries": ["paracetamol 650", "azithromycin 500"] }',
+    });
+  }
+
+  try {
+    const result = await runBatchIngestion(normalizedQueries, {
+      queryBatchSize: queryBatchSize ? parseInt(queryBatchSize, 10) : 2,
+      perPlatformLimit: parsePerPlatformLimit(perPlatformLimit),
+      concurrency: concurrency ? parseInt(concurrency, 10) : 4,
+      timeout: timeout ? parseInt(timeout, 10) : 15000,
+      mode: mode || "auto",
+      includeWebSearch: useWebSearch,
+    });
+
+    return res.json({
+      success: true,
+      ingestedAt: new Date().toISOString(),
+      ...result,
+    });
+  } catch (error) {
+    console.error(`[INGEST-BATCH ERROR] ${error.message}`);
+    return res.status(500).json({
+      success: false,
+      error: error.message,
     });
   }
 });

@@ -5,39 +5,60 @@
 const connectDB = require("./load/db");
 const { extractData } = require("./extract/extractor");
 const { transformRecord } = require("./transform/transformer");
-const { upsertProduct } = require("./load/upsert");
+const { bulkUpsertProducts } = require("./load/upsert");
 
-async function runETL(rawInputArray) {
-  let db_connected = false;
+async function runETL(rawInputArray, options = {}) {
+  const { batchSize = 25 } = options;
+
   try {
-    // 1. Setup DB Connection
     await connectDB();
-    db_connected = true;
-
-    // 2. Extract Phase (Validate shape)
     console.log("=== ETL Pipeline Started ===");
-    const validRawRecords = extractData(rawInputArray);
 
-    let processedCount = 0;
-    
-    // 3. Transform & 4. Load Phase (Stream processing element-by-element)
+    const validRawRecords = extractData(rawInputArray);
+    const transformedRecords = [];
+    let rejectedCount = 0;
+
     for (const record of validRawRecords) {
       try {
         const transformedStruct = transformRecord(record);
-        const savedId = await upsertProduct(transformedStruct);
-        if (savedId) {
-          processedCount++;
+        if (!transformedStruct.canonical_key) {
+          rejectedCount++;
+          console.warn(
+            `[ETL SKIP] Missing canonical key for record: ${transformedStruct.raw_name}`
+          );
+          continue;
         }
+
+        transformedRecords.push(transformedStruct);
       } catch (err) {
+        rejectedCount++;
         console.error(`[ETL ERROR] Failed parsing: ${record.name}`, err);
       }
     }
 
-    console.log(`=== ETL Pipeline Completed ===`);
-    console.log(`Successfully merged/upserted ${processedCount} out of ${validRawRecords.length} records into Database.`);
+    const loadSummary = await bulkUpsertProducts(transformedRecords, { batchSize });
+
+    const summary = {
+      extractedCount: validRawRecords.length,
+      transformedCount: transformedRecords.length,
+      transformRejectedCount: rejectedCount,
+      strictRejectedCount: loadSummary.rejectedIncompleteMedicines || 0,
+      rejectedCount: rejectedCount + (loadSummary.rejectedIncompleteMedicines || 0),
+      medicinesTouched: loadSummary.medicinesTouched,
+      priceEntriesUpserted: loadSummary.priceEntriesUpserted,
+      incompleteMedicines: loadSummary.incompleteMedicines || [],
+    };
+
+    console.log("=== ETL Pipeline Completed ===");
+    console.log(
+      `Processed ${summary.transformedCount}/${summary.extractedCount} records. Medicines touched: ${summary.medicinesTouched}. Platform price rows upserted: ${summary.priceEntriesUpserted}. Rejected: ${summary.rejectedCount} (${summary.transformRejectedCount} transform + ${summary.strictRejectedCount} strict completeness).`
+    );
+
+    return summary;
 
   } catch (error) {
     console.error("[ETL FATAL ERROR]", error);
+    throw error;
   }
 }
 

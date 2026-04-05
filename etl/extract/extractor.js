@@ -8,12 +8,18 @@ function extractData(rawScrapeArray) {
     throw new Error("Extractor requires an array of raw product json objects.");
   }
 
-  // Pre-filter empty or fundamentally invalid data before passing to transform
+  // Pre-filter empty or fundamentally invalid data before passing to transform.
   const validInputs = rawScrapeArray.filter(
-    (item) => item.name && typeof item.price === "number" && item.url
+    (item) =>
+      item &&
+      typeof item === "object" &&
+      item.url &&
+      (item.name || item.salt || item.description)
   );
 
-  console.log(`[ETL EXTRACT] Extracted ${validInputs.length} valid payloads out of ${rawScrapeArray.length} raw payloads.`);
+  console.log(
+    `[ETL EXTRACT] Extracted ${validInputs.length} candidate payloads out of ${rawScrapeArray.length} raw payloads.`
+  );
   return validInputs;
 }
 
