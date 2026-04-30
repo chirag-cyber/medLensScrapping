@@ -14,7 +14,7 @@ const debugCounts = {};
 function triggerDebugDump(url, platform, html, errorContext = {}) {
   try {
     if (!fs.existsSync(DEBUG_DIR)) fs.mkdirSync(DEBUG_DIR, { recursive: true });
-    
+
     debugCounts[platform] = (debugCounts[platform] || 0) + 1;
     if (debugCounts[platform] > DEBUG_SAMPLING_LIMIT) return; // Sampling constraint
 
@@ -25,12 +25,12 @@ function triggerDebugDump(url, platform, html, errorContext = {}) {
     if (html) {
       fs.writeFileSync(path.join(DEBUG_DIR, `${prefix}.html`), html);
     }
-    
+
     fs.writeFileSync(
       path.join(DEBUG_DIR, `${prefix}_meta.json`),
       JSON.stringify({ url, platform, errorContext, timestamp }, null, 2)
     );
-    
+
     console.warn(`[DEBUG] Dumped extraction failure state for ${platform} to ${DEBUG_DIR}`);
   } catch (err) {
     console.error(`[DEBUG] Failed to dump debug state: ${err.message}`);
@@ -629,11 +629,11 @@ function extractFromLDJSON($) {
           result.salt ||
           normalizeText(
             item.activeIngredient?.name ||
-              item.activeIngredient ||
-              item.nonProprietaryName?.name ||
-              item.nonProprietaryName ||
-              item.drugUnit ||
-              ""
+            item.activeIngredient ||
+            item.nonProprietaryName?.name ||
+            item.nonProprietaryName ||
+            item.drugUnit ||
+            ""
           ) ||
           null;
 
@@ -988,7 +988,7 @@ async function scrapeProductDetail(url, opts = {}) {
   const platformId = detectPlatform(url);
   const platformConfig = getPlatformConfigById(platformId);
   const strategy = platformConfig?.extractionStrategy || { primary: mode, fallback: "browser" };
-  
+
   let product = null;
   let usedMode = strategy.primary;
   let html = null;
@@ -1011,11 +1011,11 @@ async function scrapeProductDetail(url, opts = {}) {
     // 1. Primary Strategy
     let rawResult;
     if (strategy.primary === "api") {
-       rawResult = await executeHtmlParse(); // Actually, product pages are mostly HTML, API was for search. But we use HTML for Pharmeasy PDP.
+      rawResult = await executeHtmlParse(); // Actually, product pages are mostly HTML, API was for search. But we use HTML for Pharmeasy PDP.
     } else if (strategy.primary === "browser" || strategy.primary === "browser-stealth" || strategy.primary === "browser-intercept") {
-       rawResult = await executeBrowserParse();
+      rawResult = await executeBrowserParse();
     } else {
-       rawResult = await executeHtmlParse();
+      rawResult = await executeHtmlParse();
     }
 
     product = rawResult.merged;
@@ -1033,7 +1033,7 @@ async function scrapeProductDetail(url, opts = {}) {
     if (strategy.fallback) {
       console.error(`  ⚠️  Primary strategy (${strategy.primary}) failed for ${url}. Trying fallback (${strategy.fallback})...`);
       usedMode = strategy.fallback;
-      
+
       if (strategy.fallback === "browser") {
         rawResult = await executeBrowserParse();
       } else {

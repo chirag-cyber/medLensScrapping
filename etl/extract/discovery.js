@@ -25,6 +25,26 @@ const {
 const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function safeGet(url, config = {}) {
+  const maxRetries = 2;
+  const backoffMs = 20000;
+
+  for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
+    try {
+      return await axios.get(url, config);
+    } catch (error) {
+      if (error.response?.status === 429 && attempt < maxRetries) {
+        console.warn(`[RATE LIMIT] 429 detected for ${url}. Waiting ${backoffMs / 1000}s...`);
+        await sleep(backoffMs + Math.random() * 5000);
+        continue;
+      }
+      throw error;
+    }
+  }
+}
+
 const MEDICINE_INFO_PATTERNS = [
   /\/drugs?\//i,
   /\/medicines?\//i,
@@ -212,7 +232,7 @@ async function discoverPharmEasyUrls(query, options = {}) {
 
   // Tier 1: API with proper headers
   try {
-    const response = await axios.get(apiUrl, {
+    const response = await safeGet(apiUrl, {
       timeout,
       headers: {
         "User-Agent": UA,
