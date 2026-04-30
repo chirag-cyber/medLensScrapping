@@ -1,0 +1,648 @@
+[2026-04-20T17:32:59.951Z]   ✅ "cotrimoxazole" → Discovered: 33, Scraped: 33, Medicines: 17
+[2026-04-20T17:33:04.331Z]   🔍 [Attempt 1] Scraping: "isoniazid"
+[2026-04-20T17:38:10.562Z]   ✅ "isoniazid" → Discovered: 37, Scraped: 37, Medicines: 32
+[2026-04-20T17:38:14.695Z]   🔍 [Attempt 1] Scraping: "rifampicin"
+[2026-04-20T17:42:41.263Z]   ✅ "rifampicin" → Discovered: 36, Scraped: 36, Medicines: 26
+[2026-04-20T17:42:44.717Z] 
+📊 Progress: 147/580 queries (25.3%) | Speed: 0.02 q/s | ETA: 23h 12m 45s
+[2026-04-20T17:42:44.720Z]    Discovered: 3269 | Scraped: 3269 | Medicines: 1639 | Enriched: 165
+[2026-04-20T17:42:44.721Z] 💤 Breathing for 3.1s before next batch...
+
+[2026-04-20T17:42:47.807Z] 
+════════════════════════════════════════════════════════════
+[2026-04-20T17:42:47.810Z] 📦 BATCH 50 — Processing 3 queries [pyrazinamide, ethambutol, streptomycin]
+[2026-04-20T17:42:47.811Z] ════════════════════════════════════════════════════════════
+[2026-04-20T17:42:47.816Z]   🔍 [Attempt 1] Scraping: "pyrazinamide"
+[2026-04-20T17:47:05.213Z]   ✅ "pyrazinamide" → Discovered: 36, Scraped: 36, Medicines: 23
+[2026-04-20T17:47:09.633Z]   🔍 [Attempt 1] Scraping: "ethambutol"
+[2026-04-20T17:50:56.909Z] 
+⚠️  Received SIGINT. Saving state and exiting gracefully...
+[2026-04-20T17:50:56.912Z] 💾 State saved. You can resume with: node orchestrator.js --resume
+[2026-04-30T07:29:02.478Z] 🆕 Starting fresh crawl with 580 queries.
+[2026-04-30T07:29:02.487Z] 📊 580 queries remaining across 194 batches.
+
+[2026-04-30T07:29:02.488Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T07:29:02.489Z] 📦 BATCH 1 — Processing 3 queries [paracetamol, ibuprofen, amoxicillin]
+[2026-04-30T07:29:02.490Z] ════════════════════════════════════════════════════════════
+[2026-04-30T07:29:02.492Z]   🔍 [Attempt 1] Scraping: "paracetamol"
+[2026-04-30T07:30:54.703Z]   ✅ "paracetamol" → Discovered: 47, Scraped: 47, Medicines: 23
+[2026-04-30T07:30:57.469Z]   🔍 [Attempt 1] Scraping: "ibuprofen"
+[2026-04-30T07:32:36.996Z]   ✅ "ibuprofen" → Discovered: 38, Scraped: 38, Medicines: 37
+[2026-04-30T07:32:41.295Z]   🔍 [Attempt 1] Scraping: "amoxicillin"
+[2026-04-30T07:34:08.011Z]   ✅ "amoxicillin" → Discovered: 37, Scraped: 37, Medicines: 36
+[2026-04-30T07:34:12.190Z] 
+📊 Progress: 3/580 queries (0.5%) | Speed: 0.01 q/s | ETA: 16h 36m 12s
+[2026-04-30T07:34:12.192Z]    Discovered: 122 | Scraped: 122 | Medicines: 96 | Enriched: 0
+[2026-04-30T07:34:12.195Z] 💤 Breathing for 4.4s before next batch...
+
+[2026-04-30T07:34:16.615Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T07:34:16.617Z] 📦 BATCH 2 — Processing 3 queries [azithromycin, cetirizine, metformin]
+[2026-04-30T07:34:16.619Z] ════════════════════════════════════════════════════════════
+[2026-04-30T07:34:16.621Z]   🔍 [Attempt 1] Scraping: "azithromycin"
+[2026-04-30T07:36:02.269Z]   ✅ "azithromycin" → Discovered: 38, Scraped: 38, Medicines: 36
+[2026-04-30T07:36:05.532Z]   🔍 [Attempt 1] Scraping: "cetirizine"
+[2026-04-30T07:37:56.904Z]   ✅ "cetirizine" → Discovered: 39, Scraped: 39, Medicines: 34
+[2026-04-30T07:38:01.295Z]   🔍 [Attempt 1] Scraping: "metformin"
+[2026-04-30T07:39:45.538Z]   ✅ "metformin" → Discovered: 36, Scraped: 36, Medicines: 35
+[2026-04-30T07:39:49.459Z] 
+📊 Progress: 6/580 queries (1.0%) | Speed: 0.01 q/s | ETA: 17h 15m 9s
+[2026-04-30T07:39:49.462Z]    Discovered: 235 | Scraped: 235 | Medicines: 201 | Enriched: 0
+[2026-04-30T07:39:49.464Z] 💤 Breathing for 4.4s before next batch...
+
+[2026-04-30T07:39:53.873Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T07:39:53.876Z] 📦 BATCH 3 — Processing 3 queries [atorvastatin, omeprazole, pantoprazole]
+[2026-04-30T07:39:53.878Z] ════════════════════════════════════════════════════════════
+[2026-04-30T07:39:53.880Z]   🔍 [Attempt 1] Scraping: "atorvastatin"
+[2026-04-30T07:41:32.088Z] 
+⚠️  Received SIGINT. Saving state and exiting gracefully...
+[2026-04-30T07:41:32.090Z] 💾 State saved. You can resume with: node orchestrator.js --resume
+[2026-04-30T08:16:27.939Z] ♻️  Resuming from batch index 6 (2 batches already done)
+[2026-04-30T08:16:27.989Z] 📊 574 queries remaining across 192 batches.
+
+[2026-04-30T08:16:27.990Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T08:16:27.992Z] 📦 BATCH 3 — Processing 3 queries [atorvastatin, omeprazole, pantoprazole]
+[2026-04-30T08:16:27.995Z] ════════════════════════════════════════════════════════════
+[2026-04-30T08:16:27.998Z]   🔍 [Attempt 1] Scraping: "atorvastatin"
+[2026-04-30T08:18:22.827Z]   ✅ "atorvastatin" → Discovered: 36, Scraped: 36, Medicines: 34
+[2026-04-30T08:18:26.861Z]   🔍 [Attempt 1] Scraping: "omeprazole"
+[2026-04-30T08:20:02.143Z]   ✅ "omeprazole" → Discovered: 36, Scraped: 36, Medicines: 35
+[2026-04-30T08:20:06.220Z]   🔍 [Attempt 1] Scraping: "pantoprazole"
+[2026-04-30T08:21:48.119Z]   ✅ "pantoprazole" → Discovered: 39, Scraped: 39, Medicines: 38
+[2026-04-30T08:21:52.828Z] 
+📊 Progress: 9/580 queries (1.6%) | Speed: 0.03 q/s | ETA: 17h 14m 3s
+[2026-04-30T08:21:52.830Z]    Discovered: 346 | Scraped: 346 | Medicines: 308 | Enriched: 0
+[2026-04-30T08:21:52.832Z] 💤 Breathing for 4.9s before next batch...
+
+[2026-04-30T08:21:57.735Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T08:21:57.737Z] 📦 BATCH 4 — Processing 3 queries [amlodipine, losartan, telmisartan]
+[2026-04-30T08:21:57.739Z] ════════════════════════════════════════════════════════════
+[2026-04-30T08:21:57.741Z]   🔍 [Attempt 1] Scraping: "amlodipine"
+[2026-04-30T08:23:38.467Z]   ✅ "amlodipine" → Discovered: 37, Scraped: 37, Medicines: 36
+[2026-04-30T08:23:42.159Z]   🔍 [Attempt 1] Scraping: "losartan"
+[2026-04-30T08:25:22.883Z]   ✅ "losartan" → Discovered: 40, Scraped: 40, Medicines: 40
+[2026-04-30T08:25:25.389Z]   🔍 [Attempt 1] Scraping: "telmisartan"
+[2026-04-30T08:26:57.358Z]   ✅ "telmisartan" → Discovered: 38, Scraped: 38, Medicines: 35
+[2026-04-30T08:27:00.967Z] 
+📊 Progress: 12/580 queries (2.1%) | Speed: 0.02 q/s | ETA: 16h 42m 12s
+[2026-04-30T08:27:00.969Z]    Discovered: 461 | Scraped: 461 | Medicines: 419 | Enriched: 0
+[2026-04-30T08:27:00.971Z] 💤 Breathing for 2.9s before next batch...
+
+[2026-04-30T08:27:03.900Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T08:27:03.901Z] 📦 BATCH 5 — Processing 3 queries [ciprofloxacin, levofloxacin, doxycycline]
+[2026-04-30T08:27:03.902Z] ════════════════════════════════════════════════════════════
+[2026-04-30T08:27:03.903Z]   🔍 [Attempt 1] Scraping: "ciprofloxacin"
+[2026-04-30T08:29:18.440Z]   ✅ "ciprofloxacin" → Discovered: 38, Scraped: 38, Medicines: 38
+[2026-04-30T08:29:20.611Z]   🔍 [Attempt 1] Scraping: "levofloxacin"
+[2026-04-30T08:31:16.905Z] 
+⚠️  Received SIGINT. Saving state and exiting gracefully...
+[2026-04-30T08:31:16.908Z] 💾 State saved. You can resume with: node orchestrator.js --resume
+[2026-04-30T08:31:26.914Z] 🆕 Starting fresh crawl with 580 queries.
+[2026-04-30T08:31:26.915Z] 📊 580 queries remaining across 194 batches.
+
+[2026-04-30T08:31:26.917Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T08:31:26.919Z] 📦 BATCH 1 — Processing 3 queries [paracetamol, ibuprofen, amoxicillin]
+[2026-04-30T08:31:26.921Z] ════════════════════════════════════════════════════════════
+[2026-04-30T08:31:26.923Z]   🔍 [Attempt 1] Scraping: "paracetamol"
+[2026-04-30T08:36:56.794Z]   ✅ "paracetamol" → Discovered: 136, Scraped: 136, Medicines: 108
+[2026-04-30T08:36:59.104Z]   🔍 [Attempt 1] Scraping: "ibuprofen"
+[2026-04-30T08:43:18.855Z]   ✅ "ibuprofen" → Discovered: 133, Scraped: 133, Medicines: 126
+[2026-04-30T08:43:22.437Z]   🔍 [Attempt 1] Scraping: "amoxicillin"
+[2026-04-30T08:48:02.531Z]   ✅ "amoxicillin" → Discovered: 57, Scraped: 57, Medicines: 51
+[2026-04-30T08:48:07.295Z] 
+📊 Progress: 3/580 queries (0.5%) | Speed: 0.00 q/s | ETA: 53h 37m 52s
+[2026-04-30T08:48:07.298Z]    Discovered: 326 | Scraped: 326 | Medicines: 285 | Enriched: 0
+[2026-04-30T08:48:07.300Z] 💤 Breathing for 4.2s before next batch...
+
+[2026-04-30T08:48:11.506Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T08:48:11.508Z] 📦 BATCH 2 — Processing 3 queries [azithromycin, cetirizine, metformin]
+[2026-04-30T08:48:11.510Z] ════════════════════════════════════════════════════════════
+[2026-04-30T08:48:11.512Z]   🔍 [Attempt 1] Scraping: "azithromycin"
+[2026-04-30T08:53:37.250Z]   ✅ "azithromycin" → Discovered: 133, Scraped: 133, Medicines: 129
+[2026-04-30T08:53:39.763Z]   🔍 [Attempt 1] Scraping: "cetirizine"
+[2026-04-30T08:59:22.636Z]   ✅ "cetirizine" → Discovered: 132, Scraped: 132, Medicines: 115
+[2026-04-30T08:59:24.677Z]   🔍 [Attempt 1] Scraping: "metformin"
+[2026-04-30T09:05:49.700Z]   ✅ "metformin" → Discovered: 132, Scraped: 132, Medicines: 130
+[2026-04-30T09:05:53.294Z] 
+📊 Progress: 6/580 queries (1.0%) | Speed: 0.00 q/s | ETA: 55h 6m 12s
+[2026-04-30T09:05:53.296Z]    Discovered: 723 | Scraped: 723 | Medicines: 659 | Enriched: 0
+[2026-04-30T09:05:53.297Z] 💤 Breathing for 2.1s before next batch...
+
+[2026-04-30T09:05:55.457Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T09:05:55.459Z] 📦 BATCH 3 — Processing 3 queries [atorvastatin, omeprazole, pantoprazole]
+[2026-04-30T09:05:55.461Z] ════════════════════════════════════════════════════════════
+[2026-04-30T09:05:55.462Z]   🔍 [Attempt 1] Scraping: "atorvastatin"
+[2026-04-30T09:08:04.156Z] 
+⚠️  Received SIGINT. Saving state and exiting gracefully...
+[2026-04-30T09:08:04.159Z] 💾 State saved. You can resume with: node orchestrator.js --resume
+[2026-04-30T09:08:10.256Z] 🆕 Starting fresh crawl with 580 queries.
+[2026-04-30T09:08:10.257Z] 📊 580 queries remaining across 194 batches.
+
+[2026-04-30T09:08:10.257Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T09:08:10.258Z] 📦 BATCH 1 — Processing 3 queries [paracetamol, ibuprofen, amoxicillin]
+[2026-04-30T09:08:10.259Z] ════════════════════════════════════════════════════════════
+[2026-04-30T09:08:10.260Z]   🔍 [Attempt 1] Scraping: "paracetamol"
+[2026-04-30T09:11:30.211Z]   ✅ "paracetamol" → Discovered: 105, Scraped: 105, Medicines: 83
+[2026-04-30T09:11:35.157Z]   🔍 [Attempt 1] Scraping: "ibuprofen"
+[2026-04-30T09:16:21.842Z]   ✅ "ibuprofen" → Discovered: 138, Scraped: 138, Medicines: 130
+[2026-04-30T09:16:24.405Z]   🔍 [Attempt 1] Scraping: "amoxicillin"
+[2026-04-30T09:19:18.286Z]   ✅ "amoxicillin" → Discovered: 62, Scraped: 62, Medicines: 57
+[2026-04-30T09:19:21.089Z] 
+📊 Progress: 3/580 queries (0.5%) | Speed: 0.00 q/s | ETA: 35h 57m 49s
+[2026-04-30T09:19:21.091Z]    Discovered: 305 | Scraped: 305 | Medicines: 270 | Enriched: 0
+[2026-04-30T09:19:21.093Z] 💤 Breathing for 2.1s before next batch...
+
+[2026-04-30T09:19:23.158Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T09:19:23.160Z] 📦 BATCH 2 — Processing 3 queries [azithromycin, cetirizine, metformin]
+[2026-04-30T09:19:23.162Z] ════════════════════════════════════════════════════════════
+[2026-04-30T09:19:23.163Z]   🔍 [Attempt 1] Scraping: "azithromycin"
+[2026-04-30T09:23:17.796Z]   ✅ "azithromycin" → Discovered: 138, Scraped: 138, Medicines: 133
+[2026-04-30T09:23:20.995Z]   🔍 [Attempt 1] Scraping: "cetirizine"
+[2026-04-30T09:26:07.351Z] 
+⚠️  Received SIGINT. Saving state and exiting gracefully...
+[2026-04-30T09:26:07.351Z] 💾 State saved. You can resume with: node orchestrator.js --resume
+[2026-04-30T09:26:21.085Z] ♻️  Resuming from batch index 3 (1 batches already done)
+[2026-04-30T09:26:21.117Z] 📊 577 queries remaining across 193 batches.
+
+[2026-04-30T09:26:21.118Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T09:26:21.119Z] 📦 BATCH 2 — Processing 3 queries [azithromycin, cetirizine, metformin]
+[2026-04-30T09:26:21.120Z] ════════════════════════════════════════════════════════════
+[2026-04-30T09:26:21.121Z]   🔍 [Attempt 1] Scraping: "azithromycin"
+[2026-04-30T09:29:59.363Z]   ✅ "azithromycin" → Discovered: 137, Scraped: 137, Medicines: 133
+[2026-04-30T09:30:01.833Z]   🔍 [Attempt 1] Scraping: "cetirizine"
+[2026-04-30T09:33:21.457Z]   ✅ "cetirizine" → Discovered: 105, Scraped: 105, Medicines: 91
+[2026-04-30T09:33:24.770Z]   🔍 [Attempt 1] Scraping: "metformin"
+[2026-04-30T09:37:55.215Z]   ✅ "metformin" → Discovered: 201, Scraped: 201, Medicines: 198
+[2026-04-30T09:37:58.640Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T09:37:58.821Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T09:37:58.822Z]   🧠 [1/30] Enriching: metadoze-ipr 500 tablet sr
+[2026-04-30T09:38:01.722Z]   🧠 [2/30] Enriching: dynaglipt-m tablet sr
+[2026-04-30T09:38:04.527Z]   🧠 [3/30] Enriching: zomet-th tablet sr
+[2026-04-30T09:38:07.445Z]   🧠 [4/30] Enriching: riomet od 500mg tablet sr
+[2026-04-30T09:38:10.231Z]   🧠 [5/30] Enriching: gluconorm g2 tablet pr
+[2026-04-30T09:38:13.137Z]   🧠 [6/30] Enriching: galvus met 50mg 1000mg tablet
+[2026-04-30T09:38:16.046Z]   🧠 [7/30] Enriching: glycomet gp
+[2026-04-30T09:38:18.761Z]   🧠 [8/30] Enriching: exermet 1000 tablet sr
+[2026-04-30T09:38:21.590Z]   🧠 [9/30] Enriching: biciphage sr 500mg tablets
+[2026-04-30T09:38:24.747Z]   🧠 [10/30] Enriching: glycomet 500 sr tablet
+[2026-04-30T09:38:27.884Z]   🧠 [11/30] Enriching: glycomet trio sr
+[2026-04-30T09:38:30.664Z]   🧠 [12/30] Enriching: istamet xr tablet
+[2026-04-30T09:38:33.562Z]   🧠 [13/30] Enriching: trajenta duo 2.5mg 500mg tablet
+[2026-04-30T09:38:36.441Z]   🧠 [14/30] Enriching: diamicron xr mex 60 500 tablet
+[2026-04-30T09:38:39.307Z]   🧠 [15/30] Enriching: gluconorm sr 850 tablet
+[2026-04-30T09:38:42.148Z]   🧠 [16/30] Enriching: glyciphage sr 850mg tablet
+[2026-04-30T09:38:44.947Z]   🧠 [17/30] Enriching: metgem 500 tablet er
+[2026-04-30T09:38:47.737Z]   🧠 [18/30] Enriching: glycomet-gp 0. pr
+[2026-04-30T09:38:50.662Z]   🧠 [19/30] Enriching: gemer pr
+[2026-04-30T09:38:54.605Z]   🧠 [20/30] Enriching: metrose 1000 sr tablet
+[2026-04-30T09:38:57.473Z]   🧠 [21/30] Enriching: obimet sr 1gm tablet
+[2026-04-30T09:39:00.271Z]   🧠 [22/30] Enriching: gemer pr
+[2026-04-30T09:39:03.065Z]   🧠 [23/30] Enriching: metadoze-ipr 850 tablet sr
+[2026-04-30T09:39:05.863Z]   🧠 [24/30] Enriching: metrose 500mg tablet sr
+[2026-04-30T09:39:08.761Z]   🧠 [25/30] Enriching: janumet 1000mg 50mg tablet
+[2026-04-30T09:39:11.573Z]   🧠 [26/30] Enriching: ondero met 2.5mg 500mg tablet
+[2026-04-30T09:39:14.405Z]   🧠 [27/30] Enriching: glyciphage 850 tablet
+[2026-04-30T09:39:17.349Z]   🧠 [28/30] Enriching: myformin 500mg tablet sr
+[2026-04-30T09:39:20.239Z]   🧠 [29/30] Enriching: glycomet 850 tablet
+[2026-04-30T09:39:23.122Z]   🧠 [30/30] Enriching: gliptagreat m 500 tablet
+[2026-04-30T09:39:23.424Z]   ✅ Enrichment done: 30 updated, 0 failed.
+[2026-04-30T09:39:23.430Z] 
+📊 Progress: 6/580 queries (1.0%) | Speed: 0.01 q/s | ETA: 41h 43m 24s
+[2026-04-30T09:39:23.432Z]    Discovered: 748 | Scraped: 748 | Medicines: 692 | Enriched: 30
+[2026-04-30T09:39:23.434Z] 💤 Breathing for 4.4s before next batch...
+
+[2026-04-30T09:39:27.797Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T09:39:27.798Z] 📦 BATCH 3 — Processing 3 queries [atorvastatin, omeprazole, pantoprazole]
+[2026-04-30T09:39:27.798Z] ════════════════════════════════════════════════════════════
+[2026-04-30T09:39:27.799Z]   🔍 [Attempt 1] Scraping: "atorvastatin"
+[2026-04-30T09:42:58.688Z]   ✅ "atorvastatin" → Discovered: 104, Scraped: 104, Medicines: 102
+[2026-04-30T09:43:03.584Z]   🔍 [Attempt 1] Scraping: "omeprazole"
+[2026-04-30T09:46:35.197Z]   ✅ "omeprazole" → Discovered: 106, Scraped: 106, Medicines: 102
+[2026-04-30T09:46:39.878Z]   🔍 [Attempt 1] Scraping: "pantoprazole"
+[2026-04-30T09:51:39.308Z]   ✅ "pantoprazole" → Discovered: 202, Scraped: 202, Medicines: 198
+[2026-04-30T09:51:43.783Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T09:51:43.975Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T09:51:43.976Z]   🧠 [1/30] Enriching: pantocaf l 75mg 40mg capsule sr
+[2026-04-30T09:51:46.964Z]   🧠 [2/30] Enriching: pan d 30mg 40mg capsule sr
+[2026-04-30T09:51:49.829Z]   🧠 [3/30] Enriching: pantolup d 30mg 40mg tablet
+[2026-04-30T09:51:52.789Z]   🧠 [4/30] Enriching: pentadoc d 30mg 40mg capsule sr
+[2026-04-30T09:51:55.758Z]   🧠 [5/30] Enriching: panvue ls 75mg 40mg capsule
+[2026-04-30T09:51:58.632Z]   🧠 [6/30] Enriching: pansped d 10 mg 20 mg capsule
+[2026-04-30T09:52:01.493Z]   🧠 [7/30] Enriching: pantaman dsr capsule
+[2026-04-30T09:52:04.470Z]   🧠 [8/30] Enriching: pan d capsule
+[2026-04-30T09:52:07.332Z]   🧠 [9/30] Enriching: pantosec d sr capsule
+[2026-04-30T09:52:10.200Z]   🧠 [10/30] Enriching: pantosec tablet
+[2026-04-30T09:52:13.078Z]   🧠 [11/30] Enriching: lupipan dsr tablet
+[2026-04-30T09:52:16.043Z]   🧠 [12/30] Enriching: pantotas d 10mg 40mg tablet
+[2026-04-30T09:52:19.008Z]   🧠 [13/30] Enriching: panum d 10mg 40mg tablet
+[2026-04-30T09:52:21.876Z]   🧠 [14/30] Enriching: pantolup dsr capsule
+[2026-04-30T09:52:24.740Z]   🧠 [15/30] Enriching: pantimo dsr 30mg 40mg capsule pr
+[2026-04-30T09:52:27.525Z]   🧠 [16/30] Enriching: pantoglen l 75mg 40mg capsule sr
+[2026-04-30T09:52:30.477Z]   🧠 [17/30] Enriching: lupipan l 75mg 40mg capsule
+[2026-04-30T09:52:33.343Z]   🧠 [18/30] Enriching: pentate flux 3mg 40mg tablet
+[2026-04-30T09:52:36.211Z]   🧠 [19/30] Enriching: pantomore-d 10mg 20mg capsule
+[2026-04-30T09:52:39.086Z]   🧠 [20/30] Enriching: pansped l 75mg 40mg capsule
+[2026-04-30T09:52:42.051Z]   🧠 [21/30] Enriching: peptilcer d 10mg 40mg tablet
+[2026-04-30T09:52:44.911Z]   🧠 [22/30] Enriching: panum l capsule
+[2026-04-30T09:52:47.821Z]   🧠 [23/30] Enriching: pantoglen d 10mg 40mg tablet
+[2026-04-30T09:52:50.752Z]   🧠 [24/30] Enriching: pantozec dsr capsule
+[2026-04-30T09:52:53.614Z]   🧠 [25/30] Enriching: pantix d 30 mg 40 mg capsule sr
+[2026-04-30T09:52:56.464Z]   🧠 [26/30] Enriching: panum-d tablet
+[2026-04-30T09:52:59.358Z]   🧠 [27/30] Enriching: pantaquik d 30mg 40mg capsule sr
+[2026-04-30T09:53:02.226Z]   🧠 [28/30] Enriching: panvue dsr 30mg 40mg capsule pr
+[2026-04-30T09:53:05.117Z]   🧠 [29/30] Enriching: nicopenta lsr capsule
+[2026-04-30T09:53:08.059Z]   🧠 [30/30] Enriching: pantomore ls 75mg 40mg capsule sr
+[2026-04-30T09:53:08.534Z]   ✅ Enrichment done: 30 updated, 0 failed.
+[2026-04-30T09:53:08.540Z] 
+📊 Progress: 9/580 queries (1.6%) | Speed: 0.01 q/s | ETA: 42h 38m 28s
+[2026-04-30T09:53:08.541Z]    Discovered: 1160 | Scraped: 1160 | Medicines: 1094 | Enriched: 60
+[2026-04-30T09:53:08.544Z] 💤 Breathing for 2.1s before next batch...
+
+[2026-04-30T09:53:10.646Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T09:53:10.648Z] 📦 BATCH 4 — Processing 3 queries [amlodipine, losartan, telmisartan]
+[2026-04-30T09:53:10.649Z] ════════════════════════════════════════════════════════════
+[2026-04-30T09:53:10.649Z]   🔍 [Attempt 1] Scraping: "amlodipine"
+[2026-04-30T09:58:31.657Z]   ✅ "amlodipine" → Discovered: 137, Scraped: 137, Medicines: 136
+[2026-04-30T09:58:34.113Z]   🔍 [Attempt 1] Scraping: "losartan"
+[2026-04-30T10:03:53.418Z]   ✅ "losartan" → Discovered: 137, Scraped: 137, Medicines: 137
+[2026-04-30T10:03:57.022Z]   🔍 [Attempt 1] Scraping: "telmisartan"
+[2026-04-30T10:09:10.220Z]   ✅ "telmisartan" → Discovered: 139, Scraped: 139, Medicines: 133
+[2026-04-30T10:09:15.130Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T10:09:15.351Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T10:09:15.353Z]   🧠 [1/30] Enriching: telday 40mg tablet
+[2026-04-30T10:09:18.938Z]   🧠 [2/30] Enriching: telmiride 40mg tablet
+[2026-04-30T10:09:22.606Z]   🧠 [3/30] Enriching: telma
+[2026-04-30T10:09:25.479Z]   🧠 [4/30] Enriching: tenelica 40mg tablet
+[2026-04-30T10:09:28.405Z]   🧠 [5/30] Enriching: telkom 40mg tablet
+[2026-04-30T10:09:31.371Z]   🧠 [6/30] Enriching: telmiduce 40mg tablet
+[2026-04-30T10:09:34.282Z]   🧠 [7/30] Enriching: telma 40 tablet
+[2026-04-30T10:09:37.043Z]   🧠 [8/30] Enriching: telpil 40mg tablet
+[2026-04-30T10:09:40.017Z]   🧠 [9/30] Enriching: telpres 40 tablet
+[2026-04-30T10:09:42.995Z]   🧠 [10/30] Enriching: fenditel 80mg tablet
+[2026-04-30T10:09:45.949Z]   🧠 [11/30] Enriching: sartel
+[2026-04-30T10:09:48.836Z]   🧠 [12/30] Enriching: tenelica 20mg tablet
+[2026-04-30T10:09:51.753Z]   🧠 [13/30] Enriching: tel q 20mg tablet
+[2026-04-30T10:09:54.701Z]   🧠 [14/30] Enriching: abtelmi 80 tablet
+[2026-04-30T10:09:57.518Z]   🧠 [15/30] Enriching: eritel
+[2026-04-30T10:10:00.492Z]   🧠 [16/30] Enriching: abtelmi
+[2026-04-30T10:10:03.355Z]   🧠 [17/30] Enriching: telmiride 40 tablet
+[2026-04-30T10:10:06.217Z]   🧠 [18/30] Enriching: telsar
+[2026-04-30T10:10:09.197Z]   🧠 [19/30] Enriching: arbitel 40 tablet
+[2026-04-30T10:10:12.094Z]   🧠 [20/30] Enriching: fenditel 40mg tablet
+[2026-04-30T10:10:14.926Z]   🧠 [21/30] Enriching: telmore 80 tablet
+[2026-04-30T10:10:17.911Z]   🧠 [22/30] Enriching: telinsat
+[2026-04-30T10:10:20.866Z]   🧠 [23/30] Enriching: cresar 40 tablet
+[2026-04-30T10:10:23.839Z]   🧠 [24/30] Enriching: telmed 40 tablet
+[2026-04-30T10:10:26.810Z]   🧠 [25/30] Enriching: telmikind 80 tablet
+[2026-04-30T10:10:29.783Z]   🧠 [26/30] Enriching: telsartan 40 tablet
+[2026-04-30T10:10:32.748Z]   🧠 [27/30] Enriching: tazloc 80 tablet
+[2026-04-30T10:10:35.825Z]   🧠 [28/30] Enriching: telmevas 40 tablet
+[2026-04-30T10:10:38.701Z]   🧠 [29/30] Enriching: tsart 40 tablet
+[2026-04-30T10:10:41.654Z]   🧠 [30/30] Enriching: telista
+[2026-04-30T10:10:42.068Z]   ✅ Enrichment done: 30 updated, 0 failed.
+[2026-04-30T10:10:42.073Z] 
+📊 Progress: 12/580 queries (2.1%) | Speed: 0.00 q/s | ETA: 46h 48m 47s
+[2026-04-30T10:10:42.074Z]    Discovered: 1573 | Scraped: 1573 | Medicines: 1500 | Enriched: 90
+[2026-04-30T10:10:42.076Z] 💤 Breathing for 2.8s before next batch...
+
+[2026-04-30T10:10:44.877Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T10:10:44.879Z] 📦 BATCH 5 — Processing 3 queries [ciprofloxacin, levofloxacin, doxycycline]
+[2026-04-30T10:10:44.881Z] ════════════════════════════════════════════════════════════
+[2026-04-30T10:10:44.882Z]   🔍 [Attempt 1] Scraping: "ciprofloxacin"
+[2026-04-30T10:14:40.724Z]   ✅ "ciprofloxacin" → Discovered: 73, Scraped: 73, Medicines: 72
+[2026-04-30T10:14:43.585Z]   🔍 [Attempt 1] Scraping: "levofloxacin"
+[2026-04-30T10:19:29.449Z]   ✅ "levofloxacin" → Discovered: 107, Scraped: 107, Medicines: 106
+[2026-04-30T10:19:34.238Z]   🔍 [Attempt 1] Scraping: "doxycycline"
+[2026-04-30T10:24:04.869Z]   ✅ "doxycycline" → Discovered: 137, Scraped: 137, Medicines: 137
+[2026-04-30T10:24:07.443Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T10:24:07.555Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T10:24:07.557Z]   🧠 [1/30] Enriching: doxol capsule
+[2026-04-30T10:24:11.151Z]   🧠 [2/30] Enriching: doxybond lb capsule
+[2026-04-30T10:24:14.613Z]   🧠 [3/30] Enriching: nixidox capsule
+[2026-04-30T10:24:18.195Z]   🧠 [4/30] Enriching: doxy lb capsule
+[2026-04-30T10:24:21.684Z]   🧠 [5/30] Enriching: dox 50 mg tablet
+[2026-04-30T10:24:25.149Z]   🧠 [6/30] Enriching: difidox injection
+[2026-04-30T10:24:28.232Z]   🧠 [7/30] Enriching: dox
+[2026-04-30T10:24:31.498Z]   🧠 [8/30] Enriching: doxiverge 100 mg injection
+[2026-04-30T10:24:34.858Z]   🧠 [9/30] Enriching: omega doxycycline 100mg capsule
+[2026-04-30T10:24:38.165Z]   🧠 [10/30] Enriching: doxicip lb capsule
+[2026-04-30T10:24:41.448Z]   🧠 [11/30] Enriching: doxy t
+[2026-04-30T10:24:44.826Z]   🧠 [12/30] Enriching: doxylab capsule
+[2026-04-30T10:24:48.212Z]   🧠 [13/30] Enriching: doxt sl capsule
+[2026-04-30T10:24:51.786Z]   🧠 [14/30] Enriching: microdox-lbx capsule
+[2026-04-30T10:24:54.556Z]   🧠 [15/30] Enriching: doxt sl capsule
+[2026-04-30T10:24:58.133Z]   🧠 [16/30] Enriching: doxynec capsule
+[2026-04-30T10:25:01.576Z]   🧠 [17/30] Enriching: d cyclin
+[2026-04-30T10:25:04.885Z]   🧠 [18/30] Enriching: nudoxy capsule
+[2026-04-30T10:25:08.371Z]   🧠 [19/30] Enriching: microdox-lbx capsule
+[2026-04-30T10:25:11.750Z]   🧠 [20/30] Enriching: doxyplus-lb tablet
+[2026-04-30T10:25:15.332Z]   🧠 [21/30] Enriching: a-doxid tablet
+[2026-04-30T10:25:18.825Z]   🧠 [22/30] Enriching: codox capsule
+[2026-04-30T10:25:22.301Z]   🧠 [23/30] Enriching: doxy 1 l dr forte capsule
+[2026-04-30T10:25:25.878Z]   🧠 [24/30] Enriching: doxy-1 l-dr forte capsule
+[2026-04-30T10:25:29.361Z]   🧠 [25/30] Enriching: respilax 100mg capsule
+[2026-04-30T10:25:32.850Z]   🧠 [26/30] Enriching: minicycline capsule
+[2026-04-30T10:25:36.327Z]   🧠 [27/30] Enriching: biodoxi lb capsule
+[2026-04-30T10:25:39.917Z]   🧠 [28/30] Enriching: doxyshot-lb capsule
+[2026-04-30T10:25:43.609Z]   🧠 [29/30] Enriching: k dox capsule
+[2026-04-30T10:25:47.063Z]   🧠 [30/30] Enriching: doxypath lb tablet
+[2026-04-30T10:25:47.944Z]   ✅ Enrichment done: 30 updated, 0 failed.
+[2026-04-30T10:25:47.949Z] 
+📊 Progress: 15/580 queries (2.6%) | Speed: 0.00 q/s | ETA: 46h 48m 52s
+[2026-04-30T10:25:47.950Z]    Discovered: 1890 | Scraped: 1890 | Medicines: 1815 | Enriched: 120
+[2026-04-30T10:25:47.951Z] 💤 Breathing for 3.6s before next batch...
+
+[2026-04-30T10:25:51.598Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T10:25:51.600Z] 📦 BATCH 6 — Processing 3 queries [ceftriaxone, cefixime, metronidazole]
+[2026-04-30T10:25:51.601Z] ════════════════════════════════════════════════════════════
+[2026-04-30T10:25:51.604Z]   🔍 [Attempt 1] Scraping: "ceftriaxone"
+[2026-04-30T10:28:40.040Z] 
+⚠️  Received SIGINT. Saving state and exiting gracefully...
+[2026-04-30T10:28:40.043Z] 💾 State saved. You can resume with: node orchestrator.js --resume
+[2026-04-30T10:29:18.711Z] 🆕 Starting fresh crawl with 580 queries.
+[2026-04-30T10:29:18.714Z] 📊 580 queries remaining across 194 batches.
+
+[2026-04-30T10:29:18.716Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T10:29:18.718Z] 📦 BATCH 1 — Processing 3 queries [paracetamol, ibuprofen, amoxicillin]
+[2026-04-30T10:29:18.721Z] ════════════════════════════════════════════════════════════
+[2026-04-30T10:29:18.724Z]   🔍 [Attempt 1] Scraping: "paracetamol"
+[2026-04-30T10:32:44.452Z]   ✅ "paracetamol" → Discovered: 137, Scraped: 137, Medicines: 112
+[2026-04-30T10:32:48.266Z]   🔍 [Attempt 1] Scraping: "ibuprofen"
+[2026-04-30T10:36:22.724Z]   ✅ "ibuprofen" → Discovered: 106, Scraped: 106, Medicines: 100
+[2026-04-30T10:36:27.150Z]   🔍 [Attempt 1] Scraping: "amoxicillin"
+[2026-04-30T10:38:59.933Z]   ✅ "amoxicillin" → Discovered: 62, Scraped: 62, Medicines: 57
+[2026-04-30T10:39:04.331Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T10:39:04.455Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T10:39:04.459Z]   🧠 [1/30] Enriching: mox 500 mg capsule
+[2026-04-30T10:39:08.107Z]   🧠 [2/30] Enriching: amoxil 250 mg capsule
+[2026-04-30T10:39:11.558Z]   🧠 [3/30] Enriching: augmentin dds syrup
+[2026-04-30T10:39:15.125Z]   🧠 [4/30] Enriching: augmentin 375 tablet
+[2026-04-30T10:39:18.615Z]   🧠 [5/30] Enriching: aquris amoxi 500 capsule
+[2026-04-30T10:39:22.057Z]   🧠 [6/30] Enriching: amoxicla 625 mg tablet
+[2026-04-30T10:39:25.610Z]   🧠 [7/30] Enriching: clavam 625 tablet
+[2026-04-30T10:39:28.961Z]   🧠 [8/30] Enriching: clavox 625 mg tablet
+[2026-04-30T10:39:32.437Z]   🧠 [9/30] Enriching: augmentin 625 duo tablet
+[2026-04-30T10:39:35.917Z]   🧠 [10/30] Enriching: clavam dry syrup
+[2026-04-30T10:39:39.288Z]   🧠 [11/30] Enriching: cipmox 500mg capsule
+[2026-04-30T10:39:42.776Z]   🧠 [12/30] Enriching: augmentin 625 duo tablet
+[2026-04-30T10:39:46.278Z]   🧠 [13/30] Enriching: cipmox cv 625mg tablet
+[2026-04-30T10:39:49.944Z]   🧠 [14/30] Enriching: novaclav 625mg tablet
+[2026-04-30T10:39:53.634Z]   🧠 [15/30] Enriching: clavam dry syrup 30ml
+[2026-04-30T10:39:57.009Z]   🧠 [16/30] Enriching: mox 500mg capsule
+[2026-04-30T10:40:00.494Z]   🧠 [17/30] Enriching: cipmox 250 capsule
+[2026-04-30T10:40:04.010Z]   🧠 [18/30] Enriching: mox 250mg capsule
+[2026-04-30T10:40:07.380Z]   🧠 [19/30] Enriching: evoxil 500mg capsule
+[2026-04-30T10:40:10.725Z]   🧠 [20/30] Enriching: moxikind cv 625mg tablet
+[2026-04-30T10:40:14.218Z]   🧠 [21/30] Enriching: cipmox 500 capsule
+[2026-04-30T10:40:21.793Z]   🧠 [22/30] Enriching: amoxil-500 capsule
+[2026-04-30T10:40:29.420Z]   🧠 [23/30] Enriching: amoxyclav 625 tablet
+[2026-04-30T10:40:37.029Z]   🧠 [24/30] Enriching: megamox cv 375 mg tablet
+[2026-04-30T10:40:44.648Z]   🧠 [25/30] Enriching: augmed-625 tablet
+[2026-04-30T10:40:52.275Z]   🧠 [26/30] Enriching: almox-250 capsule
+[2026-04-30T10:40:59.899Z]   🧠 [27/30] Enriching: amoxi 250 capsule
+[2026-04-30T10:41:07.505Z]   🧠 [28/30] Enriching: mox redimix 250mg oral suspension 30ml
+[2026-04-30T10:41:15.136Z]   🧠 [29/30] Enriching: almox-500 capsule
+[2026-04-30T10:41:22.747Z]   🧠 [30/30] Enriching: nodimox plus 500mg capsule
+[2026-04-30T10:41:27.867Z]   ✅ Enrichment done: 20 updated, 10 failed.
+[2026-04-30T10:41:27.872Z] 
+📊 Progress: 3/580 queries (0.5%) | Speed: 0.00 q/s | ETA: 39h 5m 26s
+[2026-04-30T10:41:27.874Z]    Discovered: 305 | Scraped: 305 | Medicines: 269 | Enriched: 20
+[2026-04-30T10:41:27.876Z] 💤 Breathing for 4.6s before next batch...
+
+[2026-04-30T10:41:32.498Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T10:41:32.500Z] 📦 BATCH 2 — Processing 3 queries [azithromycin, cetirizine, metformin]
+[2026-04-30T10:41:32.502Z] ════════════════════════════════════════════════════════════
+[2026-04-30T10:41:32.503Z]   🔍 [Attempt 1] Scraping: "azithromycin"
+[2026-04-30T10:44:32.397Z]   ✅ "azithromycin" → Discovered: 105, Scraped: 105, Medicines: 101
+[2026-04-30T10:44:35.406Z]   🔍 [Attempt 1] Scraping: "cetirizine"
+[2026-04-30T10:48:03.693Z]   ✅ "cetirizine" → Discovered: 137, Scraped: 137, Medicines: 120
+[2026-04-30T10:48:08.456Z]   🔍 [Attempt 1] Scraping: "metformin"
+[2026-04-30T10:51:08.079Z] 
+⚠️  Received SIGINT. Saving state and exiting gracefully...
+[2026-04-30T10:51:08.081Z] 💾 State saved. You can resume with: node orchestrator.js --resume
+[2026-04-30T10:51:37.211Z] 🆕 Starting fresh crawl with 580 queries.
+[2026-04-30T10:51:37.213Z] 📊 580 queries remaining across 194 batches.
+
+[2026-04-30T10:51:37.215Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T10:51:37.218Z] 📦 BATCH 1 — Processing 3 queries [paracetamol, ibuprofen, amoxicillin]
+[2026-04-30T10:51:37.220Z] ════════════════════════════════════════════════════════════
+[2026-04-30T10:51:37.223Z]   🔍 [Attempt 1] Scraping: "paracetamol"
+[2026-04-30T10:55:41.633Z]   ✅ "paracetamol" → Discovered: 137, Scraped: 137, Medicines: 112
+[2026-04-30T10:55:44.010Z]   🔍 [Attempt 1] Scraping: "ibuprofen"
+[2026-04-30T10:59:56.136Z]   ✅ "ibuprofen" → Discovered: 138, Scraped: 138, Medicines: 131
+[2026-04-30T10:59:59.727Z]   🔍 [Attempt 1] Scraping: "amoxicillin"
+[2026-04-30T11:02:24.496Z]   ✅ "amoxicillin" → Discovered: 62, Scraped: 62, Medicines: 57
+[2026-04-30T11:02:26.529Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T11:02:26.670Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T11:02:26.675Z]   🧠 [1/30] Enriching: amoxil 250 mg capsule
+[2026-04-30T11:02:30.288Z]   🧠 [2/30] Enriching: clavam 625 tablet
+[2026-04-30T11:02:37.869Z]   🧠 [3/30] Enriching: augmentin dds syrup
+[2026-04-30T11:02:45.476Z]   🧠 [4/30] Enriching: augmentin 375 tablet
+[2026-04-30T11:02:53.096Z]   🧠 [5/30] Enriching: aquris amoxi 500 capsule
+[2026-04-30T11:03:00.720Z]   🧠 [6/30] Enriching: mox 500 mg capsule
+[2026-04-30T11:03:08.336Z]   🧠 [7/30] Enriching: amoxicla 625 mg tablet
+[2026-04-30T11:03:15.960Z]   🧠 [8/30] Enriching: clavox 625 mg tablet
+[2026-04-30T11:03:23.609Z]   🧠 [9/30] Enriching: augmentin 625 duo tablet
+[2026-04-30T11:03:31.228Z]   🧠 [10/30] Enriching: clavam dry syrup
+[2026-04-30T11:03:38.858Z]   🧠 [11/30] Enriching: cipmox cv 625mg tablet
+[2026-04-30T11:03:46.510Z]   🧠 [12/30] Enriching: clavam dry syrup 30ml
+[2026-04-30T11:03:54.143Z]   🧠 [13/30] Enriching: mox 250mg capsule
+[2026-04-30T11:04:01.823Z]   🧠 [14/30] Enriching: amoxil-500 capsule
+[2026-04-30T11:04:09.437Z]   🧠 [15/30] Enriching: cipmox 250 capsule
+[2026-04-30T11:04:17.053Z]   🧠 [16/30] Enriching: cipmox 500 capsule
+[2026-04-30T11:04:24.662Z]   🧠 [17/30] Enriching: novamox 500mg capsule
+[2026-04-30T11:04:32.310Z]   🧠 [18/30] Enriching: augmed-625 tablet
+[2026-04-30T11:04:39.909Z]   🧠 [19/30] Enriching: moxikind cv 375 tablet
+[2026-04-30T11:04:47.538Z]   🧠 [20/30] Enriching: evoxil 500mg capsule
+[2026-04-30T11:04:55.156Z]   🧠 [21/30] Enriching: amoxi 250 capsule
+[2026-04-30T11:05:02.792Z]   🧠 [22/30] Enriching: megamox cv 375 mg tablet
+[2026-04-30T11:05:10.405Z]   🧠 [23/30] Enriching: amoxi 500 capsule
+[2026-04-30T11:05:18.044Z]   🧠 [24/30] Enriching: mox redimix 250mg oral suspension 30ml
+[2026-04-30T11:05:25.654Z]   🧠 [25/30] Enriching: almox-250 capsule
+[2026-04-30T11:05:33.284Z]   🧠 [26/30] Enriching: almox-500 capsule
+[2026-04-30T11:05:40.898Z]   🧠 [27/30] Enriching: novaclav 625mg tablet
+[2026-04-30T11:05:48.518Z]   🧠 [28/30] Enriching: mox 500mg capsule
+[2026-04-30T11:05:56.122Z]   🧠 [29/30] Enriching: moxikind cv 625mg tablet
+[2026-04-30T11:06:03.754Z]   🧠 [30/30] Enriching: augmentin 625 duo tablet
+[2026-04-30T11:06:08.854Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-04-30T11:06:08.859Z] 
+📊 Progress: 3/580 queries (0.5%) | Speed: 0.00 q/s | ETA: 46h 43m 47s
+[2026-04-30T11:06:08.861Z]    Discovered: 337 | Scraped: 337 | Medicines: 300 | Enriched: 1
+[2026-04-30T11:06:08.863Z] 💤 Breathing for 3.3s before next batch...
+
+[2026-04-30T11:06:12.207Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T11:06:12.209Z] 📦 BATCH 2 — Processing 3 queries [azithromycin, cetirizine, metformin]
+[2026-04-30T11:06:12.211Z] ════════════════════════════════════════════════════════════
+[2026-04-30T11:06:12.213Z]   🔍 [Attempt 1] Scraping: "azithromycin"
+[2026-04-30T11:09:40.890Z]   ✅ "azithromycin" → Discovered: 137, Scraped: 137, Medicines: 133
+[2026-04-30T11:09:45.047Z]   🔍 [Attempt 1] Scraping: "cetirizine"
+[2026-04-30T11:12:32.129Z]   ✅ "cetirizine" → Discovered: 105, Scraped: 105, Medicines: 90
+[2026-04-30T11:12:35.830Z]   🔍 [Attempt 1] Scraping: "metformin"
+[2026-04-30T11:15:46.684Z]   ✅ "metformin" → Discovered: 137, Scraped: 137, Medicines: 134
+[2026-04-30T11:15:50.246Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T11:15:50.358Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T11:15:50.360Z]   🧠 [1/30] Enriching: abomet 1000 sr tablet
+[2026-04-30T11:15:58.010Z]   🧠 [2/30] Enriching: glycomet-250 tablet
+[2026-04-30T11:16:05.633Z]   🧠 [3/30] Enriching: metmin tablet
+[2026-04-30T11:16:13.253Z]   🧠 [4/30] Enriching: etformin 500 mg tablet
+[2026-04-30T11:16:20.860Z]   🧠 [5/30] Enriching: voglibose 0.3 mg with metformin hcl 500 mg tablet
+[2026-04-30T11:16:28.480Z]   🧠 [6/30] Enriching: metvomin sr 500mg tablet 1
+[2026-04-30T11:16:36.099Z]   🧠 [7/30] Enriching: zomet tablet
+[2026-04-30T11:16:43.728Z]   🧠 [8/30] Enriching: gluconorm sr 500 mg tablet
+[2026-04-30T11:16:51.340Z]   🧠 [9/30] Enriching: cetapin xr 500 mg tablet
+[2026-04-30T11:16:58.966Z]   🧠 [10/30] Enriching: glyciphage tablet
+[2026-04-30T11:17:06.584Z]   🧠 [11/30] Enriching: glycomet 1 gm tablet
+[2026-04-30T11:17:14.195Z]   🧠 [12/30] Enriching: metfor 500 tablet
+[2026-04-30T11:17:21.809Z]   🧠 [13/30] Enriching: mefomin sr 1000mg tablet
+[2026-04-30T11:17:29.469Z]   🧠 [14/30] Enriching: okamet 500 tablet
+[2026-04-30T11:17:37.087Z]   🧠 [15/30] Enriching: glycomet 500 sr tablet
+[2026-04-30T11:17:44.727Z]   🧠 [16/30] Enriching: metform sr 1000 tablet
+[2026-04-30T11:17:52.356Z]   🧠 [17/30] Enriching: ausmetfor 500 tablet
+[2026-04-30T11:17:59.958Z]   🧠 [18/30] Enriching: glycomet 500 tablet
+[2026-04-30T11:18:07.593Z]   🧠 [19/30] Enriching: istamet 50 500mg tablet
+[2026-04-30T11:18:15.208Z]   🧠 [20/30] Enriching: mefomin 1000 sr tablet
+[2026-04-30T11:18:22.842Z]   🧠 [21/30] Enriching: metfor 500 mg tablet
+[2026-04-30T11:18:30.448Z]   🧠 [22/30] Enriching: metform 500mg tablet
+[2026-04-30T11:18:38.077Z]   🧠 [23/30] Enriching: metformin sr 500 tablet
+[2026-04-30T11:18:45.793Z]   🧠 [24/30] Enriching: glycomet-500 sr tablet
+[2026-04-30T11:18:53.422Z]   🧠 [25/30] Enriching: mefomin 500 sr tablet
+[2026-04-30T11:19:01.027Z]   🧠 [26/30] Enriching: okamet-500 tablet
+[2026-04-30T11:19:08.640Z]   🧠 [27/30] Enriching: maxformin 1000 tablet
+[2026-04-30T11:19:16.254Z]   🧠 [28/30] Enriching: metform 500 tablet
+[2026-04-30T11:19:23.888Z]   🧠 [29/30] Enriching: zomet 500mg tablet
+[2026-04-30T11:19:31.510Z]   🧠 [30/30] Enriching: metsmall 500 tablet
+[2026-04-30T11:19:36.620Z]   ✅ Enrichment done: 0 updated, 30 failed.
+[2026-04-30T11:19:36.627Z] 
+📊 Progress: 6/580 queries (1.0%) | Speed: 0.00 q/s | ETA: 44h 47m 3s
+[2026-04-30T11:19:36.628Z]    Discovered: 716 | Scraped: 716 | Medicines: 657 | Enriched: 1
+[2026-04-30T11:19:36.630Z] 💤 Breathing for 4.1s before next batch...
+
+[2026-04-30T11:19:40.765Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T11:19:40.767Z] 📦 BATCH 3 — Processing 3 queries [atorvastatin, omeprazole, pantoprazole]
+[2026-04-30T11:19:40.768Z] ════════════════════════════════════════════════════════════
+[2026-04-30T11:19:40.770Z]   🔍 [Attempt 1] Scraping: "atorvastatin"
+[2026-04-30T11:23:44.446Z]   ✅ "atorvastatin" → Discovered: 137, Scraped: 137, Medicines: 135
+[2026-04-30T11:23:47.642Z]   🔍 [Attempt 1] Scraping: "omeprazole"
+[2026-04-30T11:27:53.438Z]   ✅ "omeprazole" → Discovered: 138, Scraped: 138, Medicines: 134
+[2026-04-30T11:27:56.500Z]   🔍 [Attempt 1] Scraping: "pantoprazole"
+[2026-04-30T11:31:45.911Z]   ✅ "pantoprazole" → Discovered: 139, Scraped: 139, Medicines: 135
+[2026-04-30T11:31:49.375Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T11:31:49.487Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T11:31:49.489Z]   🧠 [1/30] Enriching: panzol 40 tablet
+[2026-04-30T11:31:52.871Z]   🧠 [2/30] Enriching: pantosec-d tablet
+[2026-04-30T11:32:00.436Z]   🧠 [3/30] Enriching: pantop-d capsule
+[2026-04-30T11:32:08.040Z]   🧠 [4/30] Enriching: zovanta 40 mg tablet
+[2026-04-30T11:32:15.682Z]   🧠 [5/30] Enriching: lepan 40 tablet
+[2026-04-30T11:32:23.295Z]   🧠 [6/30] Enriching: avepan 40mg tablet
+[2026-04-30T11:32:30.904Z]   🧠 [7/30] Enriching: pantocid tablet
+[2026-04-30T11:32:38.509Z]   🧠 [8/30] Enriching: pantol 40 mg tablet
+[2026-04-30T11:32:46.175Z]   🧠 [9/30] Enriching: pantakind-dsr capsule
+[2026-04-30T11:32:53.793Z]   🧠 [10/30] Enriching: pantokind tablet
+[2026-04-30T11:33:01.402Z]   🧠 [11/30] Enriching: pantodac 40 tablet
+[2026-04-30T11:33:09.016Z]   🧠 [12/30] Enriching: p-rd capsule
+[2026-04-30T11:33:16.654Z]   🧠 [13/30] Enriching: pantosec d sr capsule
+[2026-04-30T11:33:24.278Z]   🧠 [14/30] Enriching: pantakind tablet
+[2026-04-30T11:33:31.878Z]   🧠 [15/30] Enriching: pentaloc 40 mg tablet
+[2026-04-30T11:33:35.378Z]   🧠 [16/30] Enriching: pan 40 tablet
+[2026-04-30T11:33:42.969Z]   🧠 [17/30] Enriching: pantocid 40mg tablet
+[2026-04-30T11:33:50.572Z]   🧠 [18/30] Enriching: pan 40mg tablet
+[2026-04-30T11:33:58.199Z]   🧠 [19/30] Enriching: pantafol dsr capsule
+[2026-04-30T11:34:05.802Z]   🧠 [20/30] Enriching: pantosec 40mg tablet
+[2026-04-30T11:34:13.456Z]   🧠 [21/30] Enriching: pantafol dsr capsule
+[2026-04-30T11:34:21.080Z]   🧠 [22/30] Enriching: trip 2 mg tablet
+[2026-04-30T11:34:28.695Z]   🧠 [23/30] Enriching: pan d capsule
+[2026-04-30T11:34:36.304Z]   🧠 [24/30] Enriching: pantosec 40mg tablet
+[2026-04-30T11:34:43.934Z]   🧠 [25/30] Enriching: pzole d tablet
+[2026-04-30T11:34:51.538Z]   🧠 [26/30] Enriching: pantop
+[2026-04-30T11:34:59.182Z]   🧠 [27/30] Enriching: pantakind tablet
+[2026-04-30T11:35:06.802Z]   🧠 [28/30] Enriching: pantosec 40 mg tablet
+[2026-04-30T11:35:14.428Z]   🧠 [29/30] Enriching: new pantosec dsr capsule
+[2026-04-30T11:35:22.047Z]   🧠 [30/30] Enriching: topp-40 tablet
+[2026-04-30T11:35:27.167Z]   ✅ Enrichment done: 2 updated, 28 failed.
+[2026-04-30T11:35:27.171Z] 
+📊 Progress: 9/580 queries (1.6%) | Speed: 0.00 q/s | ETA: 46h 30m 40s
+[2026-04-30T11:35:27.172Z]    Discovered: 1130 | Scraped: 1130 | Medicines: 1061 | Enriched: 3
+[2026-04-30T11:35:27.173Z] 💤 Breathing for 4.8s before next batch...
+
+[2026-04-30T11:35:32.016Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T11:35:32.018Z] 📦 BATCH 4 — Processing 3 queries [amlodipine, losartan, telmisartan]
+[2026-04-30T11:35:32.020Z] ════════════════════════════════════════════════════════════
+[2026-04-30T11:35:32.022Z]   🔍 [Attempt 1] Scraping: "amlodipine"
+[2026-04-30T11:39:09.033Z]   ✅ "amlodipine" → Discovered: 137, Scraped: 137, Medicines: 136
+[2026-04-30T11:39:11.135Z]   🔍 [Attempt 1] Scraping: "losartan"
+[2026-04-30T11:42:51.703Z]   ✅ "losartan" → Discovered: 137, Scraped: 137, Medicines: 137
+[2026-04-30T11:42:56.587Z]   🔍 [Attempt 1] Scraping: "telmisartan"
+[2026-04-30T11:46:44.471Z]   ✅ "telmisartan" → Discovered: 139, Scraped: 139, Medicines: 133
+[2026-04-30T11:46:46.656Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T11:46:46.774Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T11:46:46.776Z]   🧠 [1/30] Enriching: telma 80 tablet
+[2026-04-30T11:46:54.436Z]   🧠 [2/30] Enriching: telista 40 tablet
+[2026-04-30T11:47:02.051Z]   🧠 [3/30] Enriching: telsartan-40mg tablet
+[2026-04-30T11:47:09.684Z]   🧠 [4/30] Enriching: telmikind
+[2026-04-30T11:47:17.307Z]   🧠 [5/30] Enriching: newtel am tablet
+[2026-04-30T11:47:24.941Z]   🧠 [6/30] Enriching: telma 40 mg tablet
+[2026-04-30T11:47:32.544Z]   🧠 [7/30] Enriching: telma
+[2026-04-30T11:47:40.173Z]   🧠 [8/30] Enriching: telmiduce 40 tablet
+[2026-04-30T11:47:47.789Z]   🧠 [9/30] Enriching: telma-am tablet
+[2026-04-30T11:47:55.420Z]   🧠 [10/30] Enriching: macsart 40 tablet
+[2026-04-30T11:48:03.020Z]   🧠 [11/30] Enriching: aquris telartan 20 mg tablet
+[2026-04-30T11:48:10.650Z]   🧠 [12/30] Enriching: telma 20mg tablet
+[2026-04-30T11:48:18.258Z]   🧠 [13/30] Enriching: telma 20mg tablet
+[2026-04-30T11:48:25.892Z]   🧠 [14/30] Enriching: telsartan 40mg tablet
+[2026-04-30T11:48:33.490Z]   🧠 [15/30] Enriching: telma 40mg tablet
+[2026-04-30T11:48:41.106Z]   🧠 [16/30] Enriching: telmikind 20mg tablet
+[2026-04-30T11:48:48.710Z]   🧠 [17/30] Enriching: telmikind 40 tablet
+[2026-04-30T11:48:53.328Z] 
+⚠️  Received SIGINT. Saving state and exiting gracefully...
+[2026-04-30T11:48:53.330Z] 💾 State saved. You can resume with: node orchestrator.js --resume
+[2026-04-30T12:58:18.560Z] 🆕 Starting fresh crawl with 580 queries.
+[2026-04-30T12:58:18.565Z] 📊 580 queries remaining across 194 batches.
+
+[2026-04-30T12:58:18.568Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T12:58:18.572Z] 📦 BATCH 1 — Processing 3 queries [paracetamol, ibuprofen, amoxicillin]
+[2026-04-30T12:58:18.574Z] ════════════════════════════════════════════════════════════
+[2026-04-30T12:58:18.578Z]   🔍 [Attempt 1] Scraping: "paracetamol"
+[2026-04-30T13:04:58.697Z]   ✅ "paracetamol" → Discovered: 105, Scraped: 105, Medicines: 99
+[2026-04-30T13:05:01.471Z]   🔍 [Attempt 1] Scraping: "ibuprofen"
+[2026-04-30T13:08:18.689Z]   ✅ "ibuprofen" → Discovered: 82, Scraped: 82, Medicines: 76
+[2026-04-30T13:08:22.526Z]   🔍 [Attempt 1] Scraping: "amoxicillin"
+[2026-04-30T13:16:35.614Z]   ✅ "amoxicillin" → Discovered: 62, Scraped: 62, Medicines: 55
+[2026-04-30T13:16:38.748Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T13:16:39.112Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T13:16:39.121Z]   🧠 [1/30] Enriching: augmentin 375 tablet
+[2026-04-30T13:16:42.345Z]   🧠 [2/30] Enriching: aquris amoxi 500 capsule
+[2026-04-30T13:16:45.254Z]   🧠 [3/30] Enriching: clavam dry syrup
+[2026-04-30T13:16:48.125Z]   🧠 [4/30] Enriching: clavox 625 mg tablet
+[2026-04-30T13:16:51.011Z]   🧠 [5/30] Enriching: clavam 625 tablet
+[2026-04-30T13:16:53.857Z]   🧠 [6/30] Enriching: augmentin 625 duo tablet
+[2026-04-30T13:16:56.737Z]   🧠 [7/30] Enriching: amoxicla 625 mg tablet
+[2026-04-30T13:16:59.712Z]   🧠 [8/30] Enriching: amoxil 250 mg capsule
+[2026-04-30T13:17:02.677Z]   🧠 [9/30] Enriching: augmentin dds syrup
+[2026-04-30T13:17:05.651Z]   🧠 [10/30] Enriching: novamox 500mg capsule
+[2026-04-30T13:17:09.243Z]   🧠 [11/30] Enriching: mox 250mg capsule
+[2026-04-30T13:17:12.426Z]   🧠 [12/30] Enriching: moxikind cv 625mg tablet
+[2026-04-30T13:17:20.028Z]   🧠 [13/30] Enriching: clavam dry syrup 30ml
+[2026-04-30T13:17:27.691Z]   🧠 [14/30] Enriching: amoxi 500 capsule
+[2026-04-30T13:17:35.306Z]   🧠 [15/30] Enriching: almox-500 capsule

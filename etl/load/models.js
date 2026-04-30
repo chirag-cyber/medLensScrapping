@@ -27,6 +27,10 @@ const medicineSchema = new mongoose.Schema(
     faq: [faqSchema],
     source_platforms: [{ type: String, lowercase: true }],
     last_ingested_at: { type: Date },
+    // LLM Enrichment Tracking
+    llm_enriched: { type: Boolean, default: false },
+    llm_enriched_at: { type: Date },
+    llm_enriched_fields: [{ type: String }],
   },
   { timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" } }
 );
@@ -45,7 +49,10 @@ medicineSchema.index(
   { normalized_name: "text", salt: "text", description: "text" },
   { name: "medicine_text_search" }
 );
-medicineSchema.index({ normalized_name: 1 });
+medicineSchema.index(
+  { normalized_name: 1, dosage: 1 },
+  { unique: true }
+);
 medicineSchema.index({ normalized_salt: 1, dosage: 1 });
 medicineSchema.index({ primary_salt_key: 1, dosage: 1, pack_size: 1 });
 medicineSchema.index({ salt_tokens: 1 });

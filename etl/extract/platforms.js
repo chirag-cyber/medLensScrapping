@@ -32,6 +32,7 @@ const PLATFORM_CONFIG = [
       (query) => `https://www.1mg.com/search/all?name=${encodeURIComponent(query)}`,
     ],
     includePatterns: [/\/drugs?\//i, /\/otc(?:-product)?\//i],
+    extractionStrategy: { primary: "html", fallback: null },
   },
   {
     id: "pharmeasy",
@@ -41,6 +42,7 @@ const PLATFORM_CONFIG = [
     ],
     includePatterns: [/\/online-medicine-order\//i, /\/health-care\/products\//i],
     excludePatterns: [/\/diagnostics?\//i, /\/profile\//i, /\/browse\/?$/i],
+    extractionStrategy: { primary: "api", fallback: "browser" },
   },
   {
     id: "netmeds",
@@ -50,6 +52,7 @@ const PLATFORM_CONFIG = [
         `https://www.netmeds.com/products?q=${encodeURIComponent(query)}&departments=medicine`,
     ],
     includePatterns: [/\/product\//i],
+    extractionStrategy: { primary: "html-state", fallback: null },
   },
   {
     id: "apollo",
@@ -57,19 +60,26 @@ const PLATFORM_CONFIG = [
     searchUrls: [
       (query) => `https://www.apollopharmacy.in/search-medicines/${encodeURIComponent(query)}`,
     ],
-    includePatterns: [/\/otc(?:-product)?\//i],
+    includePatterns: [/\/otc(?:-product)?\//i, /\/medicine\//i, /\/product\//i],
+    extractionStrategy: { primary: "browser", fallback: null },
   },
   {
     id: "truemeds",
     domains: ["truemeds.in", "www.truemeds.in"],
-    searchUrls: [],
-    includePatterns: [/\/medicine\//i, /\/drugs?\//i, /\/products?\//i],
+    searchUrls: [
+      (query) => `https://www.truemeds.in/search?q=${encodeURIComponent(query)}`,
+    ],
+    includePatterns: [/\/medicine\//i, /\/otc\//i],
+    extractionStrategy: { primary: "browser-intercept", fallback: "browser" },
   },
   {
     id: "medplus",
     domains: ["medplusmart.com", "www.medplusmart.com"],
-    searchUrls: [],
-    includePatterns: [/\/otc(?:-product)?\//i, /\/products?\//i, /\/medicine\//i],
+    searchUrls: [
+      (query) => `https://www.medplusmart.com/searchProduct?q=${encodeURIComponent(query)}`,
+    ],
+    includePatterns: [/\/product\//i, /\/pharma\//i, /\/medicine\//i, /\/searchProduct/i],
+    extractionStrategy: { primary: "browser-stealth", fallback: "browser" },
   },
 ];
 

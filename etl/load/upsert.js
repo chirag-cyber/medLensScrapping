@@ -7,7 +7,9 @@ const {
   buildCanonicalKey,
   buildMatchKeys,
   getMissingDetailFields,
+  STRICT_MANDATORY_FIELDS,
 } = require("../transform/transformer");
+const { cleanDescription, cleanSideEffects } = require("../transform/sanitizer");
 
 function mergeUniqueStrings(...groups) {
   return [...new Set(groups.flat().filter(Boolean))];
@@ -73,26 +75,22 @@ function mergeMatchKeySets(...sets) {
 }
 
 function buildBatchMatchQuery(records) {
-  const normalizedNames = [...new Set(records.map((record) => record.normalized_name).filter(Boolean))];
-  const saltDosagePairs = [
+  const nameDosagePairs = [
     ...new Map(
       records
-        .filter((record) => record.normalized_salt && record.dosage)
+        .filter((record) => record.normalized_name) // Must have normalized_name
         .map((record) => [
-          `${record.normalized_salt}::${record.dosage}`,
+          `${record.normalized_name}::${record.dosage || 'null'}`,
           {
-            normalized_salt: record.normalized_salt,
-            dosage: record.dosage,
+            normalized_name: record.normalized_name,
+            dosage: record.dosage || null,
           },
         ])
     ).values(),
   ];
 
   const conditions = [];
-  if (normalizedNames.length > 0) {
-    conditions.push({ normalized_name: { $in: normalizedNames } });
-  }
-  saltDosagePairs.forEach((pair) => conditions.push(pair));
+  nameDosagePairs.forEach((pair) => conditions.push(pair));
 
   if (conditions.length === 0) return null;
   return { $or: conditions };
@@ -170,8 +168,24 @@ function buildMedicineUpdate(existingMedicine, transformedRecord) {
     transformedRecord.salt_tokens || []
   );
 
+  // Prefer cleaned name over raw name for storage
+  const incomingName = transformedRecord.cleaned_name || transformedRecord.raw_name;
+
+  // Clean description during merge to strip HTML and deduplicate paragraphs
+  const mergedDescription = cleanDescription(
+    chooseLongerText(existingMedicine?.description, transformedRecord.description)
+  );
+
+  // Clean side effects during merge
+  const mergedSideEffects = cleanSideEffects(
+    mergeUniqueStrings(
+      existingMedicine?.side_effects || [],
+      transformedRecord.side_effects || []
+    )
+  );
+
   return {
-    name: chooseLongerText(existingMedicine?.name, transformedRecord.raw_name),
+    name: chooseLongerText(existingMedicine?.name, incomingName),
     normalized_name:
       transformedRecord.normalized_name || existingMedicine?.normalized_name || "",
     salt: chooseLongerText(existingMedicine?.salt, transformedRecord.raw_salt),
@@ -184,14 +198,8 @@ function buildMedicineUpdate(existingMedicine, transformedRecord) {
     pack_size: transformedRecord.pack_size || existingMedicine?.pack_size || null,
     image_url: chooseImageUrl(existingMedicine?.image_url, transformedRecord.image_url),
     manufacturer: chooseLongerText(existingMedicine?.manufacturer, transformedRecord.manufacturer),
-    description: chooseLongerText(
-      existingMedicine?.description,
-      transformedRecord.description
-    ),
-    side_effects: mergeUniqueStrings(
-      existingMedicine?.side_effects || [],
-      transformedRecord.side_effects || []
-    ),
+    description: mergedDescription,
+    side_effects: mergedSideEffects,
     faq: mergeFaq(existingMedicine?.faq || [], transformedRecord.faq || []),
     source_platforms: sourcePlatforms,
     last_ingested_at: new Date(),
@@ -202,6 +210,7 @@ function mergeRecordsForMedicine(records) {
   const merged = records.reduce(
     (accumulator, record) => ({
       raw_name: chooseLongerText(accumulator.raw_name, record.raw_name),
+      cleaned_name: accumulator.cleaned_name || record.cleaned_name || null,
       normalized_name: accumulator.normalized_name || record.normalized_name,
       raw_salt: chooseLongerText(accumulator.raw_salt, record.raw_salt),
       normalized_salt: accumulator.normalized_salt || record.normalized_salt,
@@ -231,6 +240,7 @@ function mergeRecordsForMedicine(records) {
     }),
     {
       raw_name: null,
+      cleaned_name: null,
       normalized_name: null,
       raw_salt: null,
       normalized_salt: null,
@@ -269,6 +279,7 @@ function mergeRecordsForMedicine(records) {
 function buildCompletenessCandidate(existingMedicine, mergedRecord, hasExistingPrice) {
   return {
     raw_name: chooseLongerText(existingMedicine?.name, mergedRecord.raw_name),
+    cleaned_name: mergedRecord.cleaned_name || existingMedicine?.name || null,
     raw_salt: chooseLongerText(existingMedicine?.salt, mergedRecord.raw_salt),
     image_url: chooseImageUrl(existingMedicine?.image_url, mergedRecord.image_url),
     manufacturer: chooseLongerText(existingMedicine?.manufacturer, mergedRecord.manufacturer),
@@ -417,14 +428,17 @@ async function bulkUpsertProducts(transformedRecords, options = {}) {
         mergedRecord,
         hasExistingPrice
       );
-      const missingFields = getMissingDetailFields(completenessCandidate);
+      const allMissingFields = getMissingDetailFields(completenessCandidate);
+      const strictMissingFields = allMissingFields.filter((field) =>
+        STRICT_MANDATORY_FIELDS.includes(field)
+      );
 
-      if (missingFields.length > 0) {
+      if (strictMissingFields.length > 0) {
         incompleteMedicines.push({
           canonical_key: targetMedicine?.canonical_key || mergedRecord.canonical_key,
           raw_name: mergedRecord.raw_name,
           platforms: mergedRecord.platforms || [],
-          missingFields,
+          missingFields: strictMissingFields,
         });
         return;
       }

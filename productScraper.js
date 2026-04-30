@@ -1,8 +1,41 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const puppeteer = require("puppeteer");
-const { detectPlatform } = require("./etl/extract/platforms");
+const fs = require("fs");
+const path = require("path");
+const { detectPlatform, getPlatformConfigById } = require("./etl/extract/platforms");
+const { launchStealthBrowser, autoScroll } = require("./etl/extract/stealthBrowser");
 const { extractDosage } = require("./etl/transform/transformer");
+
+// ─── Debug System ───────────────────────────────────────────────────
+const DEBUG_DIR = path.join(__dirname, ".planning", "debug");
+const DEBUG_SAMPLING_LIMIT = 5;
+const debugCounts = {};
+
+function triggerDebugDump(url, platform, html, errorContext = {}) {
+  try {
+    if (!fs.existsSync(DEBUG_DIR)) fs.mkdirSync(DEBUG_DIR, { recursive: true });
+    
+    debugCounts[platform] = (debugCounts[platform] || 0) + 1;
+    if (debugCounts[platform] > DEBUG_SAMPLING_LIMIT) return; // Sampling constraint
+
+    const timestamp = Date.now();
+    const safeUrl = url.replace(/[^a-z0-9]/gi, '_').substring(0, 50);
+    const prefix = `${platform}_${timestamp}_${safeUrl}`;
+
+    if (html) {
+      fs.writeFileSync(path.join(DEBUG_DIR, `${prefix}.html`), html);
+    }
+    
+    fs.writeFileSync(
+      path.join(DEBUG_DIR, `${prefix}_meta.json`),
+      JSON.stringify({ url, platform, errorContext, timestamp }, null, 2)
+    );
+    
+    console.warn(`[DEBUG] Dumped extraction failure state for ${platform} to ${DEBUG_DIR}`);
+  } catch (err) {
+    console.error(`[DEBUG] Failed to dump debug state: ${err.message}`);
+  }
+}
 
 // ─── Common User-Agent ──────────────────────────────────────────────
 const UA =
@@ -722,87 +755,86 @@ function extractFromSelectors($) {
   return Object.keys(result).length > 0 ? result : null;
 }
 
+// ─── Retry Helper ─────────────────────────────────────────────────────
+async function withRetry(operation, maxRetries = 3, baseDelayMs = 1000) {
+  let attempt = 0;
+  while (attempt < maxRetries) {
+    try {
+      return await operation();
+    } catch (error) {
+      attempt++;
+      if (attempt >= maxRetries) {
+        throw error;
+      }
+      const delay = baseDelayMs * Math.pow(2, attempt - 1);
+      console.warn(`[RETRY] Attempt ${attempt} failed. Retrying in ${delay}ms... (${error.message})`);
+      await new Promise(r => setTimeout(r, delay));
+    }
+  }
+}
+
 // ─── Main Product Detail Scraper ────────────────────────────────────
 
 /**
- * Fetch HTML from a URL using Axios.
+ * Fetch HTML from a URL using Axios with retries.
  */
 async function fetchPageHTML(url, timeout = 15000) {
-  const response = await axios.get(url, {
-    timeout,
-    headers: {
-      "User-Agent": UA,
-      Accept:
-        "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-      "Accept-Language": "en-US,en;q=0.9",
-      "Accept-Encoding": "gzip, deflate, br",
-      Connection: "keep-alive",
-      "Cache-Control": "no-cache",
-    },
-    maxRedirects: 5,
-  });
-  return response.data;
+  return withRetry(async () => {
+    const response = await axios.get(url, {
+      timeout,
+      headers: {
+        "User-Agent": UA,
+        Accept:
+          "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        Connection: "keep-alive",
+        "Cache-Control": "no-cache",
+      },
+      maxRedirects: 5,
+    });
+    return response.data;
+  }, 3, 1000);
 }
 
 /**
- * Fetch HTML using Puppeteer (for JS-rendered pages).
+ * Fetch HTML using Puppeteer (for JS-rendered pages) with retries.
  */
 async function fetchPageHTMLWithBrowser(url, timeout = 30000) {
-  let browser;
-  try {
-    browser = await puppeteer.launch({
-      headless: "new",
-      args: [
-        "--no-sandbox",
-        "--disable-setuid-sandbox",
-        "--disable-dev-shm-usage",
-        "--disable-gpu",
-      ],
-    });
-
-    const page = await browser.newPage();
-    await page.setViewport({ width: 1440, height: 900 });
-    await page.setUserAgent(UA);
-
-    await page.goto(url, {
-      waitUntil: "networkidle2",
-      timeout,
-    });
-
-    // Wait for the page content to render (React/Next.js apps)
+  return withRetry(async () => {
+    let browser;
     try {
-      await page.waitForSelector('h1, [class*="product"], [class*="Product"]', {
-        timeout: 5000,
+      browser = await launchStealthBrowser();
+
+      const page = await browser.newPage();
+      await page.setViewport({ width: 1440, height: 900 });
+      await page.setUserAgent(UA);
+
+      await page.goto(url, {
+        waitUntil: "networkidle2",
+        timeout,
       });
-    } catch {
-      // Selector not found, proceed anyway
+
+      // Wait for the page content to render (React/Next.js apps)
+      try {
+        await page.waitForSelector('h1, [class*="product"], [class*="Product"]', {
+          timeout: 5000,
+        });
+      } catch {
+        // Selector not found, proceed anyway
+      }
+
+      // Scroll down to trigger lazy-loaded content
+      await autoScroll(page);
+
+      // Wait for final renders
+      await new Promise((r) => setTimeout(r, 2000));
+
+      return await page.content();
+    } finally {
+      if (browser) await browser.close();
     }
-
-    // Scroll down to trigger lazy-loaded content
-    await page.evaluate(async () => {
-      await new Promise((resolve) => {
-        let totalHeight = 0;
-        const distance = 400;
-        const timer = setInterval(() => {
-          const scrollHeight = document.body.scrollHeight;
-          window.scrollBy(0, distance);
-          totalHeight += distance;
-          if (totalHeight >= scrollHeight) {
-            clearInterval(timer);
-            resolve();
-          }
-        }, 150);
-        setTimeout(() => { clearInterval(timer); resolve(); }, 5000);
-      });
-    });
-
-    // Wait for final renders
-    await new Promise((r) => setTimeout(r, 2000));
-
-    return await page.content();
-  } finally {
-    if (browser) await browser.close();
-  }
+  }, 3, 2000);
 }
 
 /**
@@ -953,61 +985,79 @@ async function scrapeProductDetail(url, opts = {}) {
     );
   }
 
+  const platformId = detectPlatform(url);
+  const platformConfig = getPlatformConfigById(platformId);
+  const strategy = platformConfig?.extractionStrategy || { primary: mode, fallback: "browser" };
+  
   let product = null;
-  let usedMode = "fast";
+  let usedMode = strategy.primary;
+  let html = null;
 
-  // ─── FAST mode: try Axios first ────────────────────────────────
-  if (mode === "fast" || mode === "auto") {
-    try {
-      const html = await fetchPageHTML(url, timeout);
-      usedMode = "fast";
-      const $ = cheerio.load(html);
-      const result = extractProduct($, html);
-      product = result.merged;
-      product.mode = usedMode;
+  // Helper to execute HTML parsing
+  const executeHtmlParse = async () => {
+    html = await fetchPageHTML(url, timeout);
+    const $ = cheerio.load(html);
+    return extractProduct($, html);
+  };
 
-      // If we got good data, return it
-      if (hasGoodData(product) || mode === "fast") {
-        // Compute discount
+  // Helper to execute Browser parsing
+  const executeBrowserParse = async () => {
+    html = await fetchPageHTMLWithBrowser(url, timeout + 15000);
+    const $ = cheerio.load(html);
+    return extractProduct($, html);
+  };
+
+  try {
+    // 1. Primary Strategy
+    let rawResult;
+    if (strategy.primary === "api") {
+       rawResult = await executeHtmlParse(); // Actually, product pages are mostly HTML, API was for search. But we use HTML for Pharmeasy PDP.
+    } else if (strategy.primary === "browser" || strategy.primary === "browser-stealth" || strategy.primary === "browser-intercept") {
+       rawResult = await executeBrowserParse();
+    } else {
+       rawResult = await executeHtmlParse();
+    }
+
+    product = rawResult.merged;
+    product.mode = strategy.primary;
+
+    // Evaluate
+    if (hasGoodData(product)) {
+      if (product.price && product.mrp && !product.discount && product.mrp > product.price) {
+        product.discount = `${Math.round(((product.mrp - product.price) / product.mrp) * 100)}% off`;
+      }
+      return product;
+    }
+
+    // 2. Fallback Strategy
+    if (strategy.fallback) {
+      console.error(`  ⚠️  Primary strategy (${strategy.primary}) failed for ${url}. Trying fallback (${strategy.fallback})...`);
+      usedMode = strategy.fallback;
+      
+      if (strategy.fallback === "browser") {
+        rawResult = await executeBrowserParse();
+      } else {
+        rawResult = await executeHtmlParse();
+      }
+
+      product = rawResult.merged;
+      product.mode = strategy.fallback;
+
+      if (hasGoodData(product)) {
         if (product.price && product.mrp && !product.discount && product.mrp > product.price) {
-          const pct = Math.round(((product.mrp - product.price) / product.mrp) * 100);
-          product.discount = `${pct}% off`;
+          product.discount = `${Math.round(((product.mrp - product.price) / product.mrp) * 100)}% off`;
         }
         return product;
       }
-
-      // No good data — fall through to browser
-      console.error(`  ⚠️  Fast fetch got no meaningful data for ${url}. Trying browser...`);
-    } catch (err) {
-      if (mode === "fast") {
-        return { url, error: `Failed to fetch: ${err.message}`, mode: "fast" };
-      }
-      console.error(`  ⚠️  Fast fetch failed for ${url} (${err.message}). Trying browser...`);
-    }
-  }
-
-  // ─── BROWSER mode: use Puppeteer ───────────────────────────────
-  try {
-    const html = await fetchPageHTMLWithBrowser(url, timeout + 15000);
-    usedMode = "browser";
-    const $ = cheerio.load(html);
-    const result = extractProduct($, html);
-    product = result.merged;
-    product.mode = usedMode;
-
-    // Compute discount
-    if (product.price && product.mrp && !product.discount && product.mrp > product.price) {
-      const pct = Math.round(((product.mrp - product.price) / product.mrp) * 100);
-      product.discount = `${pct}% off`;
     }
 
-    return product;
+    // 3. Complete Failure -> Trigger Debug
+    triggerDebugDump(url, platformId, html, { reason: "No meaningful data extracted (hasGoodData = false)" });
+    return product || { url, error: `Failed to extract valid data`, mode: usedMode };
+
   } catch (err) {
-    return {
-      url,
-      error: `Failed to fetch with browser: ${err.message}`,
-      mode: "browser",
-    };
+    triggerDebugDump(url, platformId, html, { error: err.message });
+    return { url, error: `Scrape failed: ${err.message}`, mode: usedMode };
   }
 }
 

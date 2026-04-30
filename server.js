@@ -6,6 +6,7 @@ const { runETL } = require("./etl/pipeline");
 const { ingestMedicineQuery, runBatchIngestion } = require("./etl/batchJob");
 const connectDB = require("./etl/load/db");
 const { searchMedicines } = require("./etl/search");
+const { findIncompleteMedicines, enrichBatch } = require("./etl/enrich/enricher");
 const app = express();
 const PORT = process.env.PORT || 8000;
 
@@ -62,6 +63,12 @@ app.get("/", (_req, res) => {
         path: "/ingest-batch",
         description:
           "Run the medicine discovery + ETL flow for multiple medicine queries in controlled batches.",
+      },
+      enrichMedicines: {
+        method: "POST",
+        path: "/enrich-medicines",
+        description:
+          "Runs the LLM enrichment pipeline to populate missing descriptions, side effects, etc. via Groq API.",
       },
     },
   });
@@ -412,6 +419,32 @@ app.post("/ingest-batch", async (req, res) => {
       error: error.message,
     });
   }
+});
+
+// ─── Cron Job Trigger Endpoint ─────────────────────────────────────────
+app.get("/cron/run-scraper", (req, res) => {
+  const { exec } = require("child_process");
+  
+  // You can pass ?reset=true to start fresh, otherwise it resumes
+  const mode = req.query.reset === "true" ? "--reset" : "--resume";
+  
+  console.log(`[CRON] Triggering background orchestrator: ${mode}`);
+  
+  // Fire and forget
+  exec(`node orchestrator.js ${mode}`, { cwd: __dirname }, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`[CRON ERROR] Failed to run orchestrator: ${error.message}`);
+      return;
+    }
+    if (stderr) console.error(`[CRON STDERR] ${stderr}`);
+  });
+
+  // Return immediately so the HTTP request doesn't timeout
+  return res.json({
+    success: true,
+    message: `Scraping pipeline triggered in background with mode: ${mode}`,
+    timestamp: new Date().toISOString()
+  });
 });
 
 // Database routes removed in favor of direct ETL pipelining.
