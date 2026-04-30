@@ -672,3 +672,7 @@
 [2026-04-30T13:19:35.000Z] 📦 BATCH 2 — Processing 3 queries [azithromycin, cetirizine, metformin]
 [2026-04-30T13:19:35.001Z] ════════════════════════════════════════════════════════════
 [2026-04-30T13:19:35.002Z]   🔍 [Attempt 1] Scraping: "azithromycin"
+[2026-04-30T13:27:14.966Z]   ✅ "azithromycin" → Discovered: 104, Scraped: 104, Medicines: 98
+[2026-04-30T13:27:18.074Z]   🔍 [Attempt 1] Scraping: "cetirizine"
+[2026-04-30T13:31:15.296Z]   ✅ "cetirizine" → Discovered: 49, Scraped: 49, Medicines: 45
+[2026-04-30T13:31:19.305Z]   🔍 [Attempt 1] Scraping: "metformin"
