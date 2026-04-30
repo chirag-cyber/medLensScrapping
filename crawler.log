@@ -646,3 +646,29 @@
 [2026-04-30T13:17:20.028Z]   🧠 [13/30] Enriching: clavam dry syrup 30ml
 [2026-04-30T13:17:27.691Z]   🧠 [14/30] Enriching: amoxi 500 capsule
 [2026-04-30T13:17:35.306Z]   🧠 [15/30] Enriching: almox-500 capsule
+[2026-04-30T13:17:42.931Z]   🧠 [16/30] Enriching: evoxil 500mg capsule
+[2026-04-30T13:17:50.563Z]   🧠 [17/30] Enriching: nodimox plus 500mg capsule
+[2026-04-30T13:17:58.187Z]   🧠 [18/30] Enriching: mox redimix 250mg oral suspension 30ml
+[2026-04-30T13:18:05.802Z]   🧠 [19/30] Enriching: cipmox cv 625mg tablet
+[2026-04-30T13:18:13.428Z]   🧠 [20/30] Enriching: cipmox 250 capsule
+[2026-04-30T13:18:21.038Z]   🧠 [21/30] Enriching: moxikind cv 375 tablet
+[2026-04-30T13:18:24.180Z]   🧠 [22/30] Enriching: amoxil-500 capsule
+[2026-04-30T13:18:31.748Z]   🧠 [23/30] Enriching: augmed-625 tablet
+[2026-04-30T13:18:39.342Z]   🧠 [24/30] Enriching: almox-250 capsule
+[2026-04-30T13:18:46.961Z]   🧠 [25/30] Enriching: megamox cv 375 mg tablet
+[2026-04-30T13:18:54.576Z]   🧠 [26/30] Enriching: amoxi 250 capsule
+[2026-04-30T13:19:02.194Z]   🧠 [27/30] Enriching: amoxyclav 625 tablet
+[2026-04-30T13:19:09.792Z]   🧠 [28/30] Enriching: novaclav 625mg tablet
+[2026-04-30T13:19:17.395Z]   🧠 [29/30] Enriching: kriam pharma amoxycillin potassium clavulanate tablet
+[2026-04-30T13:19:25.010Z]   🧠 [30/30] Enriching: alkem amoxicillin 250mg capsule
+[2026-04-30T13:19:30.109Z]   ✅ Enrichment done: 12 updated, 18 failed.
+[2026-04-30T13:19:30.113Z] 
+📊 Progress: 3/580 queries (0.5%) | Speed: 0.00 q/s | ETA: 68h 10m 7s
+[2026-04-30T13:19:30.114Z]    Discovered: 249 | Scraped: 249 | Medicines: 230 | Enriched: 12
+[2026-04-30T13:19:30.115Z] 💤 Breathing for 4.9s before next batch...
+
+[2026-04-30T13:19:34.999Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T13:19:35.000Z] 📦 BATCH 2 — Processing 3 queries [azithromycin, cetirizine, metformin]
+[2026-04-30T13:19:35.001Z] ════════════════════════════════════════════════════════════
+[2026-04-30T13:19:35.002Z]   🔍 [Attempt 1] Scraping: "azithromycin"

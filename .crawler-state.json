@@ -259,8 +259,8 @@
     "totalFailed": 0,
     "totalMedicinesTouched": 230,
     "totalPricesUpserted": 241,
-    "totalEnriched": 0,
-    "llmCallsMade": 0
+    "totalEnriched": 12,
+    "llmCallsMade": 30
   },
   "startedAt": "2026-04-30T12:58:18.505Z",
   "lastUpdatedAt": "2026-04-30T13:16:38.741Z"
