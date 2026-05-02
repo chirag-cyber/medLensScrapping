@@ -60,7 +60,6 @@ medicineSchema.index({ source_platforms: 1 });
 
 const Medicine = mongoose.models.Medicine || mongoose.model("Medicine", medicineSchema);
 
-
 // ─── 💰 Price Platform Schema ────────────────────────────────
 const priceSchema = new mongoose.Schema(
   {

@@ -96,9 +96,6 @@ async function analyze() {
       
       if (matchGroup.length > 1) {
         fuzzyMatchesFound++;
-        if (fuzzyMatchesFound <= 10) {
-          matchGroup.forEach(m => {});
-        }
       }
     }
   }

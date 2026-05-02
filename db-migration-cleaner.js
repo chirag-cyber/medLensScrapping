@@ -56,15 +56,13 @@ async function migrateDatabase() {
         if (hasChanges) {
           await doc.save();
           updatedCount++;
-          if (updatedCount % 50 === 0) {
-          }
         }
       } catch (err) {
         failedCount++;
       }
     }
 
-  } catch (err) {
+  } catch {
   } finally {
     mongoose.disconnect();
   }

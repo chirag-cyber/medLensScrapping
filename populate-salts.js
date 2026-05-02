@@ -56,7 +56,7 @@ async function runInBatches() {
         cwd: __dirname
       });
       
-    } catch (error) {
+    } catch {
     }
 
     if (i + BATCH_SIZE < SALTS.length) {

@@ -11,7 +11,7 @@ async function resetDB() {
 
     const priceResult = await Price.deleteMany({});
 
-  } catch (err) {
+  } catch {
   } finally {
     mongoose.disconnect();
   }

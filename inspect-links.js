@@ -26,9 +26,6 @@ const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
   await new Promise(r => setTimeout(r, 3000));
 
-  productApiCalls.forEach(c => {
-  });
-
   // Try to extract product info from rendered DOM
   const products = await page.evaluate(() => {
     // Look for any element whose text looks like a product name with price
@@ -46,9 +43,6 @@ const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
       href: el.closest("a")?.href || el.querySelector("a")?.href || null,
       onclick: el.getAttribute("onclick") || null,
     }));
-  });
-
-  products.forEach((p, i) => {
   });
 
   // Check the current URL in case it redirected

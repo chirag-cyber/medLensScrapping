@@ -203,14 +203,14 @@ async function searchPlatformViaWeb(query, platform, options = {}) {
   try {
     const results = await searchViaDuckDuckGo(searchQuery, perPlatformLimit, platform.id, query);
     if (results.length > 0) return results;
-  } catch (err) {
+  } catch {
   }
 
   // Fallback to Bing
   try {
     const results = await searchViaBing(searchQuery, perPlatformLimit, platform.id, query);
     return results;
-  } catch (err) {
+  } catch {
   }
 
   return [];
@@ -261,7 +261,7 @@ async function discoverPharmEasyUrls(query, options = {}) {
     });
     logTier("pharmeasy", 1, "API", discovered.length);
     if (discovered.length > 0) return discovered;
-  } catch (err) {
+  } catch {
   }
 
   // Tier 2: HTML parsing
@@ -275,7 +275,7 @@ async function discoverPharmEasyUrls(query, options = {}) {
       pushDiscoveredUrl(discovered, seen, url, { platform: "pharmeasy", discoveryMethod: "platform-search-html", sourceUrl: searchUrl }, perPlatformLimit);
     });
     logTier("pharmeasy", 2, "HTML", discovered.length);
-  } catch (err) {
+  } catch {
   }
 
   return discovered;
@@ -302,7 +302,7 @@ async function discoverNetmedsUrls(query, options = {}) {
     }
     logTier("netmeds", 1, "HTML-state", discovered.length);
     if (discovered.length > 0 || mode === "fast") return discovered;
-  } catch (err) {
+  } catch {
   }
 
   // Tier 2: Browser fallback
@@ -314,7 +314,7 @@ async function discoverNetmedsUrls(query, options = {}) {
       pushDiscoveredUrl(discovered, seen, link.url, { platform: "netmeds", discoveryMethod: "platform-browser", sourceUrl: searchUrl }, perPlatformLimit);
     });
     logTier("netmeds", 2, "browser", discovered.length);
-  } catch (err) {
+  } catch {
   }
 
   return discovered;
@@ -353,7 +353,7 @@ async function discover1mgUrls(query, options = {}) {
 
     logTier("1mg", 1, "stealth-browser", discovered.length);
     if (discovered.length > 0) return discovered;
-  } catch (err) {
+  } catch {
   }
 
   // Tier 2: Web search fallback
@@ -364,7 +364,7 @@ async function discover1mgUrls(query, options = {}) {
       discovered.push(...webResults);
       logTier("1mg", 2, "web-search", webResults.length);
     }
-  } catch (err) {
+  } catch {
   }
 
   return discovered;
@@ -402,7 +402,7 @@ async function discoverApolloUrls(query, options = {}) {
 
     logTier("apollo", 1, "stealth-browser", discovered.length);
     if (discovered.length > 0) return discovered;
-  } catch (err) {
+  } catch {
   }
 
   // Tier 2: Web search fallback
@@ -413,7 +413,7 @@ async function discoverApolloUrls(query, options = {}) {
       discovered.push(...webResults);
       logTier("apollo", 2, "web-search", webResults.length);
     }
-  } catch (err) {
+  } catch {
   }
 
   return discovered;
@@ -495,7 +495,7 @@ async function discoverTruemedUrls(query, options = {}) {
 
     logTier("truemeds", 1, "stealth+intercept", discovered.length);
     if (discovered.length > 0) return discovered;
-  } catch (err) {
+  } catch {
   }
 
   // Tier 2: Web search fallback
@@ -506,7 +506,7 @@ async function discoverTruemedUrls(query, options = {}) {
       discovered.push(...webResults);
       logTier("truemeds", 2, "web-search", webResults.length);
     }
-  } catch (err) {
+  } catch {
   }
 
   return discovered;
@@ -602,7 +602,7 @@ async function discoverMedplusUrls(query, options = {}) {
 
     logTier("medplus", 1, "stealth+intercept", discovered.length);
     if (discovered.length > 0) return discovered;
-  } catch (err) {
+  } catch {
   }
 
   // Tier 2: Web search fallback
@@ -613,7 +613,7 @@ async function discoverMedplusUrls(query, options = {}) {
       discovered.push(...webResults);
       logTier("medplus", 2, "web-search", webResults.length);
     }
-  } catch (err) {
+  } catch {
   }
 
   return discovered;
@@ -645,7 +645,7 @@ async function discoverFromPlatformSearchPages(query, options = {}) {
       try {
         const results = await fn(query, { timeout, mode, perPlatformLimit });
         discovered.push(...results);
-      } catch (err) {
+      } catch {
       }
     }
   }
@@ -679,7 +679,7 @@ async function discoverMedicineUrls(query, options = {}) {
         if (results.length > 0) {
           logTier(platform.id, 3, "web-search-fallback", results.length);
         }
-      } catch (err) {
+      } catch {
       }
     }
   }

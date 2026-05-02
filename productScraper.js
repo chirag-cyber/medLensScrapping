@@ -31,7 +31,7 @@ function triggerDebugDump(url, platform, html, errorContext = {}) {
       JSON.stringify({ url, platform, errorContext, timestamp }, null, 2)
     );
 
-  } catch (err) {
+  } catch {
   }
 }
 

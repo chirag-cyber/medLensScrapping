@@ -569,7 +569,7 @@ app.get("/cron/full-pipeline", async (req, res) => {
 
       await runScript("enrich-medicines.js");
 
-    } catch (err) {
+    } catch {
     } finally {
       delete runningJobs["full-pipeline"];
     }

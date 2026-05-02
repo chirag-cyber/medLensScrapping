@@ -54,16 +54,8 @@ async function run() {
     });
 
     
-    if (Object.keys(results.fieldsEnrichedCounts).length > 0) {
-        Object.entries(results.fieldsEnrichedCounts).forEach(([field, count]) => {
-        });
-    }
 
-    if (results.errors.length > 0) {
-
-    }
-
-  } catch (error) {
+  } catch {
   } finally {
     mongoose.disconnect();
   }

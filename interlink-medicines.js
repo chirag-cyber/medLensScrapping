@@ -263,8 +263,6 @@ async function mergeGroup(master, duplicates, canonicalKey, jsonBackupEntries, s
   const duplicateIds = duplicates.map((d) => d._id);
 
   if (DRY_RUN) {
-    duplicates.forEach((dup) => {
-    });
     stats.mergedGroups++;
     return true;
   }
@@ -478,8 +476,6 @@ async function pass2FuzzyDuplicates(stats, jsonBackupEntries) {
     const duplicates = docs.filter((d) => String(d._id) !== String(master._id));
     if (duplicates.length === 0) continue;
 
-
-
     await mergeGroup(master, duplicates, fuzzyKey, jsonBackupEntries, stats);
   }
 }
@@ -556,8 +552,6 @@ async function pass3IntegerFuzzyMatch(stats, jsonBackupEntries) {
     const duplicates = docs.filter((d) => String(d._id) !== String(master._id));
     if (duplicates.length === 0) continue;
 
-
-
     await mergeGroup(master, duplicates, fuzzyKey, jsonBackupEntries, stats);
   }
 }
@@ -605,9 +599,6 @@ async function main() {
     // Final count
     const finalCount = DRY_RUN ? stats.totalMedicines : await Medicine.countDocuments();
 
-    if (stats.errors.length > 0) {
-
-    }
   } catch (err) {
     process.exitCode = 1;
   } finally {
