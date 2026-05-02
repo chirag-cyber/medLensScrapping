@@ -58,7 +58,6 @@ async function analyze() {
   
   const allMeds = await Medicine.find({ is_canonical: { $ne: true } }, { name: 1, dosage: 1, manufacturer: 1, source_platforms: 1 }, { lean: true });
   
-  console.log(`Loaded ${allMeds.length} medicines.`);
   
   // Group by normalized dosage
   const buckets = new Map();
@@ -98,14 +97,12 @@ async function analyze() {
       if (matchGroup.length > 1) {
         fuzzyMatchesFound++;
         if (fuzzyMatchesFound <= 10) {
-          console.log(`\nFound Match Group for dosage [${dosage}]:`);
-          matchGroup.forEach(m => console.log(` - ${m.name} [Mfr: ${m.manufacturer || 'None'}] -> Core: "${normalizeNameForMatching(m.name, m.manufacturer)}"`));
+          matchGroup.forEach(m => {});
         }
       }
     }
   }
   
-  console.log(`\nTotal new fuzzy groups found: ${fuzzyMatchesFound}`);
   mongoose.disconnect();
 }
 analyze();

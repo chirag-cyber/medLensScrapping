@@ -79,11 +79,9 @@ function parseArgs() {
  */
 function loadSaltQueries() {
   if (!fs.existsSync(SALTS_FILE)) {
-    console.error(`❌ Salt file not found: ${SALTS_FILE}`);
     process.exit(1);
   }
   const salts = JSON.parse(fs.readFileSync(SALTS_FILE, "utf8"));
-  console.log(`📋 Loaded ${salts.length} clinical salts from salts.json`);
   return salts;
 }
 
@@ -98,7 +96,6 @@ function generateAlphabetQueries() {
       queries.push(first + second);
     }
   }
-  console.log(`🔤 Generated ${queries.length} alphabet permutations (aa → zz)`);
   return queries;
 }
 
@@ -133,7 +130,6 @@ function saveState(state) {
 function resetState() {
   if (fs.existsSync(STATE_FILE)) {
     fs.unlinkSync(STATE_FILE);
-    console.log("🗑️  Crawler state reset.");
   }
 }
 
@@ -165,7 +161,6 @@ function initState(queries, mode) {
 function log(message) {
   const timestamp = new Date().toISOString();
   const line = `[${timestamp}] ${message}`;
-  console.log(line);
   try {
     fs.appendFileSync(LOG_FILE, line + "\n");
   } catch {
@@ -294,17 +289,6 @@ async function runEnrichmentCycle(config, state) {
  * The main orchestration loop.
  */
 async function orchestrate(config) {
-  console.log(`
-╔══════════════════════════════════════════════════════════════════╗
-║          🏥 Master Extraction Orchestrator                      ║
-║          ═══════════════════════════════════                     ║
-║  Mode         : ${(config.mode).padEnd(10)}                                    ║
-║  Batch Size   : ${String(config.batchSize).padEnd(10)}                                    ║
-║  Concurrency  : ${String(config.concurrency).padEnd(10)}                                    ║
-║  LLM Enrich   : Every ${String(config.enrichInterval).padEnd(4)} batches                        ║
-║  Dry Run      : ${String(config.dryRun).padEnd(10)}                                    ║
-╚══════════════════════════════════════════════════════════════════╝
-  `);
 
   if (config.reset) {
     resetState();
@@ -402,20 +386,6 @@ async function orchestrate(config) {
 
   // Final report
   const totalElapsed = Date.now() - crawlStartTime;
-  console.log(`
-╔══════════════════════════════════════════════════════════════════╗
-║                   🏁 CRAWL COMPLETE                             ║
-╠══════════════════════════════════════════════════════════════════╣
-║  Total Time       : ${formatDuration(totalElapsed).padEnd(20)}                    ║
-║  Queries Processed: ${String(state.processedQueries.length).padEnd(20)}                    ║
-║  URLs Discovered  : ${String(state.stats.totalDiscovered).padEnd(20)}                    ║
-║  Pages Scraped    : ${String(state.stats.totalScraped).padEnd(20)}                    ║
-║  Medicines Touched: ${String(state.stats.totalMedicinesTouched).padEnd(20)}                    ║
-║  Prices Upserted  : ${String(state.stats.totalPricesUpserted).padEnd(20)}                    ║
-║  LLM Enriched     : ${String(state.stats.totalEnriched).padEnd(20)}                    ║
-║  Failed Queries   : ${String(state.failedQueries.length).padEnd(20)}                    ║
-╚══════════════════════════════════════════════════════════════════╝
-  `);
 
   if (state.failedQueries.length > 0) {
     log("\n❌ Failed Queries:");
@@ -446,6 +416,5 @@ process.on("SIGTERM", () => handleShutdown("SIGTERM"));
 const config = parseArgs();
 orchestrate(config).catch((err) => {
   log(`💥 Fatal error: ${err.message}`);
-  console.error(err);
   process.exit(1);
 });

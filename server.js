@@ -103,9 +103,7 @@ app.get("/scrape", async (req, res) => {
       mode: mode || "auto",   // auto | fast | browser
     };
 
-    console.log(`[SCRAPE] Fetching PDP links from: ${url} (mode: ${options.mode})`);
     const result = await scrapePDPLinks(url, options);
-    console.log(`[SCRAPE] Found ${result.pdpLinksFound} PDP links (via ${result.mode})`);
 
     // Optionally fetch product details for each PDP link
     if (req.query.fetchDetails === "true" && result.pdpLinks.length > 0) {
@@ -113,7 +111,6 @@ app.get("/scrape", async (req, res) => {
       const concurrency = parseInt(req.query.concurrency, 10) || 5;
       const pdpUrls = result.pdpLinks.slice(0, limit).map((l) => l.url);
 
-      console.log(`[SCRAPE] Fetching details for ${pdpUrls.length} products...`);
       const products = await scrapeProductDetails(pdpUrls, {
         concurrency,
         timeout: options.timeout,
@@ -125,7 +122,6 @@ app.get("/scrape", async (req, res) => {
 
     return res.json(result);
   } catch (err) {
-    console.error(`[SCRAPE ERROR] ${err.message}`);
     return res.status(500).json({
       success: false,
       error: err.message,
@@ -163,9 +159,7 @@ app.get("/scrape-details", async (req, res) => {
     };
 
     // Step 1: Get PDP links
-    console.log(`[SCRAPE-DETAILS] Step 1: Finding PDP links from: ${url}`);
     const linkResult = await scrapePDPLinks(url, scrapeOpts);
-    console.log(`[SCRAPE-DETAILS] Found ${linkResult.pdpLinksFound} PDP links`);
 
     if (linkResult.pdpLinks.length === 0) {
       return res.json({
@@ -187,8 +181,6 @@ app.get("/scrape-details", async (req, res) => {
     // We take a large pool of URLs (up to poolSize) but we only return up to `validLimit` completely valid products
     const pdpUrlsPool = linkResult.pdpLinks.slice(0, poolSize).map((l) => l.url);
 
-    console.log(`[SCRAPE-DETAILS] Step 2: Scanning up to ${pdpUrlsPool.length} links to find ${validLimit} fully detailed products...`);
-
     const validProducts = [];
     const allProductsAttempted = [];
 
@@ -197,7 +189,6 @@ app.get("/scrape-details", async (req, res) => {
       if (validProducts.length >= validLimit) break; // Reached goal
 
       const chunkUrls = pdpUrlsPool.slice(i, i + maxConcurrency);
-      console.log(`  📦 Batch: Scraping ${chunkUrls.length} product(s)...`);
 
       const chunkProducts = await scrapeProductDetails(chunkUrls, {
         concurrency: maxConcurrency,
@@ -211,13 +202,10 @@ app.get("/scrape-details", async (req, res) => {
       const validInChunk = chunkProducts.filter((p) => !p.error && p.name && p.price !== null);
       
       validProducts.push(...validInChunk);
-      console.log(`     -> Found ${validInChunk.length} valid products in this batch (Total: ${validProducts.length}/${validLimit})`);
     }
 
     // Trim to exact required length in case the last batch pushed us over the limit
     const finalProductsToReturn = validProducts.slice(0, validLimit);
-
-    console.log(`[SCRAPE-DETAILS] Done! Returned ${finalProductsToReturn.length} fully detailed products out of ${allProductsAttempted.length} attempted.`);
 
     const finalResult = {
       success: true,
@@ -253,12 +241,10 @@ app.get("/scrape-details", async (req, res) => {
       };
     });
     // Fire and forget the pipeline
-    runETL(etlPayload).catch(e => console.error("[ETL BACKGROUND ERROR]", e));
-
+    runETL(etlPayload).catch(() => {});
 
     return res.json(finalResult);
   } catch (err) {
-    console.error(`[SCRAPE-DETAILS ERROR] ${err.message}`);
     return res.status(500).json({
       success: false,
       error: err.message,
@@ -289,7 +275,6 @@ app.get("/product-detail", async (req, res) => {
   }
 
   try {
-    console.log(`[PRODUCT-DETAIL] Scraping: ${url}`);
     const product = await scrapeProductDetail(url, {
       timeout: timeout ? parseInt(timeout, 10) : 15000,
       mode: mode || "auto",
@@ -301,7 +286,6 @@ app.get("/product-detail", async (req, res) => {
       product,
     });
   } catch (err) {
-    console.error(`[PRODUCT-DETAIL ERROR] ${err.message}`);
     return res.status(500).json({
       success: false,
       error: err.message,
@@ -333,7 +317,6 @@ app.get("/search-medicines", async (req, res) => {
       results,
     });
   } catch (error) {
-    console.error(`[SEARCH-MEDICINES ERROR] ${error.message}`);
     return res.status(500).json({
       success: false,
       error: error.message,
@@ -369,7 +352,6 @@ app.get("/ingest-medicine", async (req, res) => {
       result,
     });
   } catch (error) {
-    console.error(`[INGEST-MEDICINE ERROR] ${error.message}`);
     return res.status(500).json({
       success: false,
       error: error.message,
@@ -413,7 +395,6 @@ app.post("/ingest-batch", async (req, res) => {
       ...result,
     });
   } catch (error) {
-    console.error(`[INGEST-BATCH ERROR] ${error.message}`);
     return res.status(500).json({
       success: false,
       error: error.message,
@@ -448,12 +429,10 @@ function triggerJob(jobName, command, args = []) {
   child.stderr.on("data", (data) => { output += data.toString(); });
 
   child.on("close", (code) => {
-    console.log(`[CRON] ${jobName} finished with code ${code}`);
     delete runningJobs[jobName];
   });
 
   child.on("error", (err) => {
-    console.error(`[CRON ERROR] ${jobName}: ${err.message}`);
     delete runningJobs[jobName];
   });
 
@@ -582,21 +561,15 @@ app.get("/cron/full-pipeline", async (req, res) => {
       });
 
     try {
-      console.log("[FULL PIPELINE] Step 1/4: Scraping...");
       await runScript("orchestrator.js", ["--resume", "--batch-size", "3"]);
 
-      console.log("[FULL PIPELINE] Step 2/4: Interlinking...");
       await runScript("interlink-medicines.js");
 
-      console.log("[FULL PIPELINE] Step 3/4: Targeted enrichment...");
       await runScript("targeted-enrichment.js", ["--limit", "50"]);
 
-      console.log("[FULL PIPELINE] Step 4/4: LLM enrichment...");
       await runScript("enrich-medicines.js");
 
-      console.log("[FULL PIPELINE] Complete!");
     } catch (err) {
-      console.error(`[FULL PIPELINE ERROR] ${err.message}`);
     } finally {
       delete runningJobs["full-pipeline"];
     }
@@ -630,29 +603,6 @@ app.get("/cron/status", (_req, res) => {
 
 // ─── Start server ────────────────────────────────────────────────────
 app.listen(PORT, () => {
-  console.log(`
-╔════════════════════════════════════════════════════════════════════╗
-║           MediSaathi ETL Pipeline Server — Ready 🚀              ║
-╠════════════════════════════════════════════════════════════════════╣
-║  Server            : http://localhost:${PORT}                        ║
-║                                                                    ║
-║  ── Scraping ──────────────────────────────────────────────────    ║
-║  PDP Links         : GET /scrape?url=<url>                        ║
-║  Links+Details     : GET /scrape-details?url=<url>&limit=10       ║
-║  Single Product    : GET /product-detail?url=<pdp_url>            ║
-║  Search            : GET /search-medicines?query=<query>          ║
-║  Ingest Medicine   : GET /ingest-medicine?query=<name>            ║
-║  Batch Ingest      : POST /ingest-batch                           ║
-║                                                                    ║
-║  ── Cron / Batch Jobs ─────────────────────────────────────────   ║
-║  Scrape            : GET /cron/scrape                             ║
-║  Interlink         : GET /cron/interlink                          ║
-║  Targeted Enrich   : GET /cron/targeted-enrichment?limit=50       ║
-║  LLM Enrich        : GET /cron/llm-enrich                         ║
-║  Full Pipeline     : GET /cron/full-pipeline                      ║
-║  Job Status        : GET /cron/status                             ║
-╚════════════════════════════════════════════════════════════════════╝
-  `);
 });
 
 module.exports = app;

@@ -42,9 +42,6 @@ async function ensureMedicineIndexes() {
       canonicalIndex &&
       !canonicalIndex.partialFilterExpression
     ) {
-      console.warn(
-        "[MongoDB] Replacing legacy canonical_key_1 index with partial unique index."
-      );
       await Medicine.collection.dropIndex("canonical_key_1");
     }
 
@@ -58,9 +55,6 @@ async function ensureMedicineIndexes() {
         hasMatchingTextWeights(textIndex, desiredTextWeights);
 
       if (!isExpectedIndex) {
-        console.warn(
-          `[MongoDB] Replacing legacy text index ${textIndex.name} with ${desiredTextIndexName}.`
-        );
         await Medicine.collection.dropIndex(textIndex.name);
       }
     }
@@ -78,7 +72,6 @@ async function connectDB() {
   const MONGO_URI = process.env.MONGO_URL;
   
   if (!MONGO_URI) {
-    console.error(`\n[MongoDB Error] CRITICAL: MONGO_URL is missing in your .env file!`);
     process.exit(1);
   }
 
@@ -89,9 +82,7 @@ async function connectDB() {
     await mongoose.connect(MONGO_URI, { dbName: "MEDSAVE" });
     await ensureMedicineIndexes();
     await Promise.all([Medicine.createIndexes(), Price.createIndexes()]);
-    console.log("[MongoDB] Connected successfully to MEDSAVE Database.");
   } catch (error) {
-    console.error("[MongoDB Error] Failed to connect:", error.message);
     process.exit(1);
   }
 }

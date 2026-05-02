@@ -31,9 +31,7 @@ function triggerDebugDump(url, platform, html, errorContext = {}) {
       JSON.stringify({ url, platform, errorContext, timestamp }, null, 2)
     );
 
-    console.warn(`[DEBUG] Dumped extraction failure state for ${platform} to ${DEBUG_DIR}`);
   } catch (err) {
-    console.error(`[DEBUG] Failed to dump debug state: ${err.message}`);
   }
 }
 
@@ -767,7 +765,6 @@ async function withRetry(operation, maxRetries = 3, baseDelayMs = 1000) {
         throw error;
       }
       const delay = baseDelayMs * Math.pow(2, attempt - 1);
-      console.warn(`[RETRY] Attempt ${attempt} failed. Retrying in ${delay}ms... (${error.message})`);
       await new Promise(r => setTimeout(r, delay));
     }
   }
@@ -1031,7 +1028,6 @@ async function scrapeProductDetail(url, opts = {}) {
 
     // 2. Fallback Strategy
     if (strategy.fallback) {
-      console.error(`  ⚠️  Primary strategy (${strategy.primary}) failed for ${url}. Trying fallback (${strategy.fallback})...`);
       usedMode = strategy.fallback;
 
       if (strategy.fallback === "browser") {
@@ -1087,10 +1083,6 @@ async function scrapeProductDetails(urls, opts = {}) {
     const batch = urls.slice(i, i + concurrency);
     const batchNum = Math.floor(i / concurrency) + 1;
     const totalBatches = Math.ceil(urls.length / concurrency);
-
-    console.log(
-      `  📦 Batch ${batchNum}/${totalBatches}: Scraping ${batch.length} product(s)...`
-    );
 
     const batchResults = await Promise.allSettled(
       batch.map((url) => scrapeProductDetail(url, { timeout, mode }))

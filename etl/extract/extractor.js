@@ -17,9 +17,6 @@ function extractData(rawScrapeArray) {
       (item.name || item.salt || item.description)
   );
 
-  console.log(
-    `[ETL EXTRACT] Extracted ${validInputs.length} candidate payloads out of ${rawScrapeArray.length} raw payloads.`
-  );
   return validInputs;
 }
 

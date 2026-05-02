@@ -109,7 +109,6 @@ async function searchMedicines(queryStr) {
     });
 
   } catch (err) {
-    console.error("[Search Error]", err);
     return [];
   }
 }

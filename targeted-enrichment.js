@@ -34,11 +34,9 @@ const LIMIT = limitArgIndex > -1 ? parseInt(process.argv[limitArgIndex + 1], 10)
 async function connectDB() {
   const MONGO_URI = process.env.MONGO_URL;
   if (!MONGO_URI) {
-    console.error("[FATAL] MONGO_URL is missing in .env");
     process.exit(1);
   }
   await mongoose.connect(MONGO_URI, { dbName: "MEDSAVE" });
-  console.log("[DB] Connected to MEDSAVE");
 }
 
 // ──────────────────────────────────────────────────────────────────────
@@ -78,10 +76,6 @@ function buildTargetedQuery(name, dosage) {
 // ENRICHMENT ORCHESTRATOR
 // ──────────────────────────────────────────────────────────────────────
 async function runEnrichment() {
-  console.log(`\n[ENRICHMENT] Starting Phase 2 (Targeted Enrichment)`);
-  console.log(`[ENRICHMENT] Mode: ${DRY_RUN ? "🔍 DRY RUN" : "🔥 LIVE"}`);
-  console.log(`[ENRICHMENT] Batch Limit: ${LIMIT} medicines`);
-  console.log(`[ENRICHMENT] Priority Targets: ${PRIORITY_PLATFORMS.join(", ")}\n`);
 
   // 1. Find candidates
   // Criteria:
@@ -104,8 +98,6 @@ async function runEnrichment() {
     last_enriched_at: 1
   }).lean();
 
-  console.log(`[ENRICHMENT] Found ${candidates.length} total potential candidates for enrichment.`);
-
   // Filter and sort candidates
   const enrichable = candidates
     .map(c => ({
@@ -120,11 +112,8 @@ async function runEnrichment() {
     .slice(0, LIMIT);
 
   if (enrichable.length === 0) {
-    console.log("[ENRICHMENT] No medicines require priority enrichment at this time.");
     return;
   }
-
-  console.log(`[ENRICHMENT] Selected ${enrichable.length} medicines for this batch.\n`);
 
   // 2. Process the batch
   let successCount = 0;
@@ -135,11 +124,7 @@ async function runEnrichment() {
     const targetQuery = buildTargetedQuery(med.name, med.dosage);
     const missing = med.missingPlatforms;
 
-    console.log(`[${i + 1}/${enrichable.length}] Target: "${targetQuery}"`);
-    console.log(`    ↳ Missing platforms: [${missing.join(", ")}]`);
-
     if (DRY_RUN) {
-      console.log(`    ↳ (Dry Run) Would execute targeted search for ${missing.length} platforms.`);
       continue;
     }
 
@@ -154,7 +139,6 @@ async function runEnrichment() {
     try {
       // Execute the targeted scrape
       // We pass perPlatformLimit: 10 to dig deeper into search results
-      console.log(`    ↳ Launching scraper...`);
       const result = await runBatchIngestion([targetQuery], {
         platformIds: missing,     // Only search the missing ones!
         perPlatformLimit: 10,     // Check the top 10 results to catch platform variations
@@ -164,26 +148,16 @@ async function runEnrichment() {
       });
 
       const summary = result.results?.[0] || {};
-      console.log(`    ✔ Scraped: ${summary.scrapedSources || 0} found, ${summary.failedSources || 0} failed.`);
       successCount++;
 
     } catch (err) {
-      console.error(`    ✘ Enrichment failed for "${targetQuery}": ${err.message}`);
       failCount++;
     }
   }
 
   // 3. Summary
-  console.log("\n" + "═".repeat(60));
-  console.log("  ENRICHMENT SUMMARY");
-  console.log("═".repeat(60));
-  console.log(`  Processed: ${enrichable.length}`);
   if (!DRY_RUN) {
-    console.log(`  Successful Scrapes: ${successCount}`);
-    console.log(`  Failed Scrapes: ${failCount}`);
-    console.log(`\n  Next steps: Run 'node interlink-medicines.js' to merge the new prices!`);
   }
-  console.log("═".repeat(60));
 }
 
 // ──────────────────────────────────────────────────────────────────────
@@ -194,7 +168,6 @@ async function main() {
     await connectDB();
     await runEnrichment();
   } catch (err) {
-    console.error("[FATAL]", err);
     process.exitCode = 1;
   } finally {
     await mongoose.disconnect();

@@ -42,11 +42,9 @@ const SIMILARITY_THRESHOLD = 0.6;
 async function connectDB() {
   const MONGO_URI = process.env.MONGO_URL;
   if (!MONGO_URI) {
-    console.error("[FATAL] MONGO_URL is missing in .env");
     process.exit(1);
   }
   await mongoose.connect(MONGO_URI, { dbName: "MEDSAVE" });
-  console.log("[DB] Connected to MEDSAVE");
 }
 
 // ──────────────────────────────────────────────────────────────────────
@@ -203,7 +201,6 @@ function wordJaccard(a, b) {
 // MASTER SELECTION
 // ──────────────────────────────────────────────────────────────────────
 
-
 function completenessScore(doc) {
   let score = 0;
   if (doc.name) score += 1;
@@ -267,7 +264,6 @@ async function mergeGroup(master, duplicates, canonicalKey, jsonBackupEntries, s
 
   if (DRY_RUN) {
     duplicates.forEach((dup) => {
-      console.log(`    ↳ dup: ${dup.name} (${dup._id}) [${(dup.source_platforms || []).join(",")}]`);
     });
     stats.mergedGroups++;
     return true;
@@ -360,12 +356,10 @@ async function mergeGroup(master, duplicates, canonicalKey, jsonBackupEntries, s
 
     await session.commitTransaction();
     stats.mergedGroups++;
-    console.log(`    ✔ Merged ${duplicates.length} dup(s), moved ${pricesMoved} price(s)`);
     return true;
   } catch (err) {
     await session.abortTransaction();
     stats.errors.push(`Group "${canonicalKey}": ${err.message}`);
-    console.error(`    ✘ FAILED — ${err.message}`);
     return false;
   } finally {
     session.endSession();
@@ -376,7 +370,6 @@ async function mergeGroup(master, duplicates, canonicalKey, jsonBackupEntries, s
 // PASS 1: Exact canonical_key duplicates (aggregation)
 // ──────────────────────────────────────────────────────────────────────
 async function pass1ExactDuplicates(stats, jsonBackupEntries) {
-  console.log("\n[PASS 1] Exact canonical_key duplicates...");
 
   const cursor = Medicine.collection.aggregate([
     { $match: { canonical_key: { $exists: true, $ne: null, $ne: "" } } },
@@ -386,8 +379,6 @@ async function pass1ExactDuplicates(stats, jsonBackupEntries) {
   ], { allowDiskUse: true });
   
   const groups = await cursor.toArray();
-
-  console.log(`[PASS 1] Found ${groups.length} exact duplicate group(s)`);
 
   for (let i = 0; i < groups.length; i++) {
     const { _id: canonicalKey, ids } = groups[i];
@@ -408,7 +399,6 @@ async function pass1ExactDuplicates(stats, jsonBackupEntries) {
     }
     if (minSim < SIMILARITY_THRESHOLD) {
       stats.skippedLowSimilarity++;
-      console.log(`  [SKIP] "${canonicalKey}" — similarity ${minSim.toFixed(3)}`);
       continue;
     }
 
@@ -416,7 +406,6 @@ async function pass1ExactDuplicates(stats, jsonBackupEntries) {
     const duplicates = docs.filter((d) => String(d._id) !== String(master._id));
     if (duplicates.length === 0) { stats.skippedSingleRecord++; continue; }
 
-    console.log(`  [${i + 1}/${groups.length}] "${canonicalKey}" — master: ${master.name} | ${duplicates.length} dup(s)`);
     await mergeGroup(master, duplicates, canonicalKey, jsonBackupEntries, stats);
   }
 }
@@ -425,7 +414,6 @@ async function pass1ExactDuplicates(stats, jsonBackupEntries) {
 // PASS 2: Fuzzy cross-key duplicates
 // ──────────────────────────────────────────────────────────────────────
 async function pass2FuzzyDuplicates(stats, jsonBackupEntries) {
-  console.log("\n[PASS 2] Fuzzy cross-key matching...");
 
   // Load all medicines with their normalized_name and dosage
   const allMeds = await Medicine.find(
@@ -453,8 +441,6 @@ async function pass2FuzzyDuplicates(stats, jsonBackupEntries) {
     if (uniqueKeys.size <= 1) continue; // All same canonical_key — already handled in pass1
     candidates.push({ fuzzyKey: fk, medIds: meds.map((m) => m._id) });
   }
-
-  console.log(`[PASS 2] Found ${candidates.length} fuzzy candidate group(s) (skipped ${skippedNoKey} w/o key)`);
 
   for (let i = 0; i < candidates.length; i++) {
     const { fuzzyKey, medIds } = candidates[i];
@@ -492,10 +478,7 @@ async function pass2FuzzyDuplicates(stats, jsonBackupEntries) {
     const duplicates = docs.filter((d) => String(d._id) !== String(master._id));
     if (duplicates.length === 0) continue;
 
-    console.log(
-      `  [FUZZY ${i + 1}/${candidates.length}] "${fuzzyKey}" — master: ${master.name} (${master.canonical_key}) | ${duplicates.length} dup(s)`
-    );
-    duplicates.forEach((d) => console.log(`    ↳ dup canonical_key: ${d.canonical_key}`));
+
 
     await mergeGroup(master, duplicates, fuzzyKey, jsonBackupEntries, stats);
   }
@@ -505,7 +488,6 @@ async function pass2FuzzyDuplicates(stats, jsonBackupEntries) {
 // PASS 3: Fuzzy Integer Dosage Matching (Salt + Base Integer)
 // ──────────────────────────────────────────────────────────────────────
 async function pass3IntegerFuzzyMatch(stats, jsonBackupEntries) {
-  console.log("\n[PASS 3] Fuzzy integer dosage matching...");
 
   const allMeds = await Medicine.find(
     {},
@@ -546,8 +528,6 @@ async function pass3IntegerFuzzyMatch(stats, jsonBackupEntries) {
     candidates.push({ fuzzyKey: fk, medIds: meds.map((m) => m._id) });
   }
 
-  console.log(`[PASS 3] Found ${candidates.length} candidate group(s) via integer matching (skipped ${skippedNoKey} w/o key)`);
-
   for (let i = 0; i < candidates.length; i++) {
     const { fuzzyKey, medIds } = candidates[i];
 
@@ -576,10 +556,7 @@ async function pass3IntegerFuzzyMatch(stats, jsonBackupEntries) {
     const duplicates = docs.filter((d) => String(d._id) !== String(master._id));
     if (duplicates.length === 0) continue;
 
-    console.log(
-      `  [INT FUZZY ${i + 1}/${candidates.length}] "${fuzzyKey}" — master: ${master.name} | ${duplicates.length} dup(s)`
-    );
-    duplicates.forEach((d) => console.log(`    ↳ dup: ${d.name} (dosage: ${d.dosage})`));
+
 
     await mergeGroup(master, duplicates, fuzzyKey, jsonBackupEntries, stats);
   }
@@ -606,9 +583,6 @@ async function main() {
       errors: [],
     };
 
-    console.log(`\n[INTERLINK] Total medicines: ${stats.totalMedicines}`);
-    console.log(`[INTERLINK] Mode: ${DRY_RUN ? "🔍 DRY RUN" : "🔥 LIVE MERGE"}\n`);
-
     // Backup setup
     const backupDir = path.join(__dirname, "backups");
     if (!DRY_RUN && !fs.existsSync(backupDir)) {
@@ -626,34 +600,15 @@ async function main() {
     // Write JSON backup
     if (!DRY_RUN && jsonBackupEntries.length > 0) {
       fs.writeFileSync(jsonBackupPath, JSON.stringify(jsonBackupEntries, null, 2));
-      console.log(`\n[BACKUP] JSON saved: ${jsonBackupPath}`);
     }
 
     // Final count
     const finalCount = DRY_RUN ? stats.totalMedicines : await Medicine.countDocuments();
 
-    console.log("\n" + "═".repeat(60));
-    console.log("  INTERLINK SUMMARY");
-    console.log("═".repeat(60));
-    console.log(`  Mode:                    ${DRY_RUN ? "DRY RUN" : "LIVE"}`);
-    console.log(`  Medicines before:        ${stats.totalMedicines}`);
-    console.log(`  Medicines after:         ${finalCount}`);
-    console.log(`  Groups merged:           ${stats.mergedGroups}`);
-    console.log(`  Prices moved:            ${stats.totalPricesMoved}`);
-    console.log(`  Duplicates removed:      ${stats.totalDuplicatesRemoved}`);
-    console.log("  ─── Skipped ─────────────────────────────────────");
-    console.log(`  Already canonical:       ${stats.skippedAlreadyCanonical}`);
-    console.log(`  Dosage missing:          ${stats.skippedDosageMissing}`);
-    console.log(`  Dosage mismatch:         ${stats.skippedDosageMismatch}`);
-    console.log(`  Low name similarity:     ${stats.skippedLowSimilarity}`);
-    console.log(`  Single record groups:    ${stats.skippedSingleRecord}`);
     if (stats.errors.length > 0) {
-      console.log("  ─── Errors ──────────────────────────────────────");
-      stats.errors.forEach((e) => console.log(`  ✘ ${e}`));
+
     }
-    console.log("═".repeat(60));
   } catch (err) {
-    console.error("[FATAL]", err);
     process.exitCode = 1;
   } finally {
     await mongoose.disconnect();

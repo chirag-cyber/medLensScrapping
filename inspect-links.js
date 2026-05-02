@@ -26,10 +26,7 @@ const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
   await new Promise(r => setTimeout(r, 3000));
 
-  console.log("\n=== TrueMeds API calls to nal.tmmumbai.in ===");
   productApiCalls.forEach(c => {
-    console.log(`[${c.method}] ${c.url}`);
-    console.log(`Body: ${c.body.substring(0, 1000)}\n`);
   });
 
   // Try to extract product info from rendered DOM
@@ -51,15 +48,10 @@ const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
     }));
   });
 
-  console.log("\n=== Products found via price detection ===");
   products.forEach((p, i) => {
-    console.log(`${i+1}. [${p.tag}.${p.classes}]`);
-    console.log(`   Text: ${p.text.replace(/\n/g, " | ")}`);
-    console.log(`   Href: ${p.href}`);
   });
 
   // Check the current URL in case it redirected
-  console.log("\nCurrent URL:", page.url());
 
   await browser.close();
-})().catch(e => console.error("Fatal:", e.message));
+})().catch(() => {});

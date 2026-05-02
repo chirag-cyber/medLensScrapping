@@ -10,11 +10,9 @@ const { cleanDescription, cleanSideEffects, cleanFaq } = require("./etl/transfor
 async function migrateDatabase() {
   try {
     await connectDB();
-    console.log("=== DB Migration: Retroactive Sanitization Started ===");
 
     // Fetch all medicines
     const medicines = await Medicine.find({});
-    console.log(`Found ${medicines.length} medicines in the database.`);
 
     let updatedCount = 0;
     let failedCount = 0;
@@ -59,22 +57,14 @@ async function migrateDatabase() {
           await doc.save();
           updatedCount++;
           if (updatedCount % 50 === 0) {
-            console.log(`...Updated ${updatedCount} records`);
           }
         }
       } catch (err) {
         failedCount++;
-        console.error(`Failed to update DB record for ID ${doc._id}: ${err.message}`);
       }
     }
 
-    console.log("=== DB Migration Completed ===");
-    console.log(`Total Records:   ${medicines.length}`);
-    console.log(`Updated Records: ${updatedCount}`);
-    console.log(`Failed Records:  ${failedCount}`);
-
   } catch (err) {
-    console.error("Migration failed due to error:", err);
   } finally {
     mongoose.disconnect();
   }

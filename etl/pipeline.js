@@ -12,7 +12,6 @@ async function runETL(rawInputArray, options = {}) {
 
   try {
     await connectDB();
-    console.log("=== ETL Pipeline Started ===");
 
     const validRawRecords = extractData(rawInputArray);
     const transformedRecords = [];
@@ -26,9 +25,6 @@ async function runETL(rawInputArray, options = {}) {
 
         if (!transformedStruct.canonical_key) {
           transformRejectedCount++;
-          console.warn(
-            `[ETL SKIP] Missing canonical key for record: ${transformedStruct.raw_name}`
-          );
           continue;
         }
 
@@ -45,7 +41,6 @@ async function runETL(rawInputArray, options = {}) {
         transformedRecords.push(transformedStruct);
       } catch (err) {
         transformRejectedCount++;
-        console.error(`[ETL ERROR] Failed parsing: ${record.name}`, err);
       }
     }
 
@@ -66,26 +61,14 @@ async function runETL(rawInputArray, options = {}) {
       nameQualityRejections: nameQualityRejections.slice(0, 20), // cap logged rejections
     };
 
-    console.log("=== ETL Pipeline Completed ===");
-    console.log(
-      `Processed ${summary.transformedCount}/${summary.extractedCount} records. ` +
-      `Medicines touched: ${summary.medicinesTouched}. ` +
-      `Price rows upserted: ${summary.priceEntriesUpserted}. ` +
-      `Rejected: ${totalRejected} (${transformRejectedCount} transform + ${summary.strictRejectedCount} strict). ` +
-      `Name quality warnings: ${nameQualityRejectedCount}.`
-    );
-
     if (nameQualityRejections.length > 0) {
-      console.log(`[DATA QUALITY] Sample name rejections:`);
       nameQualityRejections.slice(0, 5).forEach((r) =>
-        console.log(`  ✗ "${r.raw_name}" (${r.platform}) — ${r.reason}`)
       );
     }
 
     return summary;
 
   } catch (error) {
-    console.error("[ETL FATAL ERROR]", error);
     throw error;
   }
 }

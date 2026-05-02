@@ -65,17 +65,12 @@ async function main() {
   const args = parseArgs(process.argv);
 
   if (args.queries.length === 0) {
-    console.error(
-      'Usage: node batch-job.js "paracetamol 650,azithromycin 500" [--per-platform-limit all|25]'
-    );
     process.exit(1);
   }
 
   try {
     const result = await runBatchIngestion(args.queries, args);
-    console.log(JSON.stringify(result, null, 2));
   } catch (error) {
-    console.error(`[BATCH JOB ERROR] ${error.message}`);
     process.exitCode = 1;
   } finally {
     await mongoose.disconnect();

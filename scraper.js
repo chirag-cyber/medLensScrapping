@@ -238,7 +238,6 @@ async function scrapePDPLinks(targetUrl, options = {}) {
   // ─── FAST mode: try Axios first ────────────────────────────────
   if (mode === "fast" || mode === "auto") {
     try {
-      console.error("  ⚡ Trying fast fetch (Axios)...");
       html = await fetchWithAxios(targetUrl, timeout);
       const { allLinks, pdpLinks } = extractLinksFromHTML(
         html,
@@ -253,24 +252,17 @@ async function scrapePDPLinks(targetUrl, options = {}) {
       }
 
       // No PDP links found with fast mode — fall through to browser
-      console.error(
-        "  ⚠️  No PDP links found with fast fetch. Trying headless browser..."
-      );
     } catch (err) {
       if (mode === "fast") {
         throw new Error(
           `Failed to fetch page: ${err.response?.status || err.message}`
         );
       }
-      console.error(
-        `  ⚠️  Fast fetch failed (${err.response?.status || err.message}). Trying headless browser...`
-      );
     }
   }
 
   // ─── BROWSER mode: use Puppeteer ───────────────────────────────
   try {
-    console.error("  🌐 Launching headless browser (Puppeteer)...");
     html = await fetchWithPuppeteer(targetUrl, timeout + 15000);
     usedMode = "browser";
     const { allLinks, pdpLinks } = extractLinksFromHTML(

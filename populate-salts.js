@@ -41,17 +41,12 @@ const BATCH_SIZE = 1; // Process ONE salt at a time for maximum stealth
 const BATCH_JOB_PATH = path.join(__dirname, "batch-job.js");
 
 async function runInBatches() {
-  console.log(`\n🚀 Starting Ultra-Stable Bulk Ingestion for ${SALTS.length} salts\n`);
-  console.log(`📡 Sequential mode: 1 salt at a time | Platform delays enabled\n`);
 
   for (let i = 0; i < SALTS.length; i += BATCH_SIZE) {
     const currentBatch = SALTS.slice(i, i + BATCH_SIZE);
     const saltsString = currentBatch.join(",");
     const batchNum = Math.floor(i / BATCH_SIZE) + 1;
     const totalBatches = Math.ceil(SALTS.length / BATCH_SIZE);
-
-    console.log(`\n📦 [Salt ${batchNum}/${totalBatches}] Processing: ${saltsString}`);
-    console.log(`--------------------------------------------------------------------------`);
 
     try {
       // Reduced concurrency to 1 and kept timeout at 30s
@@ -61,21 +56,16 @@ async function runInBatches() {
         cwd: __dirname
       });
       
-      console.log(`✅ [Salt ${batchNum}] Successfully completed.`);
     } catch (error) {
-      console.error(`❌ [Salt ${batchNum}] Failed with error: ${error.message}`);
     }
 
     if (i + BATCH_SIZE < SALTS.length) {
-      console.log(`\n⏳ Cooling down for 5 seconds...\n`);
       await new Promise(resolve => setTimeout(resolve, 5000));
     }
   }
 
-  console.log(`\n🎯 Ingestion cycle complete.`);
 }
 
 runInBatches().catch(err => {
-  console.error("Fatal Error in batch runner:", err);
   process.exit(1);
 });

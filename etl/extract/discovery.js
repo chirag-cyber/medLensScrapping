@@ -36,7 +36,6 @@ async function safeGet(url, config = {}) {
       return await axios.get(url, config);
     } catch (error) {
       if (error.response?.status === 429 && attempt < maxRetries) {
-        console.warn(`[RATE LIMIT] 429 detected for ${url}. Waiting ${backoffMs / 1000}s...`);
         await sleep(backoffMs + Math.random() * 5000);
         continue;
       }
@@ -139,7 +138,6 @@ function pushDiscoveredUrl(discovered, seen, url, meta, limit) {
 }
 
 function logTier(platform, tier, method, count) {
-  console.log(`[DISCOVERY] ${platform}: Tier ${tier} (${method}) → found ${count} URLs`);
 }
 
 // ─── Web Search (Tier 3 — shared across all platforms) ──────────────
@@ -206,7 +204,6 @@ async function searchPlatformViaWeb(query, platform, options = {}) {
     const results = await searchViaDuckDuckGo(searchQuery, perPlatformLimit, platform.id, query);
     if (results.length > 0) return results;
   } catch (err) {
-    console.warn(`[DISCOVERY] DuckDuckGo failed for ${platform.id}: ${err.message}`);
   }
 
   // Fallback to Bing
@@ -214,7 +211,6 @@ async function searchPlatformViaWeb(query, platform, options = {}) {
     const results = await searchViaBing(searchQuery, perPlatformLimit, platform.id, query);
     return results;
   } catch (err) {
-    console.warn(`[DISCOVERY] Bing also failed for ${platform.id}: ${err.message}`);
   }
 
   return [];
@@ -266,7 +262,6 @@ async function discoverPharmEasyUrls(query, options = {}) {
     logTier("pharmeasy", 1, "API", discovered.length);
     if (discovered.length > 0) return discovered;
   } catch (err) {
-    console.warn(`[DISCOVERY] PharmEasy API failed: ${err.message}`);
   }
 
   // Tier 2: HTML parsing
@@ -281,7 +276,6 @@ async function discoverPharmEasyUrls(query, options = {}) {
     });
     logTier("pharmeasy", 2, "HTML", discovered.length);
   } catch (err) {
-    console.warn(`[DISCOVERY] PharmEasy HTML failed: ${err.message}`);
   }
 
   return discovered;
@@ -309,7 +303,6 @@ async function discoverNetmedsUrls(query, options = {}) {
     logTier("netmeds", 1, "HTML-state", discovered.length);
     if (discovered.length > 0 || mode === "fast") return discovered;
   } catch (err) {
-    console.warn(`[DISCOVERY] Netmeds HTML state failed: ${err.message}`);
   }
 
   // Tier 2: Browser fallback
@@ -322,7 +315,6 @@ async function discoverNetmedsUrls(query, options = {}) {
     });
     logTier("netmeds", 2, "browser", discovered.length);
   } catch (err) {
-    console.warn(`[DISCOVERY] Netmeds browser fallback failed: ${err.message}`);
   }
 
   return discovered;
@@ -362,7 +354,6 @@ async function discover1mgUrls(query, options = {}) {
     logTier("1mg", 1, "stealth-browser", discovered.length);
     if (discovered.length > 0) return discovered;
   } catch (err) {
-    console.warn(`[DISCOVERY] 1mg stealth browser failed: ${err.message}`);
   }
 
   // Tier 2: Web search fallback
@@ -374,7 +365,6 @@ async function discover1mgUrls(query, options = {}) {
       logTier("1mg", 2, "web-search", webResults.length);
     }
   } catch (err) {
-    console.warn(`[DISCOVERY] 1mg web search failed: ${err.message}`);
   }
 
   return discovered;
@@ -413,7 +403,6 @@ async function discoverApolloUrls(query, options = {}) {
     logTier("apollo", 1, "stealth-browser", discovered.length);
     if (discovered.length > 0) return discovered;
   } catch (err) {
-    console.warn(`[DISCOVERY] Apollo stealth browser failed: ${err.message}`);
   }
 
   // Tier 2: Web search fallback
@@ -425,7 +414,6 @@ async function discoverApolloUrls(query, options = {}) {
       logTier("apollo", 2, "web-search", webResults.length);
     }
   } catch (err) {
-    console.warn(`[DISCOVERY] Apollo web search failed: ${err.message}`);
   }
 
   return discovered;
@@ -508,7 +496,6 @@ async function discoverTruemedUrls(query, options = {}) {
     logTier("truemeds", 1, "stealth+intercept", discovered.length);
     if (discovered.length > 0) return discovered;
   } catch (err) {
-    console.warn(`[DISCOVERY] TrueMeds stealth browser failed: ${err.message}`);
   }
 
   // Tier 2: Web search fallback
@@ -520,7 +507,6 @@ async function discoverTruemedUrls(query, options = {}) {
       logTier("truemeds", 2, "web-search", webResults.length);
     }
   } catch (err) {
-    console.warn(`[DISCOVERY] TrueMeds web search failed: ${err.message}`);
   }
 
   return discovered;
@@ -609,7 +595,6 @@ async function discoverMedplusUrls(query, options = {}) {
       if (discovered.length === 0) {
         const title = await page.title();
         const bodyLen = await page.evaluate(() => document.body.innerText.length);
-        console.warn(`[DISCOVERY] MedPlus debug: page title="${title}", body text length=${bodyLen}`);
       }
     } finally {
       if (browser) try { await browser.close(); } catch { /* ignore */ }
@@ -618,7 +603,6 @@ async function discoverMedplusUrls(query, options = {}) {
     logTier("medplus", 1, "stealth+intercept", discovered.length);
     if (discovered.length > 0) return discovered;
   } catch (err) {
-    console.warn(`[DISCOVERY] MedPlus stealth browser failed: ${err.message}`);
   }
 
   // Tier 2: Web search fallback
@@ -630,7 +614,6 @@ async function discoverMedplusUrls(query, options = {}) {
       logTier("medplus", 2, "web-search", webResults.length);
     }
   } catch (err) {
-    console.warn(`[DISCOVERY] MedPlus web search failed: ${err.message}`);
   }
 
   return discovered;
@@ -663,7 +646,6 @@ async function discoverFromPlatformSearchPages(query, options = {}) {
         const results = await fn(query, { timeout, mode, perPlatformLimit });
         discovered.push(...results);
       } catch (err) {
-        console.warn(`[DISCOVERY] Platform ${platform.id} failed entirely: ${err.message}`);
       }
     }
   }
@@ -698,7 +680,6 @@ async function discoverMedicineUrls(query, options = {}) {
           logTier(platform.id, 3, "web-search-fallback", results.length);
         }
       } catch (err) {
-        console.warn(`[DISCOVERY] Web search fallback failed for ${platform.id}: ${err.message}`);
       }
     }
   }
