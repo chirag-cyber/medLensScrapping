@@ -61,10 +61,9 @@ async function runETL(rawInputArray, options = {}) {
       nameQualityRejections: nameQualityRejections.slice(0, 20), // cap logged rejections
     };
 
-    if (nameQualityRejections.length > 0) {
-      nameQualityRejections.slice(0, 5).forEach((r) =>
-      );
-    }
+    // if (nameQualityRejections.length > 0) {
+    //   console.log("Name Quality Rejections:", nameQualityRejections.slice(0, 5));
+    // }
 
     return summary;
 
