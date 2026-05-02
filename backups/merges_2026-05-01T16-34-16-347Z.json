@@ -1,0 +1,115 @@
+[
+  {
+    "canonicalKey": "amoxycillin|125mg",
+    "masterId": "69f356359993129c11b152d8",
+    "masterName": "amoxycillin 125mg syrup",
+    "duplicates": [
+      {
+        "id": "69f356359993129c11b152de",
+        "name": "stayhappi amoxycillin 125mg tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-01T16:34:18.051Z"
+  },
+  {
+    "canonicalKey": "amoxycillin|250mg",
+    "masterId": "69f356359993129c11b152da",
+    "masterName": "stayhappi amoxycillin 250mg capsule",
+    "duplicates": [
+      {
+        "id": "69f356359993129c11b152db",
+        "name": "amoxycillin 250mg tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-01T16:34:18.385Z"
+  },
+  {
+    "canonicalKey": "amlodipine hydrochlorothiazide 12|12.5mg",
+    "masterId": "69f454db9993129c11b171a1",
+    "masterName": "stayhappi amlodipine hydrochlorothiazide 5mg 12.5mg tablet",
+    "duplicates": [
+      {
+        "id": "69f454db9993129c11b171a2",
+        "name": "genericart amlodipine hydrochlorothiazide 5mg 12.5mg tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-01T16:34:21.664Z"
+  },
+  {
+    "canonicalKey": "spironolactone torasemide|50mg",
+    "masterId": "69f4585d9993129c11b172e4",
+    "masterName": "genericart spironolactone torasemide 50mg 20mg tablet",
+    "duplicates": [
+      {
+        "id": "69f4585d9993129c11b172f4",
+        "name": "stayhappi spironolactone torasemide 50mg 20mg tablet",
+        "platforms": [
+          "1mg",
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-01T16:34:22.148Z"
+  },
+  {
+    "canonicalKey": "skinshine|1mg",
+    "masterId": "69f4618e9993129c11b17701",
+    "masterName": "skinshine cream",
+    "duplicates": [
+      {
+        "id": "69f4618e9993129c11b17733",
+        "name": "cadila skinshine cream",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-01T16:34:22.878Z"
+  },
+  {
+    "canonicalKey": "olmesartan medoxomil|40mg",
+    "masterId": "69f4c2919993129c11b19ac8",
+    "masterName": "genericart olmesartan medoxomil 40mg tablet",
+    "duplicates": [
+      {
+        "id": "69f4c2919993129c11b19acb",
+        "name": "stayhappi olmesartan medoxomil 40mg tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-01T16:34:25.983Z"
+  },
+  {
+    "canonicalKey": "olmesartan medoxomil amlodipine|40mg",
+    "masterId": "69f4c2919993129c11b19ac9",
+    "masterName": "genericart olmesartan medoxomil amlodipine 40mg 5mg tablet",
+    "duplicates": [
+      {
+        "id": "69f4c2919993129c11b19aca",
+        "name": "stayhappi olmesartan medoxomil amlodipine 40mg 5mg tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-01T16:34:26.316Z"
+  }
+]

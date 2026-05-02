@@ -676,3 +676,1184 @@
 [2026-04-30T13:27:18.074Z]   🔍 [Attempt 1] Scraping: "cetirizine"
 [2026-04-30T13:31:15.296Z]   ✅ "cetirizine" → Discovered: 49, Scraped: 49, Medicines: 45
 [2026-04-30T13:31:19.305Z]   🔍 [Attempt 1] Scraping: "metformin"
+[2026-04-30T13:39:40.226Z]   ✅ "metformin" → Discovered: 137, Scraped: 137, Medicines: 131
+[2026-04-30T13:39:43.892Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T13:39:44.152Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T13:39:44.155Z]   🧠 [1/30] Enriching: etformin 500 mg tablet
+[2026-04-30T13:39:47.499Z]   🧠 [2/30] Enriching: glyciphage tablet
+[2026-04-30T13:39:55.087Z]   🧠 [3/30] Enriching: zomet tablet
+[2026-04-30T13:40:02.696Z]   🧠 [4/30] Enriching: voglibose 0.3 mg with metformin hcl 500 mg tablet
+[2026-04-30T13:40:10.324Z]   🧠 [5/30] Enriching: glycomet-250 tablet
+[2026-04-30T13:40:17.927Z]   🧠 [6/30] Enriching: metvomin sr 500mg tablet 1
+[2026-04-30T13:40:25.812Z]   🧠 [7/30] Enriching: abomet 1000 sr tablet
+[2026-04-30T13:40:33.426Z]   🧠 [8/30] Enriching: istamet 50 500mg tablet
+[2026-04-30T13:40:41.055Z]   🧠 [9/30] Enriching: gluconorm g 1mg tablet
+[2026-04-30T13:40:48.668Z]   🧠 [10/30] Enriching: mefomin sr 1000mg tablet
+[2026-04-30T13:40:56.295Z]   🧠 [11/30] Enriching: okamet 500 tablet
+[2026-04-30T13:41:03.895Z]   🧠 [12/30] Enriching: okamet-500 tablet
+[2026-04-30T13:41:11.553Z]   🧠 [13/30] Enriching: metsmall 500 tablet
+[2026-04-30T13:41:19.176Z]   🧠 [14/30] Enriching: metfor 500 tablet
+[2026-04-30T13:41:26.810Z]   🧠 [15/30] Enriching: mefomin 500 sr tablet
+[2026-04-30T13:41:34.420Z]   🧠 [16/30] Enriching: glycomet 500 sr tablet
+[2026-04-30T13:41:42.046Z]   🧠 [17/30] Enriching: metfor 500 mg tablet
+[2026-04-30T13:41:49.663Z]   🧠 [18/30] Enriching: metform sr 500 mg tablet
+[2026-04-30T13:41:52.637Z]   🧠 [19/30] Enriching: glycomet-500 sr tablet
+[2026-04-30T13:42:00.200Z]   🧠 [20/30] Enriching: ausmetfor 500 tablet
+[2026-04-30T13:42:07.827Z]   🧠 [21/30] Enriching: metform sr 1000 tablet
+[2026-04-30T13:42:15.444Z]   🧠 [22/30] Enriching: maxformin 1000 tablet
+[2026-04-30T13:42:23.062Z]   🧠 [23/30] Enriching: mefomin 1000 sr tablet
+[2026-04-30T13:42:30.680Z]   🧠 [24/30] Enriching: zomet 500mg tablet
+[2026-04-30T13:42:38.308Z]   🧠 [25/30] Enriching: metformin sr 500 tablet
+[2026-04-30T13:42:45.932Z]   🧠 [26/30] Enriching: glycomet gp 1mg tablet
+[2026-04-30T13:42:53.540Z]   🧠 [27/30] Enriching: dailyglim m forte 1mg 1000mg tablet
+[2026-04-30T13:43:01.149Z]   🧠 [28/30] Enriching: glimfal 2m forte tablet
+[2026-04-30T13:43:08.759Z]   🧠 [29/30] Enriching: dapzigard m 10mg 500mg tablet
+[2026-04-30T13:43:16.382Z]   🧠 [30/30] Enriching: dapaford m forte 10mg 1000mg tablet
+[2026-04-30T13:43:21.488Z]   ✅ Enrichment done: 2 updated, 28 failed.
+[2026-04-30T13:43:21.496Z] 
+📊 Progress: 6/580 queries (1.0%) | Speed: 0.00 q/s | ETA: 72h 4m 40s
+[2026-04-30T13:43:21.498Z]    Discovered: 539 | Scraped: 539 | Medicines: 504 | Enriched: 14
+[2026-04-30T13:43:21.501Z] 💤 Breathing for 3.1s before next batch...
+
+[2026-04-30T13:43:24.654Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T13:43:24.656Z] 📦 BATCH 3 — Processing 3 queries [atorvastatin, omeprazole, pantoprazole]
+[2026-04-30T13:43:24.657Z] ════════════════════════════════════════════════════════════
+[2026-04-30T13:43:24.658Z]   🔍 [Attempt 1] Scraping: "atorvastatin"
+[2026-04-30T13:51:32.318Z]   ✅ "atorvastatin" → Discovered: 105, Scraped: 105, Medicines: 99
+[2026-04-30T13:51:34.636Z]   🔍 [Attempt 1] Scraping: "omeprazole"
+[2026-04-30T13:59:08.127Z]   ✅ "omeprazole" → Discovered: 138, Scraped: 138, Medicines: 135
+[2026-04-30T13:59:11.097Z]   🔍 [Attempt 1] Scraping: "pantoprazole"
+[2026-04-30T14:03:28.123Z]   ✅ "pantoprazole" → Discovered: 115, Scraped: 115, Medicines: 108
+[2026-04-30T14:03:32.657Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T14:03:32.881Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T14:03:32.883Z]   🧠 [1/30] Enriching: pantafol dsr capsule
+[2026-04-30T14:03:36.598Z]   🧠 [2/30] Enriching: pantop 40 tablet
+[2026-04-30T14:03:44.159Z]   🧠 [3/30] Enriching: unopan 40 tablet
+[2026-04-30T14:03:51.769Z]   🧠 [4/30] Enriching: pantop dsr capsule
+[2026-04-30T14:03:59.392Z]   🧠 [5/30] Enriching: pan d capsule
+[2026-04-30T14:04:07.012Z]   🧠 [6/30] Enriching: pantakind tablet
+[2026-04-30T14:04:14.643Z]   🧠 [7/30] Enriching: topp 40mg tablet
+[2026-04-30T14:04:22.253Z]   🧠 [8/30] Enriching: pantocid 40mg tablet
+[2026-04-30T14:04:29.885Z]   🧠 [9/30] Enriching: pantosec 40mg tablet
+[2026-04-30T14:04:37.490Z]   🧠 [10/30] Enriching: pantosec d sr capsule
+[2026-04-30T14:04:45.102Z]   🧠 [11/30] Enriching: alcipan 40mg tablet
+[2026-04-30T14:04:52.712Z]   🧠 [12/30] Enriching: patafol 40mg tablet
+[2026-04-30T14:05:00.335Z]   🧠 [13/30] Enriching: panvue 40mg tablet
+[2026-04-30T14:05:07.945Z]   🧠 [14/30] Enriching: pentopen 40 tablet
+[2026-04-30T14:05:15.584Z]   🧠 [15/30] Enriching: pantaquik 40mg tablet
+[2026-04-30T14:05:23.183Z]   🧠 [16/30] Enriching: pansped iv 40mg injection
+[2026-04-30T14:05:30.807Z]   🧠 [17/30] Enriching: pantadoc 40mg tablet
+[2026-04-30T14:05:38.420Z]   🧠 [18/30] Enriching: pansped 40 tablet
+[2026-04-30T14:05:46.055Z]   🧠 [19/30] Enriching: aciban
+[2026-04-30T14:05:53.657Z]   🧠 [20/30] Enriching: pantoride-dsr capsule
+[2026-04-30T14:06:01.286Z]   🧠 [21/30] Enriching: pantocid 80 dual-release tablet
+[2026-04-30T14:06:08.897Z]   🧠 [22/30] Enriching: pantop-d capsule
+[2026-04-30T14:06:16.535Z]   🧠 [23/30] Enriching: nupenta tablet
+[2026-04-30T14:06:24.144Z]   🧠 [24/30] Enriching: pantolup 40mg tablet
+[2026-04-30T14:06:31.773Z]   🧠 [25/30] Enriching: zovanta 40mg injection
+[2026-04-30T14:06:39.388Z]   🧠 [26/30] Enriching: panum iv 40mg injection
+[2026-04-30T14:06:47.006Z]   🧠 [27/30] Enriching: pantocip 40mg infusion
+[2026-04-30T14:06:54.660Z]   🧠 [28/30] Enriching: pezover-d 10mg 40mg tablet
+[2026-04-30T14:07:02.271Z]   🧠 [29/30] Enriching: pazom-d tablet
+[2026-04-30T14:07:09.864Z]   🧠 [30/30] Enriching: panum-dsr capsule
+[2026-04-30T14:07:14.972Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-04-30T14:07:15.041Z] 
+📊 Progress: 9/580 queries (1.6%) | Speed: 0.00 q/s | ETA: 73h 9m 15s
+[2026-04-30T14:07:15.042Z]    Discovered: 897 | Scraped: 897 | Medicines: 846 | Enriched: 15
+[2026-04-30T14:07:15.044Z] 💤 Breathing for 2.1s before next batch...
+
+[2026-04-30T14:07:17.193Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T14:07:17.195Z] 📦 BATCH 4 — Processing 3 queries [amlodipine, losartan, telmisartan]
+[2026-04-30T14:07:17.196Z] ════════════════════════════════════════════════════════════
+[2026-04-30T14:07:17.198Z]   🔍 [Attempt 1] Scraping: "amlodipine"
+[2026-04-30T14:14:23.646Z]   ✅ "amlodipine" → Discovered: 105, Scraped: 105, Medicines: 103
+[2026-04-30T14:14:28.095Z]   🔍 [Attempt 1] Scraping: "losartan"
+[2026-04-30T14:21:09.472Z]   ✅ "losartan" → Discovered: 137, Scraped: 137, Medicines: 136
+[2026-04-30T14:21:12.423Z]   🔍 [Attempt 1] Scraping: "telmisartan"
+[2026-04-30T14:25:40.579Z]   ✅ "telmisartan" → Discovered: 115, Scraped: 115, Medicines: 112
+[2026-04-30T14:25:43.823Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T14:25:44.068Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T14:25:44.070Z]   🧠 [1/30] Enriching: telmiride 40mg tablet
+[2026-04-30T14:25:47.698Z]   🧠 [2/30] Enriching: telma 40 tablet
+[2026-04-30T14:25:55.276Z]   🧠 [3/30] Enriching: telmikind 20mg tablet
+[2026-04-30T14:26:02.898Z]   🧠 [4/30] Enriching: ctd t 6.25 40mg tablet
+[2026-04-30T14:26:10.529Z]   🧠 [5/30] Enriching: telsartan 40mg tablet
+[2026-04-30T14:26:18.156Z]   🧠 [6/30] Enriching: telmiride 20mg tablet
+[2026-04-30T14:26:25.819Z]   🧠 [7/30] Enriching: telma 40mg tablet
+[2026-04-30T14:26:33.427Z]   🧠 [8/30] Enriching: telmikind 40 tablet
+[2026-04-30T14:26:41.053Z]   🧠 [9/30] Enriching: telma 20mg tablet
+[2026-04-30T14:26:48.662Z]   🧠 [10/30] Enriching: telday 40mg tablet
+[2026-04-30T14:26:56.287Z]   🧠 [11/30] Enriching: telinsat
+[2026-04-30T14:27:03.910Z]   🧠 [12/30] Enriching: abtelmi 80 tablet
+[2026-04-30T14:27:11.544Z]   🧠 [13/30] Enriching: tel q 20mg tablet
+[2026-04-30T14:27:19.145Z]   🧠 [14/30] Enriching: telpil 40mg tablet
+[2026-04-30T14:27:26.770Z]   🧠 [15/30] Enriching: tenelica 20mg tablet
+[2026-04-30T14:27:34.395Z]   🧠 [16/30] Enriching: fenditel 40mg tablet
+[2026-04-30T14:27:42.036Z]   🧠 [17/30] Enriching: tazloc-am tablet
+[2026-04-30T14:27:49.647Z]   🧠 [18/30] Enriching: telmiduce 40mg tablet
+[2026-04-30T14:27:57.316Z]   🧠 [19/30] Enriching: telpres 40 tablet
+[2026-04-30T14:28:04.910Z]   🧠 [20/30] Enriching: telmiride 40 tablet
+[2026-04-30T14:28:12.551Z]   🧠 [21/30] Enriching: sartel
+[2026-04-30T14:28:20.162Z]   🧠 [22/30] Enriching: telsar
+[2026-04-30T14:28:27.832Z]   🧠 [23/30] Enriching: arbitel 40 tablet
+[2026-04-30T14:28:35.442Z]   🧠 [24/30] Enriching: telkom 40mg tablet
+[2026-04-30T14:28:43.067Z]   🧠 [25/30] Enriching: fenditel 80mg tablet
+[2026-04-30T14:28:50.677Z]   🧠 [26/30] Enriching: abtelmi 40mg tablet
+[2026-04-30T14:28:58.271Z]   🧠 [27/30] Enriching: eritel
+[2026-04-30T14:29:05.894Z]   🧠 [28/30] Enriching: telmore 80 tablet
+[2026-04-30T14:29:13.504Z]   🧠 [29/30] Enriching: tenelica 40mg tablet
+[2026-04-30T14:29:21.113Z]   🧠 [30/30] Enriching: telmevas 40 tablet
+[2026-04-30T14:29:26.241Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-04-30T14:29:26.246Z] 
+📊 Progress: 12/580 queries (2.1%) | Speed: 0.00 q/s | ETA: 72h 8m 34s
+[2026-04-30T14:29:26.247Z]    Discovered: 1254 | Scraped: 1254 | Medicines: 1197 | Enriched: 16
+[2026-04-30T14:29:26.249Z] 💤 Breathing for 4.3s before next batch...
+
+[2026-04-30T14:29:30.582Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T14:29:30.583Z] 📦 BATCH 5 — Processing 3 queries [ciprofloxacin, levofloxacin, doxycycline]
+[2026-04-30T14:29:30.584Z] ════════════════════════════════════════════════════════════
+[2026-04-30T14:29:30.585Z]   🔍 [Attempt 1] Scraping: "ciprofloxacin"
+[2026-04-30T14:37:24.869Z]   ✅ "ciprofloxacin" → Discovered: 137, Scraped: 137, Medicines: 136
+[2026-04-30T14:37:29.302Z]   🔍 [Attempt 1] Scraping: "levofloxacin"
+[2026-04-30T14:44:54.340Z]   ✅ "levofloxacin" → Discovered: 139, Scraped: 139, Medicines: 131
+[2026-04-30T14:44:58.986Z]   🔍 [Attempt 1] Scraping: "doxycycline"
+[2026-04-30T14:49:43.115Z]   ✅ "doxycycline" → Discovered: 114, Scraped: 114, Medicines: 114
+[2026-04-30T14:49:47.022Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T14:49:47.159Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T14:49:47.160Z]   🧠 [1/30] Enriching: doxt sl capsule
+[2026-04-30T14:49:54.808Z]   🧠 [2/30] Enriching: doxyvac c capsule
+[2026-04-30T14:50:02.428Z]   🧠 [3/30] Enriching: doxybond lb capsule
+[2026-04-30T14:50:10.031Z]   🧠 [4/30] Enriching: doxt sl capsule
+[2026-04-30T14:50:17.629Z]   🧠 [5/30] Enriching: biodoxi lb capsule
+[2026-04-30T14:50:25.291Z]   🧠 [6/30] Enriching: doxy 1 l dr forte capsule
+[2026-04-30T14:50:32.904Z]   🧠 [7/30] Enriching: doxynec capsule
+[2026-04-30T14:50:40.505Z]   🧠 [8/30] Enriching: k dox capsule
+[2026-04-30T14:50:48.109Z]   🧠 [9/30] Enriching: edox dt 100mg tablet
+[2026-04-30T14:50:55.732Z]   🧠 [10/30] Enriching: edox capsule
+[2026-04-30T14:51:03.342Z]   🧠 [11/30] Enriching: doxylab capsule
+[2026-04-30T14:51:10.931Z]   🧠 [12/30] Enriching: doxypath lb tablet
+[2026-04-30T14:51:18.526Z]   🧠 [13/30] Enriching: microdox lbx capsule
+[2026-04-30T14:51:26.171Z]   🧠 [14/30] Enriching: aldox 100mg capsule
+[2026-04-30T14:51:33.773Z]   🧠 [15/30] Enriching: doxacil 100mg capsule
+[2026-04-30T14:51:41.399Z]   🧠 [16/30] Enriching: doxizid 100mg injection
+[2026-04-30T14:51:49.010Z]   🧠 [17/30] Enriching: doxybuz 100mg injection
+[2026-04-30T14:51:56.627Z]   🧠 [18/30] Enriching: doxt sl 100mg capsules
+[2026-04-30T14:52:04.237Z]   🧠 [19/30] Enriching: ceedoxy 100mg capsule
+[2026-04-30T14:52:11.830Z]   🧠 [20/30] Enriching: mdox 100mg tablet dt
+[2026-04-30T14:52:19.427Z]   🧠 [21/30] Enriching: doxika 100mg tablet
+[2026-04-30T14:52:27.062Z]   🧠 [22/30] Enriching: solomycin 50mg tablet
+[2026-04-30T14:52:34.674Z]   🧠 [23/30] Enriching: doxykin 100mg injection
+[2026-04-30T14:52:42.277Z]   🧠 [24/30] Enriching: spardox 100mg capsule
+[2026-04-30T14:52:49.877Z]   🧠 [25/30] Enriching: doxygates tablet
+[2026-04-30T14:52:57.520Z]   🧠 [26/30] Enriching: agedox 100mg injection
+[2026-04-30T14:53:05.124Z]   🧠 [27/30] Enriching: doxy 24 tablet
+[2026-04-30T14:53:12.759Z]   🧠 [28/30] Enriching: doxihenz 100mg injection
+[2026-04-30T14:53:20.365Z]   🧠 [29/30] Enriching: bdoxy 100mg injection
+[2026-04-30T14:53:27.992Z]   🧠 [30/30] Enriching: doxykus 100mg capsule
+[2026-04-30T14:53:33.101Z]   ✅ Enrichment done: 0 updated, 30 failed.
+[2026-04-30T14:53:33.116Z] 
+📊 Progress: 15/580 queries (2.6%) | Speed: 0.00 q/s | ETA: 72h 36m 9s
+[2026-04-30T14:53:33.119Z]    Discovered: 1644 | Scraped: 1644 | Medicines: 1578 | Enriched: 16
+[2026-04-30T14:53:33.122Z] 💤 Breathing for 3.1s before next batch...
+
+[2026-04-30T14:53:36.295Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T14:53:36.296Z] 📦 BATCH 6 — Processing 3 queries [ceftriaxone, cefixime, metronidazole]
+[2026-04-30T14:53:36.297Z] ════════════════════════════════════════════════════════════
+[2026-04-30T14:53:36.298Z]   🔍 [Attempt 1] Scraping: "ceftriaxone"
+[2026-04-30T14:59:55.669Z]   ✅ "ceftriaxone" → Discovered: 74, Scraped: 74, Medicines: 74
+[2026-04-30T14:59:58.334Z]   🔍 [Attempt 1] Scraping: "cefixime"
+[2026-04-30T15:03:53.814Z]   ✅ "cefixime" → Discovered: 80, Scraped: 80, Medicines: 79
+[2026-04-30T15:03:57.494Z]   🔍 [Attempt 1] Scraping: "metronidazole"
+[2026-04-30T15:10:52.059Z]   ✅ "metronidazole" → Discovered: 105, Scraped: 105, Medicines: 95
+[2026-04-30T15:10:55.977Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T15:10:56.185Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T15:10:56.186Z]   🧠 [1/30] Enriching: drez-v gel
+[2026-04-30T15:10:59.066Z]   🧠 [2/30] Enriching: metrogyl m ointment 5 gm
+[2026-04-30T15:11:06.647Z]   🧠 [3/30] Enriching: flagyl iv 500 mg injection
+[2026-04-30T15:11:14.288Z]   🧠 [4/30] Enriching: metronidazole 200 mg tablet
+[2026-04-30T15:11:21.891Z]   🧠 [5/30] Enriching: flagyl 200 tablet
+[2026-04-30T15:11:29.533Z]   🧠 [6/30] Enriching: metrogyl dg gel forte
+[2026-04-30T15:11:37.137Z]   🧠 [7/30] Enriching: flagyl suspension 60ml
+[2026-04-30T15:11:44.748Z]   🧠 [8/30] Enriching: metrogyl suspension 60ml
+[2026-04-30T15:11:52.356Z]   🧠 [9/30] Enriching: metrogyl suspension
+[2026-04-30T15:11:59.988Z]   🧠 [10/30] Enriching: metrogyl dg forte gel 20gm
+[2026-04-30T15:12:07.599Z]   🧠 [11/30] Enriching: metrogyl gel
+[2026-04-30T15:12:15.222Z]   🧠 [12/30] Enriching: metrogyl o tablet
+[2026-04-30T15:12:22.821Z]   🧠 [13/30] Enriching: rexidin m forte gel 15gm
+[2026-04-30T15:12:30.455Z]   🧠 [14/30] Enriching: metronidazole 400 mg tablet
+[2026-04-30T15:12:38.063Z]   🧠 [15/30] Enriching: dantox mouth ulcer gel 15g
+[2026-04-30T15:12:45.667Z]   🧠 [16/30] Enriching: metrogyl injection
+[2026-04-30T15:12:53.283Z]   🧠 [17/30] Enriching: metronidazole iv infusion
+[2026-04-30T15:13:00.918Z]   🧠 [18/30] Enriching: anaero gel
+[2026-04-30T15:13:08.522Z]   🧠 [19/30] Enriching: bygyl 500mg infusion
+[2026-04-30T15:13:16.142Z]   🧠 [20/30] Enriching: meterkem 500mg infusion
+[2026-04-30T15:13:23.745Z]   🧠 [21/30] Enriching: metrokos 500mg infusion
+[2026-04-30T15:13:31.353Z]   🧠 [22/30] Enriching: sprot p 100mg suspension
+[2026-04-30T15:13:38.962Z]   🧠 [23/30] Enriching: ashmet 500mg infusion
+[2026-04-30T15:13:46.578Z]   🧠 [24/30] Enriching: metrinadzole infusion
+[2026-04-30T15:13:54.179Z]   🧠 [25/30] Enriching: metromeg 500mg infusion
+[2026-04-30T15:14:01.903Z]   🧠 [26/30] Enriching: metrohex plus gel
+[2026-04-30T15:14:09.508Z]   🧠 [27/30] Enriching: o2 m oral suspension delicious mango
+[2026-04-30T15:14:17.153Z]   🧠 [28/30] Enriching: metnizid gel 30gm
+[2026-04-30T15:14:24.768Z]   🧠 [29/30] Enriching: metroven 500mg infusion
+[2026-04-30T15:14:32.403Z]   🧠 [30/30] Enriching: anosum cream
+[2026-04-30T15:14:37.502Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-04-30T15:14:37.507Z] 
+📊 Progress: 18/580 queries (3.1%) | Speed: 0.00 q/s | ETA: 71h 11m 13s
+[2026-04-30T15:14:37.507Z]    Discovered: 1903 | Scraped: 1903 | Medicines: 1826 | Enriched: 17
+[2026-04-30T15:14:37.509Z] 💤 Breathing for 3.3s before next batch...
+
+[2026-04-30T15:14:40.810Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T15:14:40.811Z] 📦 BATCH 7 — Processing 3 queries [fluconazole, acyclovir, diclofenac]
+[2026-04-30T15:14:40.811Z] ════════════════════════════════════════════════════════════
+[2026-04-30T15:14:40.812Z]   🔍 [Attempt 1] Scraping: "fluconazole"
+[2026-04-30T15:20:55.104Z]   ✅ "fluconazole" → Discovered: 138, Scraped: 138, Medicines: 136
+[2026-04-30T15:20:59.962Z]   🔍 [Attempt 1] Scraping: "acyclovir"
+[2026-04-30T15:27:29.594Z]   ✅ "acyclovir" → Discovered: 169, Scraped: 169, Medicines: 168
+[2026-04-30T15:27:33.079Z]   🔍 [Attempt 1] Scraping: "diclofenac"
+[2026-04-30T15:30:07.097Z]   ✅ "diclofenac" → Discovered: 89, Scraped: 89, Medicines: 74
+[2026-04-30T15:30:10.653Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T15:30:10.835Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T15:30:10.837Z]   🧠 [1/30] Enriching: enzoflam tablet
+[2026-04-30T15:30:14.350Z]   🧠 [2/30] Enriching: voveran emulgel gel 50gm
+[2026-04-30T15:30:21.943Z]   🧠 [3/30] Enriching: zeldinac s tablet
+[2026-04-30T15:30:29.568Z]   🧠 [4/30] Enriching: diclovag gel 30gm
+[2026-04-30T15:30:37.193Z]   🧠 [5/30] Enriching: cip zox tablet
+[2026-04-30T15:30:44.805Z]   🧠 [6/30] Enriching: reactin sr 100mg tablet
+[2026-04-30T15:30:52.417Z]   🧠 [7/30] Enriching: voveran emulgel gel 30gm
+[2026-04-30T15:31:00.024Z]   🧠 [8/30] Enriching: diclomol tablet
+[2026-04-30T15:31:07.656Z]   🧠 [9/30] Enriching: vovedic tablet
+[2026-04-30T15:31:15.278Z]   🧠 [10/30] Enriching: inac 50mg tablet
+[2026-04-30T15:31:22.909Z]   🧠 [11/30] Enriching: vovedic plus gel 30gm
+[2026-04-30T15:31:30.521Z]   🧠 [12/30] Enriching: vovedic plus gel 15gm
+[2026-04-30T15:31:38.130Z]   🧠 [13/30] Enriching: tolexant d 150mg 50mg tablet
+[2026-04-30T15:31:45.741Z]   🧠 [14/30] Enriching: pegabanyl gel
+[2026-04-30T15:31:53.370Z]   🧠 [15/30] Enriching: cip-zox tablet
+[2026-04-30T15:32:00.972Z]   🧠 [16/30] Enriching: intagesic-mr tablet
+[2026-04-30T15:32:08.575Z]   🧠 [17/30] Enriching: pregabanyl gel
+[2026-04-30T15:32:16.176Z]   🧠 [18/30] Enriching: diclogel tube of 30gm gel
+[2026-04-30T15:32:23.787Z]   🧠 [19/30] Enriching: volini pain relief gel 30 gm
+[2026-04-30T15:32:31.384Z]   🧠 [20/30] Enriching: volitra aps solution
+[2026-04-30T15:32:39.001Z]   🧠 [21/30] Enriching: diclowin plus tablet
+[2026-04-30T15:32:47.524Z]   🧠 [22/30] Enriching: dfo gel
+[2026-04-30T15:32:55.126Z]   🧠 [23/30] Enriching: flexabenz gel with diclofenac diethylamine menthol
+[2026-04-30T15:33:02.727Z]   🧠 [24/30] Enriching: chymomerg d tablet
+[2026-04-30T15:33:10.360Z]   🧠 [25/30] Enriching: defenac hot gel
+[2026-04-30T15:33:17.959Z]   🧠 [26/30] Enriching: dp gesic tablet
+[2026-04-30T15:33:25.598Z]   🧠 [27/30] Enriching: voveran sr
+[2026-04-30T15:33:33.210Z]   🧠 [28/30] Enriching: zeldinac-p tablet
+[2026-04-30T15:33:40.847Z]   🧠 [29/30] Enriching: reactin plus tablet
+[2026-04-30T15:33:48.462Z]   🧠 [30/30] Enriching: intagesic gel
+[2026-04-30T15:33:53.583Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-04-30T15:33:53.592Z] 
+📊 Progress: 21/580 queries (3.6%) | Speed: 0.00 q/s | ETA: 69h 16m 18s
+[2026-04-30T15:33:53.593Z]    Discovered: 2299 | Scraped: 2299 | Medicines: 2204 | Enriched: 18
+[2026-04-30T15:33:53.596Z] 💤 Breathing for 2.3s before next batch...
+
+[2026-04-30T15:33:55.927Z] 
+════════════════════════════════════════════════════════════
+[2026-04-30T15:33:55.929Z] 📦 BATCH 8 — Processing 3 queries [naproxen, aspirin, clopidogrel]
+[2026-04-30T15:33:55.931Z] ════════════════════════════════════════════════════════════
+[2026-04-30T15:33:55.932Z]   🔍 [Attempt 1] Scraping: "naproxen"
+[2026-04-30T15:40:22.405Z]   ✅ "naproxen" → Discovered: 137, Scraped: 137, Medicines: 135
+[2026-04-30T15:40:24.738Z]   🔍 [Attempt 1] Scraping: "aspirin"
+[2026-04-30T15:43:03.028Z]   ✅ "aspirin" → Discovered: 114, Scraped: 114, Medicines: 105
+[2026-04-30T15:43:06.566Z]   🔍 [Attempt 1] Scraping: "clopidogrel"
+[2026-04-30T15:49:48.588Z]   ✅ "clopidogrel" → Discovered: 137, Scraped: 137, Medicines: 125
+[2026-04-30T15:49:50.729Z] 🧠 Running LLM Enrichment Cycle...
+[2026-04-30T15:49:50.994Z]   🎯 Found 30 medicines needing enrichment.
+[2026-04-30T15:49:50.996Z]   🧠 [1/30] Enriching: clopidogrel 75mg aspirin 75mg tablet
+[2026-04-30T15:49:58.828Z]   🧠 [2/30] Enriching: clavix tablet
+[2026-04-30T15:50:06.442Z]   🧠 [3/30] Enriching: clopizen 75 mg tablet
+[2026-04-30T15:50:14.037Z]   🧠 [4/30] Enriching: deplatt 75 mg tablet
+[2026-04-30T15:50:21.672Z]   🧠 [5/30] Enriching: plavix tablet
+[2026-04-30T15:50:29.294Z]   🧠 [6/30] Enriching: clopitab 150 tablet
+[2026-04-30T15:50:36.894Z]   🧠 [7/30] Enriching: clopilet 75mg tablet
+[2026-04-30T15:50:44.496Z]   🧠 [8/30] Enriching: clopikind tablet
+[2026-04-30T15:50:52.124Z]   🧠 [9/30] Enriching: clopitab a 75mg capsules
+[2026-04-30T15:50:59.712Z]   🧠 [10/30] Enriching: clopitab tablet
+[2026-04-30T15:51:07.350Z]   🧠 [11/30] Enriching: clopivas-75 tablet
+[2026-04-30T15:51:14.950Z]   🧠 [12/30] Enriching: clopitab 75mg tablet
+[2026-04-30T15:51:22.142Z] 
+⚠️  Received SIGINT. Saving state and exiting gracefully...
+[2026-04-30T15:51:22.144Z] 💾 State saved. You can resume with: node orchestrator.js --resume
+[2026-05-01T06:34:32.038Z] ♻️  Resuming from batch index 24 (8 batches already done)
+[2026-05-01T06:34:32.080Z] 📊 556 queries remaining across 186 batches.
+
+[2026-05-01T06:34:32.083Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T06:34:32.091Z] 📦 BATCH 9 — Processing 3 queries [warfarin, atenolol, metoprolol]
+[2026-05-01T06:34:32.094Z] ════════════════════════════════════════════════════════════
+[2026-05-01T06:34:32.097Z]   🔍 [Attempt 1] Scraping: "warfarin"
+[2026-05-01T06:39:48.371Z]   ✅ "warfarin" → Discovered: 61, Scraped: 61, Medicines: 44
+[2026-05-01T06:39:51.131Z]   🔍 [Attempt 1] Scraping: "atenolol"
+[2026-05-01T06:46:48.091Z]   ✅ "atenolol" → Discovered: 106, Scraped: 106, Medicines: 101
+[2026-05-01T06:46:52.764Z]   🔍 [Attempt 1] Scraping: "metoprolol"
+[2026-05-01T06:53:26.322Z]   ✅ "metoprolol" → Discovered: 106, Scraped: 106, Medicines: 105
+[2026-05-01T06:53:29.422Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T06:53:29.681Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T06:53:29.683Z]   🧠 [1/30] Enriching: prolomet xl
+[2026-05-01T06:53:32.831Z]   🧠 [2/30] Enriching: cymet er 25 tablet
+[2026-05-01T06:53:35.770Z]   🧠 [3/30] Enriching: metolar injection 5 ml
+[2026-05-01T06:53:38.698Z]   🧠 [4/30] Enriching: metapro 25mg tablet
+[2026-05-01T06:53:41.679Z]   🧠 [5/30] Enriching: embeta 50 mg tablet
+[2026-05-01T06:53:44.552Z]   🧠 [6/30] Enriching: abmetop 50 xl tablet
+[2026-05-01T06:53:47.368Z]   🧠 [7/30] Enriching: abmetop 25 xl tablet
+[2026-05-01T06:53:50.303Z]   🧠 [8/30] Enriching: metolar
+[2026-05-01T06:53:53.270Z]   🧠 [9/30] Enriching: metoprol xl
+[2026-05-01T06:53:56.138Z]   🧠 [10/30] Enriching: met xl
+[2026-05-01T06:53:59.097Z]   🧠 [11/30] Enriching: metopole-12.5mg xl tablet
+[2026-05-01T06:54:02.067Z]   🧠 [12/30] Enriching: met xl 12
+[2026-05-01T06:54:05.027Z]   🧠 [13/30] Enriching: prolomet xl 25 tablet
+[2026-05-01T06:54:08.629Z]   🧠 [14/30] Enriching: metoprol 50 mg tablet
+[2026-05-01T06:54:11.547Z]   🧠 [15/30] Enriching: metolar xr 12.5mg capsule
+[2026-05-01T06:54:14.957Z]   🧠 [16/30] Enriching: prolomet xl 12
+[2026-05-01T06:54:17.800Z]   🧠 [17/30] Enriching: metzok 25mg tablet
+[2026-05-01T06:54:21.234Z]   🧠 [18/30] Enriching: embeta xr 50mg tablet
+[2026-05-01T06:54:24.715Z]   🧠 [19/30] Enriching: embeta 25 mg tablet
+[2026-05-01T06:54:27.559Z]   🧠 [20/30] Enriching: metolar xr 25mg capsule
+[2026-05-01T06:54:31.126Z]   🧠 [21/30] Enriching: metolar xr 50mg capsule
+[2026-05-01T06:54:34.630Z]   🧠 [22/30] Enriching: starpress xl 12
+[2026-05-01T06:54:37.483Z]   🧠 [23/30] Enriching: prolomet t er
+[2026-05-01T06:54:41.455Z]   🧠 [24/30] Enriching: betaone-xl 25 tablet
+[2026-05-01T06:54:44.458Z]   🧠 [25/30] Enriching: met amt met xl amt 50 5 40 tablet tablet er
+[2026-05-01T06:54:47.549Z]   🧠 [26/30] Enriching: metosartan ch 25 tablet er
+[2026-05-01T06:54:50.376Z]   🧠 [27/30] Enriching: metapro-xl
+[2026-05-01T06:54:53.203Z]   🧠 [28/30] Enriching: cilamet xl 10 25 tablet er
+[2026-05-01T06:54:56.237Z]   🧠 [29/30] Enriching: olmezest beta 25 tablet er
+[2026-05-01T06:54:59.083Z]   🧠 [30/30] Enriching: embeta xr 12
+[2026-05-01T06:54:59.454Z]   ✅ Enrichment done: 30 updated, 0 failed.
+[2026-05-01T06:54:59.467Z] 
+📊 Progress: 27/580 queries (4.7%) | Speed: 0.02 q/s | ETA: 63h 4m 25s
+[2026-05-01T06:54:59.468Z]    Discovered: 2960 | Scraped: 2960 | Medicines: 2819 | Enriched: 48
+[2026-05-01T06:54:59.470Z] 💤 Breathing for 2.5s before next batch...
+
+[2026-05-01T06:55:01.991Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T06:55:01.993Z] 📦 BATCH 10 — Processing 3 queries [propranolol, ramipril, enalapril]
+[2026-05-01T06:55:01.995Z] ════════════════════════════════════════════════════════════
+[2026-05-01T06:55:01.997Z]   🔍 [Attempt 1] Scraping: "propranolol"
+[2026-05-01T07:02:44.557Z]   ✅ "propranolol" → Discovered: 137, Scraped: 137, Medicines: 132
+[2026-05-01T07:02:49.480Z]   🔍 [Attempt 1] Scraping: "ramipril"
+[2026-05-01T07:06:30.173Z]   ✅ "ramipril" → Discovered: 113, Scraped: 113, Medicines: 111
+[2026-05-01T07:06:33.682Z]   🔍 [Attempt 1] Scraping: "enalapril"
+[2026-05-01T07:13:57.612Z]   ✅ "enalapril" → Discovered: 140, Scraped: 140, Medicines: 135
+[2026-05-01T07:14:02.127Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T07:14:02.422Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T07:14:02.425Z]   🧠 [1/30] Enriching: enam d tablet
+[2026-05-01T07:14:05.447Z]   🧠 [2/30] Enriching: enalet 10mg tablet
+[2026-05-01T07:14:08.345Z]   🧠 [3/30] Enriching: enace d 2.5mg tablet
+[2026-05-01T07:14:11.505Z]   🧠 [4/30] Enriching: enace d
+[2026-05-01T07:14:14.379Z]   🧠 [5/30] Enriching: enam
+[2026-05-01T07:14:17.304Z]   🧠 [6/30] Enriching: enam
+[2026-05-01T07:14:20.313Z]   🧠 [7/30] Enriching: amtas e tablet
+[2026-05-01T07:14:23.195Z]   🧠 [8/30] Enriching: envas
+[2026-05-01T07:14:26.252Z]   🧠 [9/30] Enriching: dilvas
+[2026-05-01T07:14:29.236Z]   🧠 [10/30] Enriching: enace
+[2026-05-01T07:14:32.234Z]   🧠 [11/30] Enriching: nuril
+[2026-05-01T07:14:35.096Z]   🧠 [12/30] Enriching: enapril 2.5mg tablet
+[2026-05-01T07:14:38.662Z]   🧠 [13/30] Enriching: nuril 5mg tablet
+[2026-05-01T07:14:42.136Z]   🧠 [14/30] Enriching: enapril 10mg tablet
+[2026-05-01T07:14:45.463Z]   🧠 [15/30] Enriching: dilvas 2.5mg tablet
+[2026-05-01T07:14:49.004Z]   🧠 [16/30] Enriching: dilvas 5mg tablet
+[2026-05-01T07:14:52.479Z]   🧠 [17/30] Enriching: envas 5mg tablet
+[2026-05-01T07:14:55.853Z]   🧠 [18/30] Enriching: dilvas-2
+[2026-05-01T07:14:58.718Z]   🧠 [19/30] Enriching: envas 10mg tablet
+[2026-05-01T07:15:02.112Z]   🧠 [20/30] Enriching: enalatab 2
+[2026-05-01T07:15:05.611Z]   🧠 [21/30] Enriching: envas 2.5mg tablet
+[2026-05-01T07:15:09.028Z]   🧠 [22/30] Enriching: enam 2
+[2026-05-01T07:15:11.945Z]   🧠 [23/30] Enriching: envas tablet
+[2026-05-01T07:15:14.898Z]   🧠 [24/30] Enriching: enapril
+[2026-05-01T07:15:17.869Z]   🧠 [25/30] Enriching: enapril
+[2026-05-01T07:15:20.845Z]   🧠 [26/30] Enriching: enapril-ht tablet
+[2026-05-01T07:15:23.894Z]   🧠 [27/30] Enriching: enapril-2
+[2026-05-01T07:15:26.887Z]   🧠 [28/30] Enriching: lapril 5mg tablet
+[2026-05-01T07:15:29.748Z]   🧠 [29/30] Enriching: colpril 2.5mg tablet
+[2026-05-01T07:15:32.721Z]   🧠 [30/30] Enriching: encardil 5mg tablet
+[2026-05-01T07:15:33.077Z]   ✅ Enrichment done: 30 updated, 0 failed.
+[2026-05-01T07:15:33.085Z] 
+📊 Progress: 30/580 queries (5.2%) | Speed: 0.01 q/s | ETA: 62h 53m 32s
+[2026-05-01T07:15:33.090Z]    Discovered: 3350 | Scraped: 3350 | Medicines: 3197 | Enriched: 78
+[2026-05-01T07:15:33.093Z] 💤 Breathing for 4.7s before next batch...
+
+[2026-05-01T07:15:37.766Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T07:15:37.768Z] 📦 BATCH 11 — Processing 3 queries [hydrochlorothiazide, furosemide, spironolactone]
+[2026-05-01T07:15:37.771Z] ════════════════════════════════════════════════════════════
+[2026-05-01T07:15:37.773Z]   🔍 [Attempt 1] Scraping: "hydrochlorothiazide"
+[2026-05-01T07:23:08.259Z]   ✅ "hydrochlorothiazide" → Discovered: 139, Scraped: 139, Medicines: 130
+[2026-05-01T07:23:10.764Z]   🔍 [Attempt 1] Scraping: "furosemide"
+[2026-05-01T07:31:03.400Z]   ✅ "furosemide" → Discovered: 139, Scraped: 139, Medicines: 135
+[2026-05-01T07:31:05.809Z]   🔍 [Attempt 1] Scraping: "spironolactone"
+[2026-05-01T07:38:06.860Z]   ✅ "spironolactone" → Discovered: 108, Scraped: 108, Medicines: 96
+[2026-05-01T07:38:09.963Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T07:38:10.218Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T07:38:10.219Z]   🧠 [1/30] Enriching: nefspir tablet
+[2026-05-01T07:38:14.092Z]   🧠 [2/30] Enriching: torsibid-plus 10 mg tablet
+[2026-05-01T07:38:17.617Z]   🧠 [3/30] Enriching: aldactone
+[2026-05-01T07:38:20.598Z]   🧠 [4/30] Enriching: dytor plus 5mg tablet
+[2026-05-01T07:38:24.454Z]   🧠 [5/30] Enriching: dytor plus 20mg tablet
+[2026-05-01T07:38:27.849Z]   🧠 [6/30] Enriching: spironot-25 tablet
+[2026-05-01T07:38:30.707Z]   🧠 [7/30] Enriching: aldactone
+[2026-05-01T07:38:33.639Z]   🧠 [8/30] Enriching: minilactone tablet
+[2026-05-01T07:38:37.166Z]   🧠 [9/30] Enriching: dytor plus ls tablet
+[2026-05-01T07:38:40.007Z]   🧠 [10/30] Enriching: torsid plus 50 10mg tablet 10
+[2026-05-01T07:38:43.411Z]   🧠 [11/30] Enriching: dytor plus 10mg tablet
+[2026-05-01T07:38:46.891Z]   🧠 [12/30] Enriching: torsinex plus tablet
+[2026-05-01T07:38:50.381Z]   🧠 [13/30] Enriching: tide plus
+[2026-05-01T07:38:53.353Z]   🧠 [14/30] Enriching: torsid plus 20
+[2026-05-01T07:38:56.774Z]   🧠 [15/30] Enriching: aldactone 100mg tablet
+[2026-05-01T07:39:00.410Z]   🧠 [16/30] Enriching: dytor plus ls
+[2026-05-01T07:39:03.893Z]   🧠 [17/30] Enriching: semitor plus 50mg 10mg tablet
+[2026-05-01T07:39:06.869Z]   🧠 [18/30] Enriching: tormax plus ls 25mg 10mg tablet
+[2026-05-01T07:39:09.830Z]   🧠 [19/30] Enriching: dyloop plus
+[2026-05-01T07:39:12.805Z]   🧠 [20/30] Enriching: aldactone 50mg tablet
+[2026-05-01T07:39:16.387Z]   🧠 [21/30] Enriching: spironot
+[2026-05-01T07:39:19.259Z]   🧠 [22/30] Enriching: tordema 5 plus tablet
+[2026-05-01T07:39:22.427Z]   🧠 [23/30] Enriching: aldactone 25mg tablet
+[2026-05-01T07:39:26.162Z]   🧠 [24/30] Enriching: torsid plus 20
+[2026-05-01T07:39:29.085Z]   🧠 [25/30] Enriching: tormax plus 50mg 10mg tablet
+[2026-05-01T07:39:31.942Z]   🧠 [26/30] Enriching: tordema 20 plus tablet
+[2026-05-01T07:39:34.824Z]   🧠 [27/30] Enriching: torinef-plus
+[2026-05-01T07:39:37.789Z]   🧠 [28/30] Enriching: dyamide plus 25mg 10mg tablet
+[2026-05-01T07:39:40.645Z]   🧠 [29/30] Enriching: torvigress plus
+[2026-05-01T07:39:43.523Z]   🧠 [30/30] Enriching: dyamide plus 50 mg 10 mg tablet
+[2026-05-01T07:39:43.886Z]   ✅ Enrichment done: 30 updated, 0 failed.
+[2026-05-01T07:39:43.898Z] 
+📊 Progress: 33/580 queries (5.7%) | Speed: 0.01 q/s | ETA: 66h 17m 0s
+[2026-05-01T07:39:43.900Z]    Discovered: 3736 | Scraped: 3736 | Medicines: 3558 | Enriched: 108
+[2026-05-01T07:39:43.904Z] 💤 Breathing for 3.7s before next batch...
+
+[2026-05-01T07:39:47.608Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T07:39:47.612Z] 📦 BATCH 12 — Processing 3 queries [prednisolone, dexamethasone, hydrocortisone]
+[2026-05-01T07:39:47.614Z] ════════════════════════════════════════════════════════════
+[2026-05-01T07:39:47.617Z]   🔍 [Attempt 1] Scraping: "prednisolone"
+[2026-05-01T07:47:02.482Z]   ✅ "prednisolone" → Discovered: 105, Scraped: 105, Medicines: 99
+[2026-05-01T07:47:05.917Z]   🔍 [Attempt 1] Scraping: "dexamethasone"
+[2026-05-01T08:00:37.737Z]   ✅ "dexamethasone" → Discovered: 137, Scraped: 137, Medicines: 131
+[2026-05-01T08:00:39.782Z]   🔍 [Attempt 1] Scraping: "hydrocortisone"
+[2026-05-01T08:05:40.194Z]   ✅ "hydrocortisone" → Discovered: 105, Scraped: 105, Medicines: 102
+[2026-05-01T08:05:44.264Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T08:05:44.422Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T08:05:44.423Z]   🧠 [1/30] Enriching: smuth cream
+[2026-05-01T08:05:47.305Z]   🧠 [2/30] Enriching: shield ointment
+[2026-05-01T08:05:50.095Z]   🧠 [3/30] Enriching: cortison optichlor ointment 3 gm
+[2026-05-01T08:05:53.034Z]   🧠 [4/30] Enriching: smuth cream 30gm
+[2026-05-01T08:05:56.392Z]   🧠 [5/30] Enriching: pilorute cream 30gm
+[2026-05-01T08:06:00.179Z]   🧠 [6/30] Enriching: fucidin h cream 15gm
+[2026-05-01T08:06:03.571Z]   🧠 [7/30] Enriching: chlorcom h eye ointment 5g
+[2026-05-01T08:06:06.994Z]   🧠 [8/30] Enriching: lapcort cream 20gm
+[2026-05-01T08:06:14.561Z]   🧠 [9/30] Enriching: pilogo plus cream 30gm
+[2026-05-01T08:06:22.215Z]   🧠 [10/30] Enriching: icort tablet
+[2026-05-01T08:06:29.812Z]   🧠 [11/30] Enriching: corect rectal suppositories
+[2026-05-01T08:06:37.424Z]   🧠 [12/30] Enriching: lycor 1 cream 15gm
+[2026-05-01T08:06:45.020Z]   🧠 [13/30] Enriching: corect suppositories
+[2026-05-01T08:06:52.612Z]   🧠 [14/30] Enriching: crotorax hc cream 10gm
+[2026-05-01T08:07:00.223Z]   🧠 [15/30] Enriching: hisone 20mg tablet
+[2026-05-01T08:07:07.834Z]   🧠 [16/30] Enriching: hairmax forte solution
+[2026-05-01T08:07:15.433Z]   🧠 [17/30] Enriching: sbl hydrocortisone dilution 30 ch
+[2026-05-01T08:07:23.055Z]   🧠 [18/30] Enriching: cortavance hydrocortisone pet spray
+[2026-05-01T08:07:30.666Z]   🧠 [19/30] Enriching: sbl hydrocortisone dilution 200 ch
+[2026-05-01T08:07:38.264Z]   🧠 [20/30] Enriching: chlorocol h eye ointment
+[2026-05-01T08:07:45.865Z]   🧠 [21/30] Enriching: fucidin h cream
+[2026-05-01T08:07:53.477Z]   🧠 [22/30] Enriching: hydrozole cream
+[2026-05-01T08:08:01.083Z]   🧠 [23/30] Enriching: hisone
+[2026-05-01T08:08:08.683Z]   🧠 [24/30] Enriching: neosporin h ear drop
+[2026-05-01T08:08:16.298Z]   🧠 [25/30] Enriching: nosramycin h eye ointment
+[2026-05-01T08:08:23.902Z]   🧠 [26/30] Enriching: dexoren s eye ear drops 5 ml
+[2026-05-01T08:08:31.499Z]   🧠 [27/30] Enriching: deximon-px eye ear drops 5 ml
+[2026-05-01T08:08:34.482Z]   🧠 [28/30] Enriching: dexa ophthalmic solution
+[2026-05-01T08:08:42.050Z]   🧠 [29/30] Enriching: decamox eye drops 5ml
+[2026-05-01T08:08:49.656Z]   🧠 [30/30] Enriching: vigadexa ophthalmic solution 5ml
+[2026-05-01T08:08:54.757Z]   ✅ Enrichment done: 8 updated, 22 failed.
+[2026-05-01T08:08:54.762Z] 
+📊 Progress: 36/580 queries (6.2%) | Speed: 0.01 q/s | ETA: 71h 34m 11s
+[2026-05-01T08:08:54.762Z]    Discovered: 4083 | Scraped: 4083 | Medicines: 3890 | Enriched: 116
+[2026-05-01T08:08:54.763Z] 💤 Breathing for 3.0s before next batch...
+
+[2026-05-01T08:08:57.736Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T08:08:57.737Z] 📦 BATCH 13 — Processing 3 queries [betamethasone, mometasone, fluticasone]
+[2026-05-01T08:08:57.738Z] ════════════════════════════════════════════════════════════
+[2026-05-01T08:08:57.738Z]   🔍 [Attempt 1] Scraping: "betamethasone"
+[2026-05-01T08:14:27.508Z]   ✅ "betamethasone" → Discovered: 105, Scraped: 105, Medicines: 101
+[2026-05-01T08:14:30.834Z]   🔍 [Attempt 1] Scraping: "mometasone"
+[2026-05-01T08:17:18.652Z]   ✅ "mometasone" → Discovered: 113, Scraped: 113, Medicines: 106
+[2026-05-01T08:17:20.957Z]   🔍 [Attempt 1] Scraping: "fluticasone"
+[2026-05-01T08:23:27.567Z]   ✅ "fluticasone" → Discovered: 137, Scraped: 137, Medicines: 133
+[2026-05-01T08:23:32.114Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T08:23:32.387Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T08:23:32.389Z]   🧠 [1/30] Enriching: avamys nasal spray
+[2026-05-01T08:23:40.021Z]   🧠 [2/30] Enriching: flutiways nasal spray
+[2026-05-01T08:23:47.647Z]   🧠 [3/30] Enriching: flublock nasal spray 6 gm
+[2026-05-01T08:23:55.254Z]   🧠 [4/30] Enriching: flutibact ointment
+[2026-05-01T08:24:02.865Z]   🧠 [5/30] Enriching: nasowell f nasal spray
+[2026-05-01T08:24:10.484Z]   🧠 [6/30] Enriching: allegra nasal spray
+[2026-05-01T08:24:18.089Z]   🧠 [7/30] Enriching: nazohist f nasal spray 10ml
+[2026-05-01T08:24:25.729Z]   🧠 [8/30] Enriching: fluskin cream 20gm
+[2026-05-01T08:24:33.337Z]   🧠 [9/30] Enriching: flutiflo nasal spray 10ml
+[2026-05-01T08:24:40.961Z]   🧠 [10/30] Enriching: fluticone ft 120md nasal spray 6gm
+[2026-05-01T08:24:48.592Z]   🧠 [11/30] Enriching: fluticone nasal spray
+[2026-05-01T08:24:56.235Z]   🧠 [12/30] Enriching: allegra nasal spray 120mdi
+[2026-05-01T08:25:03.847Z]   🧠 [13/30] Enriching: flutivate skin cream 20gm
+[2026-05-01T08:25:11.492Z]   🧠 [14/30] Enriching: fluticone nasal spray 12ml
+[2026-05-01T08:25:19.088Z]   🧠 [15/30] Enriching: fluticone ox nasal spray 7gm
+[2026-05-01T08:25:26.713Z]   🧠 [16/30] Enriching: flomist nasal spray 100md
+[2026-05-01T08:25:34.326Z]   🧠 [17/30] Enriching: flutivin nasal spray 6gm
+[2026-05-01T08:25:41.960Z]   🧠 [18/30] Enriching: flixonase cfc free innospray
+[2026-05-01T08:25:49.569Z]   🧠 [19/30] Enriching: flutiflo nasal spray
+[2026-05-01T08:25:57.161Z]   🧠 [20/30] Enriching: flutiflo ft nasal spray 6 gm
+[2026-05-01T08:26:04.763Z]   🧠 [21/30] Enriching: nazomac-f nasal spray 12
+[2026-05-01T08:26:17.006Z]   🧠 [22/30] Enriching: furamist nasal spray 120md
+[2026-05-01T08:26:24.602Z]   🧠 [23/30] Enriching: flomist nasal spray
+[2026-05-01T08:26:32.203Z]   🧠 [24/30] Enriching: flutiflo ft nasal spray 120md
+[2026-05-01T08:26:39.788Z]   🧠 [25/30] Enriching: flomist ox nasal spray
+[2026-05-01T08:26:47.390Z]   🧠 [26/30] Enriching: seroflo 250 ciphaler
+[2026-05-01T08:26:54.986Z]   🧠 [27/30] Enriching: azenate nasal spray
+[2026-05-01T08:27:02.606Z]   🧠 [28/30] Enriching: nazohist-f nasal spray
+[2026-05-01T08:27:10.212Z]   🧠 [29/30] Enriching: voltido trio 100 ciphaler
+[2026-05-01T08:27:17.806Z]   🧠 [30/30] Enriching: nazomac-ox nasal spray
+[2026-05-01T08:27:22.910Z]   ✅ Enrichment done: 0 updated, 30 failed.
+[2026-05-01T08:27:22.923Z] 
+📊 Progress: 39/580 queries (6.7%) | Speed: 0.01 q/s | ETA: 68h 5m 4s
+[2026-05-01T08:27:22.925Z]    Discovered: 4438 | Scraped: 4438 | Medicines: 4230 | Enriched: 116
+[2026-05-01T08:27:22.928Z] 💤 Breathing for 3.9s before next batch...
+
+[2026-05-01T08:27:26.822Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T08:27:26.825Z] 📦 BATCH 14 — Processing 3 queries [budesonide, montelukast, salbutamol]
+[2026-05-01T08:27:26.827Z] ════════════════════════════════════════════════════════════
+[2026-05-01T08:27:26.828Z]   🔍 [Attempt 1] Scraping: "budesonide"
+[2026-05-01T08:34:28.680Z]   ✅ "budesonide" → Discovered: 203, Scraped: 203, Medicines: 201
+[2026-05-01T08:34:32.853Z]   🔍 [Attempt 1] Scraping: "montelukast"
+[2026-05-01T08:42:50.529Z]   ✅ "montelukast" → Discovered: 137, Scraped: 137, Medicines: 133
+[2026-05-01T08:42:54.929Z]   🔍 [Attempt 1] Scraping: "salbutamol"
+[2026-05-01T08:48:38.775Z]   ✅ "salbutamol" → Discovered: 138, Scraped: 138, Medicines: 132
+[2026-05-01T08:48:43.173Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T08:48:43.366Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T08:48:43.368Z]   🧠 [1/30] Enriching: ventex pd syrup
+[2026-05-01T08:48:46.357Z]   🧠 [2/30] Enriching: salbair respiratory solution
+[2026-05-01T08:48:49.237Z]   🧠 [3/30] Enriching: combimist ld respule 5x2.5 ml
+[2026-05-01T08:48:52.055Z]   🧠 [4/30] Enriching: ventorlin inhaler cfc free
+[2026-05-01T08:48:54.967Z]   🧠 [5/30] Enriching: ambrodil s syrup
+[2026-05-01T08:49:02.570Z]   🧠 [6/30] Enriching: asthalin rotacaps
+[2026-05-01T08:49:10.201Z]   🧠 [7/30] Enriching: asthalin 100 mcg inhaler 200 mdi
+[2026-05-01T08:49:17.824Z]   🧠 [8/30] Enriching: asthalin
+[2026-05-01T08:49:25.429Z]   🧠 [9/30] Enriching: asthalin respules 5 x 2.5 ml
+[2026-05-01T08:49:33.036Z]   🧠 [10/30] Enriching: theo asthalin forte tablet
+[2026-05-01T08:49:40.651Z]   🧠 [11/30] Enriching: asthalin respiratory solution
+[2026-05-01T08:49:48.255Z]   🧠 [12/30] Enriching: albutamol neo syrup 100ml
+[2026-05-01T08:49:55.858Z]   🧠 [13/30] Enriching: asthalin
+[2026-05-01T08:50:03.490Z]   🧠 [14/30] Enriching: asthalin with dose counter inhaler 200md
+[2026-05-01T08:50:11.094Z]   🧠 [15/30] Enriching: asthalin syrup 100ml
+[2026-05-01T08:50:18.727Z]   🧠 [16/30] Enriching: asthalin respirator solution 15ml
+[2026-05-01T08:50:26.318Z]   🧠 [17/30] Enriching: respira syrup 100ml
+[2026-05-01T08:50:33.912Z]   🧠 [18/30] Enriching: asthalin rotacap
+[2026-05-01T08:50:41.529Z]   🧠 [19/30] Enriching: asthalin respule 2.5ml
+[2026-05-01T08:50:49.132Z]   🧠 [20/30] Enriching: asthalin respule 5x2.5ml
+[2026-05-01T08:50:52.484Z]   🧠 [21/30] Enriching: theo-asthalin tablet
+[2026-05-01T08:51:00.054Z]   🧠 [22/30] Enriching: albutamol neo syrup
+[2026-05-01T08:51:07.669Z]   🧠 [23/30] Enriching: ambrodil s syrup 100ml
+[2026-05-01T08:51:15.277Z]   🧠 [24/30] Enriching: ibires i 200mg 40mcg nexcap
+[2026-05-01T08:51:22.889Z]   🧠 [25/30] Enriching: aerovent dp 200mcg 100mcg capsule
+[2026-05-01T08:51:30.504Z]   🧠 [26/30] Enriching: ibires b 200mcg 100mcg nexcap
+[2026-05-01T08:51:38.099Z]   🧠 [27/30] Enriching: ventipra 200 mcg 40 mcg capsule
+[2026-05-01T08:51:45.693Z]   🧠 [28/30] Enriching: salbair i resp solution
+[2026-05-01T08:51:53.305Z]   🧠 [29/30] Enriching: planokuf ls syrup
+[2026-05-01T08:52:00.912Z]   🧠 [30/30] Enriching: asthalin rotacaps
+[2026-05-01T08:52:06.010Z]   ✅ Enrichment done: 5 updated, 25 failed.
+[2026-05-01T08:52:06.015Z] 
+📊 Progress: 42/580 queries (7.2%) | Speed: 0.01 q/s | ETA: 68h 46m 57s
+[2026-05-01T08:52:06.015Z]    Discovered: 4916 | Scraped: 4916 | Medicines: 4696 | Enriched: 121
+[2026-05-01T08:52:06.017Z] 💤 Breathing for 3.8s before next batch...
+
+[2026-05-01T08:52:09.871Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T08:52:09.872Z] 📦 BATCH 15 — Processing 3 queries [theophylline, aminophylline, ipratropium]
+[2026-05-01T08:52:09.873Z] ════════════════════════════════════════════════════════════
+[2026-05-01T08:52:09.874Z]   🔍 [Attempt 1] Scraping: "theophylline"
+[2026-05-01T08:58:25.614Z]   ✅ "theophylline" → Discovered: 169, Scraped: 169, Medicines: 159
+[2026-05-01T08:58:28.058Z]   🔍 [Attempt 1] Scraping: "aminophylline"
+[2026-05-01T09:03:09.456Z]   ✅ "aminophylline" → Discovered: 41, Scraped: 41, Medicines: 37
+[2026-05-01T09:03:14.229Z]   🔍 [Attempt 1] Scraping: "ipratropium"
+[2026-05-01T09:11:02.142Z]   ✅ "ipratropium" → Discovered: 139, Scraped: 139, Medicines: 135
+[2026-05-01T09:11:04.298Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T09:11:04.567Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T09:11:04.570Z]   🧠 [1/30] Enriching: asthacare respules 5x2.5 ml
+[2026-05-01T09:11:12.251Z]   🧠 [2/30] Enriching: duolin forte inhaler
+[2026-05-01T09:11:15.246Z]   🧠 [3/30] Enriching: duolin inhaler
+[2026-05-01T09:11:22.810Z]   🧠 [4/30] Enriching: ipravent 20 mcg inhaler 200 mdi
+[2026-05-01T09:11:30.418Z]   🧠 [5/30] Enriching: ipravent rotacaps
+[2026-05-01T09:11:38.033Z]   🧠 [6/30] Enriching: combimist l inhaler
+[2026-05-01T09:11:45.664Z]   🧠 [7/30] Enriching: salbair i neb 0.63mg solution
+[2026-05-01T09:11:53.271Z]   🧠 [8/30] Enriching: duolin ld respules 5x
+[2026-05-01T09:12:00.919Z]   🧠 [9/30] Enriching: combimist l inhaler 200md
+[2026-05-01T09:12:08.540Z]   🧠 [10/30] Enriching: ipravent rotacap
+[2026-05-01T09:12:16.192Z]   🧠 [11/30] Enriching: ipravent respule 5x2ml
+[2026-05-01T09:12:23.825Z]   🧠 [12/30] Enriching: duolin ld 500mcg 0.63mg respule 5x2.5ml
+[2026-05-01T09:12:31.487Z]   🧠 [13/30] Enriching: combimist l respule 2.5ml n
+[2026-05-01T09:12:39.100Z]   🧠 [14/30] Enriching: salbair i transcap
+[2026-05-01T09:12:46.719Z]   🧠 [15/30] Enriching: ipralungs respules 5x2.5ml
+[2026-05-01T09:12:54.332Z]   🧠 [16/30] Enriching: ipravent respules 5 x 2.5 ml
+[2026-05-01T09:13:01.999Z]   🧠 [17/30] Enriching: ipravent respiratory solution
+[2026-05-01T09:13:09.612Z]   🧠 [18/30] Enriching: iprasure pulmules 5x2.5ml
+[2026-05-01T09:13:17.263Z]   🧠 [19/30] Enriching: combimist l respicap
+[2026-05-01T09:13:24.880Z]   🧠 [20/30] Enriching: nose fine 20 mcg nasal spray 100 mdi
+[2026-05-01T09:13:32.521Z]   🧠 [21/30] Enriching: iprazest respules 5x2.5 ml
+[2026-05-01T09:13:40.143Z]   🧠 [22/30] Enriching: iprasure pulmules 2.5ml
+[2026-05-01T09:13:47.777Z]   🧠 [23/30] Enriching: combimist-l respicap
+[2026-05-01T09:13:55.394Z]   🧠 [24/30] Enriching: combimist l respule 5x2.5ml
+[2026-05-01T09:14:03.038Z]   🧠 [25/30] Enriching: duolin rotacaps
+[2026-05-01T09:14:10.671Z]   🧠 [26/30] Enriching: nebzmart il smartule 8x2.5ml
+[2026-05-01T09:14:18.313Z]   🧠 [27/30] Enriching: duolin with dose counter inhaler 200md
+[2026-05-01T09:14:25.946Z]   🧠 [28/30] Enriching: combimist 2.5mg 500mg respules
+[2026-05-01T09:14:33.599Z]   🧠 [29/30] Enriching: duoclear respules
+[2026-05-01T09:14:41.216Z]   🧠 [30/30] Enriching: duolead respules 2.5 ml each
+[2026-05-01T09:14:46.378Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-05-01T09:14:46.392Z] 
+📊 Progress: 45/580 queries (7.8%) | Speed: 0.00 q/s | ETA: 68h 17m 31s
+[2026-05-01T09:14:46.398Z]    Discovered: 5265 | Scraped: 5265 | Medicines: 5027 | Enriched: 122
+[2026-05-01T09:14:46.407Z] 💤 Breathing for 3.0s before next batch...
+
+[2026-05-01T09:14:49.447Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T09:14:49.451Z] 📦 BATCH 16 — Processing 3 queries [levothyroxine, carbimazole, methotrexate]
+[2026-05-01T09:14:49.454Z] ════════════════════════════════════════════════════════════
+[2026-05-01T09:14:49.456Z]   🔍 [Attempt 1] Scraping: "levothyroxine"
+[2026-05-01T09:21:17.333Z]   ✅ "levothyroxine" → Discovered: 52, Scraped: 52, Medicines: 44
+[2026-05-01T09:21:19.986Z]   🔍 [Attempt 1] Scraping: "carbimazole"
+[2026-05-01T09:25:10.200Z]   ✅ "carbimazole" → Discovered: 64, Scraped: 64, Medicines: 48
+[2026-05-01T09:25:14.734Z]   🔍 [Attempt 1] Scraping: "methotrexate"
+[2026-05-01T09:33:34.097Z]   ✅ "methotrexate" → Discovered: 137, Scraped: 137, Medicines: 123
+[2026-05-01T09:33:37.440Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T09:33:37.712Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T09:33:37.713Z]   🧠 [1/30] Enriching: folitrax-25 tablet
+[2026-05-01T09:33:40.766Z]   🧠 [2/30] Enriching: trexjoy 1 w w topical gel
+[2026-05-01T09:33:48.334Z]   🧠 [3/30] Enriching: mext f 7
+[2026-05-01T09:33:55.949Z]   🧠 [4/30] Enriching: mexate 7
+[2026-05-01T09:34:03.564Z]   🧠 [5/30] Enriching: folitrax-25 injection 1 ml
+[2026-05-01T09:34:11.173Z]   🧠 [6/30] Enriching: folitrax-50 injection 2 ml
+[2026-05-01T09:34:18.803Z]   🧠 [7/30] Enriching: biotrexate 50 mg injection 2 ml
+[2026-05-01T09:34:26.396Z]   🧠 [8/30] Enriching: methorapfs 20 injection 0.4 ml
+[2026-05-01T09:34:34.011Z]   🧠 [9/30] Enriching: mexate 7.5 mg tablet
+[2026-05-01T09:34:41.616Z]   🧠 [10/30] Enriching: folitrax
+[2026-05-01T09:34:49.233Z]   🧠 [11/30] Enriching: folitrax
+[2026-05-01T09:34:56.843Z]   🧠 [12/30] Enriching: folitrax-2
+[2026-05-01T09:35:04.449Z]   🧠 [13/30] Enriching: folitrax
+[2026-05-01T09:35:12.058Z]   🧠 [14/30] Enriching: folitrax-7
+[2026-05-01T09:35:19.718Z]   🧠 [15/30] Enriching: mexate
+[2026-05-01T09:35:27.323Z]   🧠 [16/30] Enriching: folitrax 2.5mg tablet
+[2026-05-01T09:35:34.938Z]   🧠 [17/30] Enriching: mexate
+[2026-05-01T09:35:42.569Z]   🧠 [18/30] Enriching: mext f 7.5mg tablet
+[2026-05-01T09:35:50.206Z]   🧠 [19/30] Enriching: trexodat
+[2026-05-01T09:35:57.833Z]   🧠 [20/30] Enriching: imotrax 2.5mg tablet
+[2026-05-01T09:36:05.442Z]   🧠 [21/30] Enriching: folitrax 25 tablet
+[2026-05-01T09:36:13.069Z]   🧠 [22/30] Enriching: methotrexate
+[2026-05-01T09:36:20.718Z]   🧠 [23/30] Enriching: mext 7
+[2026-05-01T09:36:28.321Z]   🧠 [24/30] Enriching: folitrax-20 injection 1 ml
+[2026-05-01T09:36:35.936Z]   🧠 [25/30] Enriching: folitrax
+[2026-05-01T09:36:43.536Z]   🧠 [26/30] Enriching: folitrax
+[2026-05-01T09:36:51.171Z]   🧠 [27/30] Enriching: mext 15mg tablet
+[2026-05-01T09:36:58.775Z]   🧠 [28/30] Enriching: dermotrex 15mg tablet
+[2026-05-01T09:37:06.374Z]   🧠 [29/30] Enriching: methotrexate 2.5mg tablet
+[2026-05-01T09:37:09.259Z]   🧠 [30/30] Enriching: st. george s methotrexate dilution 30
+[2026-05-01T09:37:14.321Z]   ✅ Enrichment done: 2 updated, 28 failed.
+[2026-05-01T09:37:14.330Z] 
+📊 Progress: 48/580 queries (8.3%) | Speed: 0.00 q/s | ETA: 67h 45m 9s
+[2026-05-01T09:37:14.331Z]    Discovered: 5518 | Scraped: 5518 | Medicines: 5242 | Enriched: 124
+[2026-05-01T09:37:14.333Z] 💤 Breathing for 3.7s before next batch...
+
+[2026-05-01T09:37:18.071Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T09:37:18.072Z] 📦 BATCH 17 — Processing 3 queries [hydroxychloroquine, sulfasalazine, insulin glargine]
+[2026-05-01T09:37:18.073Z] ════════════════════════════════════════════════════════════
+[2026-05-01T09:37:18.074Z]   🔍 [Attempt 1] Scraping: "hydroxychloroquine"
+[2026-05-01T09:45:21.184Z]   ✅ "hydroxychloroquine" → Discovered: 108, Scraped: 108, Medicines: 102
+[2026-05-01T09:45:23.779Z]   🔍 [Attempt 1] Scraping: "sulfasalazine"
+[2026-05-01T09:52:56.566Z]   ✅ "sulfasalazine" → Discovered: 116, Scraped: 116, Medicines: 111
+[2026-05-01T09:53:01.256Z]   🔍 [Attempt 1] Scraping: "insulin glargine"
+[2026-05-01T09:56:37.770Z]   ✅ "insulin glargine" → Discovered: 65, Scraped: 65, Medicines: 55
+[2026-05-01T09:56:40.836Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T09:56:40.981Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T09:56:40.983Z]   🧠 [1/30] Enriching: lantus 100iu cartridge 1x3ml
+[2026-05-01T09:56:48.622Z]   🧠 [2/30] Enriching: lantus 100iu injection 1x10ml
+[2026-05-01T09:56:56.234Z]   🧠 [3/30] Enriching: basalog one 100iu pen injection 3ml
+[2026-05-01T09:57:00.067Z]   🧠 [4/30] Enriching: toustar reusable pen device
+[2026-05-01T09:57:08.588Z]   🧠 [5/30] Enriching: basugine pen device
+[2026-05-01T09:57:16.472Z]   🧠 [6/30] Enriching: glaritus new 100iu cartridge 3x3ml
+[2026-05-01T09:57:25.734Z]   🧠 [7/30] Enriching: allstar reusable insulin pen device
+[2026-05-01T09:57:33.377Z]   🧠 [8/30] Enriching: lupisulin pen device
+[2026-05-01T09:57:42.075Z]   🧠 [9/30] Enriching: glaritus 100iu injection 1x10ml
+[2026-05-01T09:57:49.949Z]   🧠 [10/30] Enriching: basalog 100iu solution for injection
+[2026-05-01T09:57:57.600Z]   🧠 [11/30] Enriching: glaritus 100iu pen dispo 1x3ml
+[2026-05-01T09:58:05.280Z]   🧠 [12/30] Enriching: nobeglar 100iu cartridge 3ml
+[2026-05-01T09:58:12.888Z]   🧠 [13/30] Enriching: toujeo solostar 300iu injection
+[2026-05-01T09:58:20.493Z]   🧠 [14/30] Enriching: toujeo 300u ml solution for injection
+[2026-05-01T09:58:28.097Z]   🧠 [15/30] Enriching: lantus 100iu ml solution for injection
+[2026-05-01T09:58:35.737Z]   🧠 [16/30] Enriching: toustar reusable insulin pen only pen
+[2026-05-01T09:58:43.431Z]   🧠 [17/30] Enriching: moderate calorie crusher tablet
+[2026-05-01T09:58:52.217Z]   🧠 [18/30] Enriching: moderate plant based sugar slayer tablet
+[2026-05-01T09:58:59.848Z]   🧠 [19/30] Enriching: salzomeg-500 tablet
+[2026-05-01T09:59:07.468Z]   🧠 [20/30] Enriching: sazowin-1000 mg dr tablet
+[2026-05-01T09:59:15.362Z]   🧠 [21/30] Enriching: sazowin-500 tablet
+[2026-05-01T09:59:22.997Z]   🧠 [22/30] Enriching: salazed 500 tablet
+[2026-05-01T09:59:30.614Z]   🧠 [23/30] Enriching: isulfyn-500 tablet
+[2026-05-01T09:59:38.282Z]   🧠 [24/30] Enriching: isulfyn-ds
+[2026-05-01T09:59:45.902Z]   🧠 [25/30] Enriching: salazar ds tablet
+[2026-05-01T09:59:53.514Z]   🧠 [26/30] Enriching: saaz ds tablet
+[2026-05-01T10:00:01.166Z]   🧠 [27/30] Enriching: szn 500 tablet
+[2026-05-01T10:00:08.823Z]   🧠 [28/30] Enriching: salazar tablet
+[2026-05-01T10:00:16.454Z]   🧠 [29/30] Enriching: saaz tablet
+[2026-05-01T10:00:24.089Z]   🧠 [30/30] Enriching: selzotas 500 tablet
+[2026-05-01T10:00:29.213Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-05-01T10:00:29.231Z] 
+📊 Progress: 51/580 queries (8.8%) | Speed: 0.00 q/s | ETA: 67h 30m 23s
+[2026-05-01T10:00:29.233Z]    Discovered: 5807 | Scraped: 5807 | Medicines: 5510 | Enriched: 125
+[2026-05-01T10:00:29.236Z] 💤 Breathing for 3.0s before next batch...
+
+[2026-05-01T10:00:32.265Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T10:00:32.267Z] 📦 BATCH 18 — Processing 3 queries [glimepiride, glipizide, gliclazide]
+[2026-05-01T10:00:32.269Z] ════════════════════════════════════════════════════════════
+[2026-05-01T10:00:32.271Z]   🔍 [Attempt 1] Scraping: "glimepiride"
+[2026-05-01T10:08:14.860Z]   ✅ "glimepiride" → Discovered: 139, Scraped: 139, Medicines: 118
+[2026-05-01T10:08:17.019Z]   🔍 [Attempt 1] Scraping: "glipizide"
+[2026-05-01T10:13:01.674Z]   ✅ "glipizide" → Discovered: 145, Scraped: 145, Medicines: 142
+[2026-05-01T10:13:03.916Z]   🔍 [Attempt 1] Scraping: "gliclazide"
+[2026-05-01T10:20:49.503Z]   ✅ "gliclazide" → Discovered: 137, Scraped: 137, Medicines: 131
+[2026-05-01T10:20:52.262Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T10:20:52.519Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T10:20:52.521Z]   🧠 [1/30] Enriching: cyblex mv 80
+[2026-05-01T10:20:55.488Z]   🧠 [2/30] Enriching: glykind m tablet
+[2026-05-01T10:21:03.067Z]   🧠 [3/30] Enriching: glizid-m tablet
+[2026-05-01T10:21:10.678Z]   🧠 [4/30] Enriching: cyblex mv 80.3mg tablet
+[2026-05-01T10:21:18.320Z]   🧠 [5/30] Enriching: reclide 80mg tablet
+[2026-05-01T10:21:25.962Z]   🧠 [6/30] Enriching: glizid mr 60mg tablet
+[2026-05-01T10:21:33.567Z]   🧠 [7/30] Enriching: glizid m xr 60mg tablets
+[2026-05-01T10:21:41.197Z]   🧠 [8/30] Enriching: glizid m tablet
+[2026-05-01T10:21:48.816Z]   🧠 [9/30] Enriching: glykind-m tablet
+[2026-05-01T10:21:56.426Z]   🧠 [10/30] Enriching: glizid xr
+[2026-05-01T10:22:04.024Z]   🧠 [11/30] Enriching: glycinorm total sr
+[2026-05-01T10:22:11.621Z]   🧠 [12/30] Enriching: cyblex m 40 tablet
+[2026-05-01T10:22:19.211Z]   🧠 [13/30] Enriching: diamicron xr mex 60 500mg tablets
+[2026-05-01T10:22:27.555Z]   🧠 [14/30] Enriching: euclide 80 tablet
+[2026-05-01T10:22:35.174Z]   🧠 [15/30] Enriching: glizid-m 40 500 tablet
+[2026-05-01T10:22:44.757Z]   🧠 [16/30] Enriching: glicxa 60 xr tablet
+[2026-05-01T10:22:52.664Z]   🧠 [17/30] Enriching: glizid total p sr
+[2026-05-01T10:23:00.275Z]   🧠 [18/30] Enriching: k-gem tablet
+[2026-05-01T10:23:07.867Z]   🧠 [19/30] Enriching: glycigon-m tablet
+[2026-05-01T10:23:15.517Z]   🧠 [20/30] Enriching: xzid 30mg tablet xr
+[2026-05-01T10:23:23.115Z]   🧠 [21/30] Enriching: reclimet pg sr
+[2026-05-01T10:23:26.120Z]   🧠 [22/30] Enriching: glz plus tablet
+[2026-05-01T10:23:33.697Z]   🧠 [23/30] Enriching: glz 80mg tablet
+[2026-05-01T10:23:41.287Z]   🧠 [24/30] Enriching: gliclazide 80mg tablet
+[2026-05-01T10:23:48.902Z]   🧠 [25/30] Enriching: reclimet od
+[2026-05-01T10:23:56.502Z]   🧠 [26/30] Enriching: glychek 40 tablet
+[2026-05-01T10:24:04.110Z]   🧠 [27/30] Enriching: glycinorm-m 30 od tablet er
+[2026-05-01T10:24:11.722Z]   🧠 [28/30] Enriching: g-loc 40mg tablet
+[2026-05-01T10:24:19.326Z]   🧠 [29/30] Enriching: glychek 80 tablet
+[2026-05-01T10:24:26.920Z]   🧠 [30/30] Enriching: dianorm-od pr
+[2026-05-01T10:24:32.023Z]   ✅ Enrichment done: 2 updated, 28 failed.
+[2026-05-01T10:24:32.038Z] 
+📊 Progress: 54/580 queries (9.3%) | Speed: 0.00 q/s | ETA: 67h 27m 59s
+[2026-05-01T10:24:32.040Z]    Discovered: 6228 | Scraped: 6228 | Medicines: 5901 | Enriched: 127
+[2026-05-01T10:24:32.041Z] 💤 Breathing for 4.8s before next batch...
+
+[2026-05-01T10:24:36.873Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T10:24:36.874Z] 📦 BATCH 19 — Processing 3 queries [sitagliptin, vildagliptin, empagliflozin]
+[2026-05-01T10:24:36.875Z] ════════════════════════════════════════════════════════════
+[2026-05-01T10:24:36.876Z]   🔍 [Attempt 1] Scraping: "sitagliptin"
+[2026-05-01T10:32:43.262Z]   ✅ "sitagliptin" → Discovered: 139, Scraped: 139, Medicines: 133
+[2026-05-01T10:32:47.058Z]   🔍 [Attempt 1] Scraping: "vildagliptin"
+[2026-05-01T10:40:38.387Z]   ✅ "vildagliptin" → Discovered: 138, Scraped: 138, Medicines: 135
+[2026-05-01T10:40:40.811Z]   🔍 [Attempt 1] Scraping: "empagliflozin"
+[2026-05-01T10:49:04.344Z]   ✅ "empagliflozin" → Discovered: 140, Scraped: 140, Medicines: 137
+[2026-05-01T10:49:07.544Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T10:49:07.797Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T10:49:07.798Z]   🧠 [1/30] Enriching: empagreat 25 tablet
+[2026-05-01T10:49:11.018Z]   🧠 [2/30] Enriching: empagreat-s
+[2026-05-01T10:49:18.600Z]   🧠 [3/30] Enriching: empagreat-s 25 tablet
+[2026-05-01T10:49:26.192Z]   🧠 [4/30] Enriching: tiptengio 25 mg 5 mg tablet 10
+[2026-05-01T10:49:33.813Z]   🧠 [5/30] Enriching: empagreat
+[2026-05-01T10:49:41.444Z]   🧠 [6/30] Enriching: empacip
+[2026-05-01T10:49:49.067Z]   🧠 [7/30] Enriching: empacip 25 tablet
+[2026-05-01T10:49:56.671Z]   🧠 [8/30] Enriching: empha
+[2026-05-01T10:50:04.289Z]   🧠 [9/30] Enriching: empaneo l 25 tablet
+[2026-05-01T10:50:11.916Z]   🧠 [10/30] Enriching: glyxambi 10 5mg tablet
+[2026-05-01T10:50:19.526Z]   🧠 [11/30] Enriching: empagreat m 500 tablet
+[2026-05-01T10:50:27.156Z]   🧠 [12/30] Enriching: empaglyn l 10
+[2026-05-01T10:50:30.559Z]   🧠 [13/30] Enriching: vicra 25 tablet
+[2026-05-01T10:50:38.124Z]   🧠 [14/30] Enriching: empaone
+[2026-05-01T10:50:45.723Z]   🧠 [15/30] Enriching: empaone 25 tablet
+[2026-05-01T10:50:53.329Z]   🧠 [16/30] Enriching: empapro lm 1000 tablet
+[2026-05-01T10:51:00.942Z]   🧠 [17/30] Enriching: empanorm l 25 tablet
+[2026-05-01T10:51:08.624Z]   🧠 [18/30] Enriching: empanorm l
+[2026-05-01T10:51:16.225Z]   🧠 [19/30] Enriching: nexempa
+[2026-05-01T10:51:23.840Z]   🧠 [20/30] Enriching: empahope s 25
+[2026-05-01T10:51:31.468Z]   🧠 [21/30] Enriching: sitaxa e 25
+[2026-05-01T10:51:39.074Z]   🧠 [22/30] Enriching: jardix
+[2026-05-01T10:51:46.691Z]   🧠 [23/30] Enriching: empalo 25 tablet
+[2026-05-01T10:51:54.292Z]   🧠 [24/30] Enriching: empagreat-s
+[2026-05-01T10:52:01.894Z]   🧠 [25/30] Enriching: liralin-ep
+[2026-05-01T10:52:09.507Z]   🧠 [26/30] Enriching: empanorm duo 25 tablet
+[2026-05-01T10:52:17.169Z]   🧠 [27/30] Enriching: empha-l
+[2026-05-01T10:52:24.765Z]   🧠 [28/30] Enriching: linaxa em 25 5 1000 tablet er
+[2026-05-01T10:52:32.376Z]   🧠 [29/30] Enriching: alempa 10mg tablet
+[2026-05-01T10:52:39.997Z]   🧠 [30/30] Enriching: xilingio m 25mg 5mg 1000mg tablet er
+[2026-05-01T10:52:45.112Z]   ✅ Enrichment done: 2 updated, 28 failed.
+[2026-05-01T10:52:45.136Z] 
+📊 Progress: 57/580 queries (9.8%) | Speed: 0.00 q/s | ETA: 68h 28m 0s
+[2026-05-01T10:52:45.138Z]    Discovered: 6645 | Scraped: 6645 | Medicines: 6306 | Enriched: 129
+[2026-05-01T10:52:45.140Z] 💤 Breathing for 2.4s before next batch...
+
+[2026-05-01T10:52:47.536Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T10:52:47.537Z] 📦 BATCH 20 — Processing 3 queries [dapagliflozin, canagliflozin, pioglitazone]
+[2026-05-01T10:52:47.538Z] ════════════════════════════════════════════════════════════
+[2026-05-01T10:52:47.539Z]   🔍 [Attempt 1] Scraping: "dapagliflozin"
+[2026-05-01T11:01:06.123Z]   ✅ "dapagliflozin" → Discovered: 105, Scraped: 105, Medicines: 99
+[2026-05-01T11:01:08.540Z]   🔍 [Attempt 1] Scraping: "canagliflozin"
+[2026-05-01T11:06:31.554Z]   ✅ "canagliflozin" → Discovered: 44, Scraped: 44, Medicines: 38
+[2026-05-01T11:06:35.325Z]   🔍 [Attempt 1] Scraping: "pioglitazone"
+[2026-05-01T11:09:11.226Z]   ✅ "pioglitazone" → Discovered: 116, Scraped: 116, Medicines: 106
+[2026-05-01T11:09:13.554Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T11:09:13.759Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T11:09:13.761Z]   🧠 [1/30] Enriching: gemer p 1mg tablet
+[2026-05-01T11:09:21.396Z]   🧠 [2/30] Enriching: pioglit 30mg tablet
+[2026-05-01T11:09:28.996Z]   🧠 [3/30] Enriching: triopil 2mg tablet
+[2026-05-01T11:09:36.629Z]   🧠 [4/30] Enriching: gluxit pro tablet
+[2026-05-01T11:09:44.245Z]   🧠 [5/30] Enriching: aim7 60 xr tablet
+[2026-05-01T11:09:51.862Z]   🧠 [6/30] Enriching: pioz 15mg tablet
+[2026-05-01T11:09:59.473Z]   🧠 [7/30] Enriching: pioglit 15mg tablet
+[2026-05-01T11:10:07.091Z]   🧠 [8/30] Enriching: triglimiprex 2mg tablet
+[2026-05-01T11:10:14.705Z]   🧠 [9/30] Enriching: triglycomet tablet sr
+[2026-05-01T11:10:17.680Z]   🧠 [10/30] Enriching: pioglar-g tablet
+[2026-05-01T11:10:25.263Z]   🧠 [11/30] Enriching: glitaris 7
+[2026-05-01T11:10:32.863Z]   🧠 [12/30] Enriching: glyciphage-pg sr
+[2026-05-01T11:10:40.472Z]   🧠 [13/30] Enriching: piohope-m sr
+[2026-05-01T11:10:48.074Z]   🧠 [14/30] Enriching: zoryl mp er
+[2026-05-01T11:10:55.680Z]   🧠 [15/30] Enriching: gluconorm pg sr
+[2026-05-01T11:11:03.290Z]   🧠 [16/30] Enriching: piosafe
+[2026-05-01T11:11:10.896Z]   🧠 [17/30] Enriching: glitaris
+[2026-05-01T11:11:18.499Z]   🧠 [18/30] Enriching: gluxit-pro tablet
+[2026-05-01T11:11:26.135Z]   🧠 [19/30] Enriching: triobimet 1mg 500mg 15mg tablet er
+[2026-05-01T11:11:33.733Z]   🧠 [20/30] Enriching: ozomet-pg
+[2026-05-01T11:11:41.328Z]   🧠 [21/30] Enriching: gluconorm pg pr
+[2026-05-01T11:11:48.938Z]   🧠 [22/30] Enriching: pioz-v tablet
+[2026-05-01T11:11:56.527Z]   🧠 [23/30] Enriching: zita-pio tablet
+[2026-05-01T11:12:05.422Z]   🧠 [24/30] Enriching: pioglit mf er
+[2026-05-01T11:12:13.029Z]   🧠 [25/30] Enriching: piopar 7
+[2026-05-01T11:12:20.628Z]   🧠 [26/30] Enriching: pioplus sr
+[2026-05-01T11:12:28.247Z]   🧠 [27/30] Enriching: alsita-mp 500 tablet sr
+[2026-05-01T11:12:35.838Z]   🧠 [28/30] Enriching: okamet gmp 1mg 500mg 15mg tablet
+[2026-05-01T11:12:43.541Z]   🧠 [29/30] Enriching: triglimisave sr
+[2026-05-01T11:12:51.123Z]   🧠 [30/30] Enriching: piomore-mg pr
+[2026-05-01T11:12:56.214Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-05-01T11:12:56.224Z] 
+📊 Progress: 60/580 queries (10.3%) | Speed: 0.00 q/s | ETA: 67h 16m 50s
+[2026-05-01T11:12:56.225Z]    Discovered: 6910 | Scraped: 6910 | Medicines: 6549 | Enriched: 130
+[2026-05-01T11:12:56.226Z] 💤 Breathing for 2.6s before next batch...
+
+[2026-05-01T11:12:58.809Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T11:12:58.811Z] 📦 BATCH 21 — Processing 3 queries [rosuvastatin, simvastatin, pravastatin]
+[2026-05-01T11:12:58.812Z] ════════════════════════════════════════════════════════════
+[2026-05-01T11:12:58.812Z]   🔍 [Attempt 1] Scraping: "rosuvastatin"
+[2026-05-01T11:19:27.653Z]   ✅ "rosuvastatin" → Discovered: 139, Scraped: 139, Medicines: 118
+[2026-05-01T11:19:30.075Z]   🔍 [Attempt 1] Scraping: "simvastatin"
+[2026-05-01T11:25:01.772Z]   ✅ "simvastatin" → Discovered: 104, Scraped: 104, Medicines: 98
+[2026-05-01T11:25:04.530Z]   🔍 [Attempt 1] Scraping: "pravastatin"
+[2026-05-01T11:26:25.166Z]   ✅ "pravastatin" → Discovered: 16, Scraped: 16, Medicines: 15
+[2026-05-01T11:26:28.156Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T11:26:28.399Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T11:26:28.401Z]   🧠 [1/30] Enriching: pivasta 1mg tablets
+[2026-05-01T11:26:36.051Z]   🧠 [2/30] Enriching: pravy 10mg tablet
+[2026-05-01T11:26:43.669Z]   🧠 [3/30] Enriching: pravator 20mg tablet
+[2026-05-01T11:26:51.278Z]   🧠 [4/30] Enriching: prasuday 10mg tablets
+[2026-05-01T11:26:58.880Z]   🧠 [5/30] Enriching: pivasta 2mg tablets
+[2026-05-01T11:27:06.509Z]   🧠 [6/30] Enriching: pravator 10mg tablet
+[2026-05-01T11:27:14.117Z]   🧠 [7/30] Enriching: prastatin 10mg tablet
+[2026-05-01T11:27:21.744Z]   🧠 [8/30] Enriching: pivasta 4mg tablets
+[2026-05-01T11:27:29.362Z]   🧠 [9/30] Enriching: prastatin 20mg tablet
+[2026-05-01T11:27:36.996Z]   🧠 [10/30] Enriching: simosta 10mg tablet
+[2026-05-01T11:27:44.612Z]   🧠 [11/30] Enriching: steostat tablet
+[2026-05-01T11:27:52.233Z]   🧠 [12/30] Enriching: prosimvastatin 5mg tablet
+[2026-05-01T11:27:59.836Z]   🧠 [13/30] Enriching: femella 20mg tablet
+[2026-05-01T11:28:07.445Z]   🧠 [14/30] Enriching: zosta 20 mg tablet
+[2026-05-01T11:28:15.066Z]   🧠 [15/30] Enriching: simwel
+[2026-05-01T11:28:22.675Z]   🧠 [16/30] Enriching: simvas 5mg tablet
+[2026-05-01T11:28:30.285Z]   🧠 [17/30] Enriching: simvotin 5mg tablet
+[2026-05-01T11:28:37.899Z]   🧠 [18/30] Enriching: polycap capsule
+[2026-05-01T11:28:45.546Z]   🧠 [19/30] Enriching: simvotin 40 mg tablet
+[2026-05-01T11:28:53.257Z]   🧠 [20/30] Enriching: simvotin
+[2026-05-01T11:29:00.861Z]   🧠 [21/30] Enriching: sin 5mg tablet
+[2026-05-01T11:29:08.484Z]   🧠 [22/30] Enriching: sin 10mg tablet
+[2026-05-01T11:29:16.087Z]   🧠 [23/30] Enriching: simvotin
+[2026-05-01T11:29:23.702Z]   🧠 [24/30] Enriching: zocor 40 mg tablet
+[2026-05-01T11:29:31.321Z]   🧠 [25/30] Enriching: gatosim 20mg tablet
+[2026-05-01T11:29:38.945Z]   🧠 [26/30] Enriching: simtil 10mg tablet
+[2026-05-01T11:29:41.942Z]   🧠 [27/30] Enriching: simwel
+[2026-05-01T11:29:49.503Z]   🧠 [28/30] Enriching: simchol 20mg tablet
+[2026-05-01T11:29:57.121Z]   🧠 [29/30] Enriching: simoz 20mg tablet
+[2026-05-01T11:30:04.729Z]   🧠 [30/30] Enriching: simvin 20mg tablet
+[2026-05-01T11:30:09.827Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-05-01T11:30:09.838Z] 
+📊 Progress: 63/580 queries (10.9%) | Speed: 0.00 q/s | ETA: 65h 34m 8s
+[2026-05-01T11:30:09.840Z]    Discovered: 7169 | Scraped: 7169 | Medicines: 6780 | Enriched: 131
+[2026-05-01T11:30:09.842Z] 💤 Breathing for 4.1s before next batch...
+
+[2026-05-01T11:30:13.961Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T11:30:13.963Z] 📦 BATCH 22 — Processing 3 queries [fenofibrate, ezetimibe, valsartan]
+[2026-05-01T11:30:13.964Z] ════════════════════════════════════════════════════════════
+[2026-05-01T11:30:13.965Z]   🔍 [Attempt 1] Scraping: "fenofibrate"
+[2026-05-01T11:36:41.450Z]   ✅ "fenofibrate" → Discovered: 172, Scraped: 172, Medicines: 161
+[2026-05-01T11:36:46.042Z]   🔍 [Attempt 1] Scraping: "ezetimibe"
+[2026-05-01T11:39:22.575Z]   ✅ "ezetimibe" → Discovered: 114, Scraped: 114, Medicines: 110
+[2026-05-01T11:39:27.531Z]   🔍 [Attempt 1] Scraping: "valsartan"
+[2026-05-01T11:46:40.618Z]   ✅ "valsartan" → Discovered: 137, Scraped: 137, Medicines: 125
+[2026-05-01T11:46:43.518Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T11:46:43.866Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T11:46:43.868Z]   🧠 [1/30] Enriching: valembic 160mg tablet
+[2026-05-01T11:46:51.736Z]   🧠 [2/30] Enriching: valembic 160 am tablet
+[2026-05-01T11:46:59.347Z]   🧠 [3/30] Enriching: codiovan 160 25mg tablet
+[2026-05-01T11:47:06.986Z]   🧠 [4/30] Enriching: valzaar 40mg tablet
+[2026-05-01T11:47:14.587Z]   🧠 [5/30] Enriching: valent 160mg tablet
+[2026-05-01T11:47:22.214Z]   🧠 [6/30] Enriching: valembic 80 am tablet
+[2026-05-01T11:47:31.136Z]   🧠 [7/30] Enriching: onarni
+[2026-05-01T11:47:38.765Z]   🧠 [8/30] Enriching: valzaar 80mg tablet
+[2026-05-01T11:47:46.387Z]   🧠 [9/30] Enriching: neptaz
+[2026-05-01T11:47:54.001Z]   🧠 [10/30] Enriching: valent 40mg tablet
+[2026-05-01T11:48:01.604Z]   🧠 [11/30] Enriching: valzaar 160 tablet
+[2026-05-01T11:48:09.223Z]   🧠 [12/30] Enriching: valzaar-h 160 tablet
+[2026-05-01T11:48:16.853Z]   🧠 [13/30] Enriching: sacurise
+[2026-05-01T11:48:24.482Z]   🧠 [14/30] Enriching: arney
+[2026-05-01T11:48:32.092Z]   🧠 [15/30] Enriching: diovan 80mg tablet
+[2026-05-01T11:48:39.739Z]   🧠 [16/30] Enriching: diovan 160 tablet
+[2026-05-01T11:48:47.358Z]   🧠 [17/30] Enriching: valzaar-80 tablet
+[2026-05-01T11:48:54.995Z]   🧠 [18/30] Enriching: valent 80mg tablet
+[2026-05-01T11:48:57.996Z]   🧠 [19/30] Enriching: valsazem 40 tablet
+[2026-05-01T11:49:05.560Z]   🧠 [20/30] Enriching: veldil 160mg tablet
+[2026-05-01T11:49:13.157Z]   🧠 [21/30] Enriching: valsabrook 80 tablet
+[2026-05-01T11:49:20.761Z]   🧠 [22/30] Enriching: normaprost 160mg capsule
+[2026-05-01T11:49:28.379Z]   🧠 [23/30] Enriching: valzaar 20mg tablet
+[2026-05-01T11:49:36.016Z]   🧠 [24/30] Enriching: arnx 200 tablet
+[2026-05-01T11:49:43.641Z]   🧠 [25/30] Enriching: valsartil 40mg tablet
+[2026-05-01T11:49:51.246Z]   🧠 [26/30] Enriching: valsartil 80mg tablet
+[2026-05-01T11:49:58.871Z]   🧠 [27/30] Enriching: arniv 49mg 51mg tablet
+[2026-05-01T11:50:06.511Z]   🧠 [28/30] Enriching: valsator 40mg tablet
+[2026-05-01T11:50:14.134Z]   🧠 [29/30] Enriching: diosartan tablet
+[2026-05-01T11:50:21.750Z]   🧠 [30/30] Enriching: valsabrook 160 tablet
+[2026-05-01T11:50:26.841Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-05-01T11:50:26.858Z] 
+📊 Progress: 66/580 queries (11.4%) | Speed: 0.00 q/s | ETA: 64h 41m 12s
+[2026-05-01T11:50:26.859Z]    Discovered: 7592 | Scraped: 7592 | Medicines: 7176 | Enriched: 132
+[2026-05-01T11:50:26.861Z] 💤 Breathing for 3.8s before next batch...
+
+[2026-05-01T11:50:30.643Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T11:50:30.645Z] 📦 BATCH 23 — Processing 3 queries [olmesartan, irbesartan, candesartan]
+[2026-05-01T11:50:30.647Z] ════════════════════════════════════════════════════════════
+[2026-05-01T11:50:30.650Z]   🔍 [Attempt 1] Scraping: "olmesartan"
+[2026-05-01T11:58:15.959Z]   ✅ "olmesartan" → Discovered: 138, Scraped: 138, Medicines: 130
+[2026-05-01T11:58:19.792Z]   🔍 [Attempt 1] Scraping: "irbesartan"
+[2026-05-01T12:04:30.264Z]   ✅ "irbesartan" → Discovered: 99, Scraped: 99, Medicines: 97
+[2026-05-01T12:04:32.959Z]   🔍 [Attempt 1] Scraping: "candesartan"
+[2026-05-01T12:08:35.627Z]   ✅ "candesartan" → Discovered: 51, Scraped: 51, Medicines: 50
+[2026-05-01T12:08:39.456Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T12:08:39.809Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T12:08:39.826Z]   🧠 [1/30] Enriching: canesten cream
+[2026-05-01T12:08:43.440Z]   🧠 [2/30] Enriching: candevac
+[2026-05-01T12:08:51.245Z]   🧠 [3/30] Enriching: cadsar 20 mg tablet
+[2026-05-01T12:08:58.848Z]   🧠 [4/30] Enriching: candosa-ct tablet
+[2026-05-01T12:09:06.430Z]   🧠 [5/30] Enriching: canesten cream
+[2026-05-01T12:09:14.046Z]   🧠 [6/30] Enriching: gemisartan ch tablets
+[2026-05-01T12:09:21.649Z]   🧠 [7/30] Enriching: canditor 16 tablet
+[2026-05-01T12:09:29.253Z]   🧠 [8/30] Enriching: tuscan 16 tablet
+[2026-05-01T12:09:36.866Z]   🧠 [9/30] Enriching: tuscan
+[2026-05-01T12:09:44.462Z]   🧠 [10/30] Enriching: candevac
+[2026-05-01T12:09:52.049Z]   🧠 [11/30] Enriching: actinsar-16 tablet
+[2026-05-01T12:09:59.651Z]   🧠 [12/30] Enriching: candevac 16 tablet
+[2026-05-01T12:10:07.251Z]   🧠 [13/30] Enriching: actinsar
+[2026-05-01T12:10:14.875Z]   🧠 [14/30] Enriching: candelong h 8mg 12.5mg tablet
+[2026-05-01T12:10:22.461Z]   🧠 [15/30] Enriching: candesar 16mg tablet
+[2026-05-01T12:10:30.064Z]   🧠 [16/30] Enriching: candesar 4mg tablet
+[2026-05-01T12:10:37.671Z]   🧠 [17/30] Enriching: ipsita 8mg tablet
+[2026-05-01T12:10:45.317Z]   🧠 [18/30] Enriching: canditor
+[2026-05-01T12:10:52.917Z]   🧠 [19/30] Enriching: ipsita 16mg tablet
+[2026-05-01T12:11:00.524Z]   🧠 [20/30] Enriching: candesar 8mg tablet
+[2026-05-01T12:11:08.115Z]   🧠 [21/30] Enriching: kandisar 8mg tablet
+[2026-05-01T12:11:15.730Z]   🧠 [22/30] Enriching: actinsar 16mg tablet
+[2026-05-01T12:11:23.346Z]   🧠 [23/30] Enriching: actinsar
+[2026-05-01T12:11:30.965Z]   🧠 [24/30] Enriching: candosa
+[2026-05-01T12:11:38.567Z]   🧠 [25/30] Enriching: candez 4mg tablet
+[2026-05-01T12:11:46.173Z]   🧠 [26/30] Enriching: kandisar 4mg tablet
+[2026-05-01T12:11:53.784Z]   🧠 [27/30] Enriching: candestan 4mg tablet
+[2026-05-01T12:12:01.412Z]   🧠 [28/30] Enriching: tuscan
+[2026-05-01T12:12:09.026Z]   🧠 [29/30] Enriching: canditor 16 tablet
+[2026-05-01T12:12:16.641Z]   🧠 [30/30] Enriching: candelong 16mg tablet
+[2026-05-01T12:12:21.733Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-05-01T12:12:21.746Z] 
+📊 Progress: 69/580 queries (11.9%) | Speed: 0.00 q/s | ETA: 64h 11m 14s
+[2026-05-01T12:12:21.747Z]    Discovered: 7880 | Scraped: 7880 | Medicines: 7453 | Enriched: 133
+[2026-05-01T12:12:21.748Z] 💤 Breathing for 4.8s before next batch...
+
+[2026-05-01T12:12:26.521Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T12:12:26.524Z] 📦 BATCH 24 — Processing 3 queries [prazosin, nifedipine, diltiazem]
+[2026-05-01T12:12:26.525Z] ════════════════════════════════════════════════════════════
+[2026-05-01T12:12:26.525Z]   🔍 [Attempt 1] Scraping: "prazosin"
+[2026-05-01T12:19:02.372Z]   ✅ "prazosin" → Discovered: 105, Scraped: 105, Medicines: 101
+[2026-05-01T12:19:06.549Z]   🔍 [Attempt 1] Scraping: "nifedipine"
+[2026-05-01T12:25:18.456Z]   ✅ "nifedipine" → Discovered: 138, Scraped: 138, Medicines: 119
+[2026-05-01T12:25:22.144Z]   🔍 [Attempt 1] Scraping: "diltiazem"
+[2026-05-01T12:31:10.698Z]   ✅ "diltiazem" → Discovered: 107, Scraped: 107, Medicines: 103
+[2026-05-01T12:31:14.228Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T12:31:14.469Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T12:31:14.470Z]   🧠 [1/30] Enriching: genericart diltiazem hydrochloride 60mg tablet
+[2026-05-01T12:31:17.469Z]   🧠 [2/30] Enriching: dilcontin xl 90 tablet
+[2026-05-01T12:31:25.052Z]   🧠 [3/30] Enriching: angizem cd 90 capsule
+[2026-05-01T12:31:32.651Z]   🧠 [4/30] Enriching: genericart diltiazem hydrochloride 30mg tablet
+[2026-05-01T12:31:40.257Z]   🧠 [5/30] Enriching: channel
+[2026-05-01T12:31:47.858Z]   🧠 [6/30] Enriching: channel sr 120 mg tablet
+[2026-05-01T12:31:55.472Z]   🧠 [7/30] Enriching: cremagel-l gel
+[2026-05-01T12:32:03.074Z]   🧠 [8/30] Enriching: dilzem
+[2026-05-01T12:32:10.673Z]   🧠 [9/30] Enriching: crema gel
+[2026-05-01T12:32:18.292Z]   🧠 [10/30] Enriching: channel sr 90 tablet
+[2026-05-01T12:32:25.934Z]   🧠 [11/30] Enriching: dilzem cd-90 capsule
+[2026-05-01T12:32:33.530Z]   🧠 [12/30] Enriching: dilzem
+[2026-05-01T12:32:41.159Z]   🧠 [13/30] Enriching: cremagel l gel 30gm
+[2026-05-01T12:32:48.775Z]   🧠 [14/30] Enriching: dilgel 2 gel
+[2026-05-01T12:32:56.393Z]   🧠 [15/30] Enriching: dilzem iv injection 5 ml
+[2026-05-01T12:33:04.024Z]   🧠 [16/30] Enriching: diltigesic gel
+[2026-05-01T12:33:11.621Z]   🧠 [17/30] Enriching: dilzem sr tablet
+[2026-05-01T12:33:19.233Z]   🧠 [18/30] Enriching: angizem 30mg tablet
+[2026-05-01T12:33:26.844Z]   🧠 [19/30] Enriching: channel sr 90 tablet
+[2026-05-01T12:33:34.461Z]   🧠 [20/30] Enriching: dilzem-sr 90 mg tablet
+[2026-05-01T12:33:42.074Z]   🧠 [21/30] Enriching: angizem
+[2026-05-01T12:33:49.690Z]   🧠 [22/30] Enriching: dilzem-sr tablet
+[2026-05-01T12:33:57.301Z]   🧠 [23/30] Enriching: dilzem cd-120 capsule
+[2026-05-01T12:34:04.973Z]   🧠 [24/30] Enriching: dilzem-cd 180 capsule
+[2026-05-01T12:34:12.582Z]   🧠 [25/30] Enriching: iski 60mg tablet
+[2026-05-01T12:34:20.197Z]   🧠 [26/30] Enriching: manozem 30mg tablet
+[2026-05-01T12:34:27.803Z]   🧠 [27/30] Enriching: dilzem cd 90mg capsule
+[2026-05-01T12:34:35.418Z]   🧠 [28/30] Enriching: dilzem 30mg tablet
+[2026-05-01T12:34:43.021Z]   🧠 [29/30] Enriching: dili 30mg tablet
+[2026-05-01T12:34:50.652Z]   🧠 [30/30] Enriching: dtm 60mg tablet
+[2026-05-01T12:34:55.745Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-05-01T12:34:55.757Z] 
+📊 Progress: 72/580 queries (12.4%) | Speed: 0.00 q/s | ETA: 63h 49m 11s
+[2026-05-01T12:34:55.758Z]    Discovered: 8230 | Scraped: 8230 | Medicines: 7776 | Enriched: 134
+[2026-05-01T12:34:55.760Z] 💤 Breathing for 4.3s before next batch...
+
+[2026-05-01T12:35:00.090Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T12:35:00.092Z] 📦 BATCH 25 — Processing 3 queries [verapamil, nitroglycerin, isosorbide dinitrate]
+[2026-05-01T12:35:00.093Z] ════════════════════════════════════════════════════════════
+[2026-05-01T12:35:00.095Z]   🔍 [Attempt 1] Scraping: "verapamil"
+[2026-05-01T12:38:33.453Z]   ✅ "verapamil" → Discovered: 42, Scraped: 42, Medicines: 38
+[2026-05-01T12:38:36.401Z]   🔍 [Attempt 1] Scraping: "nitroglycerin"
+[2026-05-01T12:44:55.770Z]   ✅ "nitroglycerin" → Discovered: 137, Scraped: 137, Medicines: 134
+[2026-05-01T12:45:00.584Z]   🔍 [Attempt 1] Scraping: "isosorbide dinitrate"
+[2026-05-01T12:52:20.958Z]   ✅ "isosorbide dinitrate" → Discovered: 80, Scraped: 80, Medicines: 76
+[2026-05-01T12:52:25.632Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T12:52:25.877Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T12:52:25.878Z]   🧠 [1/30] Enriching: muzika tablet
+[2026-05-01T12:52:29.013Z]   🧠 [2/30] Enriching: monocard 10mg tablet
+[2026-05-01T12:52:36.586Z]   🧠 [3/30] Enriching: nitrazine tablet
+[2026-05-01T12:52:44.180Z]   🧠 [4/30] Enriching: isoditrate
+[2026-05-01T12:52:51.799Z]   🧠 [5/30] Enriching: isordil
+[2026-05-01T12:52:59.399Z]   🧠 [6/30] Enriching: sorbitrate
+[2026-05-01T12:53:07.028Z]   🧠 [7/30] Enriching: imdur 30mg tablet
+[2026-05-01T12:53:14.631Z]   🧠 [8/30] Enriching: isordil 5mg tablet
+[2026-05-01T12:53:22.230Z]   🧠 [9/30] Enriching: isozac tablet
+[2026-05-01T12:53:29.836Z]   🧠 [10/30] Enriching: nitrohart tablet
+[2026-05-01T12:53:37.436Z]   🧠 [11/30] Enriching: isonit 5mg tablet
+[2026-05-01T12:53:45.030Z]   🧠 [12/30] Enriching: isordil 5 sublingual tablet
+[2026-05-01T12:53:52.632Z]   🧠 [13/30] Enriching: isordril
+[2026-05-01T12:54:00.230Z]   🧠 [14/30] Enriching: isonit plus tablet
+[2026-05-01T12:54:07.837Z]   🧠 [15/30] Enriching: isonit
+[2026-05-01T12:54:15.433Z]   🧠 [16/30] Enriching: isonitrate
+[2026-05-01T12:54:23.043Z]   🧠 [17/30] Enriching: isorus tablet
+[2026-05-01T12:54:30.648Z]   🧠 [18/30] Enriching: hydrozolin isdn tablet
+[2026-05-01T12:54:38.251Z]   🧠 [19/30] Enriching: cordil 2.5 mg tablet
+[2026-05-01T12:54:45.849Z]   🧠 [20/30] Enriching: isohyd tablet
+[2026-05-01T12:54:53.483Z]   🧠 [21/30] Enriching: isorus tablet
+[2026-05-01T12:55:01.084Z]   🧠 [22/30] Enriching: vasolazine tablet
+[2026-05-01T12:55:08.683Z]   🧠 [23/30] Enriching: muzika 20mg 37.5mg tablet
+[2026-05-01T12:55:16.283Z]   🧠 [24/30] Enriching: nitrohart 20mg tablet
+[2026-05-01T12:55:23.900Z]   🧠 [25/30] Enriching: hydraline iso tablet
+[2026-05-01T12:55:31.499Z]   🧠 [26/30] Enriching: aprilife plus tablet
+[2026-05-01T12:55:39.115Z]   🧠 [27/30] Enriching: isordil 10mg tablets
+[2026-05-01T12:55:46.717Z]   🧠 [28/30] Enriching: sorbidine 10 mg tablets
+[2026-05-01T12:55:54.324Z]   🧠 [29/30] Enriching: isohyd 20mg 37.5mg tablet
+[2026-05-01T12:56:01.939Z]   🧠 [30/30] Enriching: irosus 20mg 37.5mg tablet
+[2026-05-01T12:56:07.053Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-05-01T12:56:07.071Z] 
+📊 Progress: 75/580 queries (12.9%) | Speed: 0.00 q/s | ETA: 63h 13m 23s
+[2026-05-01T12:56:07.072Z]    Discovered: 8489 | Scraped: 8489 | Medicines: 8024 | Enriched: 135
+[2026-05-01T12:56:07.074Z] 💤 Breathing for 3.3s before next batch...
+
+[2026-05-01T12:56:10.384Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T12:56:10.386Z] 📦 BATCH 26 — Processing 3 queries [digoxin, amiodarone, lidocaine]
+[2026-05-01T12:56:10.388Z] ════════════════════════════════════════════════════════════
+[2026-05-01T12:56:10.389Z]   🔍 [Attempt 1] Scraping: "digoxin"
+[2026-05-01T13:02:37.969Z]   ✅ "digoxin" → Discovered: 65, Scraped: 65, Medicines: 58
+[2026-05-01T13:02:42.574Z]   🔍 [Attempt 1] Scraping: "amiodarone"
+[2026-05-01T13:06:02.994Z]   ✅ "amiodarone" → Discovered: 76, Scraped: 76, Medicines: 71
+[2026-05-01T13:06:07.116Z]   🔍 [Attempt 1] Scraping: "lidocaine"
+[2026-05-01T13:14:22.925Z]   ✅ "lidocaine" → Discovered: 137, Scraped: 137, Medicines: 127
+[2026-05-01T13:14:27.636Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-01T13:14:27.816Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-01T13:14:27.818Z]   🧠 [1/30] Enriching: lignocaine vigore lido spray 15 gm
+[2026-05-01T13:14:31.523Z]   🧠 [2/30] Enriching: lox-2 w v jelly
+[2026-05-01T13:14:39.102Z]   🧠 [3/30] Enriching: manforce staylong gel 8 gm
+[2026-05-01T13:14:46.718Z]   🧠 [4/30] Enriching: manforce staylong gel 1 gm
+[2026-05-01T13:14:54.351Z]   🧠 [5/30] Enriching: prilox cream 5 gm
+[2026-05-01T13:15:01.955Z]   🧠 [6/30] Enriching: lido plast 700mg patch
+[2026-05-01T13:15:09.574Z]   🧠 [7/30] Enriching: xylocaine ointment
+[2026-05-01T13:15:17.181Z]   🧠 [8/30] Enriching: dolocaine cream 5gm
+[2026-05-01T13:15:24.788Z]   🧠 [9/30] Enriching: long drive xt spray 12g
+[2026-05-01T13:15:32.385Z]   🧠 [10/30] Enriching: lidocam mouth wash 120ml
+[2026-05-01T13:15:40.006Z]   🧠 [11/30] Enriching: nummit spray
+[2026-05-01T13:15:47.617Z]   🧠 [12/30] Enriching: lexanox plus sugar free paste 10g
+[2026-05-01T13:15:55.226Z]   🧠 [13/30] Enriching: gabipenta gel 30g
+[2026-05-01T13:16:02.828Z]   🧠 [14/30] Enriching: sucrafil ano cream 20gm
+[2026-05-01T13:16:10.440Z]   🧠 [15/30] Enriching: xylocaine 5 ointment 50gm
+[2026-05-01T13:16:18.050Z]   🧠 [16/30] Enriching: lox 2 jelly 30gm
+[2026-05-01T13:16:25.664Z]   🧠 [17/30] Enriching: long drive spray 20gm
+[2026-05-01T13:16:33.275Z]   🧠 [18/30] Enriching: toplap gel
+[2026-05-01T13:16:40.915Z]   🧠 [19/30] Enriching: anosum cream
+[2026-05-01T13:16:48.571Z]   🧠 [20/30] Enriching: long drive xt gel 10g
+[2026-05-01T13:16:56.291Z]   🧠 [21/30] Enriching: xylocaine jelly
+[2026-05-01T13:17:03.910Z]   🧠 [22/30] Enriching: candid ear drops
+[2026-05-01T13:17:11.573Z]   🧠 [23/30] Enriching: age performance lidocaine long lasting delay spray
+[2026-05-01T13:17:19.200Z]   🧠 [24/30] Enriching: lignox 2 a injection
+[2026-05-01T13:17:26.808Z]   🧠 [25/30] Enriching: lox 5 patch
+[2026-05-01T13:17:34.415Z]   🧠 [26/30] Enriching: knight walker hard lidocaine topical spray
+[2026-05-01T13:17:42.055Z]   🧠 [27/30] Enriching: mixbiotic-ac ear drop
+[2026-05-01T13:17:49.660Z]   🧠 [28/30] Enriching: biomedison care4u lidocaine patch
+[2026-05-01T13:17:57.274Z]   🧠 [29/30] Enriching: girik combo delay spray 40ml and vigrx oil 30ml
+[2026-05-01T13:18:04.889Z]   🧠 [30/30] Enriching: dologel
+[2026-05-01T13:18:09.992Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-05-01T13:18:10.004Z] 
+📊 Progress: 78/580 queries (13.4%) | Speed: 0.00 q/s | ETA: 62h 47m 13s
+[2026-05-01T13:18:10.005Z]    Discovered: 8767 | Scraped: 8767 | Medicines: 8280 | Enriched: 136
+[2026-05-01T13:18:10.006Z] 💤 Breathing for 2.4s before next batch...
+
+[2026-05-01T13:18:12.412Z] 
+════════════════════════════════════════════════════════════
+[2026-05-01T13:18:12.414Z] 📦 BATCH 27 — Processing 3 queries [adenosine, dopamine, dobutamine]
+[2026-05-01T13:18:12.415Z] ════════════════════════════════════════════════════════════
+[2026-05-01T13:18:12.417Z]   🔍 [Attempt 1] Scraping: "adenosine"
+[2026-05-01T13:20:02.819Z] 
+⚠️  Received SIGINT. Saving state and exiting gracefully...
+[2026-05-01T13:20:02.820Z] 💾 State saved. You can resume with: node orchestrator.js --resume

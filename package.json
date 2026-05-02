@@ -7,13 +7,16 @@
     "start": "node server.js",
     "scrape": "node cli.js",
     "batch:ingest": "node batch-job.js",
-    "test:actual": "node test-actual.js",
     "enrich": "node enrich-medicines.js",
     "crawl": "node orchestrator.js",
     "crawl:salts": "node orchestrator.js --mode salts",
     "crawl:alphabet": "node orchestrator.js --mode alphabet",
     "crawl:resume": "node orchestrator.js --resume",
-    "crawl:dry-run": "node orchestrator.js --dry-run"
+    "crawl:dry-run": "node orchestrator.js --dry-run",
+    "interlink": "node interlink-medicines.js",
+    "interlink:dry-run": "node interlink-medicines.js --dry-run",
+    "targeted-enrich": "node targeted-enrichment.js --limit 50",
+    "pipeline": "npm run crawl:resume && npm run interlink && npm run targeted-enrich && npm run enrich"
   },
   "dependencies": {
     "axios": "^1.7.0",

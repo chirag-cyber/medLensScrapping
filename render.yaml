@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: medlens-scraper
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.17.0
+      - key: PUPPETEER_CACHE_DIR
+        value: /opt/render/project/puppeteer
+      - key: MONGO_URL
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false

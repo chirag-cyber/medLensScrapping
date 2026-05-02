@@ -421,29 +421,208 @@ app.post("/ingest-batch", async (req, res) => {
   }
 });
 
-// ─── Cron Job Trigger Endpoint ─────────────────────────────────────────
-app.get("/cron/run-scraper", (req, res) => {
-  const { exec } = require("child_process");
-  
-  // You can pass ?reset=true to start fresh, otherwise it resumes
-  const mode = req.query.reset === "true" ? "--reset" : "--resume";
-  
-  console.log(`[CRON] Triggering background orchestrator: ${mode}`);
-  
-  // Fire and forget
-  exec(`node orchestrator.js ${mode}`, { cwd: __dirname }, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`[CRON ERROR] Failed to run orchestrator: ${error.message}`);
-      return;
-    }
-    if (stderr) console.error(`[CRON STDERR] ${stderr}`);
+// ═══════════════════════════════════════════════════════════════════════
+// CRON / BATCH ROUTES — Trigger pipeline stages via HTTP for cron jobs
+// ═══════════════════════════════════════════════════════════════════════
+const { exec, spawn } = require("child_process");
+
+// Track running jobs so we don't double-trigger
+const runningJobs = {};
+
+function triggerJob(jobName, command, args = []) {
+  if (runningJobs[jobName]) {
+    return { alreadyRunning: true, startedAt: runningJobs[jobName].startedAt };
+  }
+
+  const startedAt = new Date().toISOString();
+  const child = spawn("node", [command, ...args], {
+    cwd: __dirname,
+    stdio: "pipe",
+    detached: false,
   });
 
-  // Return immediately so the HTTP request doesn't timeout
+  runningJobs[jobName] = { pid: child.pid, startedAt };
+
+  let output = "";
+  child.stdout.on("data", (data) => { output += data.toString(); });
+  child.stderr.on("data", (data) => { output += data.toString(); });
+
+  child.on("close", (code) => {
+    console.log(`[CRON] ${jobName} finished with code ${code}`);
+    delete runningJobs[jobName];
+  });
+
+  child.on("error", (err) => {
+    console.error(`[CRON ERROR] ${jobName}: ${err.message}`);
+    delete runningJobs[jobName];
+  });
+
+  return { alreadyRunning: false, startedAt, pid: child.pid };
+}
+
+// ─── 1. Scrape: Orchestrator (Discovery + Raw Scraping) ─────────────
+app.get("/cron/scrape", (req, res) => {
+  const mode = req.query.reset === "true" ? "--reset" : "--resume";
+  const batchSize = req.query.batchSize || "3";
+
+  const result = triggerJob("scrape", "orchestrator.js", [mode, "--batch-size", batchSize]);
+
+  if (result.alreadyRunning) {
+    return res.status(409).json({
+      success: false,
+      error: "Scrape job is already running",
+      startedAt: result.startedAt,
+    });
+  }
+
   return res.json({
     success: true,
-    message: `Scraping pipeline triggered in background with mode: ${mode}`,
-    timestamp: new Date().toISOString()
+    job: "scrape",
+    message: `Orchestrator triggered in background (${mode})`,
+    pid: result.pid,
+    startedAt: result.startedAt,
+  });
+});
+
+// ─── 2. Interlink: Deduplicate Medicines ────────────────────────────
+app.get("/cron/interlink", (req, res) => {
+  const dryRun = req.query.dryRun === "true" ? "--dry-run" : "";
+  const args = dryRun ? [dryRun] : [];
+
+  const result = triggerJob("interlink", "interlink-medicines.js", args);
+
+  if (result.alreadyRunning) {
+    return res.status(409).json({
+      success: false,
+      error: "Interlink job is already running",
+      startedAt: result.startedAt,
+    });
+  }
+
+  return res.json({
+    success: true,
+    job: "interlink",
+    message: `Interlink triggered${dryRun ? " (DRY RUN)" : " (LIVE)"}`,
+    pid: result.pid,
+    startedAt: result.startedAt,
+  });
+});
+
+// ─── 3. Targeted Enrichment: Fill missing platform prices ───────────
+app.get("/cron/targeted-enrichment", (req, res) => {
+  const limit = req.query.limit || "50";
+  const dryRun = req.query.dryRun === "true" ? "--dry-run" : "";
+  const args = ["--limit", limit];
+  if (dryRun) args.push(dryRun);
+
+  const result = triggerJob("targeted-enrichment", "targeted-enrichment.js", args);
+
+  if (result.alreadyRunning) {
+    return res.status(409).json({
+      success: false,
+      error: "Targeted enrichment job is already running",
+      startedAt: result.startedAt,
+    });
+  }
+
+  return res.json({
+    success: true,
+    job: "targeted-enrichment",
+    message: `Targeted enrichment triggered (limit: ${limit})${dryRun ? " DRY RUN" : ""}`,
+    pid: result.pid,
+    startedAt: result.startedAt,
+  });
+});
+
+// ─── 4. LLM Enrichment: AI-powered metadata enrichment ─────────────
+app.get("/cron/llm-enrich", (req, res) => {
+  const result = triggerJob("llm-enrich", "enrich-medicines.js", []);
+
+  if (result.alreadyRunning) {
+    return res.status(409).json({
+      success: false,
+      error: "LLM enrichment job is already running",
+      startedAt: result.startedAt,
+    });
+  }
+
+  return res.json({
+    success: true,
+    job: "llm-enrich",
+    message: "LLM enrichment triggered",
+    pid: result.pid,
+    startedAt: result.startedAt,
+  });
+});
+
+// ─── 5. Full Pipeline: Scrape → Interlink → Enrich (sequential) ────
+app.get("/cron/full-pipeline", async (req, res) => {
+  const startedAt = new Date().toISOString();
+
+  if (runningJobs["full-pipeline"]) {
+    return res.status(409).json({
+      success: false,
+      error: "Full pipeline is already running",
+      startedAt: runningJobs["full-pipeline"].startedAt,
+    });
+  }
+
+  runningJobs["full-pipeline"] = { startedAt };
+
+  // Run sequentially in the background
+  (async () => {
+    const runScript = (script, args = []) =>
+      new Promise((resolve, reject) => {
+        const child = spawn("node", [script, ...args], {
+          cwd: __dirname,
+          stdio: "pipe",
+        });
+        child.on("close", (code) => (code === 0 ? resolve(code) : reject(new Error(`${script} exited with code ${code}`))));
+        child.on("error", reject);
+      });
+
+    try {
+      console.log("[FULL PIPELINE] Step 1/4: Scraping...");
+      await runScript("orchestrator.js", ["--resume", "--batch-size", "3"]);
+
+      console.log("[FULL PIPELINE] Step 2/4: Interlinking...");
+      await runScript("interlink-medicines.js");
+
+      console.log("[FULL PIPELINE] Step 3/4: Targeted enrichment...");
+      await runScript("targeted-enrichment.js", ["--limit", "50"]);
+
+      console.log("[FULL PIPELINE] Step 4/4: LLM enrichment...");
+      await runScript("enrich-medicines.js");
+
+      console.log("[FULL PIPELINE] Complete!");
+    } catch (err) {
+      console.error(`[FULL PIPELINE ERROR] ${err.message}`);
+    } finally {
+      delete runningJobs["full-pipeline"];
+    }
+  })();
+
+  return res.json({
+    success: true,
+    job: "full-pipeline",
+    message: "Full pipeline triggered: Scrape → Interlink → Targeted Enrichment → LLM Enrich",
+    startedAt,
+  });
+});
+
+// ─── 6. Job Status ──────────────────────────────────────────────────
+app.get("/cron/status", (_req, res) => {
+  const jobs = Object.entries(runningJobs).map(([name, info]) => ({
+    job: name,
+    status: "running",
+    ...info,
+  }));
+
+  return res.json({
+    success: true,
+    timestamp: new Date().toISOString(),
+    activeJobs: jobs.length,
+    jobs,
   });
 });
 
@@ -452,14 +631,27 @@ app.get("/cron/run-scraper", (req, res) => {
 // ─── Start server ────────────────────────────────────────────────────
 app.listen(PORT, () => {
   console.log(`
-╔════════════════════════════════════════════════════════════════╗
-║        PDP Scraper + Product Details — Ready 🚀              ║
-╠════════════════════════════════════════════════════════════════╣
-║  Server          : http://localhost:${PORT}                      ║
-║  PDP Links       : GET /scrape?url=<url>                      ║
-║  Links+Details   : GET /scrape-details?url=<url>&limit=10     ║
-║  Single Product  : GET /product-detail?url=<pdp_url>          ║
-╚════════════════════════════════════════════════════════════════╝
+╔════════════════════════════════════════════════════════════════════╗
+║           MediSaathi ETL Pipeline Server — Ready 🚀              ║
+╠════════════════════════════════════════════════════════════════════╣
+║  Server            : http://localhost:${PORT}                        ║
+║                                                                    ║
+║  ── Scraping ──────────────────────────────────────────────────    ║
+║  PDP Links         : GET /scrape?url=<url>                        ║
+║  Links+Details     : GET /scrape-details?url=<url>&limit=10       ║
+║  Single Product    : GET /product-detail?url=<pdp_url>            ║
+║  Search            : GET /search-medicines?query=<query>          ║
+║  Ingest Medicine   : GET /ingest-medicine?query=<name>            ║
+║  Batch Ingest      : POST /ingest-batch                           ║
+║                                                                    ║
+║  ── Cron / Batch Jobs ─────────────────────────────────────────   ║
+║  Scrape            : GET /cron/scrape                             ║
+║  Interlink         : GET /cron/interlink                          ║
+║  Targeted Enrich   : GET /cron/targeted-enrichment?limit=50       ║
+║  LLM Enrich        : GET /cron/llm-enrich                         ║
+║  Full Pipeline     : GET /cron/full-pipeline                      ║
+║  Job Status        : GET /cron/status                             ║
+╚════════════════════════════════════════════════════════════════════╝
   `);
 });
 

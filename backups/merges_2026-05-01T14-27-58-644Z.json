@@ -1,0 +1,34 @@
+[
+  {
+    "canonicalKey": "omesec|20mg",
+    "masterId": "69f3602d9993129c11b1561d",
+    "masterName": "omesec 20 mg capsule",
+    "duplicates": [
+      {
+        "id": "69f4b85f9993129c11b1991a",
+        "name": "omesec 20 mg capsule 20",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-01T14:28:01.695Z"
+  },
+  {
+    "canonicalKey": "betnesol forte|1mg",
+    "masterId": "69f460e29993129c11b17614",
+    "masterName": "betnesol forte tablet",
+    "duplicates": [
+      {
+        "id": "69f4b6f29993129c11b198d7",
+        "name": "betnesol forte 1mg tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-01T14:28:04.842Z"
+  }
+]

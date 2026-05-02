@@ -1,0 +1,1338 @@
+[
+  {
+    "canonicalKey": "p|500mg",
+    "masterId": "69f59f9ada4a31b421a89b4f",
+    "masterName": "p-500 tablet",
+    "duplicates": [
+      {
+        "id": "69f3537d9993129c11b1520b",
+        "name": "p 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:21.079Z"
+  },
+  {
+    "canonicalKey": "pacimol|650mg",
+    "masterId": "69f3537d9993129c11b1520d",
+    "masterName": "pacimol 650 tablet",
+    "duplicates": [
+      {
+        "id": "69f59f9ada4a31b421a89b49",
+        "name": "pacimol 650 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:21.404Z"
+  },
+  {
+    "canonicalKey": "dolo|650mg",
+    "masterId": "69f3537d9993129c11b15211",
+    "masterName": "dolo-650 tablet",
+    "duplicates": [
+      {
+        "id": "69f59f9ada4a31b421a89b48",
+        "name": "dolo 650 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:21.813Z"
+  },
+  {
+    "canonicalKey": "p|250mg",
+    "masterId": "69f3537d9993129c11b15233",
+    "masterName": "p 250 suspension",
+    "duplicates": [
+      {
+        "id": "69f59f9ada4a31b421a89b4e",
+        "name": "p-250 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:22.138Z"
+  },
+  {
+    "canonicalKey": "brufen|400mg",
+    "masterId": "69f354449993129c11b1524a",
+    "masterName": "brufen 400 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a04bda4a31b421a89b5b",
+        "name": "brufen 400 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:22.587Z"
+  },
+  {
+    "canonicalKey": "brufen|200mg",
+    "masterId": "69f354449993129c11b1524b",
+    "masterName": "brufen 200 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a04bda4a31b421a89b5c",
+        "name": "brufen 200 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:23.066Z"
+  },
+  {
+    "canonicalKey": "brufen|600mg",
+    "masterId": "69f354449993129c11b1524c",
+    "masterName": "brufen 600 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a04bda4a31b421a89b5d",
+        "name": "brufen 600 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:23.392Z"
+  },
+  {
+    "canonicalKey": "azithral|500mg",
+    "masterId": "69f358b59993129c11b153d3",
+    "masterName": "azithral-500 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a123da4a31b421a89b76",
+        "name": "azithral 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:23.710Z"
+  },
+  {
+    "canonicalKey": "zady|500mg",
+    "masterId": "69f358b59993129c11b153dc",
+    "masterName": "zady-500 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a123da4a31b421a89b77",
+        "name": "zady 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:24.038Z"
+  },
+  {
+    "canonicalKey": "glycomet sr|500mg",
+    "masterId": "69f35b9d9993129c11b15460",
+    "masterName": "glycomet 500 sr tablet",
+    "duplicates": [
+      {
+        "id": "69f5a2ebda4a31b421a89b9a",
+        "name": "glycomet 500 sr tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:24.360Z"
+  },
+  {
+    "canonicalKey": "debistal sr|1000mg",
+    "masterId": "69f35b9d9993129c11b1546b",
+    "masterName": "debistal 1000 sr tablet",
+    "duplicates": [
+      {
+        "id": "69f5a202da4a31b421a89b8d",
+        "name": "debistal sr 1000 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:24.676Z"
+  },
+  {
+    "canonicalKey": "glycomet sr|850mg",
+    "masterId": "69f35b9d9993129c11b15475",
+    "masterName": "glycomet 850 sr tablet",
+    "duplicates": [
+      {
+        "id": "69f5a1dfda4a31b421a89b7d",
+        "name": "glycomet sr 850 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:24.988Z"
+  },
+  {
+    "canonicalKey": "mefomin sr|500mg",
+    "masterId": "69f35b9e9993129c11b1552b",
+    "masterName": "mefomin 500 sr tablet",
+    "duplicates": [
+      {
+        "id": "69f5a216da4a31b421a89b94",
+        "name": "mefomin sr 500mg tablets",
+        "platforms": [
+          "pharmeasy",
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:25.332Z"
+  },
+  {
+    "canonicalKey": "okamet|500mg",
+    "masterId": "69f35b9e9993129c11b1552a",
+    "masterName": "okamet-500 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a216da4a31b421a89b92",
+        "name": "okamet 500 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:25.642Z"
+  },
+  {
+    "canonicalKey": "metform sr|500mg",
+    "masterId": "69f35b9e9993129c11b1552f",
+    "masterName": "metform sr 500 mg tablet",
+    "duplicates": [
+      {
+        "id": "69f5a216da4a31b421a89b93",
+        "name": "metform sr 500 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:25.950Z"
+  },
+  {
+    "canonicalKey": "mefomin sr|1000mg",
+    "masterId": "69f35b9e9993129c11b15533",
+    "masterName": "mefomin 1000 sr tablet",
+    "duplicates": [
+      {
+        "id": "69f5a202da4a31b421a89b8c",
+        "name": "mefomin sr 1000mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:26.264Z"
+  },
+  {
+    "canonicalKey": "omee|20mg",
+    "masterId": "69f3602e9993129c11b156b7",
+    "masterName": "omee capsule",
+    "duplicates": [
+      {
+        "id": "69f5a30eda4a31b421a89ba5",
+        "name": "omee 20mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:26.581Z"
+  },
+  {
+    "canonicalKey": "omez|20mg",
+    "masterId": "69f3602e9993129c11b156d5",
+    "masterName": "omez 20mg capsules",
+    "duplicates": [
+      {
+        "id": "69f5a321da4a31b421a89ba7",
+        "name": "omez capsule",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:26.881Z"
+  },
+  {
+    "canonicalKey": "covance|25mg",
+    "masterId": "69f365579993129c11b159f3",
+    "masterName": "covance 25 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a82dda4a31b421a89cad",
+        "name": "covance 25mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:27.189Z"
+  },
+  {
+    "canonicalKey": "angizaar|25mg",
+    "masterId": "69f365579993129c11b15a1d",
+    "masterName": "angizaar 25 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a82dda4a31b421a89caa",
+        "name": "angizaar 25mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:27.507Z"
+  },
+  {
+    "canonicalKey": "losar|25mg",
+    "masterId": "69f365589993129c11b15abc",
+    "masterName": "losar-25 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a336da4a31b421a89bab",
+        "name": "losar 25 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:27.823Z"
+  },
+  {
+    "canonicalKey": "losanorm|50mg",
+    "masterId": "69f365589993129c11b15ae3",
+    "masterName": "losanorm",
+    "duplicates": [
+      {
+        "id": "69f5a336da4a31b421a89baa",
+        "name": "losanorm 50mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:28.137Z"
+  },
+  {
+    "canonicalKey": "lcin|500mg",
+    "masterId": "69f36ae89993129c11b15d8b",
+    "masterName": "lcin 500 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a5a4da4a31b421a89bfa",
+        "name": "lcin 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:28.443Z"
+  },
+  {
+    "canonicalKey": "af|200mg",
+    "masterId": "69f373589993129c11b16118",
+    "masterName": "af 200 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a5e1da4a31b421a89c08",
+        "name": "af-200 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:28.751Z"
+  },
+  {
+    "canonicalKey": "af|300mg",
+    "masterId": "69f373599993129c11b1613e",
+    "masterName": "af 300 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a5e1da4a31b421a89c09",
+        "name": "af 300mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:29.060Z"
+  },
+  {
+    "canonicalKey": "nuforce|400mg",
+    "masterId": "69f373599993129c11b16149",
+    "masterName": "nuforce 400mg tablet",
+    "duplicates": [
+      {
+        "id": "69f5a5e1da4a31b421a89c0c",
+        "name": "nuforce-400 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:29.365Z"
+  },
+  {
+    "canonicalKey": "forcan|200mg",
+    "masterId": "69f373599993129c11b161dc",
+    "masterName": "forcan-200 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a5e1da4a31b421a89c0e",
+        "name": "forcan 200mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:29.692Z"
+  },
+  {
+    "canonicalKey": "af|400mg",
+    "masterId": "69f373599993129c11b161e3",
+    "masterName": "af-400 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a5e1da4a31b421a89c07",
+        "name": "af 400 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:30.009Z"
+  },
+  {
+    "canonicalKey": "af|150mg",
+    "masterId": "69f373599993129c11b16204",
+    "masterName": "af-150 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a5e1da4a31b421a89c0d",
+        "name": "af 150 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:30.327Z"
+  },
+  {
+    "canonicalKey": "napra d|500mg",
+    "masterId": "69f377e79993129c11b1642b",
+    "masterName": "napra d 500 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a77ada4a31b421a89c40",
+        "name": "napra d 500 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:30.635Z"
+  },
+  {
+    "canonicalKey": "napra d|250mg",
+    "masterId": "69f377e79993129c11b1642f",
+    "masterName": "napra d 250 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a768da4a31b421a89c2b",
+        "name": "napra d 250 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      },
+      {
+        "id": "69f5a77ada4a31b421a89c3e",
+        "name": "napra d 250 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:31.021Z"
+  },
+  {
+    "canonicalKey": "macprox dp|250mg",
+    "masterId": "69f5a77ada4a31b421a89c41",
+    "masterName": "macprox dp 250mg tablets",
+    "duplicates": [
+      {
+        "id": "69f377e89993129c11b16459",
+        "name": "macprox dp 250 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:31.342Z"
+  },
+  {
+    "canonicalKey": "naxdom|500mg",
+    "masterId": "69f377e99993129c11b16510",
+    "masterName": "naxdom 500 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a77ada4a31b421a89c3f",
+        "name": "naxdom 500 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:31.671Z"
+  },
+  {
+    "canonicalKey": "xenadom|250mg",
+    "masterId": "69f377e99993129c11b16514",
+    "masterName": "xenadom-250 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a77ada4a31b421a89c42",
+        "name": "xenadom 250mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:32.002Z"
+  },
+  {
+    "canonicalKey": "naxdom|250mg",
+    "masterId": "69f377e99993129c11b16515",
+    "masterName": "naxdom 250 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a77ada4a31b421a89c3d",
+        "name": "naxdom 250 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:32.313Z"
+  },
+  {
+    "canonicalKey": "deplatt a|75mg",
+    "masterId": "69f378889993129c11b16530",
+    "masterName": "deplatt a 75 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a79eda4a31b421a89c4b",
+        "name": "deplatt a 75mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:32.635Z"
+  },
+  {
+    "canonicalKey": "deplatt a|150mg",
+    "masterId": "69f378899993129c11b16554",
+    "masterName": "deplatt a 150 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a79eda4a31b421a89c4d",
+        "name": "deplatt a 150mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:32.950Z"
+  },
+  {
+    "canonicalKey": "deplatt cv|40mg",
+    "masterId": "69f378899993129c11b16565",
+    "masterName": "deplatt cv 40 capsule",
+    "duplicates": [
+      {
+        "id": "69f5a79eda4a31b421a89c51",
+        "name": "deplatt cv 40 capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:33.257Z"
+  },
+  {
+    "canonicalKey": "tenolol|25mg",
+    "masterId": "69f5a7b5da4a31b421a89c5d",
+    "masterName": "tenolol 25mg tablets",
+    "duplicates": [
+      {
+        "id": "69f44c569993129c11b16c65",
+        "name": "tenolol 25 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:33.568Z"
+  },
+  {
+    "canonicalKey": "tenoric|25mg",
+    "masterId": "69f44c579993129c11b16c94",
+    "masterName": "tenoric 25 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a7b5da4a31b421a89c5c",
+        "name": "tenoric 25mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:33.882Z"
+  },
+  {
+    "canonicalKey": "tenolol|50mg",
+    "masterId": "69f44c579993129c11b16ceb",
+    "masterName": "tenolol",
+    "duplicates": [
+      {
+        "id": "69f5a7b5da4a31b421a89c62",
+        "name": "tenolol 50mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:34.227Z"
+  },
+  {
+    "canonicalKey": "metolar|25mg",
+    "masterId": "69f44de59993129c11b16d89",
+    "masterName": "metolar 25mg tablet",
+    "duplicates": [
+      {
+        "id": "69f5a7cbda4a31b421a89c6c",
+        "name": "metolar 25 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:34.552Z"
+  },
+  {
+    "canonicalKey": "met xl|25mg",
+    "masterId": "69f44de59993129c11b16d8a",
+    "masterName": "met xl 25mg tablet",
+    "duplicates": [
+      {
+        "id": "69f5a7cbda4a31b421a89c75",
+        "name": "met xl 25 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:34.877Z"
+  },
+  {
+    "canonicalKey": "metolar xr|25mg",
+    "masterId": "69f44de69993129c11b16da5",
+    "masterName": "metolar xr 25mg capsule",
+    "duplicates": [
+      {
+        "id": "69f5a7e3da4a31b421a89c80",
+        "name": "metolar xr 25 capsule",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:35.205Z"
+  },
+  {
+    "canonicalKey": "metolar|50mg",
+    "masterId": "69f44de69993129c11b16dae",
+    "masterName": "metolar",
+    "duplicates": [
+      {
+        "id": "69f5a7cbda4a31b421a89c72",
+        "name": "metolar",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:35.514Z"
+  },
+  {
+    "canonicalKey": "provanol sr|40mg",
+    "masterId": "69f450129993129c11b16df1",
+    "masterName": "provanol sr 40 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a7f9da4a31b421a89c8d",
+        "name": "provanol sr 40mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:35.851Z"
+  },
+  {
+    "canonicalKey": "provanol sr|80mg",
+    "masterId": "69f450139993129c11b16e17",
+    "masterName": "provanol sr 80 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a7f9da4a31b421a89c8e",
+        "name": "provanol sr 80mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:36.173Z"
+  },
+  {
+    "canonicalKey": "provanol|20mg",
+    "masterId": "69f450149993129c11b16eb0",
+    "masterName": "provanol",
+    "duplicates": [
+      {
+        "id": "69f5a7f9da4a31b421a89c90",
+        "name": "provanol 20mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:36.494Z"
+  },
+  {
+    "canonicalKey": "provanol plus|10mg",
+    "masterId": "69f450149993129c11b16ed2",
+    "masterName": "provanol plus",
+    "duplicates": [
+      {
+        "id": "69f5a7f9da4a31b421a89c91",
+        "name": "provanol plus 10mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:36.804Z"
+  },
+  {
+    "canonicalKey": "provanol plus|5mg",
+    "masterId": "69f450149993129c11b16ed5",
+    "masterName": "provanol plus",
+    "duplicates": [
+      {
+        "id": "69f5a7f9da4a31b421a89c92",
+        "name": "provanol plus 5mg tablets",
+        "platforms": [
+          "pharmeasy",
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:37.152Z"
+  },
+  {
+    "canonicalKey": "aquazide|12mg",
+    "masterId": "69f5a82dda4a31b421a89ca6",
+    "masterName": "aquazide 12",
+    "duplicates": [
+      {
+        "id": "69f454db9993129c11b1719e",
+        "name": "aquazide 12",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:37.460Z"
+  },
+  {
+    "canonicalKey": "foracort rotacap|200mg",
+    "masterId": "69f465949993129c11b179d7",
+    "masterName": "foracort 200 rotacap",
+    "duplicates": [
+      {
+        "id": "69f5a93ada4a31b421a89cbb",
+        "name": "foracort 200 rotacap",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:37.769Z"
+  },
+  {
+    "canonicalKey": "folitrax|7mg",
+    "masterId": "69f4736d9993129c11b17fc4",
+    "masterName": "folitrax 7",
+    "duplicates": [
+      {
+        "id": "69f5a998da4a31b421a89cd7",
+        "name": "folitrax 7",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:38.089Z"
+  },
+  {
+    "canonicalKey": "folitrax|15mg",
+    "masterId": "69f4736e9993129c11b1804a",
+    "masterName": "folitrax 15mg tablets",
+    "duplicates": [
+      {
+        "id": "69f5a982da4a31b421a89cce",
+        "name": "folitrax",
+        "platforms": [
+          "netmeds"
+        ]
+      },
+      {
+        "id": "69f5a998da4a31b421a89cd5",
+        "name": "folitrax",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:38.521Z"
+  },
+  {
+    "canonicalKey": "folitrax|20mg",
+    "masterId": "69f4736e9993129c11b18072",
+    "masterName": "folitrax",
+    "duplicates": [
+      {
+        "id": "69f5a961da4a31b421a89ccb",
+        "name": "folitrax 20mg tablets",
+        "platforms": [
+          "netmeds",
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:38.867Z"
+  },
+  {
+    "canonicalKey": "folitrax|2ml+50mg",
+    "masterId": "69f4736e9993129c11b1808e",
+    "masterName": "folitrax-50 injection 2 ml",
+    "duplicates": [
+      {
+        "id": "69f5a961da4a31b421a89cca",
+        "name": "folitrax 50mg injection 2ml",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:39.168Z"
+  },
+  {
+    "canonicalKey": "folitrax|25mg",
+    "masterId": "69f4736e9993129c11b18095",
+    "masterName": "folitrax-25 tablet",
+    "duplicates": [
+      {
+        "id": "69f5a982da4a31b421a89ccf",
+        "name": "folitrax 25 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      },
+      {
+        "id": "69f5a998da4a31b421a89cd4",
+        "name": "folitrax 25mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:39.566Z"
+  },
+  {
+    "canonicalKey": "janumet|500mg+50mg",
+    "masterId": "69f4814b9993129c11b18636",
+    "masterName": "janumet 50 500mg tablet",
+    "duplicates": [
+      {
+        "id": "69f5aa7dda4a31b421a89ce1",
+        "name": "janumet 50 mg 500 mg tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:39.855Z"
+  },
+  {
+    "canonicalKey": "empha|25mg",
+    "masterId": "69f5aa97da4a31b421a89cf6",
+    "masterName": "empha 25mg tablets",
+    "duplicates": [
+      {
+        "id": "69f4851f9993129c11b187b5",
+        "name": "empha 25 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:40.152Z"
+  },
+  {
+    "canonicalKey": "empaone|25mg",
+    "masterId": "69f4851f9993129c11b187bd",
+    "masterName": "empaone 25 tablet",
+    "duplicates": [
+      {
+        "id": "69f5aa97da4a31b421a89cf4",
+        "name": "empaone 25 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:40.480Z"
+  },
+  {
+    "canonicalKey": "empaglyn|25mg",
+    "masterId": "69f5aa97da4a31b421a89cf3",
+    "masterName": "empaglyn 25mg tablets",
+    "duplicates": [
+      {
+        "id": "69f4851f9993129c11b187e4",
+        "name": "empaglyn 25 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:40.785Z"
+  },
+  {
+    "canonicalKey": "empaglyde l|25mg",
+    "masterId": "69f5aa97da4a31b421a89cf1",
+    "masterName": "empaglyde l 25mg tablets",
+    "duplicates": [
+      {
+        "id": "69f4851f9993129c11b18812",
+        "name": "empaglyde l 25 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:41.122Z"
+  },
+  {
+    "canonicalKey": "jardix|25mg",
+    "masterId": "69f5aa97da4a31b421a89cf7",
+    "masterName": "jardix 25mg tablets",
+    "duplicates": [
+      {
+        "id": "69f4851f9993129c11b18819",
+        "name": "jardix 25 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:41.437Z"
+  },
+  {
+    "canonicalKey": "finobrate|160mg",
+    "masterId": "69f490489993129c11b18bec",
+    "masterName": "finobrate 160 tablet",
+    "duplicates": [
+      {
+        "id": "69f5aaaeda4a31b421a89d01",
+        "name": "finobrate 160 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:41.783Z"
+  },
+  {
+    "canonicalKey": "finate|160mg",
+    "masterId": "69f490489993129c11b18c04",
+    "masterName": "finate 160 tablet",
+    "duplicates": [
+      {
+        "id": "69f5aaaeda4a31b421a89d06",
+        "name": "finate 160mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:42.113Z"
+  },
+  {
+    "canonicalKey": "storfib|145mg",
+    "masterId": "69f5aabeda4a31b421a89d15",
+    "masterName": "storfib 145mg tablets",
+    "duplicates": [
+      {
+        "id": "69f490499993129c11b18c5b",
+        "name": "storfib 145 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:42.421Z"
+  },
+  {
+    "canonicalKey": "fenolip|145mg",
+    "masterId": "69f490499993129c11b18cad",
+    "masterName": "fenolip 145mg tablet",
+    "duplicates": [
+      {
+        "id": "69f5aabeda4a31b421a89d14",
+        "name": "fenolip 145 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:42.734Z"
+  },
+  {
+    "canonicalKey": "lipicard|160mg",
+    "masterId": "69f490499993129c11b18cc8",
+    "masterName": "lipicard-160 tablet",
+    "duplicates": [
+      {
+        "id": "69f5aaaeda4a31b421a89d08",
+        "name": "lipicard 160 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:43.049Z"
+  },
+  {
+    "canonicalKey": "feno tg|145mg",
+    "masterId": "69f5aabeda4a31b421a89d16",
+    "masterName": "feno tg 145mg tablets",
+    "duplicates": [
+      {
+        "id": "69f490499993129c11b18cd0",
+        "name": "feno tg tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:43.355Z"
+  },
+  {
+    "canonicalKey": "finobrate|200mg",
+    "masterId": "69f5aaaeda4a31b421a89d04",
+    "masterName": "finobrate 200mg tablets",
+    "duplicates": [
+      {
+        "id": "69f490499993129c11b18cd2",
+        "name": "finobrate-200mg tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:43.675Z"
+  },
+  {
+    "canonicalKey": "valzaar|160mg",
+    "masterId": "69f492a19993129c11b18e9d",
+    "masterName": "valzaar-160 tablet",
+    "duplicates": [
+      {
+        "id": "69f5aae8da4a31b421a89d22",
+        "name": "valzaar 160mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:43.985Z"
+  },
+  {
+    "canonicalKey": "olmezest ch|40mg",
+    "masterId": "69f5aafeda4a31b421a89d30",
+    "masterName": "olmezest ch 40mg tablets",
+    "duplicates": [
+      {
+        "id": "69f495579993129c11b18ec3",
+        "name": "olmezest ch 40 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:44.328Z"
+  },
+  {
+    "canonicalKey": "olmesar ch|40mg",
+    "masterId": "69f495579993129c11b18ee5",
+    "masterName": "olmesar ch 40 tablet",
+    "duplicates": [
+      {
+        "id": "69f5aafeda4a31b421a89d2f",
+        "name": "olmesar ch 40mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:44.667Z"
+  },
+  {
+    "canonicalKey": "triolmezest ch|40mg",
+    "masterId": "69f495579993129c11b18eef",
+    "masterName": "triolmezest ch 40 tablet",
+    "duplicates": [
+      {
+        "id": "69f5aafeda4a31b421a89d32",
+        "name": "triolmezest ch 40mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:44.976Z"
+  },
+  {
+    "canonicalKey": "triolmesar ch|40mg",
+    "masterId": "69f495579993129c11b18f0b",
+    "masterName": "triolmesar ch 40 tablet",
+    "duplicates": [
+      {
+        "id": "69f5aafeda4a31b421a89d31",
+        "name": "triolmesar ch 40mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:45.291Z"
+  },
+  {
+    "canonicalKey": "olkem ct|40mg",
+    "masterId": "69f5aafeda4a31b421a89d37",
+    "masterName": "olkem ct 40mg tablets",
+    "duplicates": [
+      {
+        "id": "69f495579993129c11b18f33",
+        "name": "olkem 40 ct tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:45.594Z"
+  },
+  {
+    "canonicalKey": "prazopress xl|5mg",
+    "masterId": "69f49a369993129c11b19157",
+    "masterName": "prazopress xl",
+    "duplicates": [
+      {
+        "id": "69f5ab38da4a31b421a89d44",
+        "name": "prazopress xl 5mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:45.909Z"
+  },
+  {
+    "canonicalKey": "gtn sorbitrate cr|2mg",
+    "masterId": "69f4a0479993129c11b1947c",
+    "masterName": "gtn sorbitrate cr 2",
+    "duplicates": [
+      {
+        "id": "69f5ac2fda4a31b421a89d51",
+        "name": "gtn sorbitrate cr 2",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:46.244Z"
+  },
+  {
+    "canonicalKey": "gluconorm g forte|1mg",
+    "masterId": "69f4c3bc9993129c11b19b1a",
+    "masterName": "gluconorm g1 forte tablet",
+    "duplicates": [
+      {
+        "id": "69f5a2c8da4a31b421a89b98",
+        "name": "gluconorm g 1 forte tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:46.551Z"
+  },
+  {
+    "canonicalKey": "losacar|50mg",
+    "masterId": "69f4c6219993129c11b19b9d",
+    "masterName": "losacar 50mg tablets",
+    "duplicates": [
+      {
+        "id": "69f5a4cbda4a31b421a89bec",
+        "name": "losacar",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-02T07:51:46.859Z"
+  },
+  {
+    "canonicalKey": "levenue|750mg",
+    "masterId": "69f5a5a4da4a31b421a89bfe",
+    "masterName": "levenue 750mg tablet",
+    "duplicates": [
+      {
+        "id": "69f5a5a4da4a31b421a89bfd",
+        "name": "levenue 750 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:47.164Z"
+  },
+  {
+    "canonicalKey": "deplatt av|40mg",
+    "masterId": "69f5a79eda4a31b421a89c52",
+    "masterName": "deplatt av 40 capsule",
+    "duplicates": [
+      {
+        "id": "69f5a79eda4a31b421a89c4f",
+        "name": "deplatt av 40 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-02T07:51:47.467Z"
+  }
+]

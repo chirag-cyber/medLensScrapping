@@ -1,0 +1,242 @@
+[
+  {
+    "canonicalKey": "metform sr|1000mg",
+    "masterId": "69f35b9d9993129c11b15463",
+    "masterName": "metform 1000mg tablet sr",
+    "duplicates": [
+      {
+        "id": "69f35b9e9993129c11b15532",
+        "name": "metform sr 1000 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-01T13:46:00.440Z"
+  },
+  {
+    "canonicalKey": "mefomin sr|1000mg",
+    "masterId": "69f35b9e9993129c11b15533",
+    "masterName": "mefomin 1000 sr tablet",
+    "duplicates": [
+      {
+        "id": "69f35b9e9993129c11b15523",
+        "name": "mefomin sr 1000mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-01T13:46:00.838Z"
+  },
+  {
+    "canonicalKey": "cosart|50mg",
+    "masterId": "69f365579993129c11b15aad",
+    "masterName": "cosart",
+    "duplicates": [
+      {
+        "id": "69f365589993129c11b15ac4",
+        "name": "cosart",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-01T13:46:02.166Z"
+  },
+  {
+    "canonicalKey": "ciprofloxacin infusion|200mg",
+    "masterId": "69f369269993129c11b15c21",
+    "masterName": "ciprofloxacin 200mg infusion",
+    "duplicates": [
+      {
+        "id": "69f369279993129c11b15c8d",
+        "name": "ciprofloxacin infusion",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-01T13:46:02.634Z"
+  },
+  {
+    "canonicalKey": "mahacef dry|100mg",
+    "masterId": "69f36f5b9993129c11b15f62",
+    "masterName": "mahacef 100mg dry syrup",
+    "duplicates": [
+      {
+        "id": "69f36f5c9993129c11b15fe0",
+        "name": "mahacef 100mg dry syrup 30ml",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-01T13:46:03.145Z"
+  },
+  {
+    "canonicalKey": "enzoflam|325mg",
+    "masterId": "69f375819993129c11b163f9",
+    "masterName": "enzoflam tablet",
+    "duplicates": [
+      {
+        "id": "69f375819993129c11b163d5",
+        "name": "enzoflam tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-01T13:46:03.608Z"
+  },
+  {
+    "canonicalKey": "amtas e|5mg",
+    "masterId": "69f452b59993129c11b170d3",
+    "masterName": "amtas e tablet",
+    "duplicates": [
+      {
+        "id": "69f452b59993129c11b170a4",
+        "name": "amtas e tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-01T13:46:05.182Z"
+  },
+  {
+    "canonicalKey": "fluticone ft 120md nasal|6gm",
+    "masterId": "69f462ff9993129c11b17851",
+    "masterName": "fluticone ft 120md bottle of 6gm nasal spray",
+    "duplicates": [
+      {
+        "id": "69f462ff9993129c11b1786c",
+        "name": "fluticone ft 120md nasal spray 6gm",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-01T13:46:06.581Z"
+  },
+  {
+    "canonicalKey": "ambrodil s|15mg",
+    "masterId": "69f468e69993129c11b17c39",
+    "masterName": "ambrodil s syrup",
+    "duplicates": [
+      {
+        "id": "69f468e79993129c11b17c68",
+        "name": "ambrodil s syrup",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-01T13:46:07.163Z"
+  },
+  {
+    "canonicalKey": "saaz|500mg",
+    "masterId": "69f477f89993129c11b181ed",
+    "masterName": "saaz tablet",
+    "duplicates": [
+      {
+        "id": "69f477f89993129c11b18212",
+        "name": "saaz tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-01T13:46:07.989Z"
+  },
+  {
+    "canonicalKey": "prazopress xl|5mg",
+    "masterId": "69f49a369993129c11b19157",
+    "masterName": "prazopress xl",
+    "duplicates": [
+      {
+        "id": "69f49a369993129c11b19133",
+        "name": "prazopress xl 5mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-01T13:46:10.063Z"
+  },
+  {
+    "canonicalKey": "nicardia cd retard|30mg",
+    "masterId": "69f49baf9993129c11b1927c",
+    "masterName": "nicardia cd retard 30 mg tablet",
+    "duplicates": [
+      {
+        "id": "69f49baf9993129c11b1927b",
+        "name": "nicardia cd retard",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-01T13:46:10.714Z"
+  },
+  {
+    "canonicalKey": "calaptin sr|240mg",
+    "masterId": "69f49ec99993129c11b19391",
+    "masterName": "calaptin sr 240mg tablets",
+    "duplicates": [
+      {
+        "id": "69f49eca9993129c11b193b3",
+        "name": "calaptin 240 sr tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-01T13:46:11.286Z"
+  },
+  {
+    "canonicalKey": "nitrocontin 2|2.6mg",
+    "masterId": "69f4a0479993129c11b19479",
+    "masterName": "nitrocontin 2",
+    "duplicates": [
+      {
+        "id": "69f4a0489993129c11b19499",
+        "name": "nitrocontin 2.6mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-01T13:46:11.677Z"
+  },
+  {
+    "canonicalKey": "gtn sorbitrate cr 2|2.6mg",
+    "masterId": "69f4a0479993129c11b1947c",
+    "masterName": "gtn sorbitrate cr 2",
+    "duplicates": [
+      {
+        "id": "69f4a0489993129c11b19495",
+        "name": "gtn sorbitrate cr 2.6mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-01T13:46:12.100Z"
+  }
+]
