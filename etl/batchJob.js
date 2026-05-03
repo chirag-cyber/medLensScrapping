@@ -61,14 +61,20 @@ async function scrapeDiscoveredSources(sources, options = {}) {
 }
 
 async function ingestMedicineQuery(query, options = {}) {
+  console.log(`[Ingest] "${query}" — discovering URLs...`);
   const sources = await discoverMedicineUrls(query, options);
+  console.log(`[Ingest] "${query}" — discovered ${sources.length} URLs. Scraping...`);
+
   const scrapeSummary = await scrapeDiscoveredSources(sources, {
     ...options,
     queryHint: query,
   });
+  console.log(`[Ingest] "${query}" — scraped ${scrapeSummary.rawRecords.length} OK, ${scrapeSummary.failures.length} failed.`);
+
   const etlSummary = await runETL(scrapeSummary.rawRecords, {
     batchSize: options.dbBatchSize || 25,
   });
+  console.log(`[Ingest] "${query}" — ETL: ${etlSummary.medicinesTouched || 0} medicines touched, ${etlSummary.pricesUpserted || 0} prices upserted, ${etlSummary.strictRejectedCount || 0} rejected.`);
 
   const fullyDetailedSources = scrapeSummary.transformedPreview.filter(
     (record) => record.missing_detail_fields.length === 0

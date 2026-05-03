@@ -665,9 +665,13 @@ async function discoverMedicineUrls(query, options = {}) {
   const { includeWebSearch = true, timeout = 15000, mode = "auto", platformIds } = options;
   const perPlatformLimit = normalizeDiscoveryLimit(options.perPlatformLimit);
 
+  console.log(`[Discovery] "${query}" — mode: ${mode}, platforms: ${platformIds ? platformIds.join(',') : 'all'}, webSearch: ${includeWebSearch}`);
+
   const platformDiscovered = await discoverFromPlatformSearchPages(query, {
     timeout, mode, perPlatformLimit, platformIds,
   });
+
+  console.log(`[Discovery] "${query}" — platform discovery found ${platformDiscovered.length} URLs from: ${[...new Set(platformDiscovered.map(d => d.platform))].join(', ') || 'none'}`);
 
   // Web search as additional fallback for platforms that found nothing
   const webDiscovered = [];
@@ -680,6 +684,10 @@ async function discoverMedicineUrls(query, options = {}) {
     const coveredPlatforms = new Set(platformDiscovered.map((d) => d.platform));
     const uncoveredPlatforms = webPlatforms.filter((p) => !coveredPlatforms.has(p.id));
 
+    if (uncoveredPlatforms.length > 0) {
+      console.log(`[Discovery] "${query}" — web search fallback for: ${uncoveredPlatforms.map(p => p.id).join(', ')}`);
+    }
+
     for (const platform of uncoveredPlatforms) {
       try {
         const results = await searchPlatformViaWeb(query, platform, { timeout, perPlatformLimit });
@@ -690,9 +698,13 @@ async function discoverMedicineUrls(query, options = {}) {
       } catch {
       }
     }
+  } else {
+    console.log(`[Discovery] "${query}" — web search DISABLED, skipping fallback.`);
   }
 
-  return dedupeDiscoveredItems([...platformDiscovered, ...webDiscovered]);
+  const allDiscovered = dedupeDiscoveredItems([...platformDiscovered, ...webDiscovered]);
+  console.log(`[Discovery] "${query}" — total unique URLs: ${allDiscovered.length}`);
+  return allDiscovered;
 }
 
 module.exports = {

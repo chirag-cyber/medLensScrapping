@@ -59,15 +59,15 @@ function getMissingPlatforms(sourcePlatforms = []) {
 function buildTargetedQuery(name, dosage) {
   let query = String(name || "").trim();
   const d = String(dosage || "").trim();
-  
+
   // If dosage isn't already in the name (ignoring spaces), append it
   const queryNoSpace = query.toLowerCase().replace(/\s+/g, "");
   const dNoSpace = d.toLowerCase().replace(/\s+/g, "");
-  
+
   if (dNoSpace && !queryNoSpace.includes(dNoSpace)) {
     query += ` ${d}`;
   }
-  
+
   // Strip special chars to make search safer
   return query.replace(/[^a-zA-Z0-9\s.-]/g, " ").replace(/\s+/g, " ").trim();
 }
@@ -82,7 +82,7 @@ async function runEnrichment() {
   // - Missing at least one priority platform
   // - Not recently enriched (skip if enriched in the last 7 days)
   const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-  
+
   const query = {
     source_platforms: { $exists: true, $type: 'array' },
     $or: [
@@ -111,6 +111,8 @@ async function runEnrichment() {
     // Apply batch limit
     .slice(0, LIMIT);
 
+  console.log(`[Targeted] Found ${enrichable.length} medicines needing platform enrichment.`);
+
   if (enrichable.length === 0) {
     return;
   }
@@ -123,6 +125,8 @@ async function runEnrichment() {
     const med = enrichable[i];
     const targetQuery = buildTargetedQuery(med.name, med.dosage);
     const missing = med.missingPlatforms;
+
+    console.log(`[Targeted] [${i + 1}/${enrichable.length}] Enriching: "${targetQuery}" (missing: ${missing.join(', ')})`);
 
     if (DRY_RUN) {
       continue;
@@ -144,18 +148,26 @@ async function runEnrichment() {
         perPlatformLimit: 10,     // Check the top 10 results to catch platform variations
         queryBatchSize: 1,
         concurrency: 1,           // Be nice to the CPU
-        includeWebSearch: false   // Don't fall back to web search for exact enrichment
+        includeWebSearch: true   // Don't fall back to web search for exact enrichment
       });
 
       const summary = result.results?.[0] || {};
+      const discovered = summary.discoveredSources || 0;
+      const scraped = summary.scrapedSources || 0;
+      const failed = summary.failedSources || 0;
+      const touched = summary.etl?.medicinesTouched || 0;
+      const rejected = summary.strictRejectedMedicines || 0;
+      console.log(`[Targeted]   -> Discovered: ${discovered} | Scraped: ${scraped} | Failed: ${failed} | DB Upserted: ${touched} | Rejected: ${rejected}`);
       successCount++;
 
     } catch (err) {
+      console.error(`[Targeted]   -> Failed: ${err.message}`);
       failCount++;
     }
   }
 
   // 3. Summary
+  console.log(`[Targeted] Finished! Successfully enriched: ${successCount}, Failed: ${failCount}`);
 }
 
 // ──────────────────────────────────────────────────────────────────────

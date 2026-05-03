@@ -16,7 +16,7 @@
     "interlink": "node interlink-medicines.js",
     "interlink:dry-run": "node interlink-medicines.js --dry-run",
     "targeted-enrich": "node targeted-enrichment.js --limit 50",
-    "pipeline": "npm run crawl:resume && npm run interlink && npm run targeted-enrich && npm run enrich"
+    "pipeline": "node orchestrator.js --resume --max-batches 10 && npm run interlink && npm run targeted-enrich && npm run enrich"
   },
   "dependencies": {
     "axios": "^1.7.0",

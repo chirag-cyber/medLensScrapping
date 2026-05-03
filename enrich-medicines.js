@@ -31,21 +31,28 @@ async function run() {
   
   const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
+    console.error("[LLM Enrich] GROQ_API_KEY is missing. Exiting.");
     process.exit(1);
   }
 
   try {
     await connectDB();
+    console.log(`[LLM Enrich] Connected to DB. Finding incomplete medicines... (limit: ${limit})`);
     
     const medicines = await findIncompleteMedicines({ limit, forceReenrich: isForce });
     
     if (medicines.length === 0) {
+      console.log("[LLM Enrich] No incomplete medicines found. Exiting.");
       process.exit(0);
     }
 
+    console.log(`[LLM Enrich] Found ${medicines.length} medicines to enrich.`);
+
     const onProgress = (current, total, medicine) => {
+      console.log(`[LLM Enrich] [${current}/${total}] Enriching: ${medicine.name || medicine.raw_name || 'Unknown'}`);
     };
 
+    console.log(`[LLM Enrich] Starting enrichment batch...`);
     const results = await enrichBatch(medicines, {
       apiKey,
       dryRun: isDryRun,
@@ -53,9 +60,10 @@ async function run() {
       onProgress
     });
 
-    
+    console.log(`[LLM Enrich] Finished enrichment batch. Results:`, JSON.stringify(results, null, 2));
 
-  } catch {
+  } catch (err) {
+    console.error(`[LLM Enrich] Fatal error:`, err);
   } finally {
     mongoose.disconnect();
   }

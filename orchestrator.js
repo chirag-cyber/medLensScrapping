@@ -34,11 +34,12 @@ const DEFAULT_CONFIG = {
   mode: "salts",             // "salts" | "alphabet"
   batchSize: 3,              // queries processed per batch
   concurrency: 2,            // parallel platform scrapes per query
-  enrichInterval: 1,         // run LLM enrichment every N batches (1 = every batch)
+  enrichInterval: 5,         // run LLM enrichment every N batches (was 1, increased to reduce rate-limit failures)
   enrichLimit: 30,           // max records to enrich per LLM run
   minDelayMs: 2000,          // minimum delay between batches
   maxDelayMs: 5000,          // maximum delay between batches
   maxRetries: 2,             // retries per failed query
+  maxBatches: null,          // null = unlimited; set to e.g. 10 to exit after 10 batches
   perPlatformLimit: null,    // null = all results
   timeout: 30000,            // scrape timeout per page
   scraperMode: "auto",       // "auto" | "fast" | "browser"
@@ -70,6 +71,7 @@ function parseArgs() {
   config.reset = args.includes("--reset");
 
   if (args.includes("--scraper-mode")) config.scraperMode = getArgValue("--scraper-mode") || "auto";
+  if (args.includes("--max-batches")) config.maxBatches = parseInt(getArgValue("--max-batches"), 10) || null;
 
   return config;
 }
@@ -163,6 +165,7 @@ function initState(queries, mode) {
 function log(message) {
   const timestamp = new Date().toISOString();
   const line = `[${timestamp}] ${message}`;
+  console.log(message); // Output to terminal
   try {
     fs.appendFileSync(LOG_FILE, line + "\n");
   } catch {
@@ -281,7 +284,12 @@ async function runEnrichmentCycle(config, state) {
     state.stats.totalEnriched += results.successfulUpdates;
     state.stats.llmCallsMade += results.totalProcessed;
 
-    log(`  ✅ Enrichment done: ${results.successfulUpdates} updated, ${results.failedUpdates} failed.`);
+    log(`  ✅ Enrichment done: ${results.successfulUpdates} updated, ${results.failedUpdates} failed, ${results.skipped} skipped.`);
+    if (results.errors.length > 0) {
+      const topErrors = results.errors.slice(0, 3);
+      topErrors.forEach(e => log(`     ⚠️  "${e.name}": ${e.error}`));
+      if (results.errors.length > 3) log(`     ... and ${results.errors.length - 3} more errors.`);
+    }
   } catch (err) {
     log(`  ❌ Enrichment error: ${err.message}`);
   }
@@ -328,6 +336,13 @@ async function orchestrate(config) {
 
   // Main batch loop
   for (let batchIdx = 0; batchIdx < totalBatches; batchIdx++) {
+    // Exit early if --max-batches limit reached
+    if (config.maxBatches && batchIdx >= config.maxBatches) {
+      log(`\n⏸️  Reached --max-batches limit (${config.maxBatches}). Saving state and yielding to pipeline...`);
+      saveState(state);
+      break;
+    }
+
     const batchStart = batchIdx * config.batchSize;
     const batchQueries = remainingQueries.slice(batchStart, batchStart + config.batchSize);
     const globalBatchNum = state.batchesCompleted + 1;

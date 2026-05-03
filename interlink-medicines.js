@@ -586,9 +586,14 @@ async function main() {
     const jsonBackupPath = path.join(backupDir, `merges_${timestamp}.json`);
     const jsonBackupEntries = [];
 
+    console.log(`[Interlink] Starting interlinking passes. Initial medicine count: ${stats.totalMedicines}`);
+
     // Execute passes
+    console.log(`[Interlink] Pass 1: Exact Duplicates...`);
     await pass1ExactDuplicates(stats, jsonBackupEntries);
+    console.log(`[Interlink] Pass 2: Fuzzy Name Duplicates...`);
     await pass2FuzzyDuplicates(stats, jsonBackupEntries);
+    console.log(`[Interlink] Pass 3: Fuzzy Integer Dosage Matching...`);
     await pass3IntegerFuzzyMatch(stats, jsonBackupEntries);
 
     // Write JSON backup
@@ -599,7 +604,15 @@ async function main() {
     // Final count
     const finalCount = DRY_RUN ? stats.totalMedicines : await Medicine.countDocuments();
 
+    console.log(`[Interlink] Finished! Total medicines touched: ${stats.mergedGroups}`);
+    console.log(`[Interlink] Removed Duplicates: ${stats.totalDuplicatesRemoved}`);
+    console.log(`[Interlink] Prices Moved: ${stats.totalPricesMoved}`);
+    console.log(`[Interlink] Final Count: ${finalCount} (Started: ${stats.totalMedicines})`);
+    if (stats.errors.length > 0) {
+      console.error(`[Interlink] Errors encountered:`, stats.errors);
+    }
   } catch (err) {
+    console.error(`[Interlink] Fatal error:`, err);
     process.exitCode = 1;
   } finally {
     await mongoose.disconnect();

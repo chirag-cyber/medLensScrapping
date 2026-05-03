@@ -1,0 +1,2342 @@
+[
+  {
+    "canonicalKey": "calpol|500mg",
+    "masterId": "69f3537c9993129c11b1517e",
+    "masterName": "calpol 500 tablet",
+    "duplicates": [
+      {
+        "id": "69f6f310da4a31b421a8a638",
+        "name": "calpol 500 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:13:56.506Z"
+  },
+  {
+    "canonicalKey": "parafast|650mg",
+    "masterId": "69f3537c9993129c11b1518e",
+    "masterName": "parafast 650mg tablet",
+    "duplicates": [
+      {
+        "id": "69f6f310da4a31b421a8a636",
+        "name": "parafast 650 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:13:56.865Z"
+  },
+  {
+    "canonicalKey": "sumo l|650mg",
+    "masterId": "69f3537c9993129c11b151b3",
+    "masterName": "sumo l 650 tablet",
+    "duplicates": [
+      {
+        "id": "69f6f310da4a31b421a8a639",
+        "name": "sumo l 650 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:13:57.203Z"
+  },
+  {
+    "canonicalKey": "calpol|650mg",
+    "masterId": "69f6f30fda4a31b421a8a585",
+    "masterName": "calpol 650 tablet",
+    "duplicates": [
+      {
+        "id": "69f3537c9993129c11b151ea",
+        "name": "calpol 650 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      },
+      {
+        "id": "69f6f310da4a31b421a8a649",
+        "name": "calpol 650 mg tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 2,
+    "mergedAt": "2026-05-03T12:13:57.594Z"
+  },
+  {
+    "canonicalKey": "p|650mg",
+    "masterId": "69f3537d9993129c11b15207",
+    "masterName": "p 650 tablet",
+    "duplicates": [
+      {
+        "id": "69f6f30fda4a31b421a8a587",
+        "name": "p 650 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:13:57.937Z"
+  },
+  {
+    "canonicalKey": "paracip|650mg",
+    "masterId": "69f3537d9993129c11b1520c",
+    "masterName": "paracip-650 tablet",
+    "duplicates": [
+      {
+        "id": "69f6f30fda4a31b421a8a58b",
+        "name": "paracip 650 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      },
+      {
+        "id": "69f6f30fda4a31b421a8a5be",
+        "name": "paracip 650mg tablet",
+        "platforms": [
+          "1mg",
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:13:58.360Z"
+  },
+  {
+    "canonicalKey": "pacimol|650mg",
+    "masterId": "69f3537d9993129c11b1520d",
+    "masterName": "pacimol 650 tablet",
+    "duplicates": [
+      {
+        "id": "69f6f30fda4a31b421a8a58d",
+        "name": "pacimol 650 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      },
+      {
+        "id": "69f6f310da4a31b421a8a634",
+        "name": "pacimol 650 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:13:58.780Z"
+  },
+  {
+    "canonicalKey": "paracip|500mg",
+    "masterId": "69f3537d9993129c11b1520f",
+    "masterName": "paracip-500 tablet",
+    "duplicates": [
+      {
+        "id": "69f6f310da4a31b421a8a635",
+        "name": "paracip 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:13:59.107Z"
+  },
+  {
+    "canonicalKey": "dolo|650mg",
+    "masterId": "69f3537d9993129c11b15211",
+    "masterName": "dolo-650 tablet",
+    "duplicates": [
+      {
+        "id": "69f6f2cada4a31b421a8a57f",
+        "name": "dolo 650 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      },
+      {
+        "id": "69f6f2cada4a31b421a8a580",
+        "name": "dolo 650 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      },
+      {
+        "id": "69f6f2cada4a31b421a8a581",
+        "name": "dolo 650 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:13:59.914Z"
+  },
+  {
+    "canonicalKey": "dolopar|650mg",
+    "masterId": "69f3537d9993129c11b15213",
+    "masterName": "dolopar-650 tablet",
+    "duplicates": [
+      {
+        "id": "69f6f30fda4a31b421a8a589",
+        "name": "dolopar 650 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:00.674Z"
+  },
+  {
+    "canonicalKey": "dolo|500mg",
+    "masterId": "69f3537d9993129c11b15214",
+    "masterName": "dolo-500 tablet",
+    "duplicates": [
+      {
+        "id": "69f6f310da4a31b421a8a637",
+        "name": "dolo 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:00.981Z"
+  },
+  {
+    "canonicalKey": "augmentin duo|625mg",
+    "masterId": "69f356369993129c11b15332",
+    "masterName": "augmentin 625 duo tablet",
+    "duplicates": [
+      {
+        "id": "69f72bcbda4a31b421a8ad00",
+        "name": "augmentin 625 duo tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:01.291Z"
+  },
+  {
+    "canonicalKey": "azithral|500mg",
+    "masterId": "69f358b59993129c11b153d3",
+    "masterName": "azithral-500 tablet",
+    "duplicates": [
+      {
+        "id": "69f721deda4a31b421a8a7e7",
+        "name": "azithral 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:01.594Z"
+  },
+  {
+    "canonicalKey": "istamet|500mg+50mg",
+    "masterId": "69f35b9d9993129c11b15478",
+    "masterName": "istamet 50 mg 500 mg tablet",
+    "duplicates": [
+      {
+        "id": "69f72204da4a31b421a8a7e9",
+        "name": "istamet 50 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:01.903Z"
+  },
+  {
+    "canonicalKey": "mefomin|500mg",
+    "masterId": "69f35b9e9993129c11b1552b",
+    "masterName": "mefomin 500 sr tablet",
+    "duplicates": [
+      {
+        "id": "69f72c42da4a31b421a8adb5",
+        "name": "mefomin 500 sr tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:02.211Z"
+  },
+  {
+    "canonicalKey": "okamet|500mg",
+    "masterId": "69f35b9e9993129c11b1552a",
+    "masterName": "okamet-500 tablet",
+    "duplicates": [
+      {
+        "id": "69f72c42da4a31b421a8adb0",
+        "name": "okamet 500 sr tablet",
+        "platforms": [
+          "1mg"
+        ]
+      },
+      {
+        "id": "69f72c52da4a31b421a8adc3",
+        "name": "okamet 500mg tablet",
+        "platforms": [
+          "1mg"
+        ]
+      },
+      {
+        "id": "69f72c52da4a31b421a8adc4",
+        "name": "okamet 500mg tablet pr",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:02.679Z"
+  },
+  {
+    "canonicalKey": "metform|500mg",
+    "masterId": "69f35b9e9993129c11b1552f",
+    "masterName": "metform sr 500 mg tablet",
+    "duplicates": [
+      {
+        "id": "69f72204da4a31b421a8a7ea",
+        "name": "metform 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      },
+      {
+        "id": "69f72c42da4a31b421a8adb3",
+        "name": "metform -sr 500mg tablet pr",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:03.082Z"
+  },
+  {
+    "canonicalKey": "mefomin|1000mg",
+    "masterId": "69f35b9e9993129c11b15533",
+    "masterName": "mefomin 1000 sr tablet",
+    "duplicates": [
+      {
+        "id": "69f72204da4a31b421a8a7ec",
+        "name": "mefomin sr 1000mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:03.423Z"
+  },
+  {
+    "canonicalKey": "omee|20mg",
+    "masterId": "69f3602e9993129c11b156b7",
+    "masterName": "omee capsule",
+    "duplicates": [
+      {
+        "id": "69f722dbda4a31b421a8a7f3",
+        "name": "omee 20mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:03.789Z"
+  },
+  {
+    "canonicalKey": "omez|20mg",
+    "masterId": "69f3602e9993129c11b156d5",
+    "masterName": "omez 20mg capsules",
+    "duplicates": [
+      {
+        "id": "69f722ecda4a31b421a8a7f7",
+        "name": "omez capsule",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:04.832Z"
+  },
+  {
+    "canonicalKey": "ocid|20mg",
+    "masterId": "69f3602e9993129c11b15704",
+    "masterName": "ocid",
+    "duplicates": [
+      {
+        "id": "69f722dbda4a31b421a8a7f4",
+        "name": "ocid 20mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:06.478Z"
+  },
+  {
+    "canonicalKey": "covance|25mg",
+    "masterId": "69f365579993129c11b159f3",
+    "masterName": "covance 25 tablet",
+    "duplicates": [
+      {
+        "id": "69f727d4da4a31b421a8aad4",
+        "name": "covance 25mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:06.776Z"
+  },
+  {
+    "canonicalKey": "covance|50mg",
+    "masterId": "69f365589993129c11b15ae2",
+    "masterName": "covance",
+    "duplicates": [
+      {
+        "id": "69f727d4da4a31b421a8aad2",
+        "name": "covance 50mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:07.073Z"
+  },
+  {
+    "canonicalKey": "lcin|500mg",
+    "masterId": "69f36ae89993129c11b15d8b",
+    "masterName": "lcin 500 tablet",
+    "duplicates": [
+      {
+        "id": "69f723e8da4a31b421a8a7fa",
+        "name": "lcin 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:07.377Z"
+  },
+  {
+    "canonicalKey": "napra d|500mg",
+    "masterId": "69f377e79993129c11b1642b",
+    "masterName": "napra d 500 tablet",
+    "duplicates": [
+      {
+        "id": "69f725bbda4a31b421a8a8d7",
+        "name": "napra d 500 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:07.673Z"
+  },
+  {
+    "canonicalKey": "napra d|250mg",
+    "masterId": "69f377e79993129c11b1642f",
+    "masterName": "napra d 250 tablet",
+    "duplicates": [
+      {
+        "id": "69f725a5da4a31b421a8a8d2",
+        "name": "napra d 250 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      },
+      {
+        "id": "69f725bbda4a31b421a8a8d5",
+        "name": "napra d 250 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:08.087Z"
+  },
+  {
+    "canonicalKey": "naxdom|500mg",
+    "masterId": "69f377e99993129c11b16510",
+    "masterName": "naxdom 500 tablet",
+    "duplicates": [
+      {
+        "id": "69f725bbda4a31b421a8a8d6",
+        "name": "naxdom 500 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      },
+      {
+        "id": "69f72aa1da4a31b421a8ac1c",
+        "name": "naxdom 500 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      },
+      {
+        "id": "69f72aa3da4a31b421a8acc7",
+        "name": "naxdom 500 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:08.564Z"
+  },
+  {
+    "canonicalKey": "xenadom|250mg",
+    "masterId": "69f377e99993129c11b16514",
+    "masterName": "xenadom-250 tablet",
+    "duplicates": [
+      {
+        "id": "69f725bbda4a31b421a8a8d8",
+        "name": "xenadom 250mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:09.802Z"
+  },
+  {
+    "canonicalKey": "naxdom|250mg",
+    "masterId": "69f377e99993129c11b16515",
+    "masterName": "naxdom 250 tablet",
+    "duplicates": [
+      {
+        "id": "69f725bbda4a31b421a8a8d4",
+        "name": "naxdom 250 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      },
+      {
+        "id": "69f72aa2da4a31b421a8ac3e",
+        "name": "naxdom 250 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:10.786Z"
+  },
+  {
+    "canonicalKey": "provanol|40mg",
+    "masterId": "69f450129993129c11b16df1",
+    "masterName": "provanol sr 40 tablet",
+    "duplicates": [
+      {
+        "id": "69f725d7da4a31b421a8a9b7",
+        "name": "provanol 40mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:11.394Z"
+  },
+  {
+    "canonicalKey": "provanol plus|5mg",
+    "masterId": "69f450149993129c11b16ed5",
+    "masterName": "provanol plus",
+    "duplicates": [
+      {
+        "id": "69f7280fda4a31b421a8aade",
+        "name": "provanol plus 5mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:11.696Z"
+  },
+  {
+    "canonicalKey": "foracort rotacap|200mg",
+    "masterId": "69f465949993129c11b179d7",
+    "masterName": "foracort 200 rotacap",
+    "duplicates": [
+      {
+        "id": "69f726edda4a31b421a8a9be",
+        "name": "foracort 200 rotacap",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:12.018Z"
+  },
+  {
+    "canonicalKey": "dericip retard|300mg",
+    "masterId": "69f46b309993129c11b17c81",
+    "masterName": "dericip retard 300 tablet pr",
+    "duplicates": [
+      {
+        "id": "69f72720da4a31b421a8a9c3",
+        "name": "dericip retard 300mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:12.313Z"
+  },
+  {
+    "canonicalKey": "deriphyllin retard|150mg",
+    "masterId": "69f46b319993129c11b17d53",
+    "masterName": "deriphyllin retard 150 tablet",
+    "duplicates": [
+      {
+        "id": "69f72937da4a31b421a8ab07",
+        "name": "deriphyllin retard 150mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:12.622Z"
+  },
+  {
+    "canonicalKey": "deriphyllin retard|300mg",
+    "masterId": "69f46b319993129c11b17d54",
+    "masterName": "deriphyllin retard 300 tablet",
+    "duplicates": [
+      {
+        "id": "69f72937da4a31b421a8ab08",
+        "name": "deriphyllin retard 300mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:12.935Z"
+  },
+  {
+    "canonicalKey": "deriphyllin od|450mg",
+    "masterId": "69f46b319993129c11b17d7c",
+    "masterName": "deriphyllin od 450 tablet",
+    "duplicates": [
+      {
+        "id": "69f72720da4a31b421a8a9c1",
+        "name": "deriphyllin od 450mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:13.238Z"
+  },
+  {
+    "canonicalKey": "folitrax|20mg",
+    "masterId": "69f4736e9993129c11b18072",
+    "masterName": "folitrax",
+    "duplicates": [
+      {
+        "id": "69f7274cda4a31b421a8a9c8",
+        "name": "folitrax 20mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:13.541Z"
+  },
+  {
+    "canonicalKey": "folitrax|2ml+50mg",
+    "masterId": "69f4736e9993129c11b1808e",
+    "masterName": "folitrax-50 injection 2 ml",
+    "duplicates": [
+      {
+        "id": "69f7274cda4a31b421a8a9c7",
+        "name": "folitrax 50mg injection 2ml",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:13.855Z"
+  },
+  {
+    "canonicalKey": "dapamac|10mg",
+    "masterId": "69f487f19993129c11b188df",
+    "masterName": "dapamac 10mg tablet",
+    "duplicates": [
+      {
+        "id": "69f6327ada4a31b421a8a265",
+        "name": "dapamac",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:14.193Z"
+  },
+  {
+    "canonicalKey": "finobrate|145mg",
+    "masterId": "69f490489993129c11b18bed",
+    "masterName": "finobrate 145mg tablets",
+    "duplicates": [
+      {
+        "id": "69f72b80da4a31b421a8ace5",
+        "name": "finobrate-145 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:14.616Z"
+  },
+  {
+    "canonicalKey": "valzaar|160mg",
+    "masterId": "69f492a19993129c11b18e9d",
+    "masterName": "valzaar-160 tablet",
+    "duplicates": [
+      {
+        "id": "69f727d4da4a31b421a8aad1",
+        "name": "valzaar 160mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:15.343Z"
+  },
+  {
+    "canonicalKey": "prazopress xl|5mg",
+    "masterId": "69f49a369993129c11b19157",
+    "masterName": "prazopress xl",
+    "duplicates": [
+      {
+        "id": "69f7280fda4a31b421a8aadd",
+        "name": "prazopress xl 5mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:15.975Z"
+  },
+  {
+    "canonicalKey": "calcigard retard|20mg",
+    "masterId": "69f49bad9993129c11b191b1",
+    "masterName": "calcigard 20mg retard tablet sr",
+    "duplicates": [
+      {
+        "id": "69f7290ada4a31b421a8aaf7",
+        "name": "calcigard retard tablet",
+        "platforms": [
+          "apollo"
+        ]
+      },
+      {
+        "id": "69f7290ada4a31b421a8aaf9",
+        "name": "calcigard retard 20 mg tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:16.353Z"
+  },
+  {
+    "canonicalKey": "calcigard retard|10mg",
+    "masterId": "69f49bad9993129c11b191b2",
+    "masterName": "calcigard 10 retard tablet sr",
+    "duplicates": [
+      {
+        "id": "69f7290ada4a31b421a8aaf8",
+        "name": "calcigard 10 retard tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:16.647Z"
+  },
+  {
+    "canonicalKey": "nicardia cd retard|30mg",
+    "masterId": "69f49baf9993129c11b1927c",
+    "masterName": "nicardia cd retard 30 mg tablet",
+    "duplicates": [
+      {
+        "id": "69f72937da4a31b421a8ab05",
+        "name": "nicardia cd retard",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:16.945Z"
+  },
+  {
+    "canonicalKey": "angizem cd|90mg",
+    "masterId": "69f49d0e9993129c11b1929e",
+    "masterName": "angizem cd 90 capsule er",
+    "duplicates": [
+      {
+        "id": "69f72964da4a31b421a8ab0e",
+        "name": "angizem cd 90mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:17.253Z"
+  },
+  {
+    "canonicalKey": "dilzem cd|90mg",
+    "masterId": "69f49d0f9993129c11b19334",
+    "masterName": "dilzem cd-90 capsule",
+    "duplicates": [
+      {
+        "id": "69f72964da4a31b421a8ab0f",
+        "name": "dilzem cd 90mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:17.541Z"
+  },
+  {
+    "canonicalKey": "metgem|500mg",
+    "masterId": "69f4be179993129c11b19978",
+    "masterName": "metgem 500mg tablets",
+    "duplicates": [
+      {
+        "id": "69f72c42da4a31b421a8adb2",
+        "name": "metgem 500 tablet er",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:17.839Z"
+  },
+  {
+    "canonicalKey": "melmet|500mg",
+    "masterId": "69f4be349993129c11b1997f",
+    "masterName": "melmet sr 500mg tablets",
+    "duplicates": [
+      {
+        "id": "69f72c42da4a31b421a8adaf",
+        "name": "melmet 500 sr tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:18.158Z"
+  },
+  {
+    "canonicalKey": "cabgolin|0mg",
+    "masterId": "69f4c09d9993129c11b19a3f",
+    "masterName": "cabgolin 0",
+    "duplicates": [
+      {
+        "id": "69f6f5a5da4a31b421a8a70e",
+        "name": "cabgolin 0",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:18.452Z"
+  },
+  {
+    "canonicalKey": "gluconorm g forte|1mg",
+    "masterId": "69f4c3bc9993129c11b19b1a",
+    "masterName": "gluconorm g1 forte tablet",
+    "duplicates": [
+      {
+        "id": "69f722bcda4a31b421a8a7f1",
+        "name": "gluconorm g 1 forte tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:18.769Z"
+  },
+  {
+    "canonicalKey": "azimax|500mg",
+    "masterId": "69f72befda4a31b421a8ad12",
+    "masterName": "azimax 500 tablet",
+    "duplicates": [
+      {
+        "id": "69f4d73a9993129c11b19cf7",
+        "name": "azimax 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:19.365Z"
+  },
+  {
+    "canonicalKey": "lopamide|2mg",
+    "masterId": "69f6327ada4a31b421a8a262",
+    "masterName": "lopamide tablet",
+    "duplicates": [
+      {
+        "id": "69f4ed099993129c11b19ead",
+        "name": "lopamide 2mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      },
+      {
+        "id": "69f6f5a5da4a31b421a8a715",
+        "name": "lopamide tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 2,
+    "mergedAt": "2026-05-03T12:14:20.055Z"
+  },
+  {
+    "canonicalKey": "azee pulse|500mg",
+    "masterId": "69f72befda4a31b421a8ad11",
+    "masterName": "azee pulse 500mg tablet",
+    "duplicates": [
+      {
+        "id": "69f58844da4a31b421a89a14",
+        "name": "azee pulse 500 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:20.381Z"
+  },
+  {
+    "canonicalKey": "p|250mg+60ml",
+    "masterId": "69f59f9ada4a31b421a89b50",
+    "masterName": "p 250 suspension 60 ml",
+    "duplicates": [
+      {
+        "id": "69f721c1da4a31b421a8a7e5",
+        "name": "p 250mg suspension 60ml",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:20.674Z"
+  },
+  {
+    "canonicalKey": "levenue|750mg",
+    "masterId": "69f5a5a4da4a31b421a89bfe",
+    "masterName": "levenue 750mg tablet",
+    "duplicates": [
+      {
+        "id": "69f723e8da4a31b421a8a7fb",
+        "name": "levenue 750 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:20.971Z"
+  },
+  {
+    "canonicalKey": "storfib|145mg",
+    "masterId": "69f5aabeda4a31b421a89d15",
+    "masterName": "storfib 145mg tablets",
+    "duplicates": [
+      {
+        "id": "69f72b80da4a31b421a8ace0",
+        "name": "storfib 145 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:21.272Z"
+  },
+  {
+    "canonicalKey": "domstal|10mg",
+    "masterId": "69f72aa1da4a31b421a8ac14",
+    "masterName": "domstal 10mg tablet",
+    "duplicates": [
+      {
+        "id": "69f6332eda4a31b421a8a275",
+        "name": "domstal tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:21.591Z"
+  },
+  {
+    "canonicalKey": "pyrigesic|650mg",
+    "masterId": "69f6f30fda4a31b421a8a58a",
+    "masterName": "pyrigesic 650 tablet",
+    "duplicates": [
+      {
+        "id": "69f6f310da4a31b421a8a63b",
+        "name": "pyrigesic 650 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:21.895Z"
+  },
+  {
+    "canonicalKey": "parasafe|650mg",
+    "masterId": "69f6f310da4a31b421a8a63d",
+    "masterName": "parasafe-650 tablet",
+    "duplicates": [
+      {
+        "id": "69f6f30fda4a31b421a8a58e",
+        "name": "parasafe 650 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:22.200Z"
+  },
+  {
+    "canonicalKey": "algina|650mg",
+    "masterId": "69f6f310da4a31b421a8a63c",
+    "masterName": "algina 650 mg tablet",
+    "duplicates": [
+      {
+        "id": "69f6f30fda4a31b421a8a591",
+        "name": "algina 650 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:22.511Z"
+  },
+  {
+    "canonicalKey": "paracetamol|650mg",
+    "masterId": "69f6f30fda4a31b421a8a595",
+    "masterName": "genericart paracetamol 650mg tablet",
+    "duplicates": [
+      {
+        "id": "69f6f30fda4a31b421a8a5a8",
+        "name": "davaindia paracetamol 650mg tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:22.821Z"
+  },
+  {
+    "canonicalKey": "welset|650mg",
+    "masterId": "69f6f30fda4a31b421a8a5a7",
+    "masterName": "welset 650 tablet",
+    "duplicates": [
+      {
+        "id": "69f6f310da4a31b421a8a63a",
+        "name": "welset 650 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:23.134Z"
+  },
+  {
+    "canonicalKey": "bakson s homoeopathy adrenalinum dilution m|30ml",
+    "masterId": "69f72411da4a31b421a8a860",
+    "masterName": "bakson's homoeopathy adrenalinum dilution 50m",
+    "duplicates": [
+      {
+        "id": "69f72411da4a31b421a8a862",
+        "name": "bakson's homoeopathy adrenalinum dilution 10m",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:23.555Z"
+  },
+  {
+    "canonicalKey": "bjain adrenalinum dilution c|100ml",
+    "masterId": "69f72411da4a31b421a8a864",
+    "masterName": "bjain adrenalinum dilution 30c",
+    "duplicates": [
+      {
+        "id": "69f72411da4a31b421a8a86b",
+        "name": "bjain adrenalinum dilution 6c",
+        "platforms": [
+          "1mg"
+        ]
+      },
+      {
+        "id": "69f72411da4a31b421a8a86d",
+        "name": "bjain adrenalinum dilution 12c",
+        "platforms": [
+          "1mg"
+        ]
+      },
+      {
+        "id": "69f72411da4a31b421a8a86f",
+        "name": "bjain adrenalinum dilution 200c",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:24.761Z"
+  },
+  {
+    "canonicalKey": "bjain adrenalinum dilution c|30ml",
+    "masterId": "69f72411da4a31b421a8a867",
+    "masterName": "bjain adrenalinum dilution 200c",
+    "duplicates": [
+      {
+        "id": "69f72411da4a31b421a8a86c",
+        "name": "bjain adrenalinum dilution 30c",
+        "platforms": [
+          "1mg"
+        ]
+      },
+      {
+        "id": "69f72411da4a31b421a8a86e",
+        "name": "bjain adrenalinum dilution 6c",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:25.259Z"
+  },
+  {
+    "canonicalKey": "majumder homeo world adrenalinum dilution each m|30ml",
+    "masterId": "69f72411da4a31b421a8a870",
+    "masterName": "dr. majumder homeo world adrenalinum dilution 30ml each 10m",
+    "duplicates": [
+      {
+        "id": "69f72411da4a31b421a8a871",
+        "name": "dr. majumder homeo world adrenalinum dilution 30ml each 1m",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:25.553Z"
+  },
+  {
+    "canonicalKey": "bjain adrenalinum dilution ch|12mg",
+    "masterId": "69f72411da4a31b421a8a88c",
+    "masterName": "bjain adrenalinum dilution 12 ch",
+    "duplicates": [
+      {
+        "id": "69f72411da4a31b421a8a892",
+        "name": "bjain adrenalinum dilution 12 ch",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:25.848Z"
+  },
+  {
+    "canonicalKey": "bjain adrenalinum dilution ch|1000mg",
+    "masterId": "69f72411da4a31b421a8a88d",
+    "masterName": "bjain adrenalinum dilution 1000 ch",
+    "duplicates": [
+      {
+        "id": "69f72411da4a31b421a8a88e",
+        "name": "bjain adrenalinum dilution 1000 ch",
+        "platforms": [
+          "1mg"
+        ]
+      },
+      {
+        "id": "69f72411da4a31b421a8a891",
+        "name": "bjain adrenalinum dilution 1000 ch",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:26.225Z"
+  },
+  {
+    "canonicalKey": "atropine eye|1mg",
+    "masterId": "69f725ccda4a31b421a8a8e1",
+    "masterName": "atropine 1 eye drop",
+    "duplicates": [
+      {
+        "id": "69f725ccda4a31b421a8a8e3",
+        "name": "atropine eye ointment",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:26.516Z"
+  },
+  {
+    "canonicalKey": "glycolate|1mg",
+    "masterId": "69f72779da4a31b421a8aa59",
+    "masterName": "glycolate 1mg tablets",
+    "duplicates": [
+      {
+        "id": "69f72777da4a31b421a8a9ce",
+        "name": "glycolate",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:26.812Z"
+  },
+  {
+    "canonicalKey": "airz|50mcg",
+    "masterId": "69f72779da4a31b421a8aaa7",
+    "masterName": "airz capsule",
+    "duplicates": [
+      {
+        "id": "69f72778da4a31b421a8aa15",
+        "name": "airz 50mcg tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:27.116Z"
+  },
+  {
+    "canonicalKey": "forglyn plus respicaps|400mcg",
+    "masterId": "69f72779da4a31b421a8aaab",
+    "masterName": "forglyn plus respicaps",
+    "duplicates": [
+      {
+        "id": "69f72779da4a31b421a8aa57",
+        "name": "forglyn plus respicaps",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:27.422Z"
+  },
+  {
+    "canonicalKey": "glycolate|2mg",
+    "masterId": "69f72779da4a31b421a8aa75",
+    "masterName": "glycolate 2mg tablet",
+    "duplicates": [
+      {
+        "id": "69f72779da4a31b421a8aa7f",
+        "name": "glycolate",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:27.732Z"
+  },
+  {
+    "canonicalKey": "glycohale respules x|2mg+2ml",
+    "masterId": "69f72779da4a31b421a8aa77",
+    "masterName": "glycohale 2 respules 5x2ml",
+    "duplicates": [
+      {
+        "id": "69f72779da4a31b421a8aa78",
+        "name": "glycohale 2 respules 10x2ml",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:28.037Z"
+  },
+  {
+    "canonicalKey": "zofer|4mg",
+    "masterId": "69f729beda4a31b421a8ab26",
+    "masterName": "zofer 4mg injection",
+    "duplicates": [
+      {
+        "id": "69f729c0da4a31b421a8abfb",
+        "name": "zofer",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:28.348Z"
+  },
+  {
+    "canonicalKey": "eterna md|4mg",
+    "masterId": "69f729beda4a31b421a8ab2a",
+    "masterName": "eterna 4mg tablet md",
+    "duplicates": [
+      {
+        "id": "69f729bfda4a31b421a8abce",
+        "name": "eterna md 4mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:28.659Z"
+  },
+  {
+    "canonicalKey": "ondansetron|4mg",
+    "masterId": "69f729beda4a31b421a8ab4e",
+    "masterName": "stayhappi ondansetron 4mg tablet",
+    "duplicates": [
+      {
+        "id": "69f729beda4a31b421a8ab4f",
+        "name": "davaindia ondansetron 4mg tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:28.961Z"
+  },
+  {
+    "canonicalKey": "ondet md|4mg",
+    "masterId": "69f729bfda4a31b421a8ab6f",
+    "masterName": "ondet 4mg tablet md",
+    "duplicates": [
+      {
+        "id": "69f729c0da4a31b421a8ac01",
+        "name": "ondet md tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:29.272Z"
+  },
+  {
+    "canonicalKey": "emeset|4mg",
+    "masterId": "69f729bfda4a31b421a8abc9",
+    "masterName": "emeset",
+    "duplicates": [
+      {
+        "id": "69f729bfda4a31b421a8abcc",
+        "name": "emeset 4mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:29.591Z"
+  },
+  {
+    "canonicalKey": "vomikind md|4mg",
+    "masterId": "69f729bfda4a31b421a8abda",
+    "masterName": "vomikind md",
+    "duplicates": [
+      {
+        "id": "69f729bfda4a31b421a8abcb",
+        "name": "vomikind md 4mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:29.901Z"
+  },
+  {
+    "canonicalKey": "zofer md|4mg",
+    "masterId": "69f729c0da4a31b421a8abfd",
+    "masterName": "zofer md",
+    "duplicates": [
+      {
+        "id": "69f729bfda4a31b421a8abd0",
+        "name": "zofer md 4mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:30.285Z"
+  },
+  {
+    "canonicalKey": "ondem|4mg",
+    "masterId": "69f729c0da4a31b421a8abf8",
+    "masterName": "ondem",
+    "duplicates": [
+      {
+        "id": "69f729bfda4a31b421a8abd4",
+        "name": "ondem 4mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:30.678Z"
+  },
+  {
+    "canonicalKey": "sompraz d|40mg",
+    "masterId": "69f72aa2da4a31b421a8aca9",
+    "masterName": "sompraz d 40 capsule",
+    "duplicates": [
+      {
+        "id": "69f72aa1da4a31b421a8ac17",
+        "name": "sompraz d 40 capsule sr",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:30.984Z"
+  },
+  {
+    "canonicalKey": "pantop-d|1mg",
+    "masterId": "69f72aa1da4a31b421a8ac18",
+    "masterName": "pantop-d sr capsule",
+    "duplicates": [
+      {
+        "id": "69f72aa1da4a31b421a8ac21",
+        "name": "pantop-d capsule",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:31.342Z"
+  },
+  {
+    "canonicalKey": "nexpro rd|40mg",
+    "masterId": "69f731cfda4a31b421a8afd9",
+    "masterName": "nexpro rd 40mg capsule",
+    "duplicates": [
+      {
+        "id": "69f72aa1da4a31b421a8ac19",
+        "name": "nexpro rd 40 capsule sr",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:31.670Z"
+  },
+  {
+    "canonicalKey": "rabesec-d|1mg",
+    "masterId": "69f72aa1da4a31b421a8ac20",
+    "masterName": "rabesec-d sr capsule",
+    "duplicates": [
+      {
+        "id": "69f72aa2da4a31b421a8ac99",
+        "name": "rabesec-d tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:31.991Z"
+  },
+  {
+    "canonicalKey": "dompan|1mg",
+    "masterId": "69f72aa2da4a31b421a8ac6b",
+    "masterName": "dompan tablet",
+    "duplicates": [
+      {
+        "id": "69f72aa2da4a31b421a8aca0",
+        "name": "dompan sr tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:32.689Z"
+  },
+  {
+    "canonicalKey": "perinorm|5mg",
+    "masterId": "69f72c27da4a31b421a8ad64",
+    "masterName": "perinorm injection",
+    "duplicates": [
+      {
+        "id": "69f72c28da4a31b421a8ad8a",
+        "name": "perinorm syrup",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:33.006Z"
+  },
+  {
+    "canonicalKey": "reglan|10mg",
+    "masterId": "69f72c28da4a31b421a8ad87",
+    "masterName": "reglan 10 mg tablet",
+    "duplicates": [
+      {
+        "id": "69f72c27da4a31b421a8ad6b",
+        "name": "reglan tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:33.327Z"
+  },
+  {
+    "canonicalKey": "rantac|150mg",
+    "masterId": "69f72e86da4a31b421a8ae02",
+    "masterName": "rantac 150 tablet",
+    "duplicates": [
+      {
+        "id": "69f72e85da4a31b421a8adcd",
+        "name": "rantac 150 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:33.654Z"
+  },
+  {
+    "canonicalKey": "aciloc|150mg",
+    "masterId": "69f72e86da4a31b421a8ae04",
+    "masterName": "aciloc 150 tablet",
+    "duplicates": [
+      {
+        "id": "69f72e85da4a31b421a8adce",
+        "name": "aciloc 150 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:33.979Z"
+  },
+  {
+    "canonicalKey": "aciloc|300mg",
+    "masterId": "69f72e86da4a31b421a8ae08",
+    "masterName": "aciloc 300mg tablet",
+    "duplicates": [
+      {
+        "id": "69f72e85da4a31b421a8adcf",
+        "name": "aciloc 300 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      },
+      {
+        "id": "69f72e86da4a31b421a8ae06",
+        "name": "aciloc 300 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 2,
+    "mergedAt": "2026-05-03T12:14:34.399Z"
+  },
+  {
+    "canonicalKey": "rantac|300mg",
+    "masterId": "69f72e85da4a31b421a8add0",
+    "masterName": "rantac 300 tablet",
+    "duplicates": [
+      {
+        "id": "69f72e86da4a31b421a8ae05",
+        "name": "rantac 300 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      },
+      {
+        "id": "69f72e86da4a31b421a8ae2f",
+        "name": "rantac 300 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 2,
+    "mergedAt": "2026-05-03T12:14:34.810Z"
+  },
+  {
+    "canonicalKey": "histac|150mg",
+    "masterId": "69f72e85da4a31b421a8add7",
+    "masterName": "histac 150 tablet",
+    "duplicates": [
+      {
+        "id": "69f72e86da4a31b421a8ae33",
+        "name": "histac 150 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:35.129Z"
+  },
+  {
+    "canonicalKey": "histac|300mg",
+    "masterId": "69f72e86da4a31b421a8adfe",
+    "masterName": "histac 300 tablet",
+    "duplicates": [
+      {
+        "id": "69f72e86da4a31b421a8ae37",
+        "name": "histac 300 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:35.443Z"
+  },
+  {
+    "canonicalKey": "rantac od|300mg",
+    "masterId": "69f72e86da4a31b421a8ae10",
+    "masterName": "rantac od 300mg tablet",
+    "duplicates": [
+      {
+        "id": "69f72e86da4a31b421a8ae00",
+        "name": "rantac od 300 tablet cr",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:35.763Z"
+  },
+  {
+    "canonicalKey": "r-loc|150mg",
+    "masterId": "69f72e86da4a31b421a8ae01",
+    "masterName": "r-loc 150 tablet",
+    "duplicates": [
+      {
+        "id": "69f72e86da4a31b421a8ae2b",
+        "name": "r-loc 150 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:36.077Z"
+  },
+  {
+    "canonicalKey": "ranitin|150mg",
+    "masterId": "69f72e86da4a31b421a8ae2c",
+    "masterName": "ranitin-150 tablet",
+    "duplicates": [
+      {
+        "id": "69f72e86da4a31b421a8ae09",
+        "name": "ranitin 150 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:36.383Z"
+  },
+  {
+    "canonicalKey": "ranitin|300mg",
+    "masterId": "69f72e86da4a31b421a8ae2a",
+    "masterName": "ranitin-300 tablets",
+    "duplicates": [
+      {
+        "id": "69f72e86da4a31b421a8ae0a",
+        "name": "ranitin 300 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:36.702Z"
+  },
+  {
+    "canonicalKey": "famocid|40mg",
+    "masterId": "69f73017da4a31b421a8af19",
+    "masterName": "famocid 40mg tablet",
+    "duplicates": [
+      {
+        "id": "69f73016da4a31b421a8ae54",
+        "name": "famocid 40 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      },
+      {
+        "id": "69f73016da4a31b421a8aefb",
+        "name": "famocid 40 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 2,
+    "mergedAt": "2026-05-03T12:14:37.106Z"
+  },
+  {
+    "canonicalKey": "topcid|40mg",
+    "masterId": "69f73016da4a31b421a8ae58",
+    "masterName": "topcid 40 tablet",
+    "duplicates": [
+      {
+        "id": "69f73017da4a31b421a8af1f",
+        "name": "topcid 40 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:37.444Z"
+  },
+  {
+    "canonicalKey": "fadine|40mg",
+    "masterId": "69f73016da4a31b421a8ae91",
+    "masterName": "fadine 40 tablet",
+    "duplicates": [
+      {
+        "id": "69f73017da4a31b421a8af1c",
+        "name": "fadine 40mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:37.732Z"
+  },
+  {
+    "canonicalKey": "famtac|40mg",
+    "masterId": "69f73017da4a31b421a8af1a",
+    "masterName": "famtac 40mg tablet",
+    "duplicates": [
+      {
+        "id": "69f73016da4a31b421a8aefc",
+        "name": "famtac 40 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:38.054Z"
+  },
+  {
+    "canonicalKey": "famocid|20mg",
+    "masterId": "69f73016da4a31b421a8aefd",
+    "masterName": "famocid 20mg tablets",
+    "duplicates": [
+      {
+        "id": "69f73017da4a31b421a8af1d",
+        "name": "famocid",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:38.373Z"
+  },
+  {
+    "canonicalKey": "famonext|20mg",
+    "masterId": "69f73016da4a31b421a8aefe",
+    "masterName": "famonext 20mg tablets",
+    "duplicates": [
+      {
+        "id": "69f73017da4a31b421a8af1e",
+        "name": "famonext",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:38.701Z"
+  },
+  {
+    "canonicalKey": "sompraz|40mg",
+    "masterId": "69f731cfda4a31b421a8afd8",
+    "masterName": "sompraz 40mg tablet",
+    "duplicates": [
+      {
+        "id": "69f731ceda4a31b421a8af50",
+        "name": "sompraz 40 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:39.024Z"
+  },
+  {
+    "canonicalKey": "nexpro|40mg",
+    "masterId": "69f731cfda4a31b421a8afef",
+    "masterName": "nexpro 40 tablet",
+    "duplicates": [
+      {
+        "id": "69f731ceda4a31b421a8af51",
+        "name": "nexpro 40 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:39.333Z"
+  },
+  {
+    "canonicalKey": "esogress|40mg",
+    "masterId": "69f731ceda4a31b421a8af5a",
+    "masterName": "esogress 40 tablet",
+    "duplicates": [
+      {
+        "id": "69f731cfda4a31b421a8b01d",
+        "name": "esogress 40 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:39.629Z"
+  },
+  {
+    "canonicalKey": "nexpro fast|40mg",
+    "masterId": "69f731ceda4a31b421a8af5c",
+    "masterName": "nexpro fast 40 tablet",
+    "duplicates": [
+      {
+        "id": "69f731cfda4a31b421a8b01e",
+        "name": "nexpro fast 40 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:39.923Z"
+  },
+  {
+    "canonicalKey": "esomac|40mg",
+    "masterId": "69f731cfda4a31b421a8affe",
+    "masterName": "esomac 40 tablet",
+    "duplicates": [
+      {
+        "id": "69f731ceda4a31b421a8af5d",
+        "name": "esomac 40 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:40.243Z"
+  },
+  {
+    "canonicalKey": "somifiz|40mg",
+    "masterId": "69f731cfda4a31b421a8aff1",
+    "masterName": "somifiz tablet",
+    "duplicates": [
+      {
+        "id": "69f731ceda4a31b421a8af79",
+        "name": "somifiz 40mg tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:40.557Z"
+  },
+  {
+    "canonicalKey": "neksium|40mg",
+    "masterId": "69f731cfda4a31b421a8aff6",
+    "masterName": "neksium 40 mg tablet",
+    "duplicates": [
+      {
+        "id": "69f731ceda4a31b421a8af7a",
+        "name": "neksium 40 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:40.876Z"
+  },
+  {
+    "canonicalKey": "esiloc|40mg",
+    "masterId": "69f731ceda4a31b421a8af88",
+    "masterName": "esiloc 40mg tablet",
+    "duplicates": [
+      {
+        "id": "69f731cfda4a31b421a8b01a",
+        "name": "esiloc-40 mg tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:41.196Z"
+  },
+  {
+    "canonicalKey": "rebozen it|150mg+20mg",
+    "masterId": "69f73468da4a31b421a8b042",
+    "masterName": "rebozen it 20mg 150mg capsule",
+    "duplicates": [
+      {
+        "id": "69f73469da4a31b421a8b0b3",
+        "name": "rebozen it 20mg 150mg capsule sr",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:41.501Z"
+  },
+  {
+    "canonicalKey": "rzole|20mg",
+    "masterId": "69f73469da4a31b421a8b06c",
+    "masterName": "rzole 20mg tablet",
+    "duplicates": [
+      {
+        "id": "69f7346ada4a31b421a8b0e1",
+        "name": "rzole",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:41.819Z"
+  },
+  {
+    "canonicalKey": "cyra|40mg",
+    "masterId": "69f73469da4a31b421a8b08d",
+    "masterName": "cyra 40 tablet",
+    "duplicates": [
+      {
+        "id": "69f7346ada4a31b421a8b0dc",
+        "name": "cyra 40mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:42.151Z"
+  },
+  {
+    "canonicalKey": "rabidoc it|150mg+20mg",
+    "masterId": "69f73469da4a31b421a8b0b0",
+    "masterName": "rabidoc it 20mg 150mg capsule",
+    "duplicates": [
+      {
+        "id": "69f73469da4a31b421a8b0b1",
+        "name": "rabidoc it 20mg 150mg capsule sr",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:42.472Z"
+  },
+  {
+    "canonicalKey": "rabesec-d|30mg",
+    "masterId": "69f73469da4a31b421a8b0c0",
+    "masterName": "rabesec-d sr capsule",
+    "duplicates": [
+      {
+        "id": "69f7346ada4a31b421a8b108",
+        "name": "rabesec-d sr capsule",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:42.787Z"
+  },
+  {
+    "canonicalKey": "cyra|20mg",
+    "masterId": "69f7346ada4a31b421a8b0ff",
+    "masterName": "cyra tablet",
+    "duplicates": [
+      {
+        "id": "69f7346ada4a31b421a8b0d9",
+        "name": "cyra 20mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:43.104Z"
+  },
+  {
+    "canonicalKey": "rabesec|20mg",
+    "masterId": "69f7346ada4a31b421a8b0e8",
+    "masterName": "rabesec",
+    "duplicates": [
+      {
+        "id": "69f7346ada4a31b421a8b0da",
+        "name": "rabesec 20mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:43.404Z"
+  },
+  {
+    "canonicalKey": "rabekind|20mg",
+    "masterId": "69f7346ada4a31b421a8b0db",
+    "masterName": "rabekind 20mg tablet",
+    "duplicates": [
+      {
+        "id": "69f7346ada4a31b421a8b0e2",
+        "name": "rabekind",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:43.719Z"
+  },
+  {
+    "canonicalKey": "razo|20mg",
+    "masterId": "69f7346ada4a31b421a8b101",
+    "masterName": "razo",
+    "duplicates": [
+      {
+        "id": "69f7346ada4a31b421a8b0dd",
+        "name": "razo 20mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:44.038Z"
+  },
+  {
+    "canonicalKey": "lan|30mg",
+    "masterId": "69f73623da4a31b421a8b1c2",
+    "masterName": "lan 30mg capsules",
+    "duplicates": [
+      {
+        "id": "69f73623da4a31b421a8b1e8",
+        "name": "lan",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:44.360Z"
+  },
+  {
+    "canonicalKey": "lanzol|30mg",
+    "masterId": "69f73623da4a31b421a8b1e6",
+    "masterName": "lanzol",
+    "duplicates": [
+      {
+        "id": "69f73623da4a31b421a8b1de",
+        "name": "lanzol 30mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:44.689Z"
+  },
+  {
+    "canonicalKey": "misoprost|200mg",
+    "masterId": "69f73a9fda4a31b421a8b311",
+    "masterName": "misoprost 200 tablet",
+    "duplicates": [
+      {
+        "id": "69f73aa0da4a31b421a8b3dd",
+        "name": "misoprost-200 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:45.010Z"
+  },
+  {
+    "canonicalKey": "prestakind|200mcg",
+    "masterId": "69f73a9fda4a31b421a8b319",
+    "masterName": "prestakind 200mcg tablet",
+    "duplicates": [
+      {
+        "id": "69f73aa1da4a31b421a8b3fc",
+        "name": "prestakind tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:45.336Z"
+  },
+  {
+    "canonicalKey": "misoprost|25mg",
+    "masterId": "69f73a9fda4a31b421a8b322",
+    "masterName": "misoprost 25 tablet",
+    "duplicates": [
+      {
+        "id": "69f73aa0da4a31b421a8b3df",
+        "name": "misoprost 25mg tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:45.640Z"
+  },
+  {
+    "canonicalKey": "vasocon|1|adrenaline1mg",
+    "masterId": "69f72411da4a31b421a8a896",
+    "masterName": "vasocon injection 1 ml",
+    "duplicates": [
+      {
+        "id": "69f72410da4a31b421a8a7ff",
+        "name": "vasocon injection",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:47.248Z"
+  },
+  {
+    "canonicalKey": "adrenaline|1|adrenaline1mg",
+    "masterId": "69f72410da4a31b421a8a804",
+    "masterName": "adrenaline injection",
+    "duplicates": [
+      {
+        "id": "69f72411da4a31b421a8a8ab",
+        "name": "adrenaline injection 1 ml",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:47.553Z"
+  },
+  {
+    "canonicalKey": "adren|1|adrenaline1mg",
+    "masterId": "69f72411da4a31b421a8a8b2",
+    "masterName": "adren injection 1ml",
+    "duplicates": [
+      {
+        "id": "69f72410da4a31b421a8a82d",
+        "name": "adren injection",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:47.851Z"
+  },
+  {
+    "canonicalKey": "atropine sulphate eye|3|atropine1ww",
+    "masterId": "69f725cdda4a31b421a8a993",
+    "masterName": "atropine sulphate eye ointment 3 ml",
+    "duplicates": [
+      {
+        "id": "69f725cdda4a31b421a8a9a4",
+        "name": "atropine sulphate eye ointment 3 gm",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T12:14:48.154Z"
+  },
+  {
+    "canonicalKey": "misoprost|600|misoprostol600mcg",
+    "masterId": "69f73aa0da4a31b421a8b3da",
+    "masterName": "misoprost 600mcg tablet",
+    "duplicates": [
+      {
+        "id": "69f73a9fda4a31b421a8b312",
+        "name": "misoprost 600 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:48.487Z"
+  },
+  {
+    "canonicalKey": "misogyn|200|misoprostol200mcg",
+    "masterId": "69f73aa0da4a31b421a8b378",
+    "masterName": "misogyn 200mcg tablet",
+    "duplicates": [
+      {
+        "id": "69f73aa1da4a31b421a8b403",
+        "name": "misogyn 200mg tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:48.793Z"
+  },
+  {
+    "canonicalKey": "mistol|200|misoprostol200mcg",
+    "masterId": "69f73aa0da4a31b421a8b37c",
+    "masterName": "mistol 200mcg tablet",
+    "duplicates": [
+      {
+        "id": "69f73aa1da4a31b421a8b405",
+        "name": "mistol 200mg tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:49.101Z"
+  },
+  {
+    "canonicalKey": "misnol|200|misoprostol200mcg",
+    "masterId": "69f73aa0da4a31b421a8b387",
+    "masterName": "misnol 200mcg tablet",
+    "duplicates": [
+      {
+        "id": "69f73aa0da4a31b421a8b3e1",
+        "name": "misnol-200 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:49.406Z"
+  },
+  {
+    "canonicalKey": "contrapill kit|200|mifepristone200mgmisoprostol200mcg",
+    "masterId": "69f73aa0da4a31b421a8b3b4",
+    "masterName": "contrapill 200 mg 200 mcg kit",
+    "duplicates": [
+      {
+        "id": "69f73aa1da4a31b421a8b3fd",
+        "name": "contrapill kit tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T12:14:49.726Z"
+  }
+]
