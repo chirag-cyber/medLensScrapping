@@ -463,8 +463,9 @@ function triggerJob(jobName, command, args = []) {
 app.get("/cron/scrape", (req, res) => {
   const mode = req.query.reset === "true" ? "--reset" : "--resume";
   const batchSize = req.query.batchSize || "3";
+  const scraperMode = req.query.scraperMode || "fast"; // Default to fast for cron to avoid OOM
 
-  const result = triggerJob("scrape", "orchestrator.js", [mode, "--batch-size", batchSize]);
+  const result = triggerJob("scrape", "orchestrator.js", [mode, "--batch-size", batchSize, "--scraper-mode", scraperMode]);
 
   if (result.alreadyRunning) {
     return res.status(409).json({

@@ -1857,3 +1857,159 @@
 [2026-05-01T13:20:02.819Z] 
 ⚠️  Received SIGINT. Saving state and exiting gracefully...
 [2026-05-01T13:20:02.820Z] 💾 State saved. You can resume with: node orchestrator.js --resume
+[2026-05-03T07:02:00.369Z] ♻️  Resuming from batch index 78 (26 batches already done)
+[2026-05-03T07:02:00.526Z] 📊 502 queries remaining across 502 batches.
+
+[2026-05-03T07:02:00.527Z] 
+════════════════════════════════════════════════════════════
+[2026-05-03T07:02:00.527Z] 📦 BATCH 27 — Processing 1 queries [adenosine]
+[2026-05-03T07:02:00.528Z] ════════════════════════════════════════════════════════════
+[2026-05-03T07:02:00.532Z]   🔍 [Attempt 1] Scraping: "adenosine"
+[2026-05-03T07:04:04.708Z]   ✅ "adenosine" → Discovered: 44, Scraped: 44, Medicines: 39
+[2026-05-03T07:04:07.397Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-03T07:04:07.603Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-03T07:04:07.606Z]   🧠 [1/30] Enriching: nutrabay pure series creatine monohydrate powder unflavoured
+[2026-05-03T07:04:11.036Z]   🧠 [2/30] Enriching: fertihope-m tablet
+[2026-05-03T07:04:14.321Z]   🧠 [3/30] Enriching: bare anatomy damage repair shampoo for hair care
+[2026-05-03T07:04:17.539Z]   🧠 [4/30] Enriching: bare anatomy anti frizz shampoo for hair care
+[2026-05-03T07:04:20.907Z]   🧠 [5/30] Enriching: bare anatomy volumizing shampoo for hair care
+[2026-05-03T07:04:24.199Z]   🧠 [6/30] Enriching: berbeshine tablet
+[2026-05-03T07:04:27.326Z]   🧠 [7/30] Enriching: folliserum targeted hair growth concentrate
+[2026-05-03T07:04:30.677Z]   🧠 [8/30] Enriching: similac total comfort infant formula upto 6 month
+[2026-05-03T07:04:34.077Z]   🧠 [9/30] Enriching: miraquint tablet
+[2026-05-03T07:04:37.410Z]   🧠 [10/30] Enriching: adenosam 200mg tablet
+[2026-05-03T07:04:40.259Z]   🧠 [11/30] Enriching: ribofem 200 tablet
+[2026-05-03T07:04:43.696Z]   🧠 [12/30] Enriching: bare anatomy anti-hairfall shampoo for hair care
+[2026-05-03T07:04:46.925Z]   🧠 [13/30] Enriching: adenosome 400mg tablet
+[2026-05-03T07:04:54.501Z]   🧠 [14/30] Enriching: adenosyl-se - od adenosylcobalamin soft gelatin capsule
+[2026-05-03T07:05:02.127Z]   🧠 [15/30] Enriching: nature made sam-e complete 400mg enteric coated tablet
+[2026-05-03T07:05:09.760Z]   🧠 [16/30] Enriching: similac neosure preterm infant formula
+[2026-05-03T07:05:17.370Z]   🧠 [17/30] Enriching: ultra-q coq10 300mg soft gelatin capsule
+[2026-05-03T07:05:24.984Z]   🧠 [18/30] Enriching: fair insta skin lightening cream
+[2026-05-03T07:05:32.621Z]   🧠 [19/30] Enriching: atp up 60mg tablet
+[2026-05-03T07:05:40.236Z]   🧠 [20/30] Enriching: trexgenics atp adenosine triphosphate 400mg veg capsule
+[2026-05-03T07:05:47.837Z]   🧠 [21/30] Enriching: calpol 650 mg tablet
+[2026-05-03T07:05:55.442Z]   🧠 [22/30] Enriching: pyrigesic 650 tablet
+[2026-05-03T07:06:03.037Z]   🧠 [23/30] Enriching: sumo l 650 tablet
+[2026-05-03T07:06:10.673Z]   🧠 [24/30] Enriching: welset 650 tablet
+[2026-05-03T07:06:18.272Z]   🧠 [25/30] Enriching: dolo 500mg tablet
+[2026-05-03T07:06:25.889Z]   🧠 [26/30] Enriching: calpol 500 tablet
+[2026-05-03T07:06:33.492Z]   🧠 [27/30] Enriching: paracip 500mg tablet
+[2026-05-03T07:06:41.107Z]   🧠 [28/30] Enriching: parafast 650 tablet
+[2026-05-03T07:06:48.717Z]   🧠 [29/30] Enriching: pyrilot 650 tablet
+[2026-05-03T07:06:56.349Z]   🧠 [30/30] Enriching: patomal 650mg tablet
+[2026-05-03T07:07:01.445Z]   ✅ Enrichment done: 12 updated, 18 failed.
+[2026-05-03T07:07:01.451Z] 
+📊 Progress: 79/580 queries (13.6%) | Speed: 0.26 q/s | ETA: 41h 52m 42s
+[2026-05-03T07:07:01.451Z]    Discovered: 8811 | Scraped: 8811 | Medicines: 8319 | Enriched: 148
+[2026-05-03T07:07:01.451Z] 💤 Breathing for 2.6s before next batch...
+
+[2026-05-03T07:07:04.041Z] 
+════════════════════════════════════════════════════════════
+[2026-05-03T07:07:04.043Z] 📦 BATCH 28 — Processing 1 queries [dopamine]
+[2026-05-03T07:07:04.044Z] ════════════════════════════════════════════════════════════
+[2026-05-03T07:07:04.045Z]   🔍 [Attempt 1] Scraping: "dopamine"
+[2026-05-03T07:13:41.792Z]   ✅ "dopamine" → Discovered: 127, Scraped: 77, Medicines: 61
+[2026-05-03T07:13:44.349Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-03T07:13:45.128Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-03T07:13:45.129Z]   🧠 [1/30] Enriching: ondem-md
+[2026-05-03T07:13:52.758Z]   🧠 [2/30] Enriching: seratin tablet
+[2026-05-03T07:14:00.381Z]   🧠 [3/30] Enriching: cabgolin 0
+[2026-05-03T07:14:08.007Z]   🧠 [4/30] Enriching: domin 200 mg injection 5 ml
+[2026-05-03T07:14:15.667Z]   🧠 [5/30] Enriching: syndopa plus tablet
+[2026-05-03T07:14:23.280Z]   🧠 [6/30] Enriching: lopamide tablet
+[2026-05-03T07:14:30.905Z]   🧠 [7/30] Enriching: domstal
+[2026-05-03T07:14:38.525Z]   🧠 [8/30] Enriching: vomistop 10 mg tablet
+[2026-05-03T07:14:46.136Z]   🧠 [9/30] Enriching: dopacin injection 5ml
+[2026-05-03T07:14:53.747Z]   🧠 [10/30] Enriching: vedaneq vitamin-b complex 800mg capsule
+[2026-05-03T07:15:01.353Z]   🧠 [11/30] Enriching: natural kaunch beej 500mg capsule
+[2026-05-03T07:15:08.973Z]   🧠 [12/30] Enriching: b aim plus tablet
+[2026-05-03T07:15:16.595Z]   🧠 [13/30] Enriching: oziva magnesium triple complex vegetarian tablet
+[2026-05-03T07:15:24.198Z]   🧠 [14/30] Enriching: karmeshu kapikachu tablet
+[2026-05-03T07:15:31.819Z]   🧠 [15/30] Enriching: botanic boost mucuna tablet
+[2026-05-03T07:15:39.419Z]   🧠 [16/30] Enriching: biotrex l-tyrosine 500mg capsule
+[2026-05-03T07:15:47.036Z]   🧠 [17/30] Enriching: stanfy biotech b-complex syrup
+[2026-05-03T07:15:54.628Z]   🧠 [18/30] Enriching: promolact capsule
+[2026-05-03T07:16:02.230Z]   🧠 [19/30] Enriching: nature's velvet kapikachu pure extract 500mg capsule
+[2026-05-03T07:16:09.828Z]   🧠 [20/30] Enriching: mvassure tablet
+[2026-05-03T07:16:17.463Z]   🧠 [21/30] Enriching: aminofit protein hydrolysate with mineral softlets
+[2026-05-03T07:16:25.071Z]   🧠 [22/30] Enriching: wellbeing nutrition melts instant energy strawberry mint
+[2026-05-03T07:16:32.700Z]   🧠 [23/30] Enriching: tansukh kapikachchu kaunch beej churna
+[2026-05-03T07:16:40.303Z]   🧠 [24/30] Enriching: vanalaya lavender flower tea
+[2026-05-03T07:16:47.939Z]   🧠 [25/30] Enriching: sbl variolinum dilution 30 ch
+[2026-05-03T07:16:55.541Z]   🧠 [26/30] Enriching: stanfy biotech b-complex syrup
+[2026-05-03T07:17:03.147Z]   🧠 [27/30] Enriching: st. george s dopamine hydrochloride dilution 1m
+[2026-05-03T07:17:10.753Z]   🧠 [28/30] Enriching: homochek capsule with folic acid pyridoxine cyanocobalamin
+[2026-05-03T07:17:18.373Z]   🧠 [29/30] Enriching: domin injection
+[2026-05-03T07:17:26.274Z]   🧠 [30/30] Enriching: doparich 40mg injection
+[2026-05-03T07:17:31.455Z]   ✅ Enrichment done: 0 updated, 30 failed.
+[2026-05-03T07:17:31.463Z] 
+📊 Progress: 80/580 queries (13.8%) | Speed: 0.09 q/s | ETA: 64h 38m 54s
+[2026-05-03T07:17:31.463Z]    Discovered: 8938 | Scraped: 8888 | Medicines: 8380 | Enriched: 148
+[2026-05-03T07:17:31.464Z] 💤 Breathing for 3.1s before next batch...
+
+[2026-05-03T07:17:34.595Z] 
+════════════════════════════════════════════════════════════
+[2026-05-03T07:17:34.596Z] 📦 BATCH 29 — Processing 1 queries [dobutamine]
+[2026-05-03T07:17:34.597Z] ════════════════════════════════════════════════════════════
+[2026-05-03T07:17:34.597Z]   🔍 [Attempt 1] Scraping: "dobutamine"
+[2026-05-03T07:22:09.021Z]   ✅ "dobutamine" → Discovered: 33, Scraped: 32, Medicines: 31
+[2026-05-03T07:22:13.369Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-03T07:22:13.659Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-03T07:22:13.660Z]   🧠 [1/30] Enriching: dobutrop 250mg injection
+[2026-05-03T07:22:21.294Z]   🧠 [2/30] Enriching: dobutrust 250mg injection
+[2026-05-03T07:22:28.927Z]   🧠 [3/30] Enriching: dobutrig 250 mg 5 ml injection
+[2026-05-03T07:22:36.545Z]   🧠 [4/30] Enriching: dobutin 250mg injection
+[2026-05-03T07:22:44.155Z]   🧠 [5/30] Enriching: dobusol 250mg injection 5ml
+[2026-05-03T07:22:51.756Z]   🧠 [6/30] Enriching: dotamin 50mg injection
+[2026-05-03T07:22:59.407Z]   🧠 [7/30] Enriching: dobunex 250mg injection
+[2026-05-03T07:23:07.042Z]   🧠 [8/30] Enriching: dotamin lyo 250mg injection
+[2026-05-03T07:23:14.665Z]   🧠 [9/30] Enriching: dobion 250mg injection
+[2026-05-03T07:23:22.275Z]   🧠 [10/30] Enriching: dobustat 250 mg injection
+[2026-05-03T07:23:29.905Z]   🧠 [11/30] Enriching: dobucare 12.5mg injection
+[2026-05-03T07:23:38.251Z]   🧠 [12/30] Enriching: dobutrex 250 mg injection
+[2026-05-03T07:23:45.880Z]   🧠 [13/30] Enriching: dobutam 250mg injection 5ml
+[2026-05-03T07:23:53.485Z]   🧠 [14/30] Enriching: inoject 250mg injection
+[2026-05-03T07:24:01.095Z]   🧠 [15/30] Enriching: dotamin injection 5 ml
+[2026-05-03T07:24:08.724Z]   🧠 [16/30] Enriching: cardiject 250 mg injection
+[2026-05-03T07:24:16.335Z]   🧠 [17/30] Enriching: dobustan injection
+[2026-05-03T07:24:23.930Z]   🧠 [18/30] Enriching: dobutam 40mg injection
+[2026-05-03T07:24:31.542Z]   🧠 [19/30] Enriching: dobumin injection
+[2026-05-03T07:24:39.165Z]   🧠 [20/30] Enriching: ondem-md
+[2026-05-03T07:24:46.755Z]   🧠 [21/30] Enriching: seratin tablet
+[2026-05-03T07:24:54.374Z]   🧠 [22/30] Enriching: lopamide tablet
+[2026-05-03T07:25:01.981Z]   🧠 [23/30] Enriching: vomistop 10 mg tablet
+[2026-05-03T07:25:09.579Z]   🧠 [24/30] Enriching: cabgolin 0
+[2026-05-03T07:25:17.193Z]   🧠 [25/30] Enriching: domstal
+[2026-05-03T07:25:20.119Z]   🧠 [26/30] Enriching: syndopa plus tablet
+[2026-05-03T07:25:27.675Z]   🧠 [27/30] Enriching: domin 200 mg injection 5 ml
+[2026-05-03T07:25:35.292Z]   🧠 [28/30] Enriching: dopacin injection 5ml
+[2026-05-03T07:25:42.897Z]   🧠 [29/30] Enriching: oziva magnesium triple complex vegetarian tablet
+[2026-05-03T07:25:50.510Z]   🧠 [30/30] Enriching: vedaneq vitamin-b complex 800mg capsule
+[2026-05-03T07:25:55.611Z]   ✅ Enrichment done: 1 updated, 29 failed.
+[2026-05-03T07:25:55.622Z] 
+📊 Progress: 81/580 queries (14.0%) | Speed: 0.06 q/s | ETA: 66h 18m 24s
+[2026-05-03T07:25:55.622Z]    Discovered: 8971 | Scraped: 8920 | Medicines: 8411 | Enriched: 149
+[2026-05-03T07:25:55.623Z] 💤 Breathing for 4.1s before next batch...
+
+[2026-05-03T07:25:59.680Z] 
+════════════════════════════════════════════════════════════
+[2026-05-03T07:25:59.681Z] 📦 BATCH 30 — Processing 1 queries [noradrenaline]
+[2026-05-03T07:25:59.682Z] ════════════════════════════════════════════════════════════
+[2026-05-03T07:25:59.683Z]   🔍 [Attempt 1] Scraping: "noradrenaline"
+[2026-05-03T07:29:08.002Z]   ✅ "noradrenaline" → Discovered: 48, Scraped: 14, Medicines: 13
+[2026-05-03T07:29:10.142Z] 🧠 Running LLM Enrichment Cycle...
+[2026-05-03T07:29:10.381Z]   🎯 Found 30 medicines needing enrichment.
+[2026-05-03T07:29:10.384Z]   🧠 [1/30] Enriching: norawin 4 mg injection 2 ml
+[2026-05-03T07:29:18.016Z]   🧠 [2/30] Enriching: umanor injection 2ml
+[2026-05-03T07:29:25.633Z]   🧠 [3/30] Enriching: veraline injection 2 ml
+[2026-05-03T07:29:33.237Z]   🧠 [4/30] Enriching: n-adrin 4mg 2ml injection
+[2026-05-03T07:29:40.850Z]   🧠 [5/30] Enriching: dobutrust 250mg injection
+[2026-05-03T09:36:24.226Z] 🆕 Starting fresh crawl with 580 queries.
+[2026-05-03T09:36:24.227Z] 📊 580 queries remaining across 580 batches.
+
+[2026-05-03T09:36:24.227Z] 
+════════════════════════════════════════════════════════════
+[2026-05-03T09:36:24.227Z] 📦 BATCH 1 — Processing 1 queries [paracetamol]
+[2026-05-03T09:36:24.228Z] ════════════════════════════════════════════════════════════
+[2026-05-03T09:36:24.228Z]   🔍 [Attempt 1] Scraping: "paracetamol"

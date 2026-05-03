@@ -986,6 +986,11 @@ async function scrapeProductDetail(url, opts = {}) {
   const platformConfig = getPlatformConfigById(platformId);
   const strategy = platformConfig?.extractionStrategy || { primary: mode, fallback: "browser" };
 
+  if (mode === "fast") {
+    strategy.primary = "api";
+    strategy.fallback = null;
+  }
+
   let product = null;
   let usedMode = strategy.primary;
   let html = null;

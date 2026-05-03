@@ -72,6 +72,7 @@ async function connectDB() {
   const MONGO_URI = process.env.MONGO_URL;
   
   if (!MONGO_URI) {
+    console.error("[DB] Fatal: MONGO_URL environment variable is missing.");
     process.exit(1);
   }
 
@@ -83,6 +84,7 @@ async function connectDB() {
     await ensureMedicineIndexes();
     await Promise.all([Medicine.createIndexes(), Price.createIndexes()]);
   } catch (error) {
+    console.error("[DB] Fatal: Failed to connect to MongoDB.", error);
     process.exit(1);
   }
 }

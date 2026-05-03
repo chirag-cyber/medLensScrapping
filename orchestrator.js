@@ -69,6 +69,8 @@ function parseArgs() {
   config.resume = args.includes("--resume");
   config.reset = args.includes("--reset");
 
+  if (args.includes("--scraper-mode")) config.scraperMode = getArgValue("--scraper-mode") || "auto";
+
   return config;
 }
 

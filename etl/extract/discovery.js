@@ -323,23 +323,24 @@ async function discoverNetmedsUrls(query, options = {}) {
 // ─── 1mg (Stealth browser + DOM extraction) ─────────────────────────
 
 async function discover1mgUrls(query, options = {}) {
-  const { timeout = 30000 } = options;
+  const { timeout = 30000, mode = "auto" } = options;
   const perPlatformLimit = normalizeDiscoveryLimit(options.perPlatformLimit);
   const searchUrl = `https://www.1mg.com/search/all?name=${encodeURIComponent(query)}`;
   const discovered = [];
   const seen = new Set();
 
   // Tier 1: Stealth browser — intercept API calls + extract DOM links
-  try {
-    await withStealthPage(searchUrl, async (page) => {
-      // Wait for product cards to render
-      try {
-        await page.waitForSelector('a[href*="/drugs/"], a[href*="/otc/"], a[href*="/otc-product/"]', { timeout: 10000 });
-      } catch { /* proceed anyway */ }
+  if (mode !== "fast") {
+    try {
+      await withStealthPage(searchUrl, async (page) => {
+        // Wait for product cards to render
+        try {
+          await page.waitForSelector('a[href*="/drugs/"], a[href*="/otc/"], a[href*="/otc-product/"]', { timeout: 10000 });
+        } catch { /* proceed anyway */ }
 
-      const links = await extractLinksFromPage(page,
-        'a[href*="/drugs/"], a[href*="/otc/"], a[href*="/otc-product/"]'
-      );
+        const links = await extractLinksFromPage(page,
+          'a[href*="/drugs/"], a[href*="/otc/"], a[href*="/otc-product/"]'
+        );
 
       links.forEach((url) => {
         if (discovered.length >= perPlatformLimit) return;
@@ -354,6 +355,7 @@ async function discover1mgUrls(query, options = {}) {
     logTier("1mg", 1, "stealth-browser", discovered.length);
     if (discovered.length > 0) return discovered;
   } catch {
+  }
   }
 
   // Tier 2: Web search fallback
@@ -373,18 +375,19 @@ async function discover1mgUrls(query, options = {}) {
 // ─── Apollo (Stealth browser + DOM extraction) ──────────────────────
 
 async function discoverApolloUrls(query, options = {}) {
-  const { timeout = 30000 } = options;
+  const { timeout = 30000, mode = "auto" } = options;
   const perPlatformLimit = normalizeDiscoveryLimit(options.perPlatformLimit);
   const searchUrl = `https://www.apollopharmacy.in/search-medicines/${encodeURIComponent(query)}`;
   const discovered = [];
   const seen = new Set();
 
   // Tier 1: Stealth browser
-  try {
-    await withStealthPage(searchUrl, async (page) => {
-      try {
-        await page.waitForSelector('a[href*="/otc/"], a[href*="/medicine/"], a[href*="/product/"]', { timeout: 12000 });
-      } catch { /* proceed */ }
+  if (mode !== "fast") {
+    try {
+      await withStealthPage(searchUrl, async (page) => {
+        try {
+          await page.waitForSelector('a[href*="/otc/"], a[href*="/medicine/"], a[href*="/product/"]', { timeout: 12000 });
+        } catch { /* proceed */ }
 
       const links = await extractLinksFromPage(page,
         'a[href*="/otc/"], a[href*="/medicine/"], a[href*="/product/"]'
@@ -404,6 +407,7 @@ async function discoverApolloUrls(query, options = {}) {
     if (discovered.length > 0) return discovered;
   } catch {
   }
+  }
 
   // Tier 2: Web search fallback
   try {
@@ -422,21 +426,22 @@ async function discoverApolloUrls(query, options = {}) {
 // ─── TrueMeds (Stealth browser + API interception) ──────────────────
 
 async function discoverTruemedUrls(query, options = {}) {
-  const { timeout = 30000 } = options;
+  const { timeout = 30000, mode = "auto" } = options;
   const perPlatformLimit = normalizeDiscoveryLimit(options.perPlatformLimit);
   const searchUrl = `https://www.truemeds.in/search?q=${encodeURIComponent(query)}`;
   const discovered = [];
   const seen = new Set();
 
   // Tier 1: Stealth browser with API interception + DOM fallback
-  try {
-    const { launchStealthBrowser } = require("./stealthBrowser");
-    let browser = null;
+  if (mode !== "fast") {
     try {
-      browser = await launchStealthBrowser();
-      const page = await browser.newPage();
-      await page.setUserAgent(UA);
-      await page.setViewport({ width: 1440, height: 900 });
+      const { launchStealthBrowser } = require("./stealthBrowser");
+      let browser = null;
+      try {
+        browser = await launchStealthBrowser();
+        const page = await browser.newPage();
+        await page.setUserAgent(UA);
+        await page.setViewport({ width: 1440, height: 900 });
 
       // Set up API interception BEFORE navigation
       const capturedResponses = [];
@@ -497,6 +502,7 @@ async function discoverTruemedUrls(query, options = {}) {
     if (discovered.length > 0) return discovered;
   } catch {
   }
+  }
 
   // Tier 2: Web search fallback
   try {
@@ -515,21 +521,22 @@ async function discoverTruemedUrls(query, options = {}) {
 // ─── MedPlus (Stealth browser + DOM extraction + debug) ─────────────
 
 async function discoverMedplusUrls(query, options = {}) {
-  const { timeout = 35000 } = options;
+  const { timeout = 35000, mode = "auto" } = options;
   const perPlatformLimit = normalizeDiscoveryLimit(options.perPlatformLimit);
   const searchUrl = `https://www.medplusmart.com/searchProduct?q=${encodeURIComponent(query)}`;
   const discovered = [];
   const seen = new Set();
 
   // Tier 1: Stealth browser with extra delay + API interception
-  try {
-    const { launchStealthBrowser } = require("./stealthBrowser");
-    let browser = null;
+  if (mode !== "fast") {
     try {
-      browser = await launchStealthBrowser();
-      const page = await browser.newPage();
-      await page.setUserAgent(UA);
-      await page.setViewport({ width: 1440, height: 900 });
+      const { launchStealthBrowser } = require("./stealthBrowser");
+      let browser = null;
+      try {
+        browser = await launchStealthBrowser();
+        const page = await browser.newPage();
+        await page.setUserAgent(UA);
+        await page.setViewport({ width: 1440, height: 900 });
 
       // Set up API interception for product data
       const capturedResponses = [];
@@ -603,6 +610,7 @@ async function discoverMedplusUrls(query, options = {}) {
     logTier("medplus", 1, "stealth+intercept", discovered.length);
     if (discovered.length > 0) return discovered;
   } catch {
+  }
   }
 
   // Tier 2: Web search fallback
