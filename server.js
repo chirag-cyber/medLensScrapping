@@ -120,6 +120,10 @@ app.get("/scrape", async (req, res) => {
       result.productsScraped = products.length;
     }
 
+    if (req.query.minimal === "true") {
+      delete result.products;
+      delete result.pdpLinks;
+    }
     return res.json(result);
   } catch (err) {
     return res.status(500).json({
@@ -243,6 +247,9 @@ app.get("/scrape-details", async (req, res) => {
     // Fire and forget the pipeline
     runETL(etlPayload).catch(() => {});
 
+    if (req.query.minimal === "true") {
+      delete finalResult.products;
+    }
     return res.json(finalResult);
   } catch (err) {
     return res.status(500).json({
@@ -309,13 +316,17 @@ app.get("/search-medicines", async (req, res) => {
     await connectDB();
     const results = await searchMedicines(query);
 
-    return res.json({
+    const responseData = {
       success: true,
       searchedAt: new Date().toISOString(),
       query,
       totalMedicines: results.length,
       results,
-    });
+    };
+    if (req.query.minimal === "true") {
+      delete responseData.results;
+    }
+    return res.json(responseData);
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -346,11 +357,15 @@ app.get("/ingest-medicine", async (req, res) => {
       includeWebSearch: useWebSearch,
     });
 
-    return res.json({
+    const responseData = {
       success: true,
       ingestedAt: new Date().toISOString(),
       result,
-    });
+    };
+    if (req.query.minimal === "true") {
+      delete responseData.result;
+    }
+    return res.json(responseData);
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -389,11 +404,16 @@ app.post("/ingest-batch", async (req, res) => {
       includeWebSearch: useWebSearch,
     });
 
-    return res.json({
+    const responseData = {
       success: true,
       ingestedAt: new Date().toISOString(),
       ...result,
-    });
+    };
+    if (req.body?.minimal || req.query.minimal === "true") {
+      delete responseData.results;
+      delete responseData.details;
+    }
+    return res.json(responseData);
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -424,9 +444,9 @@ function triggerJob(jobName, command, args = []) {
 
   runningJobs[jobName] = { pid: child.pid, startedAt };
 
-  let output = "";
-  child.stdout.on("data", (data) => { output += data.toString(); });
-  child.stderr.on("data", (data) => { output += data.toString(); });
+  // Stream output to console instead of storing in memory (prevents OOM leak)
+  child.stdout.on("data", (data) => { process.stdout.write(`[${jobName}] ${data.toString()}`); });
+  child.stderr.on("data", (data) => { process.stderr.write(`[${jobName}] ${data.toString()}`); });
 
   child.on("close", (code) => {
     delete runningJobs[jobName];
@@ -554,7 +574,7 @@ app.get("/cron/full-pipeline", async (req, res) => {
       new Promise((resolve, reject) => {
         const child = spawn("node", [script, ...args], {
           cwd: __dirname,
-          stdio: "pipe",
+          stdio: "inherit", // Inherit allows the logs to flow to Render's console and prevents pipe buffer freeze
         });
         child.on("close", (code) => (code === 0 ? resolve(code) : reject(new Error(`${script} exited with code ${code}`))));
         child.on("error", reject);
