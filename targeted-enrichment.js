@@ -70,6 +70,12 @@ function buildTargetedQuery(name, dosage) {
   const queryNoSpace = query.toLowerCase().replace(/\s+/g, "");
   const dNoSpace = d.toLowerCase().replace(/\s+/g, "");
 
+  // If dosage is exactly "1mg", it's likely platform noise from a previous bad scrape.
+  // We ignore it to prevent searching for "Medicine Name 1mg".
+  if (dNoSpace === "1mg") {
+    return query.replace(/[^a-zA-Z0-9\s.-]/g, " ").replace(/\s+/g, " ").trim();
+  }
+
   if (dNoSpace && !queryNoSpace.includes(dNoSpace)) {
     query += ` ${d}`;
   }
