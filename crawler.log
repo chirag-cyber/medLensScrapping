@@ -2372,3 +2372,60 @@
 [2026-05-03T13:17:33.816Z] 
 ⚠️  Received SIGINT. Saving state and exiting gracefully...
 [2026-05-03T13:17:33.847Z] 💾 State saved. You can resume with: node orchestrator.js --resume
+[2026-05-04T10:02:37.127Z] ♻️  Resuming from batch index 103 (37 batches already done)
+[2026-05-04T10:02:37.200Z] 📊 477 queries remaining across 159 batches.
+
+[2026-05-04T10:02:37.200Z] 
+════════════════════════════════════════════════════════════
+[2026-05-04T10:02:37.200Z] 📦 BATCH 38 — Processing 3 queries [adalimumab, vedolizumab, ursodeoxycholic acid]
+[2026-05-04T10:02:37.201Z] ════════════════════════════════════════════════════════════
+[2026-05-04T10:02:37.201Z]   🔍 [Attempt 1] Scraping: "adalimumab"
+[2026-05-04T10:40:14.942Z] ♻️  Resuming from batch index 103 (37 batches already done)
+[2026-05-04T10:40:14.943Z] 📊 477 queries remaining across 159 batches.
+
+[2026-05-04T10:40:14.943Z] 
+════════════════════════════════════════════════════════════
+[2026-05-04T10:40:14.943Z] 📦 BATCH 38 — Processing 3 queries [adalimumab, vedolizumab, ursodeoxycholic acid]
+[2026-05-04T10:40:14.943Z] ════════════════════════════════════════════════════════════
+[2026-05-04T10:40:14.944Z]   🔍 [Attempt 1] Scraping: "adalimumab"
+[2026-05-04T12:24:27.990Z] ♻️  Resuming from batch index 103 (37 batches already done)
+[2026-05-04T12:24:28.226Z] 📊 477 queries remaining across 159 batches.
+
+[2026-05-04T12:24:28.226Z] 
+════════════════════════════════════════════════════════════
+[2026-05-04T12:24:28.226Z] 📦 BATCH 38 — Processing 3 queries [adalimumab, vedolizumab, ursodeoxycholic acid]
+[2026-05-04T12:24:28.226Z] ════════════════════════════════════════════════════════════
+[2026-05-04T12:24:28.227Z]   🔍 [Attempt 1] Scraping: "adalimumab"
+[2026-05-04T12:37:15.918Z] ♻️  Resuming from batch index 103 (37 batches already done)
+[2026-05-04T12:37:15.922Z] 📊 477 queries remaining across 159 batches.
+
+[2026-05-04T12:37:15.922Z] 
+════════════════════════════════════════════════════════════
+[2026-05-04T12:37:15.922Z] 📦 BATCH 38 — Processing 3 queries [adalimumab, vedolizumab, ursodeoxycholic acid]
+[2026-05-04T12:37:15.922Z] ════════════════════════════════════════════════════════════
+[2026-05-04T12:37:15.923Z]   🔍 [Attempt 1] Scraping: "adalimumab"
+[2026-05-04T12:37:26.430Z]   ✅ "adalimumab" → Discovered: 9, Scraped: 9, Medicines: 9
+[2026-05-04T12:37:31.341Z]   🔍 [Attempt 1] Scraping: "vedolizumab"
+[2026-05-04T12:37:45.628Z]   ✅ "vedolizumab" → Discovered: 8, Scraped: 8, Medicines: 8
+[2026-05-04T12:37:48.978Z]   🔍 [Attempt 1] Scraping: "ursodeoxycholic acid"
+[2026-05-04T12:38:19.263Z]   ✅ "ursodeoxycholic acid" → Discovered: 21, Scraped: 21, Medicines: 20
+[2026-05-04T12:38:23.806Z] 
+📊 Progress: 106/580 queries (18.3%) | Speed: 1.56 q/s | ETA: 2h 58m 45s
+[2026-05-04T12:38:23.806Z]    Discovered: 11307 | Scraped: 11084 | Medicines: 10462 | Enriched: 180
+[2026-05-04T12:38:23.806Z] 💤 Breathing for 4.8s before next batch...
+
+[2026-05-04T12:38:28.641Z] 
+════════════════════════════════════════════════════════════
+[2026-05-04T12:38:28.641Z] 📦 BATCH 39 — Processing 3 queries [silymarin, rifaximin, neomycin]
+[2026-05-04T12:38:28.641Z] ════════════════════════════════════════════════════════════
+[2026-05-04T12:38:28.641Z]   🔍 [Attempt 1] Scraping: "silymarin"
+[2026-05-04T12:38:54.004Z]   ✅ "silymarin" → Discovered: 17, Scraped: 17, Medicines: 15
+[2026-05-04T12:38:57.700Z]   🔍 [Attempt 1] Scraping: "rifaximin"
+[2026-05-04T12:39:25.737Z]   ✅ "rifaximin" → Discovered: 19, Scraped: 19, Medicines: 18
+[2026-05-04T12:39:29.712Z]   🔍 [Attempt 1] Scraping: "neomycin"
+[2026-05-04T12:40:00.535Z]   ✅ "neomycin" → Discovered: 19, Scraped: 19, Medicines: 19
+[2026-05-04T12:40:05.423Z] 
+📊 Progress: 109/580 queries (18.8%) | Speed: 0.64 q/s | ETA: 3h 41m 45s
+[2026-05-04T12:40:05.423Z]    Discovered: 11362 | Scraped: 11139 | Medicines: 10514 | Enriched: 180
+[2026-05-04T12:40:05.424Z] 💤 Breathing for 4.1s before next batch...
+
