@@ -36,7 +36,7 @@ const NOISE_WORDS = [
 ];
 
 const DOSAGE_REGEX =
-  /(\d+(?:\.\d+)?\s*(?:mg|ml|mcg|g|gm|kg|%|-?gm?|-?l|-?ml|-?mcg|-?mg))(?!\w)/i;
+  /((?:\d+(?:\.\d+)?\s*(?:mg|ml|mcg|g|gm|kg|%)?\s*(?:\+|and|&|\/|-)?\s*)*\d+(?:\.\d+)?\s*(?:mg|ml|mcg|g|gm|kg|%|-?gm?|-?l|-?ml|-?mcg|-?mg))(?!\w)/i;
 const STRICT_MANDATORY_FIELDS = ["name", "price", "name_quality"];
 const PACK_UNIT_ALIASES = {
   tablet: "tablets",
@@ -124,26 +124,53 @@ function removeNoiseWords(str) {
 
 function extractDosage(str, isRisky = false) {
   if (!str) return null;
-  const matches = [...String(str).matchAll(new RegExp(DOSAGE_REGEX.source, "gi"))]
-    .map((match) => match[1].toLowerCase().replace(/\s/g, ""))
+
+  if (String(str).match(/^https?:\/\//i) || String(str).match(/^\/[a-z0-9-]+\//i)) {
+    return null;
+  }
+
+  let cleanStr = String(str);
+  
+  cleanStr = cleanStr.replace(/\|\s*1mg\b/gi, " ");
+  cleanStr = cleanStr.replace(/-\s*1mg\b/gi, " ");
+  cleanStr = cleanStr.replace(/\bby\s+1mg\b/gi, " ");
+  cleanStr = cleanStr.replace(/\bat\s+1mg\b/gi, " ");
+  cleanStr = cleanStr.replace(/\b1mg\s+platform\b/gi, " ");
+  cleanStr = cleanStr.replace(/1mg\.com/gi, " ");
+
+  const originalMatches = [...String(str).matchAll(new RegExp(DOSAGE_REGEX.source, "gi"))]
+    .map(m => m[1].toLowerCase().replace(/\s/g, ""));
+    
+  if (originalMatches.includes("1mg")) {
+     console.log(`[DOSAGE] '1mg' found in string: "${str}"`);
+  }
+
+  const matches = [...cleanStr.matchAll(new RegExp(DOSAGE_REGEX.source, "gi"))]
+    .map((match) => normalizeDosageToken(match[1]))
     .filter(Boolean);
 
   if (matches.length === 0) return null;
 
-  const preferredMatches = matches.filter((match) => match !== "1mg");
-  const candidates = preferredMatches.length > 0 ? preferredMatches : matches;
+  matches.sort((a, b) => {
+      const aPlus = (a.match(/\+/g) || []).length;
+      const bPlus = (b.match(/\+/g) || []).length;
+      if (aPlus !== bPlus) return bPlus - aPlus;
+      
+      const aMag = parseFloat(a) || 0;
+      const bMag = parseFloat(b) || 0;
+      return bMag - aMag;
+  });
 
-  // Prevent platform name "1mg" from being extracted as a dosage from descriptions/salts
-  if (candidates.length === 1 && candidates[0] === "1mg" && isRisky) {
-    return null;
+  const extracted = matches[0];
+
+  // If extraction is considered risky (e.g. from description) and it's exactly 1mg, 
+  // be cautious if it resembles a platform mention that bypassed pre-filters.
+  // But generally, we trust pre-filters to catch platform noise.
+  if (isRisky && extracted === "1mg" && String(str).toLowerCase().includes("platform")) {
+     return null;
   }
 
-  const getMagnitude = (value) => {
-    const numeric = Number.parseFloat(value);
-    return Number.isFinite(numeric) ? numeric : 0;
-  };
-
-  return [...new Set(candidates)].sort((left, right) => getMagnitude(right) - getMagnitude(left))[0];
+  return extracted;
 }
 
 function normalizePackUnit(unit) {
@@ -315,7 +342,24 @@ function shouldUseQueryHintAsSalt(rawName, normalizedQueryHint) {
 
 function normalizeDosageToken(dosage) {
   const cleaned = cleanText(dosage);
-  return cleaned ? cleaned.toLowerCase().replace(/\s+/g, "") : null;
+  if (!cleaned) return null;
+  
+  let m = cleaned.toLowerCase();
+  const parts = [...m.matchAll(/(\d+(?:\.\d+)?)\s*(mg|ml|mcg|g|gm|kg|%)?/gi)];
+  
+  if (parts.length <= 1) {
+      return m.replace(/\s+/g, "");
+  }
+  
+  let finalParts = [];
+  let lastUnit = "mg"; 
+  for (let i = parts.length - 1; i >= 0; i--) {
+     if (parts[i][2]) {
+         lastUnit = parts[i][2].toLowerCase();
+     }
+     finalParts.unshift(parts[i][1] + lastUnit);
+  }
+  return finalParts.join("+");
 }
 
 function normalizeName(name, options = {}) {
@@ -469,12 +513,22 @@ function transformRecord(rawRecord) {
   // so platform suffixes (like " | 1mg") don't corrupt dosage extraction.
   const cleanedName = cleanMedicineName(rawName);
 
-  const dosage =
-    extractDosage(rawRecord.dosage) ||
-    extractDosage(cleanedName || rawName) ||
-    extractDosage(rawSalt, true) ||
-    extractDosage(rawDescription, true) ||
-    null;
+  let dosage = extractDosage(rawRecord.dosage);
+  if (!dosage) {
+    dosage = extractDosage(cleanedName || rawName);
+  }
+  if (!dosage) {
+    dosage = extractDosage(rawSalt, true);
+    if (dosage) console.log(`[DOSAGE] Fallback triggered: extracted ${dosage} from salt for "${rawName}"`);
+  }
+  if (!dosage) {
+    dosage = extractDosage(rawDescription, true);
+    if (dosage) console.log(`[DOSAGE] Fallback triggered: extracted ${dosage} from description for "${rawName}"`);
+  }
+
+  if (dosage && dosage.includes("+")) {
+    console.log(`[DOSAGE] Successful corrected extraction (multi-dosage): ${dosage} for "${rawName}"`);
+  }
   const packSize = extractPackSize(rawRecord.quantity, cleanedName || rawName);
   const normalizedName = normalizeName(cleanedName || rawName, {
     dosage,

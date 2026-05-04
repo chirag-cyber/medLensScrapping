@@ -50,11 +50,11 @@ function detectMissingFields(medicine) {
  */
 function buildEnrichmentPrompt(medicine, missingFields) {
   const identity = [
-    `Medicine Name: ${medicine.name || "Unknown"}`,
-    medicine.salt ? `Salt/Composition: ${medicine.salt}` : null,
-    medicine.normalized_salt ? `Active Ingredient: ${medicine.normalized_salt}` : null,
-    medicine.manufacturer ? `Manufacturer: ${medicine.manufacturer}` : null,
-    medicine.dosage ? `Dosage: ${medicine.dosage}` : null,
+    `Name: ${medicine.name || "Unknown"}`,
+    medicine.salt ? `Salt: ${medicine.salt.substring(0, 150)}` : null,
+    medicine.normalized_salt ? `Active: ${medicine.normalized_salt.substring(0, 150)}` : null,
+    medicine.manufacturer ? `Mfg: ${medicine.manufacturer.substring(0, 100)}` : null,
+    medicine.dosage ? `Dose: ${medicine.dosage}` : null,
   ]
     .filter(Boolean)
     .join("\n");
@@ -63,42 +63,35 @@ function buildEnrichmentPrompt(medicine, missingFields) {
 
   if (missingFields.includes("description")) {
     fieldInstructions.push(
-      `"description": A concise 2-4 sentence medical description of this medicine. Include what it is used for, how it works (mechanism), and important usage notes. No marketing language. Be factual and clinical.`
+      `"description": "2-4 sentence medical description. Uses, mechanism, notes. Factual, no marketing."`
     );
   }
 
   if (missingFields.includes("side_effects")) {
     fieldInstructions.push(
-      `"side_effects": An array of 5-10 common side effects as individual clean lowercase strings. Example: ["nausea", "headache", "dizziness", "fatigue"]. No sentences, just individual effect names.`
+      `"side_effects": ["effect1", "effect2"] (5-10 common side effects, lowercase, single words)`
     );
   }
 
   if (missingFields.includes("faq")) {
     fieldInstructions.push(
-      `"faq": An array of 3 common generic questions and answers about this medicine. Each entry must have "question" and "answer" keys. Questions should be what a patient would commonly ask. Answers should be 1-2 sentences, medically accurate.`
+      `"faq": [{"question": "...", "answer": "..."}] (3 common patient Q&As, 1-2 sentence answers)`
     );
   }
 
-  return `You are a pharmaceutical database assistant. Your task is to generate accurate medical information for a medicine database.
-
-Given the following medicine identity:
+  return `Medicine:
 ${identity}
 
-Generate ONLY the following missing fields as a valid JSON object:
+Return JSON with:
 {
   ${fieldInstructions.join(",\n  ")}
 }
 
-CRITICAL RULES:
-- Respond with ONLY the JSON object. No explanation, no markdown, no code fences.
-- Be medically accurate and factual.
-- Do NOT include marketing language, promotional text, or disclaimers.
-- Do NOT generate or guess the dosage.
-- Do NOT generate or guess the composition/salt.
-- Do NOT provide specific treatment advice or prescriptive instructions.
-- If you are unsure about a field, provide the most commonly accepted medical information.
-- For side effects, list only the well-documented common ones.
-- Keep descriptions concise and professional.`;
+RULES:
+- JSON only. No markdown/code blocks.
+- Factual & clinical. No marketing or disclaimers.
+- Do not guess dosage/salt.
+- Concise.`;
 }
 
 /**
@@ -205,7 +198,7 @@ async function enrichMedicine(medicine, options = {}) {
         messages: [
           {
             role: "system",
-            content: "You are a pharmaceutical data generator. Always respond with valid JSON only. No explanations.",
+            content: "Return JSON only.",
           },
           {
             role: "user",
