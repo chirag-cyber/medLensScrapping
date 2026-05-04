@@ -28,6 +28,12 @@ const DRY_RUN = process.argv.includes("--dry-run");
 const limitArgIndex = process.argv.indexOf("--limit");
 const LIMIT = limitArgIndex > -1 ? parseInt(process.argv[limitArgIndex + 1], 10) || 50 : 50;
 
+// Specific target for testing
+const nameArgIndex = process.argv.indexOf("--name");
+const TARGET_NAME = nameArgIndex > -1 ? process.argv[nameArgIndex + 1] : null;
+const dosageArgIndex = process.argv.indexOf("--dosage");
+const TARGET_DOSAGE = dosageArgIndex > -1 ? process.argv[dosageArgIndex + 1] : null;
+
 // ──────────────────────────────────────────────────────────────────────
 // DB CONNECTION
 // ──────────────────────────────────────────────────────────────────────
@@ -83,13 +89,24 @@ async function runEnrichment() {
   // - Not recently enriched (skip if enriched in the last 7 days)
   const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
 
-  const query = {
-    source_platforms: { $exists: true, $type: 'array' },
-    $or: [
-      { last_enriched_at: { $exists: false } },
-      { last_enriched_at: { $lt: sevenDaysAgo } }
-    ]
-  };
+  let query = {};
+
+  if (TARGET_NAME) {
+    console.log(`[Targeted] Testing specific medicine: "${TARGET_NAME}"${TARGET_DOSAGE ? ` [${TARGET_DOSAGE}]` : ""}`);
+    query.name = { $regex: new RegExp(TARGET_NAME, "i") };
+    if (TARGET_DOSAGE) {
+        query.dosage = TARGET_DOSAGE;
+    }
+  } else {
+    // Normal criteria: Missing at least one priority platform and not recently enriched
+    query = {
+      source_platforms: { $exists: true, $type: "array" },
+      $or: [
+        { last_enriched_at: { $exists: false } },
+        { last_enriched_at: { $lt: sevenDaysAgo } }
+      ]
+    };
+  }
 
   const candidates = await Medicine.find(query, {
     name: 1,
