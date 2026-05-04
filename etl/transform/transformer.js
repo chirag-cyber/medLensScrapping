@@ -163,6 +163,19 @@ function extractDosage(str, isRisky = false) {
 
   const extracted = matches[0];
 
+  // SANITY CHECK: Reject garbage dosages that are clearly not medicine values.
+  // - Any single numeric part > 10000 is never a real dosage (catches CSS/JS noise like "12345661%")
+  // - Percentage values > 100 are never valid
+  const dosageParts = extracted.split("+");
+  for (const part of dosageParts) {
+    const numMatch = part.match(/(\d+(?:\.\d+)?)/);
+    if (numMatch) {
+      const num = parseFloat(numMatch[1]);
+      if (num > 10000) return null;
+      if (part.includes("%") && num > 100) return null;
+    }
+  }
+
   // If extraction is considered risky (e.g. from description) and it's exactly 1mg, 
   // be cautious if it resembles a platform mention that bypassed pre-filters.
   // But generally, we trust pre-filters to catch platform noise.
