@@ -56,6 +56,11 @@ async function launchStealthBrowser(options = {}) {
       "--disable-infobars",
       "--window-size=1440,900",
       "--disable-gpu",
+      "--disable-accelerated-2d-canvas",
+      "--no-first-run",
+      "--no-zygote",
+      "--mute-audio",
+      "--disable-extensions",
     ],
     ignoreDefaultArgs: ["--enable-automation"],
   });
