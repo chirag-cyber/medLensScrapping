@@ -72,7 +72,7 @@ const EXCLUDED_RESULT_PATTERNS = [
 
 const PHARMEASY_HTML_LINK_PATTERN =
   /\/(?:online-medicine-order|health-care\/products)\/[a-z0-9-]+/gi;
-const NETMEDS_PRODUCT_SLUG_PATTERN = /"slug":"([a-z0-9-]+-\d{5,})"/gi;
+const NETMEDS_PRODUCT_SLUG_PATTERN = /"slug":"([a-z0-9][-a-z0-9]*-[a-z0-9]*\d{4,})"/gi;
 
 // ─── Shared Helpers ─────────────────────────────────────────────────
 
@@ -286,35 +286,51 @@ async function discoverPharmEasyUrls(query, options = {}) {
 async function discoverNetmedsUrls(query, options = {}) {
   const { timeout = 15000, mode = "auto" } = options;
   const perPlatformLimit = normalizeDiscoveryLimit(options.perPlatformLimit);
-  const searchUrl = `https://www.netmeds.com/products?q=${encodeURIComponent(query)}&departments=medicine`;
   const discovered = [];
   const seen = new Set();
 
-  // Tier 1: HTML state parsing
-  try {
-    const response = await axios.get(searchUrl, { timeout, headers: { "User-Agent": UA } });
-    const slugMatches = response.data.matchAll(NETMEDS_PRODUCT_SLUG_PATTERN);
-    for (const match of slugMatches) {
-      if (discovered.length >= perPlatformLimit) break;
-      const url = `https://www.netmeds.com/product/${match[1]}`;
-      if (!isPlatformMedicineUrl(url, "netmeds", query, { skipQueryMatch: true })) continue;
-      pushDiscoveredUrl(discovered, seen, url, { platform: "netmeds", discoveryMethod: "platform-state", sourceUrl: searchUrl }, perPlatformLimit);
-    }
-    logTier("netmeds", 1, "HTML-state", discovered.length);
-    if (discovered.length > 0 || mode === "fast") return discovered;
-  } catch {
+  // Try with the full query first, then with a simplified brand-only query
+  const queries = [query];
+  // Build a simplified query: strip dosage and form words for better Netmeds search
+  const simplified = query
+    .replace(/\d+(?:\.\d+)?\s*(?:mg|ml|mcg|g|gm|kg)\b/gi, "")
+    .replace(/\b(?:tablet|tablets|capsule|capsules|strip|syrup|injection|drop|drops|ointment|cream|gel|spray|sachet|sr|cr|mr|xr|er|dr|pr|of|new)\b/gi, "")
+    .replace(/\s+/g, " ").trim();
+  if (simplified && simplified.toLowerCase() !== query.toLowerCase()) {
+    queries.push(simplified);
   }
 
-  // Tier 2: Browser fallback
-  try {
-    const result = await scrapePDPLinks(searchUrl, { timeout, mode, sameDomain: false });
-    result.pdpLinks.forEach((link) => {
-      if (discovered.length >= perPlatformLimit) return;
-      if (!isPlatformMedicineUrl(link.url, "netmeds", query, { skipQueryMatch: true })) return;
-      pushDiscoveredUrl(discovered, seen, link.url, { platform: "netmeds", discoveryMethod: "platform-browser", sourceUrl: searchUrl }, perPlatformLimit);
-    });
-    logTier("netmeds", 2, "browser", discovered.length);
-  } catch {
+  for (const q of queries) {
+    if (discovered.length >= perPlatformLimit) break;
+    const searchUrl = `https://www.netmeds.com/products?q=${encodeURIComponent(q)}&departments=medicine`;
+
+    // Tier 1: HTML state parsing
+    try {
+      const response = await axios.get(searchUrl, { timeout, headers: { "User-Agent": UA } });
+      const slugMatches = response.data.matchAll(NETMEDS_PRODUCT_SLUG_PATTERN);
+      for (const match of slugMatches) {
+        if (discovered.length >= perPlatformLimit) break;
+        const url = `https://www.netmeds.com/product/${match[1]}`;
+        if (!isPlatformMedicineUrl(url, "netmeds", query, { skipQueryMatch: true })) continue;
+        pushDiscoveredUrl(discovered, seen, url, { platform: "netmeds", discoveryMethod: "platform-state", sourceUrl: searchUrl }, perPlatformLimit);
+      }
+      logTier("netmeds", 1, "HTML-state", discovered.length);
+      if (discovered.length > 0 || mode === "fast") break;
+    } catch {
+    }
+
+    // Tier 2: Browser fallback
+    try {
+      const result = await scrapePDPLinks(searchUrl, { timeout, mode, sameDomain: false });
+      result.pdpLinks.forEach((link) => {
+        if (discovered.length >= perPlatformLimit) return;
+        if (!isPlatformMedicineUrl(link.url, "netmeds", query, { skipQueryMatch: true })) return;
+        pushDiscoveredUrl(discovered, seen, link.url, { platform: "netmeds", discoveryMethod: "platform-browser", sourceUrl: searchUrl }, perPlatformLimit);
+      });
+      logTier("netmeds", 2, "browser", discovered.length);
+      if (discovered.length > 0) break;
+    } catch {
+    }
   }
 
   return discovered;
