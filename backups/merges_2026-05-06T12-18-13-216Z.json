@@ -1,0 +1,153 @@
+[
+  {
+    "canonicalKey": "mefomin|1000mg",
+    "masterId": "69f35b9e9993129c11b15533",
+    "masterName": "mefomin 1000 sr tablet",
+    "duplicates": [
+      {
+        "id": "69fa9a6cda4a31b421a8f82e",
+        "name": "mefomin sr 1000mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-06T12:18:16.601Z"
+  },
+  {
+    "canonicalKey": "omee|20mg",
+    "masterId": "69f3602e9993129c11b156b7",
+    "masterName": "omee capsule",
+    "duplicates": [
+      {
+        "id": "69fa9ab0da4a31b421a8f834",
+        "name": "omee 20mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-06T12:18:17.019Z"
+  },
+  {
+    "canonicalKey": "ocid|20mg",
+    "masterId": "69f3602e9993129c11b15704",
+    "masterName": "ocid",
+    "duplicates": [
+      {
+        "id": "69fa9ab0da4a31b421a8f835",
+        "name": "ocid 20mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-06T12:18:17.386Z"
+  },
+  {
+    "canonicalKey": "istamet|1000mg+50mg",
+    "masterId": "69f4814b9993129c11b18650",
+    "masterName": "istamet 50 1000mg tablets",
+    "duplicates": [
+      {
+        "id": "69fa9a6cda4a31b421a8f830",
+        "name": "istamet 50 1000mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-06T12:18:17.767Z"
+  },
+  {
+    "canonicalKey": "acosita m|1000mg+100mg",
+    "masterId": "69f4c3539993129c11b19b09",
+    "masterName": "acosita m sr 100 1000mg tablet",
+    "duplicates": [
+      {
+        "id": "69fa9a6cda4a31b421a8f82f",
+        "name": "acosita m sr 100 1000mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-06T12:18:18.120Z"
+  },
+  {
+    "canonicalKey": "susten|200mg",
+    "masterId": "69f73aa0da4a31b421a8b3b9",
+    "masterName": "susten sr 200 tablet",
+    "duplicates": [
+      {
+        "id": "69fae064da4a31b421a8f9df",
+        "name": "susten 200mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      },
+      {
+        "id": "69fae064da4a31b421a8f9e0",
+        "name": "susten sr 200mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-06T12:18:18.549Z"
+  },
+  {
+    "canonicalKey": "oxetol|600mg",
+    "masterId": "69f78315da4a31b421a8bb5c",
+    "masterName": "oxetol xr 600 tablet",
+    "duplicates": [
+      {
+        "id": "69fadffeda4a31b421a8f917",
+        "name": "oxetol 600mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-06T12:18:18.895Z"
+  },
+  {
+    "canonicalKey": "dronis|3mg",
+    "masterId": "69f93a22da4a31b421a8d6f4",
+    "masterName": "dronis",
+    "duplicates": [
+      {
+        "id": "69fae0ccda4a31b421a8fa4b",
+        "name": "dronis",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-06T12:18:19.269Z"
+  },
+  {
+    "canonicalKey": "susten|300mg",
+    "masterId": "69fae064da4a31b421a8f9dd",
+    "masterName": "susten sr 300 tablet",
+    "duplicates": [
+      {
+        "id": "69fae064da4a31b421a8f9e2",
+        "name": "susten sr 300mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-06T12:18:19.662Z"
+  }
+]

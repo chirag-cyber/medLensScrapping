@@ -1,0 +1,66 @@
+[
+  {
+    "canonicalKey": "oriprim ds|800mg",
+    "masterId": "69f8d638da4a31b421a8ce03",
+    "masterName": "oriprim ds tablets",
+    "duplicates": [
+      {
+        "id": "69f8d638da4a31b421a8ce08",
+        "name": "oriprim ds tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-04T17:41:20.081Z"
+  },
+  {
+    "canonicalKey": "pyrazinamide|500mg",
+    "masterId": "69f8d6b6da4a31b421a8ce5b",
+    "masterName": "pyrazinamide zydus 500mg tablet",
+    "duplicates": [
+      {
+        "id": "69f8d6b6da4a31b421a8ce5c",
+        "name": "pyrazinamide novartis 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-04T17:41:20.405Z"
+  },
+  {
+    "canonicalKey": "dapsone|100mg",
+    "masterId": "69f8d7e8da4a31b421a8ce9d",
+    "masterName": "dapsone 100mg tablet",
+    "duplicates": [
+      {
+        "id": "69f8d87ada4a31b421a8ceb1",
+        "name": "dapsone tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-04T17:41:20.749Z"
+  },
+  {
+    "canonicalKey": "redemide|100mg",
+    "masterId": "69f8d911da4a31b421a8cec6",
+    "masterName": "redemide",
+    "duplicates": [
+      {
+        "id": "69f8d911da4a31b421a8cece",
+        "name": "redemide 100mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-04T17:41:21.075Z"
+  }
+]

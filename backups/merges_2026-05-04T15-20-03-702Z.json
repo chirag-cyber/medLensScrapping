@@ -1,0 +1,41 @@
+[
+  {
+    "canonicalKey": "zoryl|1mg",
+    "masterId": "69f47b8e9993129c11b182d6",
+    "masterName": "zoryl",
+    "duplicates": [
+      {
+        "id": "69f8b8efda4a31b421a8cb1b",
+        "name": "zoryl 1mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-04T15:20:05.259Z"
+  },
+  {
+    "canonicalKey": "zerodol|100mg",
+    "masterId": "69f8b8efda4a31b421a8cb3b",
+    "masterName": "zerodol",
+    "duplicates": [
+      {
+        "id": "69f8b8efda4a31b421a8cb19",
+        "name": "zerodol mr tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      },
+      {
+        "id": "69f8b8efda4a31b421a8cb1d",
+        "name": "zerodol 100mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-04T15:20:05.712Z"
+  }
+]

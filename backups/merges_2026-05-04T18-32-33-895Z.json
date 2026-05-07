@@ -1,0 +1,34 @@
+[
+  {
+    "canonicalKey": "enzyl|160mg",
+    "masterId": "69f5f280da4a31b421a8a055",
+    "masterName": "enzyl 160 tablet",
+    "duplicates": [
+      {
+        "id": "69f8e63fda4a31b421a8d155",
+        "name": "enzyl 160mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-04T18:32:36.031Z"
+  },
+  {
+    "canonicalKey": "enzyl|80mg",
+    "masterId": "69f8e63fda4a31b421a8d15a",
+    "masterName": "enzyl 80mg capsule",
+    "duplicates": [
+      {
+        "id": "69f8e63fda4a31b421a8d15e",
+        "name": "enzyl 80 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-04T18:32:36.358Z"
+  }
+]

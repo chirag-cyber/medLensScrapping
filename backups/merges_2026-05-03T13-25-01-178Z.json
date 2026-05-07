@@ -1,0 +1,231 @@
+[
+  {
+    "canonicalKey": "esomac d|40mg",
+    "masterId": "69f74b8cda4a31b421a8b898",
+    "masterName": "esomac d 40 capsule",
+    "duplicates": [
+      {
+        "id": "69f72aa2da4a31b421a8ac4e",
+        "name": "esomac d 40 capsule sr",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T13:25:02.957Z"
+  },
+  {
+    "canonicalKey": "esoz d|40mg",
+    "masterId": "69f72aa2da4a31b421a8ac7d",
+    "masterName": "esoz d 40 capsule sr",
+    "duplicates": [
+      {
+        "id": "69f74b8cda4a31b421a8b89b",
+        "name": "esoz d 40 capsule",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T13:25:03.288Z"
+  },
+  {
+    "canonicalKey": "rantac|300mg",
+    "masterId": "69f72e85da4a31b421a8add0",
+    "masterName": "rantac 300 tablet",
+    "duplicates": [
+      {
+        "id": "69f74b72da4a31b421a8b87b",
+        "name": "rantac 300mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      },
+      {
+        "id": "69f74b7eda4a31b421a8b887",
+        "name": "rantac 300 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T13:25:03.718Z"
+  },
+  {
+    "canonicalKey": "aciloc|300mg",
+    "masterId": "69f72e86da4a31b421a8ae08",
+    "masterName": "aciloc 300mg tablets",
+    "duplicates": [
+      {
+        "id": "69f74b7eda4a31b421a8b888",
+        "name": "aciloc 300 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T13:25:04.057Z"
+  },
+  {
+    "canonicalKey": "ranitin|300mg",
+    "masterId": "69f72e86da4a31b421a8ae2a",
+    "masterName": "ranitin-300 tablets",
+    "duplicates": [
+      {
+        "id": "69f74b72da4a31b421a8b87c",
+        "name": "ranitin 300 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      },
+      {
+        "id": "69f74b7eda4a31b421a8b889",
+        "name": "ranitin 300mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T13:25:04.464Z"
+  },
+  {
+    "canonicalKey": "nexpro fast|40mg",
+    "masterId": "69f731ceda4a31b421a8af5c",
+    "masterName": "nexpro fast 40 tablet",
+    "duplicates": [
+      {
+        "id": "69f74c41da4a31b421a8b8af",
+        "name": "nexpro fast 40 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      },
+      {
+        "id": "69f74c5bda4a31b421a8b8ce",
+        "name": "nexpro fast 40 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T13:25:04.912Z"
+  },
+  {
+    "canonicalKey": "esofag|40mg",
+    "masterId": "69f74c4dda4a31b421a8b8c1",
+    "masterName": "esofag 40mg tablets",
+    "duplicates": [
+      {
+        "id": "69f731ceda4a31b421a8af84",
+        "name": "esofag 40 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T13:25:05.228Z"
+  },
+  {
+    "canonicalKey": "esokem|40mg",
+    "masterId": "69f74c5bda4a31b421a8b8d2",
+    "masterName": "esokem 40mg tablets",
+    "duplicates": [
+      {
+        "id": "69f731cfda4a31b421a8afcb",
+        "name": "esokem 40 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T13:25:05.552Z"
+  },
+  {
+    "canonicalKey": "esofine|40mg",
+    "masterId": "69f74c4dda4a31b421a8b8be",
+    "masterName": "esofine 40mg tablets",
+    "duplicates": [
+      {
+        "id": "69f731cfda4a31b421a8afcc",
+        "name": "esofine 40 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T13:25:05.883Z"
+  },
+  {
+    "canonicalKey": "nexpro|80mg",
+    "masterId": "69f74c41da4a31b421a8b8b0",
+    "masterName": "nexpro-80 tablet",
+    "duplicates": [
+      {
+        "id": "69f731cfda4a31b421a8afcf",
+        "name": "nexpro 80mg tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T13:25:06.225Z"
+  },
+  {
+    "canonicalKey": "nexpro rd|40mg",
+    "masterId": "69f731cfda4a31b421a8afd9",
+    "masterName": "nexpro rd 40mg capsule",
+    "duplicates": [
+      {
+        "id": "69f74ba6da4a31b421a8b8a6",
+        "name": "nexpro rd 40 capsule",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T13:25:06.553Z"
+  },
+  {
+    "canonicalKey": "nexpro|40mg",
+    "masterId": "69f731cfda4a31b421a8afef",
+    "masterName": "nexpro 40 mg injection",
+    "duplicates": [
+      {
+        "id": "69f74c41da4a31b421a8b8ae",
+        "name": "nexpro-40 tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-03T13:25:06.888Z"
+  },
+  {
+    "canonicalKey": "somifiz|40mg",
+    "masterId": "69f731cfda4a31b421a8aff1",
+    "masterName": "somifiz tablet",
+    "duplicates": [
+      {
+        "id": "69f74c4dda4a31b421a8b8bd",
+        "name": "somifiz 40mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-03T13:25:07.202Z"
+  }
+]

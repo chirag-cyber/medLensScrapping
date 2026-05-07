@@ -1,0 +1,34 @@
+[
+  {
+    "canonicalKey": "dasapan|50mg",
+    "masterId": "69f8db6cda4a31b421a8cf2e",
+    "masterName": "dasapan",
+    "duplicates": [
+      {
+        "id": "69f8db6cda4a31b421a8cf37",
+        "name": "dasapan 50mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-04T17:53:27.205Z"
+  },
+  {
+    "canonicalKey": "nintib softgel|150mg",
+    "masterId": "69f8dcd7da4a31b421a8cf54",
+    "masterName": "nintib 150mg softgel capsules",
+    "duplicates": [
+      {
+        "id": "69f8dcd7da4a31b421a8cf57",
+        "name": "nintib 150 softgel capsule",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-04T17:53:27.555Z"
+  }
+]

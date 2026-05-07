@@ -1,0 +1,66 @@
+[
+  {
+    "canonicalKey": "zerodol th|100mg",
+    "masterId": "69f8b8efda4a31b421a8cb0e",
+    "masterName": "zerodol th",
+    "duplicates": [
+      {
+        "id": "69f8c765da4a31b421a8cc0a",
+        "name": "zerodol th",
+        "platforms": [
+          "apollo",
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-04T16:39:29.060Z"
+  },
+  {
+    "canonicalKey": "zerodol|100mg",
+    "masterId": "69f8b8efda4a31b421a8cb3b",
+    "masterName": "zerodol",
+    "duplicates": [
+      {
+        "id": "69f8c6e4da4a31b421a8cc00",
+        "name": "zerodol mr tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      },
+      {
+        "id": "69f8c7aeda4a31b421a8cc25",
+        "name": "zerodol-mr tablet",
+        "platforms": [
+          "1mg",
+          "apollo"
+        ]
+      },
+      {
+        "id": "69f8c898da4a31b421a8cc43",
+        "name": "zerodol 100mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-04T16:39:29.666Z"
+  },
+  {
+    "canonicalKey": "zerodol|200mg",
+    "masterId": "69f8bc8fda4a31b421a8cb5d",
+    "masterName": "zerodol cr tablet",
+    "duplicates": [
+      {
+        "id": "69f8c9dfda4a31b421a8cc60",
+        "name": "zerodol cr 200mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-04T16:39:30.045Z"
+  }
+]

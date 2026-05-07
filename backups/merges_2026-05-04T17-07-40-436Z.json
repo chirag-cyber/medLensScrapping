@@ -1,0 +1,114 @@
+[
+  {
+    "canonicalKey": "atorva|80mg",
+    "masterId": "69f35e669993129c11b155cf",
+    "masterName": "atorva 80mg tablet",
+    "duplicates": [
+      {
+        "id": "69f8ccdcda4a31b421a8cc84",
+        "name": "atorva 80 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-04T17:07:42.261Z"
+  },
+  {
+    "canonicalKey": "valzaar|80mg",
+    "masterId": "69f492a09993129c11b18e7e",
+    "masterName": "valzaar-80 tablet",
+    "duplicates": [
+      {
+        "id": "69f8ccdcda4a31b421a8cc88",
+        "name": "valzaar 80 tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-04T17:07:42.593Z"
+  },
+  {
+    "canonicalKey": "zerodol th|100mg",
+    "masterId": "69f8b8efda4a31b421a8cb0e",
+    "masterName": "zerodol th",
+    "duplicates": [
+      {
+        "id": "69f8ccdcda4a31b421a8cc85",
+        "name": "zerodol th",
+        "platforms": [
+          "1mg",
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-04T17:07:42.995Z"
+  },
+  {
+    "canonicalKey": "zerodol pg|200mg+75mg",
+    "masterId": "69f8cd83da4a31b421a8cca6",
+    "masterName": "zerodol pg 200 75mg tablet",
+    "duplicates": [
+      {
+        "id": "69f8b8efda4a31b421a8cb1e",
+        "name": "zerodol pg 200 75 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-04T17:07:43.310Z"
+  },
+  {
+    "canonicalKey": "zerodol|100mg",
+    "masterId": "69f8b8efda4a31b421a8cb3b",
+    "masterName": "zerodol",
+    "duplicates": [
+      {
+        "id": "69f8cbe4da4a31b421a8cc70",
+        "name": "zerodol 100mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      },
+      {
+        "id": "69f8cbe4da4a31b421a8cc71",
+        "name": "zerodol mr tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      },
+      {
+        "id": "69f8ce08da4a31b421a8ccb5",
+        "name": "zerodol-mr tablet",
+        "platforms": [
+          "1mg",
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-04T17:07:43.819Z"
+  },
+  {
+    "canonicalKey": "zerodol|200mg",
+    "masterId": "69f8bc8fda4a31b421a8cb5d",
+    "masterName": "zerodol cr tablet",
+    "duplicates": [
+      {
+        "id": "69f8cbe4da4a31b421a8cc72",
+        "name": "zerodol cr 200mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-04T17:07:44.123Z"
+  }
+]
