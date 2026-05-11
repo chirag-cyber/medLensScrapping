@@ -658,7 +658,7 @@
     }
 
     checkAuth(); // Auto-login if key in session
-    setInterval(() => { if (dashKey) loadDashboard(); }, 60000);
+    // Auto-refresh disabled to prevent MongoDB free tier exhaustion
   </script>
 </body>
 </html>
