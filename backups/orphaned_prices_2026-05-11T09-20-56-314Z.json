@@ -1,0 +1,1374 @@
+[
+  {
+    "_id": "69f3537c9993129c11b1519b",
+    "platform": "1mg",
+    "medicine_id": "69f3537c9993129c11b15184",
+    "price": 41.9,
+    "url": "https://www.1mg.com/otc/saridon-head-body-tablet-otc935302"
+  },
+  {
+    "_id": "69f3537c9993129c11b1519e",
+    "platform": "1mg",
+    "medicine_id": "69f3537c9993129c11b15187",
+    "price": 137,
+    "url": "https://www.1mg.com/drugs/zerodol-sp-tablet-67307"
+  },
+  {
+    "_id": "69f3537c9993129c11b151cd",
+    "medicine_id": "69f3537c9993129c11b151b5",
+    "platform": "1mg",
+    "price": 20,
+    "url": "https://www.1mg.com/drugs/paracip-syrup-253981"
+  },
+  {
+    "_id": "69f3537c9993129c11b151fc",
+    "medicine_id": "69f3537c9993129c11b151e4",
+    "platform": "1mg",
+    "price": 14.49,
+    "url": "https://www.1mg.com/drugs/metacin-tablet-152092"
+  },
+  {
+    "_id": "69f359a59993129c11b15414",
+    "medicine_id": "69f359a59993129c11b153fe",
+    "platform": "1mg",
+    "price": 15.2,
+    "url": "https://www.1mg.com/drugs/cetcip-syrup-234209"
+  },
+  {
+    "_id": "69f359a59993129c11b15425",
+    "medicine_id": "69f359a59993129c11b1540f",
+    "platform": "1mg",
+    "price": 13,
+    "url": "https://www.1mg.com/drugs/stanhist-10-tablet-113966"
+  },
+  {
+    "_id": "69f35b9d9993129c11b1548b",
+    "medicine_id": "69f35b9d9993129c11b15472",
+    "platform": "1mg",
+    "price": 39.7,
+    "url": "https://www.1mg.com/drugs/glyciphage-tablet-18013"
+  },
+  {
+    "_id": "69f35b9e9993129c11b1553f",
+    "platform": "netmeds",
+    "medicine_id": "69f4c3bc9993129c11b19b1f",
+    "price": 204.42,
+    "url": "https://www.netmeds.com/product/gluconorm-g-1mg-tablet-15s-lui2l9-8245792"
+  },
+  {
+    "_id": "69f35e659993129c11b1557d",
+    "medicine_id": "69f35e659993129c11b15567",
+    "platform": "1mg",
+    "price": 72.1,
+    "url": "https://www.1mg.com/drugs/lipvas-20-tablet-74063"
+  },
+  {
+    "_id": "69f35e659993129c11b15581",
+    "medicine_id": "69f35e659993129c11b1556b",
+    "platform": "1mg",
+    "price": 91,
+    "url": "https://www.1mg.com/drugs/atorbest-20-tablet-121685"
+  },
+  {
+    "_id": "69f35e659993129c11b15587",
+    "medicine_id": "69f35e659993129c11b15571",
+    "platform": "1mg",
+    "price": 199,
+    "url": "https://www.1mg.com/drugs/atorva-20-tablet-513352"
+  },
+  {
+    "_id": "69f35e659993129c11b1558d",
+    "medicine_id": "69f35e659993129c11b15577",
+    "platform": "1mg",
+    "price": 62.2,
+    "url": "https://www.1mg.com/drugs/lipikind-20-tablet-46233"
+  },
+  {
+    "_id": "69f35e669993129c11b155d3",
+    "medicine_id": "69f35e669993129c11b155bd",
+    "platform": "1mg",
+    "price": 17.4,
+    "url": "https://www.1mg.com/drugs/genxvast-10-tablet-46182"
+  },
+  {
+    "_id": "69f3602d9993129c11b15634",
+    "medicine_id": "69f3602d9993129c11b1561b",
+    "platform": "1mg",
+    "price": 45.3,
+    "url": "https://www.1mg.com/drugs/omee-capsule-349946"
+  },
+  {
+    "_id": "69f3602d9993129c11b1563c",
+    "medicine_id": "69f3602d9993129c11b15623",
+    "platform": "1mg",
+    "price": 58.2,
+    "url": "https://www.1mg.com/drugs/ocid-20-capsule-511776"
+  },
+  {
+    "_id": "69f363c19993129c11b15929",
+    "medicine_id": "69f363c19993129c11b15911",
+    "platform": "1mg",
+    "price": 40.1,
+    "url": "https://www.1mg.com/drugs/amlip-10-tablet-44013"
+  },
+  {
+    "_id": "69f363c19993129c11b1592d",
+    "platform": "1mg",
+    "medicine_id": "69f363c19993129c11b15915",
+    "price": 80,
+    "url": "https://www.1mg.com/drugs/stamlo-5-tablet-368012"
+  },
+  {
+    "_id": "69f363c19993129c11b1592e",
+    "medicine_id": "69f363c19993129c11b15916",
+    "platform": "1mg",
+    "price": 87.2,
+    "url": "https://www.1mg.com/drugs/amlong-10-tablet-143677"
+  },
+  {
+    "_id": "69f363c19993129c11b1592f",
+    "medicine_id": "69f363c19993129c11b15917",
+    "platform": "1mg",
+    "price": 23.67,
+    "url": "https://www.1mg.com/drugs/amlokind-5-tablet-665338"
+  },
+  {
+    "_id": "69f363c19993129c11b15931",
+    "medicine_id": "69f363c19993129c11b15919",
+    "platform": "1mg",
+    "price": 80,
+    "url": "https://www.1mg.com/drugs/amlopres-5-tablet-530530"
+  },
+  {
+    "_id": "69f363c19993129c11b15933",
+    "medicine_id": "69f363c19993129c11b1591b",
+    "platform": "1mg",
+    "price": 40,
+    "url": "https://www.1mg.com/drugs/amlovas-5-tablet-135645"
+  },
+  {
+    "_id": "69f363c19993129c11b15934",
+    "medicine_id": "69f363c19993129c11b1591c",
+    "platform": "1mg",
+    "price": 80,
+    "url": "https://www.1mg.com/drugs/amlodac-5-tablet-369858"
+  },
+  {
+    "_id": "69f363c19993129c11b15970",
+    "platform": "1mg",
+    "medicine_id": "69f363c19993129c11b15958",
+    "price": 26.67,
+    "url": "https://www.1mg.com/drugs/amlopin-5-tablet-43985"
+  },
+  {
+    "_id": "69f365579993129c11b15a01",
+    "medicine_id": "69f365579993129c11b159e9",
+    "platform": "1mg",
+    "price": 178,
+    "url": "https://www.1mg.com/drugs/losar-50-tablet-74731"
+  },
+  {
+    "_id": "69f365579993129c11b15a04",
+    "platform": "1mg",
+    "medicine_id": "69f365579993129c11b159ec",
+    "price": 183.75,
+    "url": "https://www.1mg.com/drugs/repace-100-tablet-17412"
+  },
+  {
+    "_id": "69f365579993129c11b15a0a",
+    "platform": "1mg",
+    "medicine_id": "69f365579993129c11b159f2",
+    "price": 96.56,
+    "url": "https://www.1mg.com/drugs/covance-50-tablet-17405"
+  },
+  {
+    "_id": "69f365579993129c11b15a0c",
+    "platform": "1mg",
+    "medicine_id": "69f365579993129c11b159f4",
+    "price": 86.77,
+    "url": "https://www.1mg.com/drugs/losanorm-50-tablet-307561"
+  },
+  {
+    "_id": "69f365579993129c11b15a15",
+    "medicine_id": "69f365579993129c11b159fd",
+    "platform": "1mg",
+    "price": 45.38,
+    "url": "https://www.1mg.com/drugs/zilos-50-tablet-17265"
+  },
+  {
+    "_id": "69f365579993129c11b15a16",
+    "medicine_id": "69f365579993129c11b159fe",
+    "platform": "1mg",
+    "price": 174,
+    "url": "https://www.1mg.com/drugs/losium-50-tablet-110776"
+  },
+  {
+    "_id": "69f365579993129c11b15a3c",
+    "medicine_id": "69f365579993129c11b15a23",
+    "platform": "1mg",
+    "price": 112,
+    "url": "https://www.1mg.com/drugs/angizaar-50-tablet-892754"
+  },
+  {
+    "_id": "69f365579993129c11b15a40",
+    "medicine_id": "69f365579993129c11b15a27",
+    "platform": "1mg",
+    "price": 126.56,
+    "url": "https://www.1mg.com/drugs/losartas-50-tablet-135583"
+  },
+  {
+    "_id": "69f370fd9993129c11b1602a",
+    "platform": "1mg",
+    "medicine_id": "69f370fd9993129c11b16015",
+    "price": 145,
+    "url": "https://www.1mg.com/drugs/metrogyl-gel-1114307"
+  },
+  {
+    "_id": "69f370fe9993129c11b16059",
+    "medicine_id": "69f370fe9993129c11b16044",
+    "platform": "1mg",
+    "price": 84.72,
+    "url": "https://www.1mg.com/drugs/metrogyl-dg-forte-gel-130080"
+  },
+  {
+    "_id": "69f370fe9993129c11b1607e",
+    "medicine_id": "69f370fe9993129c11b16068",
+    "platform": "1mg",
+    "price": 91.88,
+    "url": "https://www.1mg.com/drugs/anosum-cream-517333"
+  },
+  {
+    "_id": "69f373589993129c11b16138",
+    "platform": "1mg",
+    "medicine_id": "69f373589993129c11b1611f",
+    "price": 41.36,
+    "url": "https://www.1mg.com/drugs/forcan-50-tablet-9705"
+  },
+  {
+    "_id": "69f373599993129c11b1615b",
+    "medicine_id": "69f373599993129c11b16143",
+    "platform": "1mg",
+    "price": 123,
+    "url": "https://www.1mg.com/drugs/flucos-gel-256211"
+  },
+  {
+    "_id": "69f377e89993129c11b16446",
+    "medicine_id": "69f377e79993129c11b1642d",
+    "platform": "1mg",
+    "price": 141,
+    "url": "https://www.1mg.com/drugs/naprosyn-gel-876650"
+  },
+  {
+    "_id": "69f37a1e9993129c11b1660f",
+    "medicine_id": "69f37a1d9993129c11b165fe",
+    "platform": "1mg",
+    "price": 106.59,
+    "url": "https://www.1mg.com/drugs/clopitab-tablet-75287"
+  },
+  {
+    "_id": "69f37a1e9993129c11b16611",
+    "platform": "1mg",
+    "medicine_id": "69f37a1d9993129c11b16600",
+    "price": 106.71,
+    "url": "https://www.1mg.com/drugs/clopilet-tablet-328244"
+  },
+  {
+    "_id": "69f37a1e9993129c11b16613",
+    "medicine_id": "69f37a1d9993129c11b16602",
+    "platform": "1mg",
+    "price": 106.78,
+    "url": "https://www.1mg.com/drugs/clavix-tablet-122449"
+  },
+  {
+    "_id": "69f37a1e9993129c11b16614",
+    "platform": "1mg",
+    "medicine_id": "69f37a1d9993129c11b16603",
+    "price": 97.88,
+    "url": "https://www.1mg.com/drugs/plavix-tablet-134976"
+  },
+  {
+    "_id": "69f37a1e9993129c11b16617",
+    "platform": "1mg",
+    "medicine_id": "69f37a1d9993129c11b16606",
+    "price": 31.39,
+    "url": "https://www.1mg.com/drugs/clopikind-tablet-57780"
+  },
+  {
+    "_id": "69f44ab39993129c11b16c14",
+    "medicine_id": "69f44ab39993129c11b16c04",
+    "platform": "1mg",
+    "price": 24.9,
+    "url": "https://www.1mg.com/drugs/warace-5-tablet-1105759"
+  },
+  {
+    "_id": "69f44ab39993129c11b16c1a",
+    "medicine_id": "69f44ab39993129c11b16c0a",
+    "platform": "1mg",
+    "price": 60,
+    "url": "https://www.1mg.com/drugs/warfy-tablet-929722"
+  },
+  {
+    "_id": "69f44c569993129c11b16c6c",
+    "medicine_id": "69f44c569993129c11b16c56",
+    "platform": "1mg",
+    "price": 19.5,
+    "url": "https://www.1mg.com/drugs/hipres-50-tablet-46110"
+  },
+  {
+    "_id": "69f44c569993129c11b16c71",
+    "medicine_id": "69f44c569993129c11b16c5b",
+    "platform": "1mg",
+    "price": 75.5,
+    "url": "https://www.1mg.com/drugs/aten-100-tablet-111868"
+  },
+  {
+    "_id": "69f44c569993129c11b16c7e",
+    "medicine_id": "69f44c569993129c11b16c68",
+    "platform": "1mg",
+    "price": 10.49,
+    "url": "https://www.1mg.com/drugs/ziblok-50-tablet-45931"
+  },
+  {
+    "_id": "69f450139993129c11b16dfb",
+    "medicine_id": "69f450129993129c11b16de4",
+    "platform": "1mg",
+    "price": 63.7,
+    "url": "https://www.1mg.com/drugs/ciplar-la-20-tablet-342850"
+  },
+  {
+    "_id": "69f450139993129c11b16dff",
+    "platform": "1mg",
+    "medicine_id": "69f450129993129c11b16de8",
+    "price": 95.6,
+    "url": "https://www.1mg.com/drugs/betacap-tr-60-capsule-28951"
+  },
+  {
+    "_id": "69f450139993129c11b16e02",
+    "medicine_id": "69f450129993129c11b16deb",
+    "platform": "1mg",
+    "price": 20.94,
+    "url": "https://www.1mg.com/drugs/ciplar-10-tablet-69024"
+  },
+  {
+    "_id": "69f450139993129c11b16e06",
+    "medicine_id": "69f450129993129c11b16def",
+    "platform": "1mg",
+    "price": 13.96,
+    "url": "https://www.1mg.com/drugs/betacap-10-tablet-28874"
+  },
+  {
+    "_id": "69f450139993129c11b16e0a",
+    "medicine_id": "69f450129993129c11b16df3",
+    "platform": "1mg",
+    "price": 34.13,
+    "url": "https://www.1mg.com/drugs/provanol-20-tablet-28885"
+  },
+  {
+    "_id": "69f452b49993129c11b17003",
+    "platform": "1mg",
+    "medicine_id": "69f452b39993129c11b16fed",
+    "price": 59.2,
+    "url": "https://www.1mg.com/drugs/enam-5-tablet-7360"
+  },
+  {
+    "_id": "69f456b69993129c11b17218",
+    "platform": "1mg",
+    "medicine_id": "69f456b69993129c11b17202",
+    "price": 7.73,
+    "url": "https://www.1mg.com/drugs/frusenex-100-tablet-10751"
+  },
+  {
+    "_id": "69f4585d9993129c11b172e8",
+    "platform": "1mg",
+    "medicine_id": "69f4585d9993129c11b172da",
+    "price": 77.3,
+    "url": "https://www.1mg.com/drugs/dytor-plus-ls-10-tablet-547223"
+  },
+  {
+    "_id": "69f45da49993129c11b1746a",
+    "medicine_id": "69f45da49993129c11b17458",
+    "platform": "1mg",
+    "price": 2.2,
+    "url": "https://www.1mg.com/drugs/demisone-tablet-12843"
+  },
+  {
+    "_id": "69f45ed39993129c11b17569",
+    "medicine_id": "69f45ed39993129c11b17551",
+    "platform": "1mg",
+    "price": 276,
+    "url": "https://www.1mg.com/drugs/cutisoft-lotion-495504"
+  },
+  {
+    "_id": "69f45ed39993129c11b1756b",
+    "medicine_id": "69f45ed39993129c11b17553",
+    "platform": "1mg",
+    "price": 156,
+    "url": "https://www.1mg.com/drugs/smuth-cream-113915"
+  },
+  {
+    "_id": "69f45ed39993129c11b17596",
+    "medicine_id": "69f45ed39993129c11b1757d",
+    "platform": "1mg",
+    "price": 124,
+    "url": "https://www.1mg.com/drugs/keralin-ointment-144944"
+  },
+  {
+    "_id": "69f460e39993129c11b1762b",
+    "platform": "1mg",
+    "medicine_id": "69f460e29993129c11b17613",
+    "price": 22.22,
+    "url": "https://www.1mg.com/drugs/betnovate-cream-13631"
+  },
+  {
+    "_id": "69f460e39993129c11b17631",
+    "medicine_id": "69f460e29993129c11b17619",
+    "platform": "1mg",
+    "price": 65.1,
+    "url": "https://www.1mg.com/drugs/betnovate-n-cream-651249"
+  },
+  {
+    "_id": "69f460e39993129c11b17632",
+    "platform": "1mg",
+    "medicine_id": "69f460e29993129c11b1761a",
+    "price": 95.6,
+    "url": "https://www.1mg.com/drugs/fucibet-cream-135770"
+  },
+  {
+    "_id": "69f460e39993129c11b17633",
+    "platform": "1mg",
+    "medicine_id": "69f460e29993129c11b1761b",
+    "price": 69,
+    "url": "https://www.1mg.com/drugs/betnovate-c-cream-149634"
+  },
+  {
+    "_id": "69f460e39993129c11b17635",
+    "medicine_id": "69f460e29993129c11b1761d",
+    "platform": "1mg",
+    "price": 44.1,
+    "url": "https://www.1mg.com/drugs/betnovate-gm-cream-159688"
+  },
+  {
+    "_id": "69f460e39993129c11b17638",
+    "medicine_id": "69f460e29993129c11b17620",
+    "platform": "1mg",
+    "price": 91.88,
+    "url": "https://www.1mg.com/drugs/diprobate-plus-cream-416770"
+  },
+  {
+    "_id": "69f4618d9993129c11b176f4",
+    "platform": "1mg",
+    "medicine_id": "69f4618d9993129c11b176e1",
+    "price": 45.3,
+    "url": "https://www.1mg.com/drugs/elosone-cream-284895"
+  },
+  {
+    "_id": "69f462fe9993129c11b177c0",
+    "medicine_id": "69f462fe9993129c11b177a8",
+    "platform": "1mg",
+    "price": 363,
+    "url": "https://www.1mg.com/drugs/flutivate-cream-721135"
+  },
+  {
+    "_id": "69f462fe9993129c11b177c6",
+    "platform": "1mg",
+    "medicine_id": "69f462fe9993129c11b177ae",
+    "price": 253,
+    "url": "https://www.1mg.com/drugs/flutibact-ointment-192975"
+  },
+  {
+    "_id": "69f462fe9993129c11b177f2",
+    "medicine_id": "69f462fe9993129c11b177d9",
+    "platform": "1mg",
+    "price": 622,
+    "url": "https://www.1mg.com/drugs/flixonase-cfc-free-innospray-377536"
+  },
+  {
+    "_id": "69f467899993129c11b17a97",
+    "medicine_id": "69f467899993129c11b17a7e",
+    "platform": "1mg",
+    "price": 258,
+    "url": "https://www.1mg.com/drugs/montair-10-tablet-323982"
+  },
+  {
+    "_id": "69f4678a9993129c11b17af3",
+    "platform": "1mg",
+    "medicine_id": "69f4678a9993129c11b17add",
+    "price": 175,
+    "url": "https://www.1mg.com/drugs/montek-10-tablet-176386"
+  },
+  {
+    "_id": "69f4678a9993129c11b17af8",
+    "platform": "1mg",
+    "medicine_id": "69f4678a9993129c11b17ae2",
+    "price": 175,
+    "url": "https://www.1mg.com/drugs/telekast-10-tablet-181418"
+  },
+  {
+    "_id": "69f4678a9993129c11b17afe",
+    "medicine_id": "69f4678a9993129c11b17ae8",
+    "platform": "1mg",
+    "price": 96.9,
+    "url": "https://www.1mg.com/drugs/lasma-10-tablet-336130"
+  },
+  {
+    "_id": "69f468e59993129c11b17b91",
+    "medicine_id": "69f468e59993129c11b17b7b",
+    "platform": "1mg",
+    "price": 65.26,
+    "url": "https://www.1mg.com/drugs/asthalin-rotacaps-577885"
+  },
+  {
+    "_id": "69f468e59993129c11b17b92",
+    "medicine_id": "69f468e59993129c11b17b7c",
+    "platform": "1mg",
+    "price": 5.9,
+    "url": "https://www.1mg.com/drugs/asthalin-4-tablet-70804"
+  },
+  {
+    "_id": "69f46b309993129c11b17ca0",
+    "medicine_id": "69f46b309993129c11b17c8d",
+    "platform": "1mg",
+    "price": 75.9,
+    "url": "https://www.1mg.com/drugs/deriphyllin-injection-75412"
+  },
+  {
+    "_id": "69f46c4d9993129c11b17db6",
+    "medicine_id": "69f46c4d9993129c11b17da1",
+    "platform": "1mg",
+    "price": 39.6,
+    "url": "https://www.1mg.com/drugs/aminolin-injection-815891"
+  },
+  {
+    "_id": "69f46c4d9993129c11b17dbd",
+    "platform": "1mg",
+    "medicine_id": "69f46c4d9993129c11b17da7",
+    "price": 26.7,
+    "url": "https://www.1mg.com/drugs/imitrisin-injection-470806"
+  },
+  {
+    "_id": "69f4736d9993129c11b17fde",
+    "medicine_id": "69f4736d9993129c11b17fcc",
+    "platform": "1mg",
+    "price": 99.8,
+    "url": "https://www.1mg.com/drugs/mexate-5-tablet-793531"
+  },
+  {
+    "_id": "69f477f79993129c11b1818c",
+    "medicine_id": "69f477f79993129c11b18173",
+    "platform": "1mg",
+    "price": 189,
+    "url": "https://www.1mg.com/drugs/saaz-ds-tablet-694411"
+  },
+  {
+    "_id": "69f477f79993129c11b18190",
+    "medicine_id": "69f477f79993129c11b18177",
+    "platform": "1mg",
+    "price": 49.9,
+    "url": "https://www.1mg.com/drugs/salazar-tablet-639889"
+  },
+  {
+    "_id": "69f477f89993129c11b181d4",
+    "medicine_id": "69f477f89993129c11b181bb",
+    "platform": "1mg",
+    "price": 179,
+    "url": "https://www.1mg.com/drugs/salamax-tablet-dr-687700"
+  },
+  {
+    "_id": "69f47b8e9993129c11b182e2",
+    "medicine_id": "69f47b8e9993129c11b182da",
+    "platform": "1mg",
+    "price": 95.8,
+    "url": "https://www.1mg.com/drugs/glimestar-4-tablet-11964"
+  },
+  {
+    "_id": "69f4814a9993129c11b185bc",
+    "medicine_id": "69f4814a9993129c11b185a6",
+    "platform": "1mg",
+    "price": 30,
+    "url": "https://www.1mg.com/drugs/sitazee-50-tablet-794373"
+  },
+  {
+    "_id": "69f4814a9993129c11b185e3",
+    "platform": "1mg",
+    "medicine_id": "69f4814a9993129c11b185cc",
+    "price": 36,
+    "url": "https://www.1mg.com/drugs/sitason-50-tablet-789751"
+  },
+  {
+    "_id": "69f4814b9993129c11b1864d",
+    "medicine_id": "69f4814b9993129c11b18634",
+    "platform": "1mg",
+    "price": 95.28,
+    "url": "https://www.1mg.com/drugs/sitaclass-50-tablet-818016"
+  },
+  {
+    "_id": "69f483259993129c11b186bb",
+    "platform": "1mg",
+    "medicine_id": "69f483259993129c11b186a2",
+    "price": 73.5,
+    "url": "https://www.1mg.com/drugs/torglip-50-tablet-566920"
+  },
+  {
+    "_id": "69f483259993129c11b186bf",
+    "medicine_id": "69f483259993129c11b186a6",
+    "platform": "1mg",
+    "price": 148,
+    "url": "https://www.1mg.com/drugs/vildamac-50-tablet-567175"
+  },
+  {
+    "_id": "69f483259993129c11b186c0",
+    "medicine_id": "69f483259993129c11b186a7",
+    "platform": "1mg",
+    "price": 122,
+    "url": "https://www.1mg.com/drugs/vinglyn-tablet-567540"
+  },
+  {
+    "_id": "69f483259993129c11b186c2",
+    "medicine_id": "69f483259993129c11b186a9",
+    "platform": "1mg",
+    "price": 189,
+    "url": "https://www.1mg.com/drugs/vildapride-50-tablet-840196"
+  },
+  {
+    "_id": "69f483259993129c11b186ee",
+    "medicine_id": "69f483259993129c11b186d5",
+    "platform": "1mg",
+    "price": 32.63,
+    "url": "https://www.1mg.com/drugs/vilason-50-tablet-698290"
+  },
+  {
+    "_id": "69f483269993129c11b18727",
+    "medicine_id": "69f483259993129c11b1870e",
+    "platform": "1mg",
+    "price": 72.1,
+    "url": "https://www.1mg.com/drugs/vilact-tablet-567172"
+  },
+  {
+    "_id": "69f4851f9993129c11b187c4",
+    "platform": "1mg",
+    "medicine_id": "69f4851f9993129c11b187ab",
+    "price": 83.4,
+    "url": "https://www.1mg.com/drugs/empacip-10-tablet-1087364"
+  },
+  {
+    "_id": "69f4851f9993129c11b187cc",
+    "medicine_id": "69f4851f9993129c11b187b3",
+    "platform": "1mg",
+    "price": 56,
+    "url": "https://www.1mg.com/drugs/empagreat-10-tablet-1087430"
+  },
+  {
+    "_id": "69f4851f9993129c11b187d1",
+    "platform": "1mg",
+    "medicine_id": "69f4851f9993129c11b187b8",
+    "price": 51.46,
+    "url": "https://www.1mg.com/drugs/empaglyde-10-tablet-1087372"
+  },
+  {
+    "_id": "69f4851f9993129c11b187d2",
+    "medicine_id": "69f4851f9993129c11b187b9",
+    "platform": "1mg",
+    "price": 91.9,
+    "url": "https://www.1mg.com/drugs/empha-10-tablet-1088172"
+  },
+  {
+    "_id": "69f4851f9993129c11b18804",
+    "medicine_id": "69f4851f9993129c11b187eb",
+    "platform": "1mg",
+    "price": 83.4,
+    "url": "https://www.1mg.com/drugs/empasov-10-tablet-1087395"
+  },
+  {
+    "_id": "69f485209993129c11b18837",
+    "platform": "1mg",
+    "medicine_id": "69f4851f9993129c11b1881e",
+    "price": 139,
+    "url": "https://www.1mg.com/drugs/vicra-10-tablet-700910"
+  },
+  {
+    "_id": "69f487f19993129c11b188c5",
+    "medicine_id": "69f487f19993129c11b188b4",
+    "platform": "1mg",
+    "price": 85.3,
+    "url": "https://www.1mg.com/drugs/cipdapla-10-tablet-861499"
+  },
+  {
+    "_id": "69f487f19993129c11b188cb",
+    "medicine_id": "69f487f19993129c11b188ba",
+    "platform": "1mg",
+    "price": 123,
+    "url": "https://www.1mg.com/drugs/udapa-5-tablet-620839"
+  },
+  {
+    "_id": "69f487f19993129c11b188cc",
+    "platform": "1mg",
+    "medicine_id": "69f487f19993129c11b188bb",
+    "price": 145,
+    "url": "https://www.1mg.com/drugs/dapavel-10-tablet-630587"
+  },
+  {
+    "_id": "69f487f19993129c11b188f1",
+    "medicine_id": "69f487f19993129c11b188de",
+    "platform": "1mg",
+    "price": 231,
+    "url": "https://www.1mg.com/drugs/dapaglyn-10-tablet-875152"
+  },
+  {
+    "_id": "69f489379993129c11b1896a",
+    "medicine_id": "69f489379993129c11b18957",
+    "platform": "1mg",
+    "price": 551,
+    "url": "https://www.1mg.com/drugs/prominad-tablet-357072"
+  },
+  {
+    "_id": "69f48c3e9993129c11b18a5b",
+    "platform": "1mg",
+    "medicine_id": "69f48c3e9993129c11b18a48",
+    "price": 172,
+    "url": "https://www.1mg.com/drugs/rosubest-20-tablet-213360"
+  },
+  {
+    "_id": "69f48c3e9993129c11b18a5d",
+    "medicine_id": "69f48c3e9993129c11b18a4a",
+    "platform": "1mg",
+    "price": 480,
+    "url": "https://www.1mg.com/drugs/rosuvas-20-tablet-31109"
+  },
+  {
+    "_id": "69f48c3e9993129c11b18a62",
+    "medicine_id": "69f48c3e9993129c11b18a4f",
+    "platform": "1mg",
+    "price": 103,
+    "url": "https://www.1mg.com/drugs/rozutin-10-tablet-325758"
+  },
+  {
+    "_id": "69f48c3e9993129c11b18a63",
+    "medicine_id": "69f48c3e9993129c11b18a50",
+    "platform": "1mg",
+    "price": 24,
+    "url": "https://www.1mg.com/drugs/ab-rozu-5-tablet-691589"
+  },
+  {
+    "_id": "69f48c3e9993129c11b18a6c",
+    "medicine_id": "69f48c3e9993129c11b18a59",
+    "platform": "1mg",
+    "price": 412,
+    "url": "https://www.1mg.com/drugs/roseday-20-tablet-677994"
+  },
+  {
+    "_id": "69f48c3f9993129c11b18a7c",
+    "medicine_id": "69f48c3f9993129c11b18a6e",
+    "platform": "1mg",
+    "price": 25.9,
+    "url": "https://www.1mg.com/drugs/fortius-5-tablet-565189"
+  },
+  {
+    "_id": "69f48c3f9993129c11b18a7d",
+    "medicine_id": "69f48c3f9993129c11b18a6f",
+    "platform": "1mg",
+    "price": 698,
+    "url": "https://www.1mg.com/drugs/novastat-20-tablet-337183"
+  },
+  {
+    "_id": "69f48c3f9993129c11b18a85",
+    "medicine_id": "69f48c3f9993129c11b18a77",
+    "platform": "1mg",
+    "price": 108,
+    "url": "https://www.1mg.com/drugs/rosuless-10-tablet-683345"
+  },
+  {
+    "_id": "69f48c3f9993129c11b18aa0",
+    "medicine_id": "69f48c3f9993129c11b18a90",
+    "platform": "1mg",
+    "price": 72.8,
+    "url": "https://www.1mg.com/drugs/lipirose-5-tablet-31028"
+  },
+  {
+    "_id": "69f48c3f9993129c11b18aa5",
+    "medicine_id": "69f48c3f9993129c11b18a95",
+    "platform": "1mg",
+    "price": 80,
+    "url": "https://www.1mg.com/drugs/rosuson-20-tablet-179625"
+  },
+  {
+    "_id": "69f48d8d9993129c11b18b8c",
+    "medicine_id": "69f48d8d9993129c11b18b7a",
+    "platform": "1mg",
+    "price": 198,
+    "url": "https://www.1mg.com/drugs/simwel-20-tablet-826991"
+  },
+  {
+    "_id": "69f490489993129c11b18c00",
+    "medicine_id": "69f490489993129c11b18bf4",
+    "platform": "1mg",
+    "price": 273,
+    "url": "https://www.1mg.com/drugs/lipicard-capsule-8998"
+  },
+  {
+    "_id": "69f490489993129c11b18c1a",
+    "medicine_id": "69f490489993129c11b18c07",
+    "platform": "1mg",
+    "price": 196.88,
+    "url": "https://www.1mg.com/drugs/tgr-tablet-8980"
+  },
+  {
+    "_id": "69f495579993129c11b18ec9",
+    "platform": "1mg",
+    "medicine_id": "69f495579993129c11b18eb7",
+    "price": 107,
+    "url": "https://www.1mg.com/drugs/olmezest-10-tablet-23691"
+  },
+  {
+    "_id": "69f495579993129c11b18ecc",
+    "platform": "1mg",
+    "medicine_id": "69f495579993129c11b18eba",
+    "price": 161,
+    "url": "https://www.1mg.com/drugs/olmesar-10-tablet-477518"
+  },
+  {
+    "_id": "69f495579993129c11b18ed3",
+    "platform": "1mg",
+    "medicine_id": "69f495579993129c11b18ec1",
+    "price": 73.6,
+    "url": "https://www.1mg.com/drugs/olmighty-20-tablet-126242"
+  },
+  {
+    "_id": "69f495579993129c11b18ef5",
+    "platform": "1mg",
+    "medicine_id": "69f495579993129c11b18edf",
+    "price": 134,
+    "url": "https://www.1mg.com/drugs/olsertain-20-tablet-346247"
+  },
+  {
+    "_id": "69f495579993129c11b18f02",
+    "medicine_id": "69f495579993129c11b18eec",
+    "platform": "1mg",
+    "price": 197,
+    "url": "https://www.1mg.com/drugs/olmin-20-tablet-1110382"
+  },
+  {
+    "_id": "69f496cd9993129c11b18fd4",
+    "medicine_id": "69f496cd9993129c11b18fbb",
+    "platform": "1mg",
+    "price": 169,
+    "url": "https://www.1mg.com/drugs/irbepex-tablet-323485"
+  },
+  {
+    "_id": "69f497c39993129c11b1908c",
+    "medicine_id": "69f497c39993129c11b19074",
+    "platform": "1mg",
+    "price": 40.5,
+    "url": "https://www.1mg.com/drugs/tuscan-8-tablet-965822"
+  },
+  {
+    "_id": "69f49bad9993129c11b191c4",
+    "medicine_id": "69f49bad9993129c11b191b3",
+    "platform": "1mg",
+    "price": 15.4,
+    "url": "https://www.1mg.com/drugs/calcigard-10-capsule-164927"
+  },
+  {
+    "_id": "69f49bad9993129c11b191c5",
+    "medicine_id": "69f49bad9993129c11b191b4",
+    "platform": "1mg",
+    "price": 153.6,
+    "url": "https://www.1mg.com/drugs/anobliss-cream-145210"
+  },
+  {
+    "_id": "69f49bad9993129c11b191c8",
+    "platform": "1mg",
+    "medicine_id": "69f49bad9993129c11b191b7",
+    "price": 357,
+    "url": "https://www.1mg.com/drugs/fidonal-cream-514307"
+  },
+  {
+    "_id": "69f49bad9993129c11b191cc",
+    "medicine_id": "69f49bad9993129c11b191bb",
+    "platform": "1mg",
+    "price": 181,
+    "url": "https://www.1mg.com/drugs/anorelief-cream-154432"
+  },
+  {
+    "_id": "69f49bad9993129c11b191cd",
+    "medicine_id": "69f49bad9993129c11b191bc",
+    "platform": "1mg",
+    "price": 189,
+    "url": "https://www.1mg.com/drugs/escot-cream-164629"
+  },
+  {
+    "_id": "69f49bae9993129c11b191df",
+    "platform": "1mg",
+    "medicine_id": "69f49bad9993129c11b191cf",
+    "price": 60.38,
+    "url": "https://www.1mg.com/drugs/depin-5-capsule-110869"
+  },
+  {
+    "_id": "69f49bae9993129c11b191e3",
+    "medicine_id": "69f49bad9993129c11b191d3",
+    "platform": "1mg",
+    "price": 217,
+    "url": "https://www.1mg.com/drugs/xylocaine-nf-cream-678902"
+  },
+  {
+    "_id": "69f49bae9993129c11b191e6",
+    "medicine_id": "69f49bad9993129c11b191d6",
+    "platform": "1mg",
+    "price": 8.5,
+    "url": "https://www.1mg.com/drugs/cardipin-retard-tablet-er-692386"
+  },
+  {
+    "_id": "69f49bae9993129c11b1920b",
+    "medicine_id": "69f49bae9993129c11b191f3",
+    "platform": "1mg",
+    "price": 185,
+    "url": "https://www.1mg.com/drugs/nifecaine-cream-161579"
+  },
+  {
+    "_id": "69f4a46e9993129c11b19597",
+    "platform": "1mg",
+    "medicine_id": "69f4a46d9993129c11b19580",
+    "price": 82.6,
+    "url": "https://www.1mg.com/drugs/cardisip-syrup-461523"
+  },
+  {
+    "_id": "69f4a53a9993129c11b195f6",
+    "medicine_id": "69f4a53a9993129c11b195df",
+    "platform": "1mg",
+    "price": 96.7,
+    "url": "https://www.1mg.com/drugs/cordarone-tablet-673035"
+  },
+  {
+    "_id": "69f4a72d9993129c11b19698",
+    "platform": "1mg",
+    "medicine_id": "69f4a72d9993129c11b19686",
+    "price": 618,
+    "url": "https://www.1mg.com/drugs/xylocaine-spray-292222"
+  },
+  {
+    "_id": "69f4a72e9993129c11b196af",
+    "medicine_id": "69f4a72e9993129c11b1969f",
+    "platform": "1mg",
+    "price": 104,
+    "url": "https://www.1mg.com/drugs/candid-ear-drop-175798"
+  },
+  {
+    "_id": "69f4a72e9993129c11b196d5",
+    "medicine_id": "69f4a72e9993129c11b196c5",
+    "platform": "1mg",
+    "price": 288,
+    "url": "https://www.1mg.com/drugs/toplap-gel-66904"
+  },
+  {
+    "_id": "69f4a72f9993129c11b196fe",
+    "medicine_id": "69f4a72e9993129c11b196e7",
+    "platform": "1mg",
+    "price": 224,
+    "url": "https://www.1mg.com/drugs/numbex-cream-333084"
+  },
+  {
+    "_id": "69f4c3bc9993129c11b19b28",
+    "medicine_id": "69f4c3bc9993129c11b19b1f",
+    "platform": "apollo",
+    "price": 232,
+    "url": "https://www.apollopharmacy.in/medicine/gluconormg-1mg-tablet"
+  },
+  {
+    "_id": "69f72778da4a31b421a8a9df",
+    "platform": "1mg",
+    "medicine_id": "69f72777da4a31b421a8a9d0",
+    "price": 649,
+    "url": "https://www.1mg.com/drugs/airz-capsule-336778"
+  },
+  {
+    "_id": "69f72778da4a31b421a8a9e4",
+    "medicine_id": "69f72777da4a31b421a8a9d5",
+    "platform": "1mg",
+    "price": 563,
+    "url": "https://www.1mg.com/drugs/glynium-respicap-495884"
+  },
+  {
+    "_id": "69f729beda4a31b421a8ab30",
+    "medicine_id": "69f729beda4a31b421a8ab1c",
+    "platform": "1mg",
+    "price": 12.5,
+    "url": "https://www.1mg.com/drugs/ondem-injection-24808"
+  },
+  {
+    "_id": "69f729beda4a31b421a8ab33",
+    "medicine_id": "69f729beda4a31b421a8ab1f",
+    "platform": "1mg",
+    "price": 96.68,
+    "url": "https://www.1mg.com/drugs/zofer-md-8-tablet-283665"
+  },
+  {
+    "_id": "69f729beda4a31b421a8ab36",
+    "medicine_id": "69f729beda4a31b421a8ab22",
+    "platform": "1mg",
+    "price": 96.8,
+    "url": "https://www.1mg.com/drugs/ondem-md-8-tablet-185001"
+  },
+  {
+    "_id": "69f729beda4a31b421a8ab3d",
+    "medicine_id": "69f729beda4a31b421a8ab29",
+    "platform": "1mg",
+    "price": 54.92,
+    "url": "https://www.1mg.com/drugs/periset-md-tablet-164085"
+  },
+  {
+    "_id": "69f72c27da4a31b421a8ad4d",
+    "medicine_id": "69f72c27da4a31b421a8ad38",
+    "platform": "1mg",
+    "price": 4.8,
+    "url": "https://www.1mg.com/drugs/johnlee-metoclopramide-injection-784163"
+  },
+  {
+    "_id": "69f72c27da4a31b421a8ad54",
+    "medicine_id": "69f72c27da4a31b421a8ad3f",
+    "platform": "1mg",
+    "price": 35,
+    "url": "https://www.1mg.com/drugs/meclomide-suspension-281824"
+  },
+  {
+    "_id": "69f73016da4a31b421a8ae72",
+    "medicine_id": "69f73016da4a31b421a8ae59",
+    "platform": "1mg",
+    "price": 4.9,
+    "url": "https://www.1mg.com/drugs/topcid-20-tablet-8815"
+  },
+  {
+    "_id": "69f73016da4a31b421a8ae83",
+    "medicine_id": "69f73016da4a31b421a8ae6a",
+    "platform": "1mg",
+    "price": 95.6,
+    "url": "https://www.1mg.com/drugs/femo-tablet-303114"
+  },
+  {
+    "_id": "69f731ceda4a31b421a8af6d",
+    "medicine_id": "69f731ceda4a31b421a8af59",
+    "platform": "1mg",
+    "price": 118,
+    "url": "https://www.1mg.com/drugs/sompraz-20-tablet-346596"
+  },
+  {
+    "_id": "69f731ceda4a31b421a8af6f",
+    "medicine_id": "69f731ceda4a31b421a8af5b",
+    "platform": "1mg",
+    "price": 124,
+    "url": "https://www.1mg.com/drugs/nexpro-20-tablet-72046"
+  },
+  {
+    "_id": "69f731ceda4a31b421a8af97",
+    "medicine_id": "69f731ceda4a31b421a8af80",
+    "platform": "1mg",
+    "price": 139,
+    "url": "https://www.1mg.com/drugs/nexpro-fast-20-tablet-65618"
+  },
+  {
+    "_id": "69f731ceda4a31b421a8af9e",
+    "medicine_id": "69f731ceda4a31b421a8af87",
+    "platform": "1mg",
+    "price": 135,
+    "url": "https://www.1mg.com/drugs/esoz-20-tablet-64369"
+  },
+  {
+    "_id": "69f73469da4a31b421a8b04a",
+    "platform": "1mg",
+    "medicine_id": "69f73468da4a31b421a8b038",
+    "price": 78.4,
+    "url": "https://www.1mg.com/drugs/rabesec-20-tablet-118691"
+  },
+  {
+    "_id": "69f73469da4a31b421a8b055",
+    "medicine_id": "69f73468da4a31b421a8b043",
+    "platform": "1mg",
+    "price": 130,
+    "url": "https://www.1mg.com/drugs/rablet-10-tablet-395744"
+  },
+  {
+    "_id": "69f73469da4a31b421a8b052",
+    "medicine_id": "69f73468da4a31b421a8b040",
+    "platform": "1mg",
+    "price": 26.7,
+    "url": "https://www.1mg.com/drugs/cyra-tablet-213615"
+  },
+  {
+    "_id": "69f73469da4a31b421a8b051",
+    "platform": "1mg",
+    "medicine_id": "69f73468da4a31b421a8b03f",
+    "price": 254,
+    "url": "https://www.1mg.com/drugs/razo-20-tablet-148781"
+  },
+  {
+    "_id": "69f73469da4a31b421a8b09f",
+    "platform": "1mg",
+    "medicine_id": "69f73469da4a31b421a8b08e",
+    "price": 179,
+    "url": "https://www.1mg.com/drugs/rabicip-20-tablet-29705"
+  },
+  {
+    "_id": "69f73622da4a31b421a8b132",
+    "medicine_id": "69f73622da4a31b421a8b11a",
+    "platform": "1mg",
+    "price": 73.6,
+    "url": "https://www.1mg.com/drugs/lanzol-30-capsule-14655"
+  },
+  {
+    "_id": "69f73622da4a31b421a8b135",
+    "medicine_id": "69f73622da4a31b421a8b11d",
+    "platform": "1mg",
+    "price": 320,
+    "url": "https://www.1mg.com/drugs/lanspro-30-tablet-1152871"
+  },
+  {
+    "_id": "69f737fada4a31b421a8b23b",
+    "medicine_id": "69f737fada4a31b421a8b226",
+    "platform": "1mg",
+    "price": 131,
+    "url": "https://www.1mg.com/drugs/sucral-cream-70644"
+  },
+  {
+    "_id": "69f737fada4a31b421a8b242",
+    "platform": "1mg",
+    "medicine_id": "69f737fada4a31b421a8b22d",
+    "price": 134,
+    "url": "https://www.1mg.com/drugs/sr-fil-enema-357547"
+  },
+  {
+    "_id": "69f737fada4a31b421a8b244",
+    "medicine_id": "69f737fada4a31b421a8b22f",
+    "platform": "1mg",
+    "price": 108,
+    "url": "https://www.1mg.com/drugs/sparacid-ds-suspension-35896"
+  },
+  {
+    "_id": "69f737fada4a31b421a8b25c",
+    "medicine_id": "69f737fada4a31b421a8b24c",
+    "platform": "1mg",
+    "price": 163,
+    "url": "https://www.1mg.com/drugs/macralfate-suspension-sugar-free-342185"
+  },
+  {
+    "_id": "69f73aa0da4a31b421a8b364",
+    "medicine_id": "69f73aa0da4a31b421a8b34b",
+    "platform": "1mg",
+    "price": 73.1,
+    "url": "https://www.1mg.com/drugs/pph-tablet-115994"
+  },
+  {
+    "_id": "69f73aa0da4a31b421a8b392",
+    "medicine_id": "69f73aa0da4a31b421a8b379",
+    "platform": "1mg",
+    "price": 69.4,
+    "url": "https://www.1mg.com/drugs/cytolog-tablet-125330"
+  },
+  {
+    "_id": "69f73f7dda4a31b421a8b544",
+    "medicine_id": "69f73f7dda4a31b421a8b530",
+    "platform": "1mg",
+    "price": 10.7,
+    "url": "https://www.1mg.com/drugs/cremaffin-fresh-tablet-385524"
+  },
+  {
+    "_id": "69f73f7dda4a31b421a8b547",
+    "platform": "1mg",
+    "medicine_id": "69f73f7dda4a31b421a8b533",
+    "price": 11.3,
+    "url": "https://www.1mg.com/drugs/gerbisa-tablet-135955"
+  },
+  {
+    "_id": "69f73f7dda4a31b421a8b54a",
+    "medicine_id": "69f73f7dda4a31b421a8b536",
+    "platform": "1mg",
+    "price": 47.8,
+    "url": "https://www.1mg.com/drugs/gerbisa-children-suppository-143931"
+  },
+  {
+    "_id": "69f73f7dda4a31b421a8b552",
+    "platform": "1mg",
+    "medicine_id": "69f73f7dda4a31b421a8b53e",
+    "price": 9.38,
+    "url": "https://www.1mg.com/drugs/bisflow-tablet-619659"
+  },
+  {
+    "_id": "69f73f7eda4a31b421a8b577",
+    "medicine_id": "69f73f7eda4a31b421a8b55f",
+    "platform": "1mg",
+    "price": 10.1,
+    "url": "https://www.1mg.com/drugs/dulcoaid-tablet-845356"
+  },
+  {
+    "_id": "69f73f7eda4a31b421a8b5ab",
+    "platform": "1mg",
+    "medicine_id": "69f73f7eda4a31b421a8b595",
+    "price": 45.8,
+    "url": "https://www.1mg.com/otc/dulcoflex-natural-tablet-otc325780"
+  },
+  {
+    "_id": "69f74607da4a31b421a8b723",
+    "medicine_id": "69f74606da4a31b421a8b70a",
+    "platform": "1mg",
+    "price": 15,
+    "url": "https://www.1mg.com/drugs/imodium-capsule-135618"
+  },
+  {
+    "_id": "69f74607da4a31b421a8b725",
+    "medicine_id": "69f74606da4a31b421a8b70c",
+    "platform": "1mg",
+    "price": 47.5,
+    "url": "https://www.1mg.com/drugs/lomofen-plus-tablet-333896"
+  },
+  {
+    "_id": "69f78315da4a31b421a8bb63",
+    "platform": "1mg",
+    "medicine_id": "69f78315da4a31b421a8bb5d",
+    "price": 20,
+    "url": "https://www.1mg.com/drugs/glicazide-xr-60-tablet-794370"
+  },
+  {
+    "_id": "69f84218da4a31b421a8bf4a",
+    "medicine_id": "69f84218da4a31b421a8bf44",
+    "platform": "1mg",
+    "price": 92.6,
+    "url": "https://www.1mg.com/drugs/prolomet-xl-50-tablet-938893"
+  },
+  {
+    "_id": "69f84218da4a31b421a8bf4b",
+    "medicine_id": "69f84218da4a31b421a8bf45",
+    "platform": "1mg",
+    "price": 55.6,
+    "url": "https://www.1mg.com/drugs/myoprol-xl-50-tablet-303218"
+  },
+  {
+    "_id": "69f84218da4a31b421a8bf4c",
+    "medicine_id": "69f84218da4a31b421a8bf46",
+    "platform": "1mg",
+    "price": 566,
+    "url": "https://www.1mg.com/drugs/prazopress-xl-5-tablet-350266"
+  },
+  {
+    "_id": "69f84233da4a31b421a8bf56",
+    "medicine_id": "69f84233da4a31b421a8bf51",
+    "platform": "1mg",
+    "price": 497,
+    "url": "https://www.1mg.com/drugs/nicoduce-5-tablet-20260"
+  },
+  {
+    "_id": "69f898c1da4a31b421a8c514",
+    "platform": "netmeds",
+    "medicine_id": "69f898c1da4a31b421a8c507",
+    "price": 192.91,
+    "url": "https://www.netmeds.com/product/secnil-forte-tablet-2s-lui2q1-8249430"
+  },
+  {
+    "_id": "69f8b060da4a31b421a8c916",
+    "platform": "1mg",
+    "medicine_id": "69f8b060da4a31b421a8c90e",
+    "price": 199,
+    "url": "https://www.1mg.com/drugs/atorva-20-tablet-513352"
+  },
+  {
+    "_id": "69f8b060da4a31b421a8c918",
+    "medicine_id": "69f8b060da4a31b421a8c910",
+    "platform": "1mg",
+    "price": 168,
+    "url": "https://www.1mg.com/drugs/ecosprin-gold-20-capsule-73839"
+  },
+  {
+    "_id": "69f8b060da4a31b421a8c91b",
+    "medicine_id": "69f8b060da4a31b421a8c913",
+    "platform": "1mg",
+    "price": 199,
+    "url": "https://www.1mg.com/drugs/storvas-20-tablet-70629"
+  },
+  {
+    "_id": "69f8b22ada4a31b421a8c988",
+    "platform": "1mg",
+    "medicine_id": "69f8b22ada4a31b421a8c982",
+    "price": 35.2,
+    "url": "https://www.1mg.com/drugs/tenolol-50-tablet-210888"
+  },
+  {
+    "_id": "69f8b22ada4a31b421a8c98b",
+    "medicine_id": "69f8b22ada4a31b421a8c985",
+    "platform": "1mg",
+    "price": 119,
+    "url": "https://www.1mg.com/drugs/tenolol-am-50-tablet-157580"
+  },
+  {
+    "_id": "69f8b251da4a31b421a8c996",
+    "medicine_id": "69f8b251da4a31b421a8c990",
+    "platform": "1mg",
+    "price": 34.13,
+    "url": "https://www.1mg.com/drugs/provanol-20-tablet-28885"
+  },
+  {
+    "_id": "69f8b2b1da4a31b421a8c9be",
+    "medicine_id": "69f8b2b1da4a31b421a8c9b8",
+    "platform": "1mg",
+    "price": 59.2,
+    "url": "https://www.1mg.com/drugs/enapril-5-tablet-122453"
+  },
+  {
+    "_id": "69f8b2cdda4a31b421a8c9c7",
+    "medicine_id": "69f8b2cdda4a31b421a8c9c2",
+    "platform": "1mg",
+    "price": 59.2,
+    "url": "https://www.1mg.com/drugs/enam-5-tablet-7360"
+  },
+  {
+    "_id": "69f8b8efda4a31b421a8cb29",
+    "platform": "pharmeasy",
+    "medicine_id": "69f8b8efda4a31b421a8cb12",
+    "price": 269.33,
+    "url": "https://pharmeasy.in/online-medicine-order/zerodol-th-max-8mg-strip-of-10-tablets-3129292"
+  },
+  {
+    "_id": "69f8bd58da4a31b421a8cb78",
+    "medicine_id": "69f8bd58da4a31b421a8cb71",
+    "platform": "1mg",
+    "price": 164,
+    "url": "https://www.1mg.com/drugs/zerodol-spas-tablet-143249"
+  },
+  {
+    "_id": "69f8bd58da4a31b421a8cb76",
+    "medicine_id": "69f8bd58da4a31b421a8cb6f",
+    "platform": "1mg",
+    "price": 133,
+    "url": "https://www.1mg.com/drugs/zerodol-sp-tablet-67307"
+  },
+  {
+    "_id": "69f8c788da4a31b421a8cc19",
+    "medicine_id": "69f8c788da4a31b421a8cc0f",
+    "platform": "1mg",
+    "price": 67.2,
+    "url": "https://www.1mg.com/drugs/zerodol-tablet-191575"
+  },
+  {
+    "_id": "69f8c7aeda4a31b421a8cc2d",
+    "medicine_id": "69f8c7aeda4a31b421a8cc26",
+    "platform": "1mg",
+    "price": 246,
+    "url": "https://www.1mg.com/drugs/zerodol-th-4-tablet-122546"
+  },
+  {
+    "_id": "69f8c7d4da4a31b421a8cc40",
+    "platform": "1mg",
+    "medicine_id": "69f8c7d4da4a31b421a8cc37",
+    "price": 460,
+    "url": "https://www.1mg.com/drugs/zyrova-20-tablet-31100"
+  },
+  {
+    "_id": "69f8c980da4a31b421a8cc53",
+    "platform": "1mg",
+    "medicine_id": "69f8c980da4a31b421a8cc48",
+    "price": 270,
+    "url": "https://www.1mg.com/drugs/zoryl-3-tablet-74752"
+  },
+  {
+    "_id": "69f8cf2cda4a31b421a8ccc4",
+    "medicine_id": "69f8cf2cda4a31b421a8ccc1",
+    "platform": "1mg",
+    "price": 175.8,
+    "url": "https://www.1mg.com/drugs/zerodol-tc-tablet-894979"
+  }
+]

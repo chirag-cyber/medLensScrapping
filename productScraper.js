@@ -777,20 +777,29 @@ async function withRetry(operation, maxRetries = 3, baseDelayMs = 1000) {
  */
 async function fetchPageHTML(url, timeout = 15000) {
   return withRetry(async () => {
-    const response = await axios.get(url, {
-      timeout,
-      headers: {
-        "User-Agent": UA,
-        Accept:
-          "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.9",
-        "Accept-Encoding": "gzip, deflate, br",
-        Connection: "keep-alive",
-        "Cache-Control": "no-cache",
-      },
-      maxRedirects: 5,
-    });
-    return response.data;
+    // Enforce hard timeout at the Node level (prevents connection tar-pitting)
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeout);
+
+    try {
+      const response = await axios.get(url, {
+        timeout,
+        signal: controller.signal,
+        headers: {
+          "User-Agent": UA,
+          Accept:
+            "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+          "Accept-Language": "en-US,en;q=0.9",
+          "Accept-Encoding": "gzip, deflate, br",
+          Connection: "keep-alive",
+          "Cache-Control": "no-cache",
+        },
+        maxRedirects: 5,
+      });
+      return response.data;
+    } finally {
+      clearTimeout(timeoutId);
+    }
   }, 3, 1000);
 }
 
@@ -1009,57 +1018,69 @@ async function scrapeProductDetail(url, opts = {}) {
     return extractProduct($, html);
   };
 
-  try {
-    // 1. Primary Strategy
-    let rawResult;
-    if (strategy.primary === "api") {
-      rawResult = await executeHtmlParse(); // Actually, product pages are mostly HTML, API was for search. But we use HTML for Pharmeasy PDP.
-    } else if (strategy.primary === "browser" || strategy.primary === "browser-stealth" || strategy.primary === "browser-intercept") {
-      rawResult = await executeBrowserParse();
-    } else {
-      rawResult = await executeHtmlParse();
-    }
-
-    product = rawResult.merged;
-    product.mode = strategy.primary;
-
-    // Evaluate
-    if (hasGoodData(product)) {
-      if (product.price && product.mrp && !product.discount && product.mrp > product.price) {
-        product.discount = `${Math.round(((product.mrp - product.price) / product.mrp) * 100)}% off`;
-      }
-      return product;
-    }
-
-    // 2. Fallback Strategy
-    if (strategy.fallback) {
-      usedMode = strategy.fallback;
-
-      if (strategy.fallback === "browser") {
-        rawResult = await executeBrowserParse();
-      } else {
-        rawResult = await executeHtmlParse();
-      }
-
-      product = rawResult.merged;
-      product.mode = strategy.fallback;
-
-      if (hasGoodData(product)) {
-        if (product.price && product.mrp && !product.discount && product.mrp > product.price) {
-          product.discount = `${Math.round(((product.mrp - product.price) / product.mrp) * 100)}% off`;
+  // Enforce an absolute maximum execution time (timeout + max retries buffer)
+  const MAX_EXECUTION_TIME = timeout * 3 + 10000;
+  
+  return Promise.race([
+    new Promise((resolve) => setTimeout(() => {
+      triggerDebugDump(url, platformId, html, { reason: "Absolute timeout exceeded" });
+      resolve({ url, error: `Absolute timeout exceeded (${MAX_EXECUTION_TIME}ms)`, mode: usedMode });
+    }, MAX_EXECUTION_TIME)),
+    
+    (async () => {
+      try {
+        // 1. Primary Strategy
+        let rawResult;
+        if (strategy.primary === "api") {
+          rawResult = await executeHtmlParse();
+        } else if (strategy.primary === "browser" || strategy.primary === "browser-stealth" || strategy.primary === "browser-intercept") {
+          rawResult = await executeBrowserParse();
+        } else {
+          rawResult = await executeHtmlParse();
         }
-        return product;
+
+        product = rawResult.merged;
+        product.mode = strategy.primary;
+
+        // Evaluate
+        if (hasGoodData(product)) {
+          if (product.price && product.mrp && !product.discount && product.mrp > product.price) {
+            product.discount = `${Math.round(((product.mrp - product.price) / product.mrp) * 100)}% off`;
+          }
+          return product;
+        }
+
+        // 2. Fallback Strategy
+        if (strategy.fallback) {
+          usedMode = strategy.fallback;
+
+          if (strategy.fallback === "browser") {
+            rawResult = await executeBrowserParse();
+          } else {
+            rawResult = await executeHtmlParse();
+          }
+
+          product = rawResult.merged;
+          product.mode = strategy.fallback;
+
+          if (hasGoodData(product)) {
+            if (product.price && product.mrp && !product.discount && product.mrp > product.price) {
+              product.discount = `${Math.round(((product.mrp - product.price) / product.mrp) * 100)}% off`;
+            }
+            return product;
+          }
+        }
+
+        // 3. Complete Failure -> Trigger Debug
+        triggerDebugDump(url, platformId, html, { reason: "No meaningful data extracted (hasGoodData = false)" });
+        return product || { url, error: `Failed to extract valid data`, mode: usedMode };
+
+      } catch (err) {
+        triggerDebugDump(url, platformId, html, { error: err.message });
+        return { url, error: `Scrape failed: ${err.message}`, mode: usedMode };
       }
-    }
-
-    // 3. Complete Failure -> Trigger Debug
-    triggerDebugDump(url, platformId, html, { reason: "No meaningful data extracted (hasGoodData = false)" });
-    return product || { url, error: `Failed to extract valid data`, mode: usedMode };
-
-  } catch (err) {
-    triggerDebugDump(url, platformId, html, { error: err.message });
-    return { url, error: `Scrape failed: ${err.message}`, mode: usedMode };
-  }
+    })()
+  ]);
 }
 
 /**

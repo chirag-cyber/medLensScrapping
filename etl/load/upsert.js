@@ -42,6 +42,39 @@ function chooseLongerText(existingValue, incomingValue) {
   return incomingValue.length > existingValue.length ? incomingValue : existingValue;
 }
 
+// Salt-specific quality scoring — prevents scraped garbage from winning over clean salt data
+const SALT_NOISE_WORDS = /\b(view|company|about\s+us|careers|blog|partner|our\s+services|order|feedback|strip\s+of|capsule[s]?|tablet[s]?|information|fulfillment|delivery|pharmacy|nearest|licensed|retail)\b/i;
+const SALT_STRUCTURED_PATTERN = /^[A-Za-z][A-Za-z\s-]+\s*\(\s*\d+/; // e.g. "Paracetamol (650mg)"
+const SALT_COMPOSITION_PATTERN = /^[A-Za-z][A-Za-z\s-]+(?:\s*\+\s*[A-Za-z][A-Za-z\s-]+)+/; // e.g. "Aceclofenac + Paracetamol"
+
+function saltQualityScore(salt) {
+  if (!salt) return -1;
+  const s = String(salt);
+  let score = 0;
+  // Penalize very long strings (likely scraped page content)
+  if (s.length > 200) score -= 50;
+  else if (s.length > 120) score -= 20;
+  // Penalize strings containing site navigation / promo noise
+  if (SALT_NOISE_WORDS.test(s)) score -= 40;
+  // Reward structured salt format: "Name (Dosage)"
+  if (SALT_STRUCTURED_PATTERN.test(s)) score += 30;
+  // Reward composition format: "Name + Name"
+  if (SALT_COMPOSITION_PATTERN.test(s)) score += 20;
+  // Reward reasonable length (10-120 chars is typical for real salt data)
+  if (s.length >= 5 && s.length <= 120) score += 10;
+  return score;
+}
+
+function chooseBetterSalt(existingValue, incomingValue) {
+  if (!incomingValue) return existingValue || null;
+  if (!existingValue) return incomingValue;
+  // Pick the one with better quality score; tie-break on length
+  const existingScore = saltQualityScore(existingValue);
+  const incomingScore = saltQualityScore(incomingValue);
+  if (incomingScore !== existingScore) return incomingScore > existingScore ? incomingValue : existingValue;
+  return incomingValue.length > existingValue.length ? incomingValue : existingValue;
+}
+
 function chooseImageUrl(existingValue, incomingValue) {
   if (incomingValue) return incomingValue;
   return existingValue || null;
@@ -117,7 +150,7 @@ function mergeExistingMedicineSnapshots(existingMedicines = []) {
       canonical_key: accumulator.canonical_key || medicine.canonical_key || null,
       name: chooseLongerText(accumulator.name, medicine.name),
       normalized_name: accumulator.normalized_name || medicine.normalized_name || "",
-      salt: chooseLongerText(accumulator.salt, medicine.salt),
+      salt: chooseBetterSalt(accumulator.salt, medicine.salt),
       normalized_salt: accumulator.normalized_salt || medicine.normalized_salt || null,
       primary_salt_key: accumulator.primary_salt_key || medicine.primary_salt_key || null,
       salt_tokens: mergeUniqueStrings(accumulator.salt_tokens || [], medicine.salt_tokens || []),
@@ -188,7 +221,7 @@ function buildMedicineUpdate(existingMedicine, transformedRecord) {
     name: chooseLongerText(existingMedicine?.name, incomingName),
     normalized_name:
       transformedRecord.normalized_name || existingMedicine?.normalized_name || "",
-    salt: chooseLongerText(existingMedicine?.salt, transformedRecord.raw_salt),
+    salt: chooseBetterSalt(existingMedicine?.salt, transformedRecord.raw_salt),
     normalized_salt:
       transformedRecord.normalized_salt || existingMedicine?.normalized_salt || null,
     primary_salt_key:
@@ -212,7 +245,7 @@ function mergeRecordsForMedicine(records) {
       raw_name: chooseLongerText(accumulator.raw_name, record.raw_name),
       cleaned_name: accumulator.cleaned_name || record.cleaned_name || null,
       normalized_name: accumulator.normalized_name || record.normalized_name,
-      raw_salt: chooseLongerText(accumulator.raw_salt, record.raw_salt),
+      raw_salt: chooseBetterSalt(accumulator.raw_salt, record.raw_salt),
       normalized_salt: accumulator.normalized_salt || record.normalized_salt,
       primary_salt_key: accumulator.primary_salt_key || record.primary_salt_key,
       salt_tokens: mergeUniqueStrings(accumulator.salt_tokens || [], record.salt_tokens || []),

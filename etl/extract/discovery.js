@@ -396,6 +396,39 @@ async function discoverApolloUrls(query, options = {}) {
   const searchUrl = `https://www.apollopharmacy.in/search-medicines/${encodeURIComponent(query)}`;
   const discovered = [];
   const seen = new Set();
+  // Tier 0: Direct URL slug guess (Fastest, works in fast mode)
+  try {
+    const slug = query.toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-")
+      .trim();
+    
+    // Apollo URLs often follow /medicine/slug or /otc/slug
+    // We check both with a fast HEAD request
+    const candidateSlugs = [slug, `${slug}-tablets`, `${slug}-tablet`, `${slug}-capsules`];
+    for (const s of candidateSlugs) {
+      if (discovered.length >= perPlatformLimit) break;
+      for (const prefix of ["/medicine/", "/otc/"]) {
+        const url = `https://www.apollopharmacy.in${prefix}${s}`;
+        if (seen.has(url)) continue;
+        try {
+          const resp = await axios.head(url, { 
+            timeout: 5000, 
+            headers: { "User-Agent": UA },
+            maxRedirects: 0,
+            validateStatus: (status) => status === 200
+          });
+          if (resp.status === 200) {
+            seen.add(url);
+            discovered.push(buildDiscoveredItem(url, "apollo", "platform-slug-guess", searchUrl));
+            if (discovered.length >= perPlatformLimit) break;
+          }
+        } catch { /* ignore 404s */ }
+      }
+    }
+    if (discovered.length > 0) logTier("apollo", 0, "slug-guess", discovered.length);
+  } catch { /* ignore errors */ }
 
   // Tier 1: Stealth browser
   if (mode !== "fast") {

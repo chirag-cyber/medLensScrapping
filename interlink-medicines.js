@@ -69,14 +69,33 @@ const DeletedMedicine =
 function normalizeDosage(dosage) {
   if (!dosage) return null;
   
-  // Find all components like "25 mg", "5mg", or just "25"
+  // Find all components like "25 mg", "5mg", "1g", "0.5gm"
   const matches = String(dosage).toLowerCase().match(/\d+(?:\.\d+)?\s*(?:mg|ml|mcg|g|gm|kg|%|units?|iu)?\b/gi) || [];
   
   if (matches.length === 0) return null;
 
   const normalizedParts = matches.map(part => {
     let p = part.replace(/\s+/g, "").trim();
-    p = p.replace(/\.0(?=mg|ml|mcg|g|kg|%|units?|iu)/i, "");
+    p = p.replace(/\.0(?=mg|ml|mcg|g|gm|kg|%|units?|iu)/i, "");
+
+    // Normalize all weight units to mg as canonical base
+    // g/gm → mg (×1000):  1g = 1000mg, 0.5gm = 500mg
+    // mcg  → mg (÷1000):  500mcg = 0.5mg
+    // kg   → mg (×1000000): 1kg = 1000000mg
+    const unitConversions = [
+      { pattern: /^(\d+(?:\.\d+)?)(g|gm)$/i, factor: 1000 },
+      { pattern: /^(\d+(?:\.\d+)?)(mcg)$/i, factor: 0.001 },
+      { pattern: /^(\d+(?:\.\d+)?)(kg)$/i, factor: 1000000 },
+    ];
+    for (const { pattern, factor } of unitConversions) {
+      const m = p.match(pattern);
+      if (m) {
+        const mgValue = parseFloat(m[1]) * factor;
+        p = (mgValue % 1 === 0 ? Math.round(mgValue) : mgValue) + "mg";
+        break;
+      }
+    }
+
     if (/^\d+(?:\.\d+)?$/.test(p)) p += "mg";
     return p;
   });
@@ -131,14 +150,15 @@ function normalizeNameForMatching(name) {
   n = n.replace(mPattern, " ");
 
   // Remove form/packaging noise words
+  // NOTE: SR/CR/MR/XR/ER/DR/PR are KEPT — they are drug formulation identifiers
+  // (Sustained Release, Controlled Release, etc.) and are NOT noise.
   const FORM_NOISE = [
     "tablet", "tablets", "tab", "tabs",
     "capsule", "capsules", "cap", "caps",
     "strip", "strips", "pack", "bottle",
     "syrup", "suspension", "injection",
     "drop", "drops", "ointment", "cream",
-    "gel", "spray", "sachet", "box", "of", "new",
-    "cr", "sr", "er", "pr", "mr", "dr", "xr"
+    "gel", "spray", "sachet", "box", "of", "new"
   ];
   const noisePattern = new RegExp(`\\b(${FORM_NOISE.join("|")})\\b`, "gi");
   n = n.replace(noisePattern, " ");
@@ -256,6 +276,24 @@ function chooseLonger(...values) {
   return values.filter(Boolean).sort((a, b) => String(b).length - String(a).length)[0] || null;
 }
 
+// Salt-specific quality scoring (same logic as upsert.js)
+const SALT_NOISE_WORDS = /\b(view|company|about\s+us|careers|blog|partner|our\s+services|order|feedback|strip\s+of|capsule[s]?|tablet[s]?|information|fulfillment|delivery|pharmacy|nearest|licensed|retail)\b/i;
+function saltQualityScore(salt) {
+  if (!salt) return -1;
+  const s = String(salt);
+  let score = 0;
+  if (s.length > 200) score -= 50;
+  else if (s.length > 120) score -= 20;
+  if (SALT_NOISE_WORDS.test(s)) score -= 40;
+  if (/^[A-Za-z][A-Za-z\s-]+\s*\(\s*\d+/.test(s)) score += 30;
+  if (/^[A-Za-z][A-Za-z\s-]+(?:\s*\+\s*[A-Za-z][A-Za-z\s-]+)+/.test(s)) score += 20;
+  if (s.length >= 5 && s.length <= 120) score += 10;
+  return score;
+}
+function chooseBetterSaltFromList(...values) {
+  return values.filter(Boolean).sort((a, b) => saltQualityScore(b) - saltQualityScore(a))[0] || null;
+}
+
 // ──────────────────────────────────────────────────────────────────────
 // TRANSACTION-BASED MERGE (shared between Pass 1 and Pass 2)
 // ──────────────────────────────────────────────────────────────────────
@@ -286,7 +324,7 @@ async function mergeGroup(master, duplicates, canonicalKey, jsonBackupEntries, s
         master.salt_tokens || [],
         ...duplicates.map((d) => d.salt_tokens || [])
       ),
-      salt: chooseLonger(master.salt, ...duplicates.map((d) => d.salt)),
+      salt: chooseBetterSaltFromList(master.salt, ...duplicates.map((d) => d.salt)),
       description: chooseLonger(master.description, ...duplicates.map((d) => d.description)),
       manufacturer: chooseLonger(master.manufacturer, ...duplicates.map((d) => d.manufacturer)),
       image_url: master.image_url || duplicates.find((d) => d.image_url)?.image_url || null,

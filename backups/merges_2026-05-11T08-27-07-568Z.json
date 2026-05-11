@@ -1,0 +1,50 @@
+[
+  {
+    "canonicalKey": "metform|500mg",
+    "masterId": "69f35b9e9993129c11b1552f",
+    "masterName": "metform sr 500 mg tablet",
+    "duplicates": [
+      {
+        "id": "6a0191e5cae6fa0ef25f10c2",
+        "name": "metform 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T08:27:41.146Z"
+  },
+  {
+    "canonicalKey": "mefomin|1000mg",
+    "masterId": "69f35b9e9993129c11b15533",
+    "masterName": "mefomin 1000 sr tablet",
+    "duplicates": [
+      {
+        "id": "6a0191e5cae6fa0ef25f10c1",
+        "name": "mefomin sr 1000mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T08:27:41.941Z"
+  },
+  {
+    "canonicalKey": "acosita m|1000mg+100mg",
+    "masterId": "69f4c3539993129c11b19b09",
+    "masterName": "acosita m sr 100 1000mg tablet",
+    "duplicates": [
+      {
+        "id": "6a0191e5cae6fa0ef25f10c3",
+        "name": "acosita m sr 100 1000mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T08:27:42.557Z"
+  }
+]

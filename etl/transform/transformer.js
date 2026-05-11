@@ -36,7 +36,7 @@ const NOISE_WORDS = [
 ];
 
 const DOSAGE_REGEX =
-  /((?:\d+(?:\.\d+)?\s*(?:mg|ml|mcg|g|gm|kg|%)?\s*(?:\+|and|&|\/|-)?\s*)*\d+(?:\.\d+)?\s*(?:mg|ml|mcg|g|gm|kg|%|-?gm?|-?l|-?ml|-?mcg|-?mg))(?!\w)/i;
+  /((?:\d+(?:\.\d+)?\s*(?:mg|ml|mcg|g|gm|kg|%)?\s*(?:\+|and|&|\/|-)\s*)*\d+(?:\.\d+)?\s*(?:mg|ml|mcg|g|gm|kg|%|-?gm?|-?l|-?ml|-?mcg|-?mg))(?!\w)/i;
 const STRICT_MANDATORY_FIELDS = ["name", "price", "name_quality"];
 const PACK_UNIT_ALIASES = {
   tablet: "tablets",

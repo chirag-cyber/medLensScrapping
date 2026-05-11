@@ -1,0 +1,163 @@
+[
+  {
+    "canonicalKey": "gluconorm|1000mg",
+    "masterId": "69f35b9d9993129c11b15474",
+    "masterName": "gluconorm sr 1gm tablets",
+    "duplicates": [
+      {
+        "id": "69f4c3bc9993129c11b19b1d",
+        "name": "gluconorm sr 1 g tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-11T08:36:48.270Z"
+  },
+  {
+    "canonicalKey": "cetapin|1000mg",
+    "masterId": "69f35b9d9993129c11b15477",
+    "masterName": "cetapin xr 1000mg tablets",
+    "duplicates": [
+      {
+        "id": "69f4b8519993129c11b19915",
+        "name": "cetapin xr 1gm tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T08:36:48.951Z"
+  },
+  {
+    "canonicalKey": "xone|1000mg",
+    "masterId": "69f36e6e9993129c11b15ef6",
+    "masterName": "xone 1gm injection",
+    "duplicates": [
+      {
+        "id": "69f36e6d9993129c11b15eb9",
+        "name": "xone 1 g injection",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-11T08:36:49.615Z"
+  },
+  {
+    "canonicalKey": "monocef|1000mg",
+    "masterId": "69f36e6e9993129c11b15eef",
+    "masterName": "monocef 1g injection",
+    "duplicates": [
+      {
+        "id": "69f36e6e9993129c11b15ef4",
+        "name": "monocef 1 gm injection",
+        "platforms": [
+          "netmeds",
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 2,
+    "mergedAt": "2026-05-11T08:36:50.421Z"
+  },
+  {
+    "canonicalKey": "saaz -ds|1000mg",
+    "masterId": "69f477f89993129c11b181ec",
+    "masterName": "saaz -ds tablet",
+    "duplicates": [
+      {
+        "id": "69f477f89993129c11b181b6",
+        "name": "saaz -ds tablet dr",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-11T08:36:51.018Z"
+  },
+  {
+    "canonicalKey": "salzomeg|1000mg",
+    "masterId": "69f477f89993129c11b18233",
+    "masterName": "salzomeg-1 gm tablet",
+    "duplicates": [
+      {
+        "id": "69f477f89993129c11b181ea",
+        "name": "salzomeg 1000mg tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-11T08:36:51.690Z"
+  },
+  {
+    "canonicalKey": "valamac|1000mg",
+    "masterId": "69f49ec99993129c11b19395",
+    "masterName": "valamac 1gm tablets",
+    "duplicates": [
+      {
+        "id": "69f94ba0da4a31b421a8dadc",
+        "name": "valamac 1000mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-11T08:36:52.160Z"
+  },
+  {
+    "canonicalKey": "pepsigard|1000mg",
+    "masterId": "69f737fada4a31b421a8b253",
+    "masterName": "pepsigard gel",
+    "duplicates": [
+      {
+        "id": "69f737fada4a31b421a8b278",
+        "name": "pepsigard 1gm tablet",
+        "platforms": [
+          "1mg"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T08:36:52.749Z"
+  },
+  {
+    "canonicalKey": "mesacol suppositories|1000mg",
+    "masterId": "69f74870da4a31b421a8b7d7",
+    "masterName": "mesacol 1g suppositories",
+    "duplicates": [
+      {
+        "id": "69f74870da4a31b421a8b7fa",
+        "name": "mesacol 1gm suppositories",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-11T08:36:53.275Z"
+  },
+  {
+    "canonicalKey": "vegaz od|1200mg",
+    "masterId": "69f74870da4a31b421a8b7fb",
+    "masterName": "vegaz od tablet",
+    "duplicates": [
+      {
+        "id": "69f74870da4a31b421a8b7fc",
+        "name": "vegaz od 1.2 gm tablet",
+        "platforms": [
+          "apollo"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T08:36:53.826Z"
+  }
+]
