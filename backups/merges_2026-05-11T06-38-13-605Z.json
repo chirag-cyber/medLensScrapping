@@ -1,0 +1,307 @@
+[
+  {
+    "canonicalKey": "istamet|500mg+50mg",
+    "masterId": "69f35b9d9993129c11b15478",
+    "masterName": "istamet 50 mg 500 mg tablet",
+    "duplicates": [
+      {
+        "id": "6a01788acae6fa0ef25f0e1a",
+        "name": "istamet 50 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:47.504Z"
+  },
+  {
+    "canonicalKey": "metform|500mg",
+    "masterId": "69f35b9e9993129c11b1552f",
+    "masterName": "metform sr 500 mg tablet",
+    "duplicates": [
+      {
+        "id": "6a01788acae6fa0ef25f0e19",
+        "name": "metform 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:48.565Z"
+  },
+  {
+    "canonicalKey": "omee|20mg",
+    "masterId": "69f3602e9993129c11b156b7",
+    "masterName": "omee capsule",
+    "duplicates": [
+      {
+        "id": "6a0178d6cae6fa0ef25f0e23",
+        "name": "omee 20mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:49.497Z"
+  },
+  {
+    "canonicalKey": "ocid|20mg",
+    "masterId": "69f3602e9993129c11b15704",
+    "masterName": "ocid",
+    "duplicates": [
+      {
+        "id": "6a0178d6cae6fa0ef25f0e24",
+        "name": "ocid 20mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:50.621Z"
+  },
+  {
+    "canonicalKey": "amlopin|5mg",
+    "masterId": "69f363c29993129c11b159a5",
+    "masterName": "amlopin",
+    "duplicates": [
+      {
+        "id": "6a0178e8cae6fa0ef25f0e28",
+        "name": "amlopin 5mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:51.361Z"
+  },
+  {
+    "canonicalKey": "tozaar|50mg",
+    "masterId": "69f365579993129c11b159f7",
+    "masterName": "tozaar",
+    "duplicates": [
+      {
+        "id": "6a017905cae6fa0ef25f0e2c",
+        "name": "tozaar 50mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:52.024Z"
+  },
+  {
+    "canonicalKey": "losartas|50mg",
+    "masterId": "69f365589993129c11b15aba",
+    "masterName": "losartas",
+    "duplicates": [
+      {
+        "id": "6a017905cae6fa0ef25f0e2e",
+        "name": "losartas 50mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:52.759Z"
+  },
+  {
+    "canonicalKey": "losium|50mg",
+    "masterId": "69f365589993129c11b15ac3",
+    "masterName": "losium",
+    "duplicates": [
+      {
+        "id": "6a017905cae6fa0ef25f0e2b",
+        "name": "losium 50mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:53.464Z"
+  },
+  {
+    "canonicalKey": "losanorm|50mg",
+    "masterId": "69f365589993129c11b15ae3",
+    "masterName": "losanorm",
+    "duplicates": [
+      {
+        "id": "6a017905cae6fa0ef25f0e2a",
+        "name": "losanorm 50mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:54.251Z"
+  },
+  {
+    "canonicalKey": "lcin|500mg",
+    "masterId": "69f36ae89993129c11b15d8b",
+    "masterName": "lcin 500 tablet",
+    "duplicates": [
+      {
+        "id": "6a01791ecae6fa0ef25f0e34",
+        "name": "lcin 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:54.828Z"
+  },
+  {
+    "canonicalKey": "monocef sb dry vial powder for|1.5gm+1mg",
+    "masterId": "69f36e6e9993129c11b15ef1",
+    "masterName": "monocef sb 1.5gm dry vial of 1 powder for injection",
+    "duplicates": [
+      {
+        "id": "6a01792fcae6fa0ef25f0e38",
+        "name": "monocef sb 1.5gm dry vial of 1 powder for injection",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:55.430Z"
+  },
+  {
+    "canonicalKey": "napra d|500mg",
+    "masterId": "69f377e79993129c11b1642b",
+    "masterName": "napra d 500 tablet",
+    "duplicates": [
+      {
+        "id": "6a01794fcae6fa0ef25f0e42",
+        "name": "napra d 500 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:56.334Z"
+  },
+  {
+    "canonicalKey": "napra d|250mg",
+    "masterId": "69f377e79993129c11b1642f",
+    "masterName": "napra d 250 tablet",
+    "duplicates": [
+      {
+        "id": "6a01794fcae6fa0ef25f0e40",
+        "name": "napra d 250mg tablet",
+        "platforms": [
+          "pharmeasy",
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:57.453Z"
+  },
+  {
+    "canonicalKey": "naxdom|500mg",
+    "masterId": "69f377e99993129c11b16510",
+    "masterName": "naxdom 500 tablet",
+    "duplicates": [
+      {
+        "id": "6a01794fcae6fa0ef25f0e41",
+        "name": "naxdom 500 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:58.315Z"
+  },
+  {
+    "canonicalKey": "naxdom|250mg",
+    "masterId": "69f377e99993129c11b16515",
+    "masterName": "naxdom 250 tablet",
+    "duplicates": [
+      {
+        "id": "6a01794fcae6fa0ef25f0e3f",
+        "name": "naxdom 250 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:59.188Z"
+  },
+  {
+    "canonicalKey": "vildagard m|500mg+50mg",
+    "masterId": "69f483269993129c11b1876a",
+    "masterName": "vildagard m 50 500mg tablet",
+    "duplicates": [
+      {
+        "id": "6a01788acae6fa0ef25f0e1b",
+        "name": "vildagard m 50 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:38:59.626Z"
+  },
+  {
+    "canonicalKey": "monocef esb dry vial powder for|1.5gm+1mg",
+    "masterId": "69f4becb9993129c11b199b3",
+    "masterName": "monocef esb 1.5gm dry vial of 1 powder for injection",
+    "duplicates": [
+      {
+        "id": "6a01792fcae6fa0ef25f0e39",
+        "name": "monocef esb 1.5gm dry vial of 1 powder for injection",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:39:00.199Z"
+  },
+  {
+    "canonicalKey": "levenue|750mg",
+    "masterId": "69f5a5a4da4a31b421a89bfe",
+    "masterName": "levenue 750mg tablet",
+    "duplicates": [
+      {
+        "id": "6a01791ecae6fa0ef25f0e35",
+        "name": "levenue 750 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:39:00.651Z"
+  },
+  {
+    "canonicalKey": "zilos|50mg",
+    "masterId": "69f72abfda4a31b421a8acd2",
+    "masterName": "zilos",
+    "duplicates": [
+      {
+        "id": "6a017905cae6fa0ef25f0e2d",
+        "name": "zilos 50mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T06:39:01.291Z"
+  }
+]

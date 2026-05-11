@@ -15,6 +15,7 @@
  *   node orchestrator.js --enrich-interval 3      # LLM enrich every N batches
  *   node orchestrator.js --dry-run                # Preview queries without scraping
  *   node orchestrator.js --reset                  # Clear state and start fresh
+ *   node orchestrator.js --skip "salt1,salt2"     # Skip specific stuck salts
  */
 
 require("dotenv").config();
@@ -72,6 +73,14 @@ function parseArgs() {
 
   if (args.includes("--scraper-mode")) config.scraperMode = getArgValue("--scraper-mode") || "auto";
   if (args.includes("--max-batches")) config.maxBatches = parseInt(getArgValue("--max-batches"), 10) || null;
+
+  // --skip flag: comma-separated list of salts to skip
+  if (args.includes("--skip")) {
+    const skipVal = getArgValue("--skip") || "";
+    config.skipQueries = skipVal.split(",").map(s => s.trim().toLowerCase()).filter(Boolean);
+  } else {
+    config.skipQueries = [];
+  }
 
   return config;
 }
@@ -356,6 +365,13 @@ async function orchestrate(config) {
       // Skip if already processed
       if (state.processedQueries.includes(query)) {
         log(`  ⏭️  Skipping "${query}" (already processed)`);
+        continue;
+      }
+
+      // Skip if in --skip list
+      if (config.skipQueries.length > 0 && config.skipQueries.includes(query.toLowerCase())) {
+        log(`  ⏭️  Skipping "${query}" (in --skip list)`);
+        state.processedQueries.push(query);
         continue;
       }
 

@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const { scrapePDPLinks } = require("./scraper");
@@ -621,6 +622,170 @@ app.get("/cron/status", (_req, res) => {
 });
 
 // Database routes removed in favor of direct ETL pipelining.
+
+// ═══════════════════════════════════════════════════════════════════════
+// DASHBOARD — Data Monitoring Dashboard
+// ═══════════════════════════════════════════════════════════════════════
+const { Medicine, Price } = require("./etl/load/models");
+
+// Serve dashboard HTML
+app.get("/dashboard", (_req, res) => {
+  res.sendFile(path.join(__dirname, "dashboard.html"));
+});
+
+// Dashboard data API
+app.get("/dashboard-data", async (_req, res) => {
+  try {
+    await connectDB();
+
+    // --- Core counts ---
+    const [totalMedicines, totalPrices] = await Promise.all([
+      Medicine.countDocuments(),
+      Price.countDocuments(),
+    ]);
+
+    // --- Platform distribution ---
+    const platformDist = await Price.aggregate([
+      { $group: { _id: "$platform", count: { $sum: 1 } } },
+      { $sort: { count: -1 } },
+    ]);
+
+    // --- Medicines with prices + avg prices per medicine ---
+    const priceStats = await Price.aggregate([
+      { $group: { _id: "$medicine_id", count: { $sum: 1 } } },
+    ]);
+    const medicinesWithPrices = priceStats.length;
+    const avgPricesPerMedicine = medicinesWithPrices > 0
+      ? priceStats.reduce((s, p) => s + p.count, 0) / medicinesWithPrices
+      : 0;
+
+    // --- Pharmacy coverage distribution (how many medicines have 1, 2, 3, 4, 5+ platforms) ---
+    const coverageBuckets = [
+      { label: "1 pharmacy", min: 1, max: 1 },
+      { label: "2 pharmacies", min: 2, max: 2 },
+      { label: "3 pharmacies", min: 3, max: 3 },
+      { label: "4 pharmacies", min: 4, max: 4 },
+      { label: "5+ pharmacies", min: 5, max: 999 },
+    ];
+    const pharmacyCoverage = coverageBuckets.map(b => {
+      const count = priceStats.filter(p => p.count >= b.min && p.count <= b.max).length;
+      return { label: b.label, count, pct: totalMedicines > 0 ? ((count / totalMedicines) * 100).toFixed(1) : "0" };
+    });
+
+    // --- Enrichment ---
+    const enrichedCount = await Medicine.countDocuments({ llm_enriched: true });
+    const enrichmentRate = totalMedicines > 0
+      ? Math.round((enrichedCount / totalMedicines) * 100)
+      : 0;
+
+    // --- Salt stats ---
+    const withSalt = await Medicine.countDocuments({ salt: { $exists: true, $ne: null, $ne: "" } });
+    const uniqueSaltsAgg = await Medicine.aggregate([
+      { $match: { normalized_salt: { $exists: true, $ne: null, $ne: "" } } },
+      { $group: { _id: "$normalized_salt" } },
+      { $count: "total" },
+    ]);
+    const uniqueSalts = uniqueSaltsAgg[0]?.total || 0;
+
+    const uniqueSaltKeysAgg = await Medicine.aggregate([
+      { $match: { primary_salt_key: { $exists: true, $ne: null, $ne: "" } } },
+      { $group: { _id: "$primary_salt_key" } },
+      { $count: "total" },
+    ]);
+    const uniqueSaltKeys = uniqueSaltKeysAgg[0]?.total || 0;
+
+    // --- Top salts ---
+    const topSalts = await Medicine.aggregate([
+      { $match: { primary_salt_key: { $exists: true, $ne: null, $ne: "" } } },
+      { $group: { _id: "$primary_salt_key", count: { $sum: 1 } } },
+      { $sort: { count: -1 } },
+      { $limit: 15 },
+      { $project: { salt: "$_id", count: 1, _id: 0 } },
+    ]);
+
+    // --- Data completeness ---
+    const fields = ["salt", "dosage", "description", "manufacturer", "image_url"];
+    const completeness = await Promise.all(
+      fields.map(async (field) => {
+        const has = await Medicine.countDocuments({
+          [field]: { $exists: true, $ne: null, $ne: "" },
+        });
+        return { field, pct: totalMedicines > 0 ? Math.round((has / totalMedicines) * 100) : 0 };
+      })
+    );
+    // Side effects (array field)
+    const hasSideEffects = await Medicine.countDocuments({
+      side_effects: { $exists: true, $not: { $size: 0 } },
+    });
+    completeness.push({ field: "side_effects", pct: totalMedicines > 0 ? Math.round((hasSideEffects / totalMedicines) * 100) : 0 });
+
+    // --- Recently added ---
+    const now = new Date();
+    const last24h = new Date(now - 24 * 60 * 60 * 1000);
+    const last7d = new Date(now - 7 * 24 * 60 * 60 * 1000);
+
+    const addedLast24h = await Medicine.countDocuments({ createdAt: { $gte: last24h } });
+    const addedLast7d = await Medicine.countDocuments({ createdAt: { $gte: last7d } });
+
+    const recentMedicines = await Medicine.find({}, {
+      name: 1, dosage: 1, source_platforms: 1, createdAt: 1,
+    }).sort({ createdAt: -1 }).limit(10).lean();
+
+    // --- Top medicines by price count ---
+    const topMedsByPrices = await Price.aggregate([
+      { $group: { _id: "$medicine_id", priceCount: { $sum: 1 }, minPrice: { $min: "$price" }, maxPrice: { $max: "$price" } } },
+      { $sort: { priceCount: -1 } },
+      { $limit: 20 },
+    ]);
+    const topMedIds = topMedsByPrices.map(m => m._id);
+    const topMedDocs = await Medicine.find({ _id: { $in: topMedIds } }, {
+      name: 1, salt: 1, dosage: 1, llm_enriched: 1,
+    }).lean();
+    const medMap = new Map(topMedDocs.map(m => [String(m._id), m]));
+    const topMedicines = topMedsByPrices.map(m => {
+      const doc = medMap.get(String(m._id)) || {};
+      return {
+        name: doc.name || "Unknown",
+        salt: doc.salt || null,
+        dosage: doc.dosage || null,
+        priceCount: m.priceCount,
+        minPrice: m.minPrice,
+        maxPrice: m.maxPrice,
+        enriched: doc.llm_enriched || false,
+      };
+    });
+
+    return res.json({
+      success: true,
+      generatedAt: new Date().toISOString(),
+      totalMedicines,
+      totalPrices,
+      platformCount: platformDist.length,
+      platformDistribution: platformDist.map(p => ({ platform: p._id, count: p.count })),
+      medicinesWithPrices,
+      avgPricesPerMedicine,
+      pharmacyCoverage,
+      enrichedCount,
+      enrichmentRate,
+      withSalt,
+      uniqueSalts,
+      uniqueSaltKeys,
+      topSalts,
+      completeness,
+      addedLast24h,
+      addedLast7d,
+      recentMedicines: recentMedicines.map(m => ({
+        name: m.name,
+        dosage: m.dosage,
+        platforms: (m.source_platforms || []).length,
+        addedAt: m.createdAt,
+      })),
+      topMedicines,
+    });
+  } catch (err) {
+    return res.status(500).json({ success: false, error: err.message });
+  }
+});
 
 // ─── Start server ────────────────────────────────────────────────────
 app.listen(PORT, () => {

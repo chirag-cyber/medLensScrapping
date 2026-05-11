@@ -2429,3 +2429,42 @@
 [2026-05-04T12:40:05.423Z]    Discovered: 11362 | Scraped: 11139 | Medicines: 10514 | Enriched: 180
 [2026-05-04T12:40:05.424Z] 💤 Breathing for 4.1s before next batch...
 
+[2026-05-07T18:08:36.119Z] ♻️  Resuming from batch index 109 (39 batches already done)
+[2026-05-07T18:08:36.182Z] 📊 471 queries remaining across 157 batches.
+
+[2026-05-07T18:08:36.185Z] 
+════════════════════════════════════════════════════════════
+[2026-05-07T18:08:36.187Z] 📦 BATCH 40 — Processing 3 queries [albendazole, mebendazole, ivermectin]
+[2026-05-07T18:08:36.189Z] ════════════════════════════════════════════════════════════
+[2026-05-07T18:08:36.191Z]   🔍 [Attempt 1] Scraping: "albendazole"
+[2026-05-07T18:09:10.501Z] 
+⚠️  Received SIGINT. Saving state and exiting gracefully...
+[2026-05-07T18:09:10.553Z] 💾 State saved. You can resume with: node orchestrator.js --resume
+[2026-05-07T18:17:39.131Z] ♻️  Resuming from batch index 109 (120 batches already done)
+[2026-05-07T18:17:39.194Z] 📊 471 queries remaining across 157 batches.
+
+[2026-05-07T18:17:39.197Z] 
+════════════════════════════════════════════════════════════
+[2026-05-07T18:17:39.201Z] 📦 BATCH 121 — Processing 3 queries [albendazole, mebendazole, ivermectin]
+[2026-05-07T18:17:39.204Z] ════════════════════════════════════════════════════════════
+[2026-05-07T18:17:39.209Z]   🔍 [Attempt 1] Scraping: "albendazole"
+[2026-05-07T18:25:55.584Z]   ✅ "albendazole" → Discovered: 138, Scraped: 138, Medicines: 136
+[2026-05-07T18:25:57.778Z]   🔍 [Attempt 1] Scraping: "mebendazole"
+[2026-05-07T18:28:10.166Z]   ✅ "mebendazole" → Discovered: 72, Scraped: 72, Medicines: 70
+[2026-05-07T18:28:15.180Z]   🔍 [Attempt 1] Scraping: "ivermectin"
+[2026-05-07T18:34:38.773Z]   ✅ "ivermectin" → Discovered: 137, Scraped: 137, Medicines: 134
+[2026-05-07T18:34:43.404Z] 
+📊 Progress: 112/580 queries (19.3%) | Speed: 0.11 q/s | ETA: 44h 22m 55s
+[2026-05-07T18:34:43.407Z]    Discovered: 11709 | Scraped: 11486 | Medicines: 10854 | Enriched: 180
+[2026-05-07T18:34:43.445Z] 💤 Breathing for 4.7s before next batch...
+
+[2026-05-07T18:34:48.168Z] 
+════════════════════════════════════════════════════════════
+[2026-05-07T18:34:48.170Z] 📦 BATCH 122 — Processing 3 queries [praziquantel, nitazoxanide, secnidazole]
+[2026-05-07T18:34:48.175Z] ════════════════════════════════════════════════════════════
+[2026-05-07T18:34:48.178Z]   🔍 [Attempt 1] Scraping: "praziquantel"
+[2026-05-07T18:36:32.620Z]   ✅ "praziquantel" → Discovered: 40, Scraped: 40, Medicines: 37
+[2026-05-07T18:36:36.443Z]   🔍 [Attempt 1] Scraping: "nitazoxanide"
+[2026-05-07T18:36:40.711Z] 
+⚠️  Received SIGINT. Saving state and exiting gracefully...
+[2026-05-07T18:36:40.712Z] 💾 State saved. You can resume with: node orchestrator.js --resume
