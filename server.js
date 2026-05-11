@@ -628,13 +628,26 @@ app.get("/cron/status", (_req, res) => {
 // ═══════════════════════════════════════════════════════════════════════
 const { Medicine, Price } = require("./etl/load/models");
 
-// Serve dashboard HTML
+// Dashboard key validation
+function validateDashboardKey(req, res, next) {
+  const key = req.query.key || req.headers["x-dashboard-key"];
+  const expected = process.env.DASHBOARD_KEY;
+
+  if (!expected) return next(); // No key configured = open access (local dev)
+
+  if (!key || key !== expected) {
+    return res.status(401).json({ success: false, error: "Unauthorized — invalid or missing dashboard key" });
+  }
+  next();
+}
+
+// Serve dashboard HTML (no key needed — login screen is client-side)
 app.get("/dashboard", (_req, res) => {
   res.sendFile(path.join(__dirname, "dashboard.html"));
 });
 
-// Dashboard data API
-app.get("/dashboard-data", async (_req, res) => {
+// Dashboard data API (key required)
+app.get("/dashboard-data", validateDashboardKey, async (_req, res) => {
   try {
     await connectDB();
 
@@ -782,6 +795,69 @@ app.get("/dashboard-data", async (_req, res) => {
       })),
       topMedicines,
     });
+  } catch (err) {
+    return res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// Dashboard search API (key required)
+app.get("/dashboard-search", validateDashboardKey, async (req, res) => {
+  const q = (req.query.q || "").trim();
+  if (!q) return res.json({ success: true, results: [], total: 0 });
+
+  try {
+    await connectDB();
+
+    const regex = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i");
+
+    const medicines = await Medicine.find({
+      $or: [
+        { name: regex },
+        { salt: regex },
+        { normalized_salt: regex },
+        { primary_salt_key: regex },
+        { dosage: regex },
+        { manufacturer: regex },
+        { canonical_key: regex },
+      ],
+    })
+      .sort({ name: 1 })
+      .limit(50)
+      .lean();
+
+    const medIds = medicines.map((m) => m._id);
+    const prices = await Price.find({ medicine_id: { $in: medIds } }).lean();
+
+    const priceMap = new Map();
+    prices.forEach((p) => {
+      const key = String(p.medicine_id);
+      if (!priceMap.has(key)) priceMap.set(key, []);
+      priceMap.get(key).push({
+        platform: p.platform,
+        price: p.price,
+        url: p.url,
+      });
+    });
+
+    const results = medicines.map((m) => {
+      const mPrices = (priceMap.get(String(m._id)) || []).sort((a, b) => a.price - b.price);
+      return {
+        name: m.name,
+        salt: m.salt || null,
+        dosage: m.dosage || null,
+        manufacturer: m.manufacturer || null,
+        pack_size: m.pack_size || null,
+        platforms: (m.source_platforms || []),
+        enriched: m.llm_enriched || false,
+        description: m.description ? m.description.substring(0, 120) + "..." : null,
+        prices: mPrices,
+        priceCount: mPrices.length,
+        minPrice: mPrices[0]?.price || null,
+        maxPrice: mPrices[mPrices.length - 1]?.price || null,
+      };
+    });
+
+    return res.json({ success: true, query: q, total: results.length, results });
   } catch (err) {
     return res.status(500).json({ success: false, error: err.message });
   }

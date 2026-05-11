@@ -198,10 +198,120 @@
     }
     .recent-item .name { font-weight: 600; flex: 1; }
     .recent-item .meta { display: flex; gap: 10px; align-items: center; }
+
+    /* Auth gate */
+    .auth-gate {
+      position: fixed; inset: 0; background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 200;
+    }
+    .auth-gate.hidden { display: none; }
+    .auth-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 40px; width: 380px; max-width: 90vw;
+      text-align: center;
+    }
+    .auth-box h2 {
+      font-size: 22px; font-weight: 800; margin-bottom: 8px;
+      background: linear-gradient(135deg, #6366f1, #06b6d4);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .auth-box p { color: var(--text-dim); font-size: 13px; margin-bottom: 24px; }
+    .auth-input {
+      width: 100%; padding: 12px 16px; border-radius: 10px;
+      border: 1px solid var(--border); background: var(--surface-2);
+      color: var(--text); font-size: 14px; font-family: 'JetBrains Mono', monospace;
+      outline: none; margin-bottom: 16px; text-align: center; letter-spacing: 2px;
+    }
+    .auth-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+    .auth-submit {
+      width: 100%; padding: 12px; border-radius: 10px; border: none;
+      background: var(--primary); color: #fff; font-weight: 700; font-size: 14px;
+      cursor: pointer; transition: transform .15s, box-shadow .15s;
+    }
+    .auth-submit:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(99,102,241,.35); }
+    .auth-error { color: var(--red); font-size: 12px; margin-top: 12px; display: none; }
+    .logout-btn {
+      background: none; border: 1px solid var(--border); color: var(--text-dim);
+      border-radius: 8px; padding: 6px 14px; font-size: 12px; cursor: pointer;
+      transition: border-color .2s;
+    }
+    .logout-btn:hover { border-color: var(--red); color: var(--red); }
+
+    /* Search bar */
+    .search-section { margin-bottom: 28px; }
+    .search-bar {
+      display: flex; gap: 10px; align-items: center;
+    }
+    .search-input {
+      flex: 1; padding: 14px 20px; border-radius: 12px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--text); font-size: 15px; font-family: 'Inter', sans-serif;
+      outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+    .search-input::placeholder { color: var(--text-dim); }
+    .search-go {
+      padding: 14px 24px; border-radius: 12px; border: none;
+      background: var(--primary); color: #fff; font-weight: 700; font-size: 14px;
+      cursor: pointer; white-space: nowrap; transition: transform .15s;
+    }
+    .search-go:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(99,102,241,.35); }
+    .search-go:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+    .search-clear {
+      padding: 14px 16px; border-radius: 12px; border: 1px solid var(--border);
+      background: none; color: var(--text-dim); cursor: pointer; font-size: 14px;
+    }
+    .search-clear:hover { border-color: var(--red); color: var(--red); }
+    .search-meta { font-size: 13px; color: var(--text-dim); margin-top: 10px; }
+
+    /* Search results */
+    .search-results { display: none; margin-top: 16px; }
+    .search-results.visible { display: block; }
+    .sr-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+      padding: 18px 20px; margin-bottom: 10px; cursor: pointer;
+      transition: border-color .2s, transform .15s;
+    }
+    .sr-card:hover { border-color: var(--primary); transform: translateY(-1px); }
+    .sr-card.expanded { border-color: var(--cyan); }
+    .sr-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .sr-name { font-weight: 700; font-size: 15px; flex: 1; }
+    .sr-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+    .sr-salt { font-size: 12px; color: var(--text-dim); margin-top: 4px; max-width: 600px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .sr-detail {
+      display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border);
+    }
+    .sr-card.expanded .sr-detail { display: block; }
+    .sr-prices { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+    .sr-price-chip {
+      background: var(--surface-2); border-radius: 10px; padding: 10px 14px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .sr-price-chip .plat { font-size: 12px; font-weight: 600; text-transform: capitalize; }
+    .sr-price-chip .amt { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; }
+    .sr-price-chip .best { color: var(--green); }
+    .sr-price-chip a { color: var(--cyan); font-size: 11px; text-decoration: none; }
+    .sr-price-chip a:hover { text-decoration: underline; }
+    .sr-meta-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 12px; color: var(--text-dim); }
+    .sr-meta-row span { display: flex; align-items: center; gap: 4px; }
   </style>
 </head>
 <body>
-  <div class="loading-overlay" id="loader">
+  <!-- Auth Gate -->
+  <div class="auth-gate" id="auth-gate">
+    <div class="auth-box">
+      <h2>MedSave Dashboard</h2>
+      <p>Enter your secret key to access the monitoring dashboard</p>
+      <form onsubmit="return handleLogin(event)">
+        <input type="password" class="auth-input" id="auth-key" placeholder="Enter key..." autocomplete="off" />
+        <button type="submit" class="auth-submit">Unlock Dashboard</button>
+      </form>
+      <p class="auth-error" id="auth-error">Invalid key - access denied</p>
+    </div>
+  </div>
+
+  <div class="loading-overlay hidden" id="loader">
     <div class="spinner"></div>
     <p>Connecting to database...</p>
   </div>
@@ -215,8 +325,20 @@
     </div>
     <div class="actions">
       <span class="last-refresh" id="last-refresh"></span>
+      <button class="logout-btn" onclick="logout()">Logout</button>
       <button class="refresh-btn" id="refresh-btn" onclick="loadDashboard()">↻ Refresh</button>
     </div>
+  </div>
+
+  <!-- Search Section -->
+  <div class="search-section">
+    <div class="search-bar">
+      <input type="text" class="search-input" id="search-input" placeholder="Search medicines by name, salt, dosage, manufacturer..." />
+      <button class="search-go" id="search-go" onclick="runSearch()">Search</button>
+      <button class="search-clear" onclick="clearSearch()" style="display:none" id="search-clear">Clear</button>
+    </div>
+    <div class="search-meta" id="search-meta"></div>
+    <div class="search-results" id="search-results"></div>
   </div>
 
   <!-- KPI Row -->
@@ -276,15 +398,55 @@
 
   <script>
     const API_BASE = window.location.origin;
+    let dashKey = sessionStorage.getItem('dashboard_key') || '';
+
+    // --- Auth ---
+    function checkAuth() {
+      if (dashKey) {
+        document.getElementById('auth-gate').classList.add('hidden');
+        document.getElementById('loader').classList.remove('hidden');
+        loadDashboard();
+      }
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const key = document.getElementById('auth-key').value.trim();
+      if (!key) return false;
+      dashKey = key;
+      document.getElementById('auth-error').style.display = 'none';
+      document.getElementById('auth-gate').classList.add('hidden');
+      document.getElementById('loader').classList.remove('hidden');
+      loadDashboard();
+      return false;
+    }
+
+    function logout() {
+      dashKey = '';
+      sessionStorage.removeItem('dashboard_key');
+      document.getElementById('auth-gate').classList.remove('hidden');
+      document.getElementById('auth-key').value = '';
+    }
 
     async function loadDashboard() {
       const btn = document.getElementById('refresh-btn');
       btn.disabled = true; btn.textContent = '⏳ Loading...';
 
       try {
-        const res = await fetch(`${API_BASE}/dashboard-data`);
+        const res = await fetch(`${API_BASE}/dashboard-data?key=${encodeURIComponent(dashKey)}`);
+        if (res.status === 401) {
+          // Bad key — show login again
+          document.getElementById('loader').classList.add('hidden');
+          document.getElementById('auth-gate').classList.remove('hidden');
+          document.getElementById('auth-error').style.display = 'block';
+          sessionStorage.removeItem('dashboard_key');
+          dashKey = '';
+          return;
+        }
         if (!res.ok) throw new Error(`Server returned ${res.status}`);
         const data = await res.json();
+        // Key is valid — persist it
+        sessionStorage.setItem('dashboard_key', dashKey);
         renderDashboard(data);
         document.getElementById('error-banner').style.display = 'none';
         document.getElementById('last-refresh').textContent = `Updated ${new Date().toLocaleTimeString()}`;
@@ -404,8 +566,99 @@
 
     function fmt(n) { return n == null ? '—' : Number(n).toLocaleString(); }
 
-    loadDashboard();
-    setInterval(loadDashboard, 60000); // Auto-refresh every 60s
+    // --- Search ---
+    let searchTimer = null;
+    document.addEventListener('DOMContentLoaded', () => {
+      const inp = document.getElementById('search-input');
+      inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') runSearch(); });
+      inp.addEventListener('input', () => {
+        clearTimeout(searchTimer);
+        const v = inp.value.trim();
+        if (v.length >= 3) searchTimer = setTimeout(runSearch, 400);
+        if (!v) clearSearch();
+      });
+    });
+
+    async function runSearch() {
+      const q = document.getElementById('search-input').value.trim();
+      if (!q) return;
+      const btn = document.getElementById('search-go');
+      btn.disabled = true; btn.textContent = '...';
+      try {
+        const res = await fetch(`${API_BASE}/dashboard-search?q=${encodeURIComponent(q)}&key=${encodeURIComponent(dashKey)}`);
+        if (!res.ok) throw new Error(res.status);
+        const data = await res.json();
+        renderSearchResults(data);
+      } catch (e) {
+        document.getElementById('search-meta').textContent = 'Search failed: ' + e.message;
+      } finally {
+        btn.disabled = false; btn.textContent = 'Search';
+      }
+    }
+
+    function clearSearch() {
+      document.getElementById('search-input').value = '';
+      document.getElementById('search-results').className = 'search-results';
+      document.getElementById('search-results').innerHTML = '';
+      document.getElementById('search-meta').textContent = '';
+      document.getElementById('search-clear').style.display = 'none';
+    }
+
+    function renderSearchResults(data) {
+      const wrap = document.getElementById('search-results');
+      const meta = document.getElementById('search-meta');
+      document.getElementById('search-clear').style.display = 'inline-block';
+
+      if (data.total === 0) {
+        meta.textContent = `No results for "${data.query}"`;
+        wrap.className = 'search-results';
+        wrap.innerHTML = '';
+        return;
+      }
+
+      meta.textContent = `Found ${data.total} medicine${data.total > 1 ? 's' : ''} for "${data.query}"`;
+      wrap.className = 'search-results visible';
+
+      const platformColors = { '1mg': '#ef4444', pharmeasy: '#22c55e', netmeds: '#3b82f6', apollo: '#f59e0b', medplus: '#8b5cf6' };
+
+      wrap.innerHTML = data.results.map((m, i) => {
+        const priceHTML = m.prices.map((p, pi) => {
+          const isBest = pi === 0 && m.prices.length > 1;
+          const color = platformColors[p.platform] || '#6366f1';
+          return `<div class="sr-price-chip">
+            <div><span class="plat" style="color:${color}">${p.platform}</span></div>
+            <div><span class="amt${isBest ? ' best' : ''}">Rs.${p.price}</span></div>
+            <a href="${p.url}" target="_blank" rel="noopener">View</a>
+          </div>`;
+        }).join('');
+
+        const badges = [
+          m.dosage ? `<span class="badge badge-cyan">${m.dosage}</span>` : '',
+          `<span class="badge ${m.priceCount >= 3 ? 'badge-green' : m.priceCount >= 1 ? 'badge-amber' : 'badge-red'}">${m.priceCount} price${m.priceCount !== 1 ? 's' : ''}</span>`,
+          m.enriched ? '<span class="badge badge-green">Enriched</span>' : '',
+        ].filter(Boolean).join('');
+
+        return `<div class="sr-card" onclick="this.classList.toggle('expanded')">
+          <div class="sr-top">
+            <span class="sr-name">${m.name}</span>
+            <div class="sr-badges">${badges}</div>
+          </div>
+          ${m.salt ? `<div class="sr-salt">Salt: ${m.salt}</div>` : ''}
+          <div class="sr-detail">
+            ${m.prices.length ? `<div class="sr-prices">${priceHTML}</div>` : '<p style="color:var(--text-dim);font-size:13px">No price data available</p>'}
+            <div class="sr-meta-row">
+              ${m.manufacturer ? `<span>Mfr: ${m.manufacturer}</span>` : ''}
+              ${m.pack_size ? `<span>Pack: ${m.pack_size}</span>` : ''}
+              ${m.platforms.length ? `<span>Sources: ${m.platforms.join(', ')}</span>` : ''}
+              ${m.minPrice && m.maxPrice ? `<span>Range: Rs.${m.minPrice} - Rs.${m.maxPrice}</span>` : ''}
+            </div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    checkAuth(); // Auto-login if key in session
+    setInterval(() => { if (dashKey) loadDashboard(); }, 60000);
   </script>
 </body>
 </html>
