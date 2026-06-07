@@ -1,0 +1,178 @@
+[
+  {
+    "canonicalKey": "glycomet sr|500mg",
+    "masterId": "69f35b9d9993129c11b15460",
+    "masterName": "glycomet 500 sr tablet",
+    "duplicates": [
+      {
+        "id": "6a048ccf8b2160a3c7e71776",
+        "name": "glycomet 500 sr tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-13T14:45:22.858Z"
+  },
+  {
+    "canonicalKey": "istamet|500mg+50mg",
+    "masterId": "69f35b9d9993129c11b15478",
+    "masterName": "istamet 50 mg 500 mg tablet",
+    "duplicates": [
+      {
+        "id": "6a048cba8b2160a3c7e71770",
+        "name": "istamet 50 500mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-13T14:45:23.198Z"
+  },
+  {
+    "canonicalKey": "okamet|500mg",
+    "masterId": "69f35b9e9993129c11b1552a",
+    "masterName": "okamet-500 tablet",
+    "duplicates": [
+      {
+        "id": "6a048ceb8b2160a3c7e7177c",
+        "name": "okamet 500 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-13T14:45:23.521Z"
+  },
+  {
+    "canonicalKey": "metfor|500mg",
+    "masterId": "69f35b9e9993129c11b15530",
+    "masterName": "metfor 500 mg tablet",
+    "duplicates": [
+      {
+        "id": "6a048cc68b2160a3c7e71773",
+        "name": "metfor 500 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-13T14:45:23.824Z"
+  },
+  {
+    "canonicalKey": "mefomin sr|1000mg",
+    "masterId": "69f35b9e9993129c11b15533",
+    "masterName": "mefomin 1000 sr tablet",
+    "duplicates": [
+      {
+        "id": "6a048cba8b2160a3c7e7176f",
+        "name": "mefomin sr 1000mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-13T14:45:24.136Z"
+  },
+  {
+    "canonicalKey": "lipvas|10mg",
+    "masterId": "69f35e669993129c11b155f2",
+    "masterName": "lipvas",
+    "duplicates": [
+      {
+        "id": "6a048e168b2160a3c7e71783",
+        "name": "lipvas",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-13T14:45:24.445Z"
+  },
+  {
+    "canonicalKey": "omee|20mg",
+    "masterId": "69f3602e9993129c11b156b7",
+    "masterName": "omee capsule",
+    "duplicates": [
+      {
+        "id": "6a048e2b8b2160a3c7e71785",
+        "name": "omee 20mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-13T14:45:24.758Z"
+  },
+  {
+    "canonicalKey": "omez|40mg",
+    "masterId": "69f3602e9993129c11b156d8",
+    "masterName": "omez 40 mg injection",
+    "duplicates": [
+      {
+        "id": "6a048e728b2160a3c7e7178b",
+        "name": "omez 40 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-13T14:45:25.076Z"
+  },
+  {
+    "canonicalKey": "omez|10mg",
+    "masterId": "69f3602e9993129c11b156e6",
+    "masterName": "omez",
+    "duplicates": [
+      {
+        "id": "6a048e5a8b2160a3c7e71789",
+        "name": "omez 10mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-13T14:45:25.375Z"
+  },
+  {
+    "canonicalKey": "ocid|20mg",
+    "masterId": "69f3602e9993129c11b15704",
+    "masterName": "ocid",
+    "duplicates": [
+      {
+        "id": "6a048e2b8b2160a3c7e71786",
+        "name": "ocid 20mg capsule",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-13T14:45:25.684Z"
+  },
+  {
+    "canonicalKey": "metsmall|1000mg",
+    "masterId": "69f4c3539993129c11b19b02",
+    "masterName": "metsmall 1000mg tablets",
+    "duplicates": [
+      {
+        "id": "6a048ccf8b2160a3c7e71775",
+        "name": "metsmall 1000 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-13T14:45:25.995Z"
+  }
+]

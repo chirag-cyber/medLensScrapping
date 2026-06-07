@@ -1,0 +1,172 @@
+{
+  "medicines": [
+    {
+      "id": "abvida 100mg sr",
+      "brand_name": "abvida 100mg sr",
+      "full_name": "abvida 100mg sr",
+      "generic_name": "",
+      "salt_molecules": "",
+      "salt": "",
+      "strength": "",
+      "form": "",
+      "pack_label": "",
+      "pack_size": "",
+      "manufacturer": "",
+      "category": "",
+      "rx_required": false,
+      "image": "",
+      "store_prices": [
+        {
+          "store": "Truemeds",
+          "name": "Istavel 100mg Tablet 10",
+          "price": 128.25,
+          "mrp": 160.31,
+          "discount": 20.0,
+          "url": "https://www.truemeds.in/medicine/istavel-100-mg-tablet-10-tm-tacr1-079282",
+          "image": "",
+          "in_stock": true,
+          "per_unit": null,
+          "strip_size": null,
+          "is_janaushadhi": false,
+          "source_label": "",
+          "is_cheapest": true,
+          "multi_best": true,
+          "symbol": "\u2b50"
+        },
+        {
+          "store": "Apollo Pharmacy",
+          "name": "Alzil-Sr 100Mg Tablet",
+          "price": 161.0,
+          "mrp": 161.0,
+          "discount": 0.0,
+          "url": "https://www.apollopharmacy.in/otc/alzil-sr-100mg-tab",
+          "image": "",
+          "in_stock": true,
+          "per_unit": null,
+          "strip_size": null,
+          "is_janaushadhi": false,
+          "source_label": "",
+          "is_cheapest": false,
+          "multi_best": false,
+          "symbol": ""
+        },
+        {
+          "store": "PharmEasy",
+          "name": "Abvida Sr 100mg Strip Of 15 Tablets",
+          "price": 192.2,
+          "mrp": 243.29,
+          "discount": 21.0,
+          "url": "https://pharmeasy.in/online-medicine-order/abvida-sr-100mg-strip-of-15-tablets-3687056",
+          "image": "",
+          "in_stock": true,
+          "per_unit": null,
+          "strip_size": null,
+          "is_janaushadhi": false,
+          "source_label": "",
+          "is_cheapest": false,
+          "multi_best": false,
+          "symbol": ""
+        },
+        {
+          "store": "MedPlus",
+          "name": "ABVIDA SR 100MG TAB",
+          "price": 204.36,
+          "mrp": 243.29,
+          "discount": 16.0,
+          "url": "https://www.medplusmart.com/product/abvida-sr-100mg-tab_ABVI0011",
+          "image": "",
+          "in_stock": true,
+          "per_unit": null,
+          "strip_size": null,
+          "is_janaushadhi": false,
+          "source_label": "",
+          "is_cheapest": false,
+          "multi_best": false,
+          "symbol": ""
+        },
+        {
+          "store": "1mg",
+          "name": "Abvida 100mg Tablet SR",
+          "price": 222.0,
+          "mrp": 243.2,
+          "discount": 8.7,
+          "url": "https://www.1mg.com/drugs/694053",
+          "image": "",
+          "in_stock": true,
+          "per_unit": null,
+          "strip_size": null,
+          "is_janaushadhi": false,
+          "source_label": "",
+          "is_cheapest": false,
+          "multi_best": false,
+          "symbol": ""
+        }
+      ],
+      "coupons": {
+        "Apollo Pharmacy": [
+          {
+            "code": "APOLLO15",
+            "desc": "15% off medicines",
+            "savings": "Up to 15% off",
+            "min_order": 199
+          },
+          {
+            "code": "AHEALTH",
+            "desc": "20% off app order",
+            "savings": "Up to 20% off",
+            "min_order": 399
+          }
+        ],
+        "PharmEasy": [
+          {
+            "code": "PE15",
+            "desc": "15% off all medicines",
+            "savings": "Up to 15% off",
+            "min_order": 0
+          },
+          {
+            "code": "EASY20",
+            "desc": "20% extra above Rs.399",
+            "savings": "Up to 20% off",
+            "min_order": 399
+          }
+        ],
+        "MedPlus": [
+          {
+            "code": "MP10",
+            "desc": "10% off sitewide",
+            "savings": "Up to 10% off",
+            "min_order": 0
+          }
+        ],
+        "1mg": [
+          {
+            "code": "SAVE20",
+            "desc": "20% off on medicines",
+            "savings": "Up to 20% off",
+            "min_order": 299
+          },
+          {
+            "code": "1MGAPP",
+            "desc": "25% off via 1mg app",
+            "savings": "Up to 25% off",
+            "min_order": 0
+          }
+        ]
+      },
+      "source": "direct_api"
+    }
+  ],
+  "total": 1,
+  "multi_recommend": {
+    "store": "Truemeds",
+    "coverage": 1,
+    "total": 1,
+    "pct": 100,
+    "subtotal": 128.25,
+    "savings": 0.0,
+    "full_coverage": true,
+    "symbol": "\u2b50",
+    "savings_vs_split": 0
+  }
+}

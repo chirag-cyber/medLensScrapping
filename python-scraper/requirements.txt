@@ -1,0 +1,15 @@
+# Python Pharmacy Scraping System — Dependencies
+# Install: pip install -r requirements.txt
+
+# HTTP & Scraping
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+
+# Database
+pymongo>=4.6.0
+dnspython>=2.4.0
+
+# Environment
+python-dotenv>=1.0.0
+playwright>=1.41.0

@@ -1,0 +1,89 @@
+[
+  {
+    "canonicalKey": "met xl|12|NOSALT",
+    "masterId": "69f44de69993129c11b16db1",
+    "masterName": "met xl 12",
+    "duplicates": [
+      {
+        "id": "69f44de59993129c11b16d8d",
+        "name": "met xl 12.5mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-11T16:24:57.982Z"
+  },
+  {
+    "canonicalKey": "thyronorm|0|NOSALT",
+    "masterId": "69f4708d9993129c11b17f0b",
+    "masterName": "thyronorm 50mcg tablet",
+    "duplicates": [
+      {
+        "id": "69f4708d9993129c11b17f0c",
+        "name": "thyronorm 25mcg tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      },
+      {
+        "id": "69f4708d9993129c11b17f0d",
+        "name": "thyronorm 75mcg tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:24:58.704Z"
+  },
+  {
+    "canonicalKey": "thyrox|0|NOSALT",
+    "masterId": "69f4708d9993129c11b17f56",
+    "masterName": "thyrox 37.5mcg tablet",
+    "duplicates": [
+      {
+        "id": "6a01df35cae6fa0ef25f1659",
+        "name": "thyrox 100mcg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-11T16:24:59.334Z"
+  },
+  {
+    "canonicalKey": "grandem|1|NOSALT",
+    "masterId": "69fddb7ecae6fa0ef25ee76f",
+    "masterName": "grandem 1mg tablets",
+    "duplicates": [
+      {
+        "id": "69fddb7ecae6fa0ef25ee779",
+        "name": "grandem 1mg injection 1ml",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 1,
+    "mergedAt": "2026-05-11T16:24:59.814Z"
+  },
+  {
+    "canonicalKey": "euthyrox|0|NOSALT",
+    "masterId": "6a01df3bcae6fa0ef25f165f",
+    "masterName": "euthyrox 50mcg tablets",
+    "duplicates": [
+      {
+        "id": "6a01df3bcae6fa0ef25f1661",
+        "name": "euthyrox 75mcg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:25:00.294Z"
+  }
+]

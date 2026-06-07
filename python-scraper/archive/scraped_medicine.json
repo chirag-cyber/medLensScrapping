@@ -1,0 +1,167 @@
+{
+  "query": "crocin",
+  "clinical_info": {
+    "composition": "Caffeine (50mg) + Paracetamol (650mg)",
+    "description": "Crocin Pain Relief Tablet is a combination of two medicines used in the treatment of headache. It helps relieve headache by blocking the release of certain chemical messengers that causes headache. Your doctor will advise how much Crocin Pain Relief Tablet you need to take. It can be taken with or without food. You should take the medicine regularly while you do need it and try not to miss doses as it will become less effective. It should be used with caution in people who have any problems with their heart, kidneys, or liver.Using this medicine may cause sleep problems (insomnia), nervousness, irritation, or restlessness. If you experience any of such side effects that do not go away or worsen, you should let your doctor know. Your doctor may be able to suggest ways of preventing or reducing the symptoms. In general, you should try to use the smallest amount necessary to control your symptoms.Before using the medicine, you should tell your doctor if you have any other illnesses or disorders. It may also affect, or be affected by, some other medicines you are using so let your doctor know all the other medicines you are taking. Do not consume alcohol when on treatment with this medicine as it may cause excessive sleepiness. Pregnant and breastfeeding women should consult their doctors first before using the medicine.",
+    "uses": [
+      "Treatment of Headache"
+    ],
+    "side_effects": [
+      "Restlessness",
+      "Insomnia (difficulty in sleeping)",
+      "Nervousness",
+      "Irritation"
+    ],
+    "how_to_use": "Take this medicine in the dose and duration as advised by your doctor. Swallow it as a whole. Do not chew, crush or break it. Crocin Pain Relief Tablet may be taken with or without food.\nAvoid Crocin Pain Relief Tablet with caffeine and chocolate as well as food containing caffeine and chocolate such as tea leaves, cocoa beans.",
+    "how_it_works": "Crocin Pain Relief Tablet is a combination of two medicines: Caffeine and Paracetamol.  Caffeine narrows the blood vessels in the brain to reduce headache.  Paracetamol is an analgesic (pain reliever) which works by blocking the release of certain chemical messengers that cause pain.  Together, they relieve headache effectively.",
+    "safety_advice": {
+      "alcohol": {
+        "status": "UNSAFE",
+        "text": "Alcohol should be used with caution while taking Crocin Pain Relief Tablet."
+      },
+      "pregnancy": {
+        "status": "CAUTION",
+        "text": "Crocin Pain Relief Tablet is not recommended during pregnancy as there is positive evidence of fetal risk based on animal studies. However, it may still be prescribed by a doctor in situations where the benefits outweigh the risks."
+      },
+      "breastfeeding": {
+        "status": "SAFE",
+        "text": "Crocin Pain Relief Tablet is unsafe to use during breastfeeding. Data suggests that the drug may cause toxicity to the baby."
+      },
+      "driving": {
+        "status": "SAFE",
+        "text": "SAFE"
+      },
+      "kidney": {
+        "status": "CAUTION",
+        "text": "CAUTION"
+      },
+      "liver": {
+        "status": "CAUTION",
+        "text": "CAUTION"
+      }
+    },
+    "quick_tips": [
+      "Crocin Pain Relief Tablet is used to get relief from headache.",
+      "You can take a dose of Crocin Pain Relief Tablet every 4-6 hours if needed, up to four times a day. Remember to leave at least four hours between doses and do not take more than four doses in any 24-hour period.",
+      "Taking too much of this medicine can cause damage to your liver because of the presence of paracetamol in it.",
+      "Managing your stress levels well and taking 6-7 hours of sleep at night can help prevent a headache."
+    ],
+    "drug_interactions": [],
+    "substitutes": [],
+    "faqs": [
+      {
+        "question": "What is the rationale behind using caffeine with paracetamol?",
+        "answer": "Caffeine is often combined with paracetamol because it increases the effectiveness of paracetamol."
+      },
+      {
+        "question": "What if I overdose on Crocin Pain Relief Tablet?",
+        "answer": "Contact your doctor immediately even if you feel well. An overdose of Crocin Pain Relief Tablet can cause serious liver damage. Symptoms of liver damage are fever, rash, loss of appetite, nausea, vomiting, fatigue, stomach pain, dark urine, and yellow skin or eyes."
+      },
+      {
+        "question": "What is the recommended dose of Crocin Pain Relief Tablet?",
+        "answer": "The recommended doses for adults and children are different. Adults should take 1-2 tablets every 4 hours. Do not take more than 8 tablets a day. Whereas, children should be given 1 tablet every 4 hours. Do not give more than 4 tablets a day."
+      },
+      {
+        "question": "Can I take Crocin Pain Relief Tablet for headache everyday?",
+        "answer": "Avoid using Crocin Pain Relief Tablet for more than 2-3 days per week for headache. Its overuse can instead lead to the occurrence of a medicine-overuse headache."
+      },
+      {
+        "question": "What are the instructions for the storage and disposal of Crocin Pain Relief Tablet?",
+        "answer": "Keep this medicine in the packet or the container it came in, tightly closed. Store it according to the instructions mentioned on the pack or label. Dispose of the unused medicine. Make sure it is not consumed by pets, children and other people."
+      },
+      {
+        "question": "Can the use of Crocin Pain Relief Tablet cause damage to the liver?",
+        "answer": "Crocin Pain Relief Tablet contains paracetamol. This medicine is known to cause harm to the liver in high doses. Also, avoid drinking alcohol while taking this medicine, as it may further increase your risk of liver damage. Use of this medicine should preferably be avoided in patients with the underlying liver disease. Contact your doctor immediately if you notice any early signs and symptoms of liver damage. These symptoms may include fever, rash, loss of appetite, nausea, vomiting, fatigue, stomach pain, dark urine, yellow skin or eyes and abnormal liver enzymes."
+      }
+    ],
+    "manufacturer": "GlaxoSmithKline India Pvt. Ltd.",
+    "storage": "",
+    "fact_box": {
+      "habit_forming": "No",
+      "therapeutic_class": "PAIN ANALGESICS"
+    },
+    "missed_dose": "If you miss a dose of Crocin Pain Relief Tablet, take it as soon as possible. However, if it is almost time for your next dose, skip the missed dose and go back to your regular schedule. Do not double the dose.",
+    "prescription_status": "prescription",
+    "dosage_form": "Tablet",
+    "administration_route": "Oral Route"
+  },
+  "platforms": [
+    {
+      "platform": "PHARMEASY",
+      "name": "Crocin Advance 500Mg Strip Of 20 Tablets",
+      "price": 15.45,
+      "mrp": 19.31,
+      "discount_percent": 19.99,
+      "pack_size": "20 Tablet(s) in Strip",
+      "url": "https://pharmeasy.in/online-medicine-order/crocin-advance-500mg-strip-of-20-tablets-493507",
+      "manufacturer": "GLAXOSMITHKLINE",
+      "in_stock": true
+    },
+    {
+      "platform": "APOLLO",
+      "name": "Crocin Advance Tablet 20's",
+      "price": 15.5,
+      "mrp": 108.5,
+      "discount_percent": 85.71,
+      "pack_size": "20 Tablet",
+      "url": "https://www.apollopharmacy.in/otc/crocin-advance-tablet",
+      "manufacturer": "Apollo Partner",
+      "in_stock": true
+    },
+    {
+      "platform": "TRUEMEDS",
+      "name": "Crocin Advance Tablet 20",
+      "price": 16.99,
+      "mrp": 19.31,
+      "discount_percent": 12.01,
+      "pack_size": "Strip of 20 Units",
+      "url": "https://www.truemeds.in/otc/crocin-advance-500-mg-tablet-20-tm-tacr1-053143",
+      "manufacturer": "Glaxosmithkline Pharmaceuticals Ltd.",
+      "in_stock": true
+    },
+    {
+      "platform": "NETMEDS",
+      "name": "CROCIN ADVANCE Tablet 20's",
+      "price": 17.77,
+      "mrp": 17.77,
+      "discount_percent": 0.0,
+      "pack_size": "Strip of 20  tablets",
+      "url": "https://www.netmeds.com/product/crocin-advance-tablet-20s-lxelk2-8465065",
+      "manufacturer": "Glaxosmithkline Pharmaceuticals Ltd",
+      "in_stock": true
+    },
+    {
+      "platform": "MEDPLUS",
+      "name": "CROCIN ADVANCE TAB",
+      "price": 18.73,
+      "mrp": 19.31,
+      "discount_percent": 3.0,
+      "pack_size": "",
+      "url": "https://www.medplusmart.com/product/crocin-advance-tab_croc0012",
+      "manufacturer": "GLAXOSMITHKLINE ASIA PVT LTD",
+      "in_stock": true
+    },
+    {
+      "platform": "PLATINUMRX",
+      "name": "Crocin 650 Advance Tablet",
+      "price": 30.91,
+      "mrp": 30.91,
+      "discount_percent": 0.0,
+      "pack_size": "15 tablets",
+      "url": "https://www.platinumrx.in/medicines/Crocin%20650%20Advance%20Tablet/1111070",
+      "manufacturer": "GlaxoSmithKline Consumer Healthcare",
+      "in_stock": true
+    },
+    {
+      "platform": "1MG",
+      "name": "Crocin Pain Relief Tablet",
+      "price": 77.2,
+      "mrp": 82.01,
+      "discount_percent": 5.87,
+      "pack_size": "strip of 15 tablets",
+      "url": "https://www.1mg.com/drugs/crocin-pain-relief-tablet-323789",
+      "manufacturer": "",
+      "in_stock": true
+    }
+  ]
+}

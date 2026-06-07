@@ -1,0 +1,371 @@
+[
+  {
+    "canonicalKey": "provanol plus|5mg",
+    "masterId": "69f450149993129c11b16ed5",
+    "masterName": "provanol plus",
+    "duplicates": [
+      {
+        "id": "6a0209e6cae6fa0ef25f1b2a",
+        "name": "provanol plus 5mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:56:47.659Z"
+  },
+  {
+    "canonicalKey": "folitrax|25mg",
+    "masterId": "69f4736e9993129c11b18095",
+    "masterName": "folitrax-25 tablet",
+    "duplicates": [
+      {
+        "id": "6a020818cae6fa0ef25f1afc",
+        "name": "folitrax 25 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:56:48.512Z"
+  },
+  {
+    "canonicalKey": "szn|500mg",
+    "masterId": "69f477f89993129c11b181b7",
+    "masterName": "szn 500mg tablet",
+    "duplicates": [
+      {
+        "id": "6a020871cae6fa0ef25f1b05",
+        "name": "szn 500 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:56:49.017Z"
+  },
+  {
+    "canonicalKey": "sulfazee|1000mg",
+    "masterId": "69f477f89993129c11b181dc",
+    "masterName": "sulfazee 1000mg tablet",
+    "duplicates": [
+      {
+        "id": "6a020840cae6fa0ef25f1b02",
+        "name": "sulfazee 1000 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:56:49.610Z"
+  },
+  {
+    "canonicalKey": "gliptagreat|50mg",
+    "masterId": "69f483259993129c11b1869f",
+    "masterName": "gliptagreat",
+    "duplicates": [
+      {
+        "id": "6a0208fecae6fa0ef25f1b12",
+        "name": "gliptagreat 50mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:56:50.255Z"
+  },
+  {
+    "canonicalKey": "galvus met|500mg+50mg",
+    "masterId": "69f483259993129c11b186a0",
+    "masterName": "galvus met 50 mg 500 mg tablet",
+    "duplicates": [
+      {
+        "id": "6a020904cae6fa0ef25f1b15",
+        "name": "galvus met 50mg 500mg tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:56:51.250Z"
+  },
+  {
+    "canonicalKey": "cipvildin m|500mg+50mg",
+    "masterId": "69f483259993129c11b186b0",
+    "masterName": "cipvildin m 500mg 50mg tablet",
+    "duplicates": [
+      {
+        "id": "6a0208f8cae6fa0ef25f1b10",
+        "name": "cipvildin m 50 500mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:56:55.092Z"
+  },
+  {
+    "canonicalKey": "gluvilda|50mg",
+    "masterId": "69f483259993129c11b186e0",
+    "masterName": "gluvilda",
+    "duplicates": [
+      {
+        "id": "6a0208b7cae6fa0ef25f1b09",
+        "name": "gluvilda 50mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:56:55.557Z"
+  },
+  {
+    "canonicalKey": "vysov xr|100mg",
+    "masterId": "69f483259993129c11b186e1",
+    "masterName": "vysov xr 100mg tablet",
+    "duplicates": [
+      {
+        "id": "6a020914cae6fa0ef25f1b1f",
+        "name": "vysov xr",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:56:56.012Z"
+  },
+  {
+    "canonicalKey": "vilnip|50mg",
+    "masterId": "69f483259993129c11b18708",
+    "masterName": "vilnip tablet",
+    "duplicates": [
+      {
+        "id": "6a0208ebcae6fa0ef25f1b0e",
+        "name": "vilnip 50mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:56:56.559Z"
+  },
+  {
+    "canonicalKey": "jalra m|500mg+50mg",
+    "masterId": "69f483269993129c11b18746",
+    "masterName": "jalra m 50 500mg tablet",
+    "duplicates": [
+      {
+        "id": "6a020904cae6fa0ef25f1b16",
+        "name": "jalra m 50 500mg tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:56:57.035Z"
+  },
+  {
+    "canonicalKey": "vildamac m|500mg+50mg",
+    "masterId": "69f483269993129c11b18747",
+    "masterName": "vildamac m 50 500mg tablet",
+    "duplicates": [
+      {
+        "id": "6a020904cae6fa0ef25f1b17",
+        "name": "vildamac m 50 500 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:56:58.093Z"
+  },
+  {
+    "canonicalKey": "galvus met|1000mg+50mg",
+    "masterId": "69f483269993129c11b18748",
+    "masterName": "galvus met 50 1000mg tablet",
+    "duplicates": [
+      {
+        "id": "6a020904cae6fa0ef25f1b18",
+        "name": "galvus met 50 1000mg tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:56:59.013Z"
+  },
+  {
+    "canonicalKey": "zomelis met|500mg+50mg",
+    "masterId": "69f483269993129c11b18762",
+    "masterName": "zomelis met 50 500mg tablets",
+    "duplicates": [
+      {
+        "id": "6a020904cae6fa0ef25f1b19",
+        "name": "zomelis met 50 500mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:56:59.936Z"
+  },
+  {
+    "canonicalKey": "vildamac|50mg",
+    "masterId": "69f483269993129c11b1876f",
+    "masterName": "vildamac",
+    "duplicates": [
+      {
+        "id": "6a0208b7cae6fa0ef25f1b08",
+        "name": "vildamac 50mg tablets",
+        "platforms": [
+          "netmeds",
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:57:00.633Z"
+  },
+  {
+    "canonicalKey": "vilact|50mg",
+    "masterId": "69f483269993129c11b18790",
+    "masterName": "vilact",
+    "duplicates": [
+      {
+        "id": "6a0208b7cae6fa0ef25f1b0a",
+        "name": "vilact 50mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:57:01.199Z"
+  },
+  {
+    "canonicalKey": "olmezest|40mg",
+    "masterId": "69f495589993129c11b18f63",
+    "masterName": "olmezest 40mg tablet",
+    "duplicates": [
+      {
+        "id": "6a0209afcae6fa0ef25f1b27",
+        "name": "olmezest 40 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:57:01.827Z"
+  },
+  {
+    "canonicalKey": "prazopill xl|2mg",
+    "masterId": "69f49a359993129c11b190c7",
+    "masterName": "prazopill xl 2",
+    "duplicates": [
+      {
+        "id": "6a0209f6cae6fa0ef25f1b2d",
+        "name": "prazopill xl 2",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:57:02.409Z"
+  },
+  {
+    "canonicalKey": "biozocin xl|2.5mg",
+    "masterId": "69f49a369993129c11b190f9",
+    "masterName": "biozocin 2.5 xl tablet",
+    "duplicates": [
+      {
+        "id": "6a020a17cae6fa0ef25f1b2f",
+        "name": "biozocin xl 2.5mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:57:02.979Z"
+  },
+  {
+    "canonicalKey": "prazopress xl|5mg",
+    "masterId": "69f49a369993129c11b19157",
+    "masterName": "prazopress xl",
+    "duplicates": [
+      {
+        "id": "6a0209e6cae6fa0ef25f1b29",
+        "name": "prazopress xl 5mg tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:57:03.604Z"
+  },
+  {
+    "canonicalKey": "dgson vm|500mg",
+    "masterId": "69f5f174da4a31b421a8a01b",
+    "masterName": "dgson vm 500 tablet",
+    "duplicates": [
+      {
+        "id": "6a020965cae6fa0ef25f1b25",
+        "name": "dgson vm 500 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:57:04.059Z"
+  },
+  {
+    "canonicalKey": "dapaone sm|500mg",
+    "masterId": "69f7279eda4a31b421a8aabf",
+    "masterName": "dapaone sm 500 tablet",
+    "duplicates": [
+      {
+        "id": "6a020951cae6fa0ef25f1b23",
+        "name": "dapaone sm 500 tablet",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:57:04.492Z"
+  },
+  {
+    "canonicalKey": "dapamac l|5mg",
+    "masterId": "69f74233da4a31b421a8b6c2",
+    "masterName": "dapamac l 5",
+    "duplicates": [
+      {
+        "id": "6a020936cae6fa0ef25f1b21",
+        "name": "dapamac l 5",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-11T16:57:05.028Z"
+  }
+]

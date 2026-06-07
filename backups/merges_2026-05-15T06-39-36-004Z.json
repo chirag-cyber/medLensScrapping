@@ -1,0 +1,418 @@
+[
+  {
+    "canonicalKey": "dolo|650mg",
+    "masterId": "69f3537d9993129c11b15211",
+    "masterName": "dolo-650 tablet",
+    "duplicates": [
+      {
+        "id": "6a06bf588b2160a3c7e7abb3",
+        "name": "dolo 650 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:24.563Z"
+  },
+  {
+    "canonicalKey": "dolopar|650mg",
+    "masterId": "69f3537d9993129c11b15213",
+    "masterName": "dolopar-650 tablet",
+    "duplicates": [
+      {
+        "id": "6a06bf618b2160a3c7e7abbb",
+        "name": "dolopar 650 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:27.016Z"
+  },
+  {
+    "canonicalKey": "dolo|500mg",
+    "masterId": "69f3537d9993129c11b15214",
+    "masterName": "dolo-500 tablet",
+    "duplicates": [
+      {
+        "id": "6a06bf588b2160a3c7e7abb2",
+        "name": "dolo 500 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:30.192Z"
+  },
+  {
+    "canonicalKey": "brufen|600mg",
+    "masterId": "69f354449993129c11b1524c",
+    "masterName": "brufen 600 tablet",
+    "duplicates": [
+      {
+        "id": "6a06bece8b2160a3c7e7ab72",
+        "name": "brufen 600 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:31.583Z"
+  },
+  {
+    "canonicalKey": "ibugesic plus|400mg",
+    "masterId": "69f354459993129c11b152aa",
+    "masterName": "ibugesic plus tablet",
+    "duplicates": [
+      {
+        "id": "6a06bf878b2160a3c7e7abc8",
+        "name": "ibugesic plus tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:32.973Z"
+  },
+  {
+    "canonicalKey": "herpex|5mg",
+    "masterId": "69f374e29993129c11b16231",
+    "masterName": "herpex 5 cream",
+    "duplicates": [
+      {
+        "id": "6a06bd8f8b2160a3c7e7ab0b",
+        "name": "herpex-5 cream",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:35.772Z"
+  },
+  {
+    "canonicalKey": "acivir dt|800mg",
+    "masterId": "69f374e29993129c11b16232",
+    "masterName": "acivir 800 dt tablet",
+    "duplicates": [
+      {
+        "id": "6a06bd938b2160a3c7e7ab11",
+        "name": "acivir dt 800mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:37.500Z"
+  },
+  {
+    "canonicalKey": "napra d|500mg",
+    "masterId": "69f377e79993129c11b1642b",
+    "masterName": "napra d 500 tablet",
+    "duplicates": [
+      {
+        "id": "6a06bda88b2160a3c7e7ab25",
+        "name": "napra d 500 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:41.340Z"
+  },
+  {
+    "canonicalKey": "napra d|250mg",
+    "masterId": "69f377e79993129c11b1642f",
+    "masterName": "napra d 250 tablet",
+    "duplicates": [
+      {
+        "id": "6a06bda88b2160a3c7e7ab23",
+        "name": "napra d 250 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:45.734Z"
+  },
+  {
+    "canonicalKey": "naprodom|500mg",
+    "masterId": "69f377e99993129c11b164f5",
+    "masterName": "naprodom 500 tablet",
+    "duplicates": [
+      {
+        "id": "6a06bdb58b2160a3c7e7ab32",
+        "name": "naprodom 500mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:47.036Z"
+  },
+  {
+    "canonicalKey": "naxdom|500mg",
+    "masterId": "69f377e99993129c11b16510",
+    "masterName": "naxdom 500 tablet",
+    "duplicates": [
+      {
+        "id": "6a06bda88b2160a3c7e7ab24",
+        "name": "naxdom 500 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:52.055Z"
+  },
+  {
+    "canonicalKey": "naxdom|250mg",
+    "masterId": "69f377e99993129c11b16515",
+    "masterName": "naxdom 250 tablet",
+    "duplicates": [
+      {
+        "id": "6a06bda88b2160a3c7e7ab22",
+        "name": "naxdom 250 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:55.390Z"
+  },
+  {
+    "canonicalKey": "budecort respule x|0.5mg+2ml",
+    "masterId": "69f465949993129c11b179da",
+    "masterName": "budecort 0.5mg respule 5x2ml",
+    "duplicates": [
+      {
+        "id": "6a06bdc78b2160a3c7e7ab3d",
+        "name": "budecort 0.5mg respule 5x2ml",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:56.309Z"
+  },
+  {
+    "canonicalKey": "galvus met|500mg+50mg",
+    "masterId": "69f483259993129c11b186a0",
+    "masterName": "galvus met 50 mg 500 mg tablet",
+    "duplicates": [
+      {
+        "id": "6a06be218b2160a3c7e7ab49",
+        "name": "galvus met 50mg 500mg tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:57.759Z"
+  },
+  {
+    "canonicalKey": "jalra m|500mg+50mg",
+    "masterId": "69f483269993129c11b18746",
+    "masterName": "jalra m 50 500mg tablet",
+    "duplicates": [
+      {
+        "id": "6a06be218b2160a3c7e7ab4a",
+        "name": "jalra m 50 500mg tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:41:59.810Z"
+  },
+  {
+    "canonicalKey": "vildamac m|500mg+50mg",
+    "masterId": "69f483269993129c11b18747",
+    "masterName": "vildamac m 50 500mg tablet",
+    "duplicates": [
+      {
+        "id": "6a06be218b2160a3c7e7ab4b",
+        "name": "vildamac m 50 500 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:42:03.596Z"
+  },
+  {
+    "canonicalKey": "galvus met|1000mg+50mg",
+    "masterId": "69f483269993129c11b18748",
+    "masterName": "galvus met 50 1000mg tablet",
+    "duplicates": [
+      {
+        "id": "6a06be218b2160a3c7e7ab4c",
+        "name": "galvus met 50 1000mg tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:42:22.644Z"
+  },
+  {
+    "canonicalKey": "vilason|50mg",
+    "masterId": "69f483269993129c11b18773",
+    "masterName": "vilason",
+    "duplicates": [
+      {
+        "id": "6a06be168b2160a3c7e7ab47",
+        "name": "vilason 50mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:42:24.303Z"
+  },
+  {
+    "canonicalKey": "dr willmar schwabe senna mother tincture q|30ml",
+    "masterId": "69f741ffda4a31b421a8b61f",
+    "masterName": "dr willmar schwabe india senna mother tincture q",
+    "duplicates": [
+      {
+        "id": "6a06be588b2160a3c7e7ab53",
+        "name": "dr. willmar schwabe india senna mother tincture q 30 ml",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:42:24.891Z"
+  },
+  {
+    "canonicalKey": "sbl senna mother tincture q|30ml",
+    "masterId": "69f741ffda4a31b421a8b621",
+    "masterName": "sbl senna mother tincture q",
+    "duplicates": [
+      {
+        "id": "6a06be588b2160a3c7e7ab52",
+        "name": "sbl senna mother tincture q 30 ml",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:42:25.539Z"
+  },
+  {
+    "canonicalKey": "risdone mt|0.5mg",
+    "masterId": "69f996f9da4a31b421a8e383",
+    "masterName": "risdone mt 0.5mg tablets",
+    "duplicates": [
+      {
+        "id": "6a06bee28b2160a3c7e7ab78",
+        "name": "risdone mt 0.5mg tablets",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:42:26.309Z"
+  },
+  {
+    "canonicalKey": "brufen|400mg",
+    "masterId": "69f9e3bada4a31b421a8e95a",
+    "masterName": "brufen 400mg tablets",
+    "duplicates": [
+      {
+        "id": "6a06bece8b2160a3c7e7ab73",
+        "name": "brufen 400 tablet",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:42:26.761Z"
+  },
+  {
+    "canonicalKey": "derinide respules|0.5mg+2ml",
+    "masterId": "6a019939cae6fa0ef25f1184",
+    "masterName": "derinide 0.5mg respules 2ml",
+    "duplicates": [
+      {
+        "id": "6a06bdc78b2160a3c7e7ab3e",
+        "name": "derinide 0.5mg respules 2ml",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:42:27.135Z"
+  },
+  {
+    "canonicalKey": "budecort rotacap|200mg",
+    "masterId": "6a034386cae6fa0ef25f35a4",
+    "masterName": "budecort 200 rotacap",
+    "duplicates": [
+      {
+        "id": "6a06bdd28b2160a3c7e7ab42",
+        "name": "budecort 200 rotacap",
+        "platforms": [
+          "netmeds"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:42:27.513Z"
+  },
+  {
+    "canonicalKey": "dr willmar schwabe senna dilution ch|30|senna",
+    "masterId": "69f74200da4a31b421a8b65d",
+    "masterName": "dr willmar schwabe india senna dilution 30 ch",
+    "duplicates": [
+      {
+        "id": "6a06be5e8b2160a3c7e7ab56",
+        "name": "dr. willmar schwabe india senna dilution 30 ch 30 ml",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:44:28.758Z"
+  },
+  {
+    "canonicalKey": "budate md transhaler|0|budesonide",
+    "masterId": "6a06315e8b2160a3c7e74cb7",
+    "masterName": "budate 100mcg bottle of 200md transhaler",
+    "duplicates": [
+      {
+        "id": "6a06bdfa8b2160a3c7e7ab45",
+        "name": "budate 200mcg bottle of 200md transhaler",
+        "platforms": [
+          "pharmeasy"
+        ]
+      }
+    ],
+    "pricesMoved": 0,
+    "mergedAt": "2026-05-15T06:44:30.228Z"
+  }
+]

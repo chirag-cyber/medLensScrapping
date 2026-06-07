@@ -6,21 +6,28 @@ A production-grade **medicine data extraction, transformation, and loading pipel
 
 ## 🏗️ Architecture
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────┐
 │                    MediSaathi ETL Pipeline                    │
 │                                                              │
 │  ┌──────────┐   ┌──────────────┐   ┌──────────────────────┐ │
 │  │ STAGE 1  │──▶│   STAGE 2    │──▶│      STAGE 3         │ │
-│  │ Scrape   │   │  Interlink   │   │  Enrich              │ │
+│  │ Scrape   │   │  Interlink   │   │  Discovery & Fill    │ │
 │  │          │   │              │   │  ┌──────────────────┐ │ │
-│  │ • 1mg    │   │ • Exact key  │   │  │ 3a. Targeted     │ │ │
-│  │ • Apollo │   │ • Fuzzy name │   │  │ (missing prices) │ │ │
-│  │ • Netmeds│   │ • Int dosage │   │  ├──────────────────┤ │ │
-│  │ • Pharm  │   │              │   │  │ 3b. LLM Enrich   │ │ │
-│  │   Easy   │   │              │   │  │ (AI metadata)    │ │ │
-│  └──────────┘   └──────────────┘   │  └──────────────────┘ │ │
-│                                     └──────────────────────┘ │
+│  │ • 1mg    │   │ • Exact key  │   │  │ 3a. Alternatives │ │ │
+│  │ • Apollo │   │ • Fuzzy name │   │  ├──────────────────┤ │ │
+│  │ • Netmeds│   │ • Int dosage │   │  │ 3b. Salt/Dosage  │ │ │
+│  │ • Pharm  │   │              │   │  └──────────────────┘ │ │
+│  │   Easy   │   │              │   │                      │ │
+│  └──────────┘   └──────────────┘   │  ┌──────────────────┐ │ │
+│                                     │  │      STAGE 4     │ │ │
+│                                     │  │    Enrichment    │ │ │
+│                                     │  │  ┌────────────┐  │ │ │
+│                                     │  │  │ 4a. Target │  │ │ │
+│                                     │  │  ├────────────┤  │ │ │
+│                                     │  │  │ 4b. LLM    │  │ │ │
+│                                     │  │  └────────────┘  │ │ │
+│                                     │  └──────────────────┘ │ │
 │                           │                                  │
 │                     ┌─────▼─────┐                            │
 │                     │  MongoDB  │                            │
@@ -73,7 +80,23 @@ Finds and merges duplicate medicine records that scrapers stored under slightly 
 
 ---
 
-### Stage 3a — Targeted Enrichment (`targeted-enrichment.js`)
+### Stage 3a — Cross-Platform Alternative Discovery (`discover-alternatives.js`)
+
+**What it does:**
+Scans for platform coverage gaps and actively searches across missing platforms (via SPA automation/Puppeteer) using the medicine's salt composition. Ensures every medicine has generic alternatives correctly mapped.
+
+---
+
+### Stage 3b — Salt & Dosage Fill (`fill-salt-dosage.js`)
+
+**What it does:**
+A two-pass automated filler for incomplete medicine records:
+- **Pass 1 (Regex):** Extracts dosage directly from the medicine name string (free).
+- **Pass 2 (LLM):** Uses Groq API to accurately classify the active pharmaceutical salt/composition based on the brand name and manufacturer. Includes automatic multi-key API rotation to handle rate limits.
+
+---
+
+### Stage 4a — Targeted Enrichment (`targeted-enrichment.js`)
 
 **What it does:**
 Scans the database for medicines that are missing prices from priority platforms and launches targeted scrapers to find them.
@@ -82,7 +105,7 @@ Scans the database for medicines that are missing prices from priority platforms
 
 ---
 
-### Stage 3b — LLM Enrichment (`enrich-medicines.js`)
+### Stage 4b — LLM Enrichment (`enrich-medicines.js`)
 
 **What it does:**
 Uses AI (Groq API) to populate missing metadata:
@@ -132,6 +155,8 @@ npm start
 |---|---|---|---|---|
 | **Scrape** | `npm run crawl:resume` | 30–60 min | Every 6 hours | Platform data changes throughout the day |
 | **Interlink** | `npm run interlink` | 2–5 min | After every scrape | Clean duplicates before enrichment |
+| **Discovery** | `npm run discover:alternatives` | 15–30 min | Every 12 hours | Find same-salt generic alternatives |
+| **Fill Data** | `npm run fill:salt-dosage` | 5–10 min | Every 12 hours | Auto-extract missing salt and dosage |
 | **Targeted Enrich** | `npm run targeted-enrich` | 15–30 min | Every 12 hours | Fill missing platform prices |
 | **LLM Enrich** | `npm run enrich` | 10–20 min | Once daily | AI metadata is stable, no need to refresh often |
 | **Full Pipeline** | `npm run pipeline` | 60–120 min | Once daily (night) | End-to-end refresh |
@@ -199,9 +224,15 @@ If your server is running, you can trigger batches via HTTP — perfect for serv
 | `npm run crawl:dry-run` | Preview scrape queries without executing |
 | `npm run interlink` | Run deduplication (live merge) |
 | `npm run interlink:dry-run` | Preview deduplication without merging |
-| `npm run targeted-enrich` | Fill missing platform prices (50 medicines) |
-| `npm run enrich` | Run LLM enrichment |
-| `npm run pipeline` | Run full pipeline: Scrape → Interlink → Enrich |
+| `npm run discover:alternatives` | Find same-salt alternatives on missing platforms (limit 50) |
+| `npm run discover:alternatives:all` | Run alternative discovery on a larger batch (limit 500) |
+| `npm run fill:salt-dosage` | Fill missing salt/dosage via regex & LLM (limit 50) |
+| `npm run fill:salt-dosage:dry` | Preview salt/dosage fill without modifying DB |
+| `npm run backfill:dosage` | One-off backfill to extract dosage from medicine names |
+| `npm run targeted-enrich` | Fill missing platform prices by exact brand name (limit 50) |
+| `npm run enrich` | Run LLM enrichment for descriptions/side effects (limit 50) |
+| `npm run enrich:large` | Run LLM enrichment on a larger batch (limit 500) |
+| `npm run pipeline` | Run full pipeline sequentially (Crawl → Interlink → Discover → Fill → Target → Enrich) |
 
 ---
 
