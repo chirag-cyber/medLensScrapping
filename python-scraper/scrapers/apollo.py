@@ -14,6 +14,9 @@ class ApolloScraper(PlaywrightBaseScraper, PharmacyScraper):
 
     BASE_URL = "https://www.apollopharmacy.in"
 
+    # Apollo renders results from an XHR; wait on the product links it produces.
+    PRODUCT_SELECTOR = 'a[href*="/otc/"], a[href*="/medicine/"]'
+
     @property
     def platform_name(self) -> str:
         return "apollo"
@@ -22,23 +25,25 @@ class ApolloScraper(PlaywrightBaseScraper, PharmacyScraper):
         return asyncio.run(self.search_async(query))
 
     async def search_async(self, query: str) -> List[Dict]:
+        return await self.retry_search(lambda: self._search_once(query))
+
+    async def _search_once(self, query: str) -> List[Dict]:
         url = f"{self.BASE_URL}/search-medicines/{query.replace(' ', '%20')}"
-        
+
         page = await self.get_page()
         try:
             logger.info(f"[{self.platform_name}] Navigating to {url}")
-            # Use networkidle to ensure AJAX results are loaded
-            await page.goto(url, wait_until="networkidle", timeout=30000)
-            await asyncio.sleep(2.0 + self.delay)
+            # Wait for the product links to render instead of networkidle+sleep.
+            await self.goto_and_wait(page, url, wait_selector=self.PRODUCT_SELECTOR)
             html = await page.content()
         except Exception as e:
             logger.debug(f"[{self.platform_name}] Navigation timeout/error (ignoring): {e}")
             try:
                 html = await page.content()
-            except:
+            except Exception:
                 return []
         finally:
-            await page.context.close()
+            await page.close()
             
         from bs4 import BeautifulSoup
         soup = BeautifulSoup(html, 'lxml')

@@ -15,34 +15,29 @@ class OneMgSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
 
     BASE_URL = "https://www.1mg.com"
 
+    PRODUCT_SELECTOR = '[class*="VerticalProductTile__container"]'
+
     @property
     def platform_name(self) -> str:
         return "1mg"
-
-    async def get_page(self):
-        """Override to use desktop user agent for 1mg, as the locators are for desktop UI."""
-        if not self.browser:
-            await self.start()
-        context = await self.browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            viewport={"width": 1920, "height": 1080}
-        )
-        return await context.new_page()
 
     def search_medicine(self, query: str) -> List[Dict]:
         return asyncio.run(self.search_async(query))
 
     async def search_async(self, query: str) -> List[Dict]:
+        return await self.retry_search(lambda: self._search_once(query))
+
+    async def _search_once(self, query: str) -> List[Dict]:
         url = f"{self.BASE_URL}/search/all?name={query.replace(' ', '+')}"
 
         page = await self.get_page()
         try:
             logger.info(f"[{self.platform_name}] Navigating to {url}")
-            await page.goto(url, wait_until="domcontentloaded", timeout=20000)
-            await page.wait_for_timeout(2500)
+            # Wait for the actual product tiles instead of a blind sleep.
+            await self.goto_and_wait(page, url, wait_selector=self.PRODUCT_SELECTOR)
 
             # Use the proven GitHub selectors
-            cards = await page.locator('[class*="VerticalProductTile__container"]').all()
+            cards = await page.locator(self.PRODUCT_SELECTOR).all()
             logger.info(f"[{self.platform_name}] Found {len(cards)} product tiles.")
 
             standardized_results = []
@@ -122,11 +117,8 @@ class OneMgSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
 
             return standardized_results
 
-        except Exception as e:
-            logger.error(f"[{self.platform_name}] Error: {e}")
-            return []
         finally:
-            await page.context.close()
+            await page.close()
 
 
 if __name__ == "__main__":

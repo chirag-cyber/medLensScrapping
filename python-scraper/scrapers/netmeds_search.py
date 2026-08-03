@@ -18,33 +18,29 @@ class NetmedsSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
 
     BASE_URL = "https://www.netmeds.com"
 
+    # Client-rendered product cards; __NEXT_DATA__ is in the server HTML.
+    PRODUCT_SELECTOR = '.product-card-container, .product-item, .catalogCard'
+
     @property
     def platform_name(self) -> str:
         return "netmeds"
-
-    async def get_page(self):
-        """Override to use desktop user agent for Netmeds."""
-        if not self.browser:
-            await self.start()
-        context = await self.browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            viewport={"width": 1920, "height": 1080}
-        )
-        return await context.new_page()
 
     def search_medicine(self, query: str) -> List[Dict]:
         return asyncio.run(self.search_async(query))
 
     async def search_async(self, query: str) -> List[Dict]:
+        return await self.retry_search(lambda: self._search_once(query))
+
+    async def _search_once(self, query: str) -> List[Dict]:
         # Correct Netmeds search URL discovered via browser subagent
         url = f"{self.BASE_URL}/products?q={query.replace(' ', '%20')}"
-        
+
         page = await self.get_page()
         try:
             logger.info(f"[{self.platform_name}] Navigating to {url}")
-            await page.goto(url, wait_until="domcontentloaded", timeout=20000)
-            await asyncio.sleep(4.0 + self.delay)
-            
+            # __NEXT_DATA__ is in the initial HTML; also give cards a chance to render.
+            await self.goto_and_wait(page, url, wait_selector=self.PRODUCT_SELECTOR)
+
             # --- Strategy 1: Try __NEXT_DATA__ extraction ---
             next_data = await page.evaluate('() => document.getElementById("__NEXT_DATA__")?.textContent')
             if next_data:
@@ -52,18 +48,17 @@ class NetmedsSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
                 if results:
                     logger.info(f"[{self.platform_name}] Extracted {len(results)} results from __NEXT_DATA__")
                     return results
-            
+
             # --- Strategy 2: DOM parsing fallback ---
             html = await page.content()
             results = self._parse_dom(html)
-            
+
             if not results:
                 # --- Strategy 3: Direct URL Fallback (from user script) ---
                 slug = query.lower().replace(' ', '-').replace("'", '-').replace("\\", "-").replace(".", "-").replace("%", "")
                 direct_url = f"{self.BASE_URL}/prescriptions/{slug}"
                 logger.info(f"[{self.platform_name}] Search yielded 0 results, trying direct URL: {direct_url}")
-                await page.goto(direct_url, wait_until="domcontentloaded", timeout=20000)
-                await asyncio.sleep(2)
+                await self.goto_and_wait(page, direct_url, wait_selector="h1")
                 direct_html = await page.content()
                 from bs4 import BeautifulSoup
                 soup = BeautifulSoup(direct_html, 'lxml')
@@ -80,13 +75,10 @@ class NetmedsSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
                             pack_size="", manufacturer="", in_stock=True
                         ))
                     except: pass
-                    
+
             return results
-        except Exception as e:
-            logger.error(f"[{self.platform_name}] Error: {e}")
-            return []
         finally:
-            await page.context.close()
+            await page.close()
 
     def _parse_next_data(self, next_data_str: str) -> List[Dict]:
         """Parse __NEXT_DATA__ for Netmeds search results."""

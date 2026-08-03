@@ -1,11 +1,11 @@
 import logging
-import requests
 from typing import List, Dict
+from scrapers.base import BaseScraper
 from scrapers.interface import PharmacyScraper
 
 logger = logging.getLogger(__name__)
 
-class PlatinumRxScraper(PharmacyScraper):
+class PlatinumRxScraper(BaseScraper, PharmacyScraper):
     """
     PlatinumRx scraper using their internal API for maximum speed and data richness.
     Bypasses Playwright entirely for this platform.
@@ -15,7 +15,8 @@ class PlatinumRxScraper(PharmacyScraper):
     API_URL = "https://backend.platinumrx.in/pdp/fetchPlpInfo"
 
     def __init__(self, delay: float = 0):
-        self.delay = delay
+        # Route through the resilient session (retry/backoff/pooling/rate-limit).
+        super().__init__(delay=delay)
 
     @property
     def platform_name(self) -> str:
@@ -28,7 +29,6 @@ class PlatinumRxScraper(PharmacyScraper):
             "searchType": None
         }
         headers = {
-            "accept": "application/json, text/plain, */*",
             "content-type": "application/json",
             "origin": "https://www.platinumrx.in",
             "referer": "https://www.platinumrx.in/"
@@ -36,13 +36,10 @@ class PlatinumRxScraper(PharmacyScraper):
 
         try:
             logger.info(f"[{self.platform_name}] Fetching API for: {query}")
-            response = requests.post(self.API_URL, json=payload, headers=headers, timeout=15)
-            
-            if response.status_code != 200:
-                logger.error(f"[{self.platform_name}] API error: {response.status_code}")
+            data = self.request_json(self.API_URL, method="POST", json_body=payload, extra_headers=headers)
+            if not data:
                 return []
 
-            data = response.json()
             items = data.get("message", [])
             
             standardized_results = []
@@ -87,6 +84,3 @@ class PlatinumRxScraper(PharmacyScraper):
         """Async wrapper for the API call."""
         import asyncio
         return await asyncio.to_thread(self.search_medicine, query)
-
-    def close(self):
-        pass

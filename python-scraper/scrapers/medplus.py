@@ -15,69 +15,20 @@ class MedplusScraper(PlaywrightBaseScraper, PharmacyScraper):
 
     BASE_URL = "https://www.medplusmart.com"
 
+    # Medplus renders product cards with class 'product-card'.
+    PRODUCT_SELECTOR = '.product-card'
+
     @property
     def platform_name(self) -> str:
         return "medplus"
-
-    async def get_page(self):
-        """Override to use desktop user agent and stealth script for Medplus."""
-        if not self.browser:
-            await self.start()
-        context = await self.browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            viewport={"width": 1920, "height": 1080},
-            extra_http_headers={
-                "Referer": "https://www.google.com/",
-                "Accept-Language": "en-US,en;q=0.9"
-            }
-        )
-        page = await context.new_page()
-        
-        # Comprehensive stealth script injection to bypass WAF & HeadlessChrome checks
-        await page.add_init_script("""
-            // 1. Hide Webdriver
-            Object.defineProperty(navigator, 'webdriver', {
-                get: () => undefined
-            });
-            
-            // 2. Hide HeadlessChrome in UserAgentData Client Hints
-            if (navigator.userAgentData) {
-                const mockBrands = [
-                    { brand: 'Not_A Brand', version: '8' },
-                    { brand: 'Chromium', version: '120' },
-                    { brand: 'Google Chrome', version: '120' }
-                ];
-                Object.defineProperty(navigator.userAgentData, 'brands', {
-                    get: () => mockBrands
-                });
-                
-                const origGetHighEntropyValues = navigator.userAgentData.getHighEntropyValues;
-                navigator.userAgentData.getHighEntropyValues = function(hints) {
-                    return origGetHighEntropyValues.call(navigator.userAgentData, hints).then(values => {
-                        if (values.brands) {
-                            values.brands = mockBrands;
-                        }
-                        return values;
-                    });
-                };
-            }
-            
-            // 3. Spoof Plugins (headless browsers often have 0 plugins)
-            Object.defineProperty(navigator, 'plugins', {
-                get: () => [1, 2, 3, 4, 5]
-            });
-            
-            // 4. Spoof Languages
-            Object.defineProperty(navigator, 'languages', {
-                get: () => ['en-US', 'en']
-            });
-        """)
-        return page
 
     def search_medicine(self, query: str) -> List[Dict]:
         return asyncio.run(self.search_async(query))
 
     async def search_async(self, query: str) -> List[Dict]:
+        return await self.retry_search(lambda: self._search_once(query))
+
+    async def _search_once(self, query: str) -> List[Dict]:
         # Medplus uses Base64 encoded search paths with A:: prefix
         try:
             search_query = f"A::{query}"
@@ -86,40 +37,27 @@ class MedplusScraper(PlaywrightBaseScraper, PharmacyScraper):
         except Exception as e:
             logger.error(f"Error encoding query: {e}")
             url = f"{self.BASE_URL}/searchProduct?productName={query.replace(' ', '+')}"
-        
+
         page = await self.get_page()
         try:
             logger.info(f"[{self.platform_name}] Navigating to {url}")
-            await page.goto(url, wait_until="load", timeout=30000)
-            
-            # Wait for product card links to render
-            try:
-                await page.wait_for_selector('a[href*="/product/"]', timeout=8000)
-            except Exception as wait_err:
-                logger.warning(f"[{self.platform_name}] Timeout waiting for product links: {wait_err}")
-                await page.wait_for_timeout(3000)
-                
+            # Wait for the product cards to render instead of a fixed 3s sleep.
+            await self.goto_and_wait(page, url, wait_selector=self.PRODUCT_SELECTOR)
             html = await page.content()
         except Exception as e:
             logger.error(f"[{self.platform_name}] Navigation error: {e}")
             try:
                 html = await page.content()
-            except:
+            except Exception:
                 return []
         finally:
-            await page.context.close()
-            
-        try:
-            with open("medplus_debug.html", "w", encoding="utf-8") as f:
-                f.write(html)
-        except Exception as file_err:
-            logger.error(f"Failed to write medplus_debug.html: {file_err}")
+            await page.close()
 
         from bs4 import BeautifulSoup
         soup = BeautifulSoup(html, 'lxml')
-        
+
         # Look for product cards
-        cards = soup.select('.product-card')
+        cards = soup.select(self.PRODUCT_SELECTOR)
         if not cards:
             # Fallback to links if no cards
             cards = soup.select('a[href*="/product/"]')

@@ -9,7 +9,7 @@
 
 - Add a deploy-time sitemap validator that rejects broken URLs.
 - Rebuild sitemap from live 200 pages only.
-- Clean medicine template fields so titles and descriptions are complete and unique.
+- Clean medicine template fields so titles are complete and unique.
 
 ## Medium
 

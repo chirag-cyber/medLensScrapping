@@ -1,12 +1,12 @@
 import logging
-import requests
 import asyncio
 from typing import List, Dict
+from scrapers.base import BaseScraper
 from scrapers.interface import PharmacyScraper
 
 logger = logging.getLogger(__name__)
 
-class TruemedsScraper(PharmacyScraper):
+class TruemedsScraper(BaseScraper, PharmacyScraper):
     """
     Truemeds scraper using the discovered secret API (nal.tmmumbai.in).
     This is extremely reliable and bypasses all browser-related blocks.
@@ -16,7 +16,8 @@ class TruemedsScraper(PharmacyScraper):
     API_URL = "https://nal.tmmumbai.in/CustomerService/getSearchResult"
 
     def __init__(self, delay: float = 0):
-        self.delay = delay
+        # Route through the resilient session (retry/backoff/pooling/rate-limit).
+        super().__init__(delay=delay)
 
     @property
     def platform_name(self) -> str:
@@ -34,21 +35,16 @@ class TruemedsScraper(PharmacyScraper):
             "platform": "m_web"
         }
         headers = {
-            "accept": "application/json, text/plain, */*",
             "origin": "https://www.truemeds.in",
             "referer": "https://www.truemeds.in/",
-            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1"
         }
 
         try:
             logger.info(f"[{self.platform_name}] Fetching Secret API for: {query}")
-            response = requests.get(self.API_URL, headers=headers, params=params, timeout=15)
-            
-            if response.status_code != 200:
-                logger.error(f"[{self.platform_name}] API failed with status {response.status_code}")
+            data = self.request_json(self.API_URL, method="GET", params=params, extra_headers=headers)
+            if not data:
                 return []
 
-            data = response.json()
             products_list = data.get("responseData", {}).get("elasticProductDetails", [])
             
             standardized_results = []
@@ -87,6 +83,3 @@ class TruemedsScraper(PharmacyScraper):
     async def search_async(self, query: str) -> List[Dict]:
         """Async wrapper for the secret API call."""
         return await asyncio.to_thread(self.search_medicine, query)
-
-    def close(self):
-        pass

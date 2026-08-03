@@ -60,7 +60,7 @@ class BaseScraper:
             total=max_retries,
             backoff_factor=2,  # 2s, 4s, 8s backoff
             status_forcelist=[429, 500, 502, 503, 504],
-            allowed_methods=["GET"],
+            allowed_methods=["GET", "POST"],
             raise_on_status=False,
         )
         adapter = HTTPAdapter(
@@ -139,6 +139,74 @@ class BaseScraper:
             return None
         except requests.exceptions.RequestException as e:
             logger.error(f"[Request Error] {url}: {e}")
+            return None
+
+    def request_json(
+        self,
+        url: str,
+        method: str = "GET",
+        params: dict | None = None,
+        json_body: dict | None = None,
+        extra_headers: dict | None = None,
+    ) -> dict | list | None:
+        """
+        Fetch a JSON API and return the parsed body (dict/list), or None on error.
+
+        Uses the same pooled, auto-retrying session as get() so JSON APIs get
+        429/5xx backoff, connection reuse, UA rotation, and rate limiting for
+        free. Supports GET (params) and POST (json_body).
+        """
+        self._rate_limit()
+        self._last_request_time = time.time()
+
+        headers = self._get_headers()
+        headers["Accept"] = "application/json, text/plain, */*"
+        if extra_headers:
+            headers.update(extra_headers)
+
+        try:
+            resp = self.session.request(
+                method.upper(),
+                url,
+                headers=headers,
+                params=params,
+                json=json_body,
+                timeout=self.timeout,
+            )
+
+            if resp.status_code == 200:
+                logger.debug(f"[200] {method} {url}")
+                try:
+                    return resp.json()
+                except ValueError as e:
+                    logger.warning(f"[JSON parse] {url}: {e}")
+                    return None
+            elif resp.status_code == 429:
+                logger.warning(f"[429] Rate limited (JSON): {url} — waiting 30s")
+                time.sleep(30)
+                resp = self.session.request(
+                    method.upper(), url, headers=headers,
+                    params=params, json=json_body, timeout=self.timeout,
+                )
+                if resp.status_code == 200:
+                    try:
+                        return resp.json()
+                    except ValueError:
+                        return None
+                logger.error(f"[{resp.status_code}] Still failing after retry: {url}")
+                return None
+            else:
+                logger.warning(f"[{resp.status_code}] Unexpected (JSON): {url}")
+                return None
+
+        except requests.exceptions.Timeout:
+            logger.warning(f"[Timeout] {method} {url}")
+            return None
+        except requests.exceptions.ConnectionError as e:
+            logger.warning(f"[Connection Error] {method} {url}: {e}")
+            return None
+        except requests.exceptions.RequestException as e:
+            logger.error(f"[Request Error] {method} {url}: {e}")
             return None
 
     def close(self):

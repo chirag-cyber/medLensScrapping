@@ -139,7 +139,7 @@ class ScrapeAndSync:
                     best_1mg_result = r
                     
             candidate_1mg_url = best_1mg_result['url']
-            candidate_clinical = self.clinical_fetcher.fetch_clinical_data(onemg_url=candidate_1mg_url)
+            candidate_clinical = await self.clinical_fetcher.fetch_clinical_data_async(onemg_url=candidate_1mg_url)
             candidate_salt = candidate_clinical.get('composition', '')
             normalized_candidate = self._normalize_salt(candidate_salt)
             
@@ -184,7 +184,7 @@ class ScrapeAndSync:
             api_composition = next((m.get('composition') for m in best_matches if m['platform'] in ('truemeds', 'platinumrx') and m.get('composition')), None)
             
             logger.info("Fetching clinical data...")
-            clinical_info = self.clinical_fetcher.fetch_clinical_data(onemg_url=onemg_url, netmeds_url=netmeds_url)
+            clinical_info = await self.clinical_fetcher.fetch_clinical_data_async(onemg_url=onemg_url, netmeds_url=netmeds_url)
             
             if not clinical_info.get('composition') and api_composition:
                 clinical_info['composition'] = api_composition
@@ -300,8 +300,14 @@ class ScrapeAndSync:
 
     def scrape_new(self, query: str):
         """Scrape a single new medicine."""
+        async def _run():
+            try:
+                return await self._process_medicine(query, existing_med_id=None, force_clinical=True)
+            finally:
+                await self.engine.shutdown_async()
+
         try:
-            asyncio.run(self._process_medicine(query, existing_med_id=None, force_clinical=True))
+            asyncio.run(_run())
         except Exception as e:
             logger.error(f"Error scraping {query}: {e}")
 
@@ -344,21 +350,30 @@ class ScrapeAndSync:
         logger.info(f"📊 {total_medicines - current_index} medicines remaining to sync in this cycle.")
 
         async def _run_loop():
-            for i in range(current_index, total_medicines):
-                med_id_str = medicine_ids[i]
+            try:
+                for i in range(current_index, total_medicines):
+                    med_id_str = medicine_ids[i]
+                    try:
+                        med = self.medicines_col.find_one({"_id": ObjectId(med_id_str)})
+                        if med:
+                            med_name = med.get('name')
+                            if med_name:
+                                logger.info(f"Syncing [{i + 1}/{total_medicines}]: {med_name}")
+                                await self._process_medicine(med_name, existing_med_id=med['_id'], force_clinical=update_clinical)
+                                await asyncio.sleep(1) # Be polite to servers
+                    except Exception as e:
+                        logger.error(f"Error syncing medicine ID {med_id_str}: {e}")
+
+                    state["current_index"] = i + 1
+                    self.save_state(state)
+            finally:
+                # Print per-platform yield so a dead selector is obvious.
+                logger.info("📈 Per-platform yield this run:\n%s", self.engine.yield_summary())
+                # Tear down the shared Chromium exactly once, inside the live loop.
                 try:
-                    med = self.medicines_col.find_one({"_id": ObjectId(med_id_str)})
-                    if med:
-                        med_name = med.get('name')
-                        if med_name:
-                            logger.info(f"Syncing [{i + 1}/{total_medicines}]: {med_name}")
-                            await self._process_medicine(med_name, existing_med_id=med['_id'], force_clinical=update_clinical)
-                            await asyncio.sleep(1) # Be polite to servers
+                    await self.engine.shutdown_async()
                 except Exception as e:
-                    logger.error(f"Error syncing medicine ID {med_id_str}: {e}")
-                
-                state["current_index"] = i + 1
-                self.save_state(state)
+                    logger.warning(f"Browser shutdown error (ignoring): {e}")
 
         asyncio.run(_run_loop())
 

@@ -18,6 +18,7 @@ from scrapers.netmeds_search import NetmedsSearchScraper
 from scrapers.truemeds import TruemedsScraper
 from scrapers.platinumrx import PlatinumRxScraper
 from scrapers.medplus import MedplusScraper
+from scrapers import browser_manager
 
 logger = logging.getLogger(__name__)
 
@@ -156,16 +157,38 @@ class UnifiedSearchEngine:
             PlatinumRxScraper(delay=delay),
             MedplusScraper(delay=delay)
         ]
+        # Per-platform yield tracking: name -> {"searched": int, "found": int}
+        self._platform_stats: Dict[str, Dict[str, int]] = {}
 
     async def _search_platform(self, scraper, query: str) -> List[Dict]:
         """Run search for a single platform asynchronously."""
+        name = scraper.platform_name
         try:
             results = await scraper.search_async(query)
-            logger.info(f"[{scraper.platform_name}] Found {len(results)} raw results.")
-            return results
+            logger.info(f"[{name}] Found {len(results)} raw results.")
         except Exception as e:
-            logger.error(f"[{scraper.platform_name}] Error: {e}")
-            return []
+            logger.error(f"[{name}] Error: {e}")
+            results = []
+
+        # Record yield — turns silent selector drift into a visible signal.
+        stat = self._platform_stats.setdefault(name, {"searched": 0, "found": 0})
+        stat["searched"] += 1
+        stat["found"] += len(results)
+        return results
+
+    def yield_summary(self) -> str:
+        """One-line per-platform yield summary (queries vs hits)."""
+        lines = []
+        for name, stat in sorted(self._platform_stats.items()):
+            searched = stat["searched"]
+            hit_rate = (stat["found"] / searched * 100.0) if searched else 0.0
+            lines.append(
+                f"  {name:<12} {stat['found']:>4} hits / {searched:>4} queries "
+                f"({hit_rate:5.1f}% avg yield)"
+            )
+        if not lines:
+            return "  (no searches recorded)"
+        return "\n".join(lines)
 
     async def search_all_async(self, query: str) -> List[Dict]:
         """
@@ -184,14 +207,6 @@ class UnifiedSearchEngine:
                 all_results.extend(res)
             elif isinstance(res, Exception):
                 logger.error(f"Platform search failed: {res}")
-
-        # Stop all Playwright scrapers to prevent pipe errors
-        stop_tasks = []
-        for scraper in self.scrapers:
-            if hasattr(scraper, 'stop'):
-                stop_tasks.append(scraper.stop())
-        if stop_tasks:
-            await asyncio.gather(*stop_tasks, return_exceptions=True)
 
         return all_results
 
@@ -227,6 +242,22 @@ class UnifiedSearchEngine:
                 scraper.close()
             except:
                 pass
+
+    async def shutdown_async(self):
+        """
+        Tear down the process-wide shared Chromium. Call ONCE per run, from
+        inside a live event loop (e.g. a `finally` in the sync loop) — this is
+        what prevents the old 'I/O operation on closed pipe' errors.
+        """
+        # Release each scraper's cached context first, then the shared browser.
+        for scraper in self.scrapers:
+            stop = getattr(scraper, "stop", None)
+            if stop:
+                try:
+                    await stop()
+                except Exception as e:
+                    logger.debug(f"scraper stop ignored: {e}")
+        await browser_manager.shutdown()
 
 
 if __name__ == "__main__":
