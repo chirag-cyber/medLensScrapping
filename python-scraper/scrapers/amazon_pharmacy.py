@@ -40,8 +40,16 @@ class AmazonPharmacyScraper(BaseScraper, PharmacyScraper):
         
         # Use underlying session directly to set custom headers if needed
         self.session.headers.update(headers)
-        
-        html = self.get(url)
+
+        # Amazon intermittently 503s on bot heuristics (~1 in 8 requests). Each
+        # self.get() rotates the User-Agent, so a fresh attempt almost always
+        # recovers — retry a few times on empty before giving up.
+        html = None
+        for attempt in range(3):
+            html = self.get(url)
+            if html:
+                break
+            logger.warning(f"[Amazon] Empty/blocked response (attempt {attempt + 1}/3) for '{query}', retrying...")
         if not html:
             logger.error(f"[Amazon] Failed to fetch search page for query: {query}")
             return []
@@ -62,11 +70,16 @@ class AmazonPharmacyScraper(BaseScraper, PharmacyScraper):
                 # Just a rough heuristic, we can adjust later
                 pass
 
-            link_tag = name_tag.find('a')
-            if link_tag and link_tag.get('href'):
-                product_url = f"{self.BASE_URL}{link_tag.get('href')}"
-            else:
+            # Amazon now renders the title <h2> INSIDE the product <a> (the
+            # anchor is the parent, not a child). Resolve the link whether it's
+            # a child or parent of the h2, then fall back to the tile's first
+            # product anchor.
+            link_tag = name_tag.find('a') or name_tag.find_parent('a', class_='a-link-normal')
+            if not (link_tag and link_tag.get('href')):
+                link_tag = item.find('a', class_='a-link-normal', href=True)
+            if not (link_tag and link_tag.get('href')):
                 continue
+            product_url = f"{self.BASE_URL}{link_tag.get('href')}"
 
             price_tag = item.find('span', class_='a-price-whole')
             mrp_tag = item.find('span', class_='a-text-price')

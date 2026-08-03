@@ -42,8 +42,13 @@ class PharmEasyScraper(BaseScraper, PharmacyScraper):
 
         try:
             data = json.loads(next_data_script.string)
-            results = data.get('props', {}).get('pageProps', {}).get('searchResults', [])
-            
+            page_props = data.get('props', {}).get('pageProps', {})
+            # PharmEasy's SSR payload moved the product array from `searchResults`
+            # to `productList` (with a parallel `genericsProductList` for
+            # generic substitutes). Read both so we recover full coverage.
+            results = (page_props.get('productList', []) or []) + \
+                      (page_props.get('genericsProductList', []) or [])
+
             standardized_results = []
             for item in results:
                 # Some items might be categories or generic pages, filter for products
@@ -66,7 +71,7 @@ class PharmEasyScraper(BaseScraper, PharmacyScraper):
                 flags = item.get('productAvailabilityFlags', {})
                 in_stock = flags.get('isAvailable', True)
 
-                standardized_results.append(self._standardize_result(
+                res = self._standardize_result(
                     name=name,
                     url=product_url,
                     mrp=mrp,
@@ -74,8 +79,17 @@ class PharmEasyScraper(BaseScraper, PharmacyScraper):
                     pack_size=pack_size,
                     manufacturer=manufacturer,
                     in_stock=in_stock
-                ))
-            
+                )
+
+                # PharmEasy exposes the salt as `moleculeName` — attach it as
+                # composition (same optional key truemeds/platinumrx set) so
+                # salt validation gets this for free.
+                molecule = item.get('moleculeName', '')
+                if molecule:
+                    res['composition'] = molecule
+
+                standardized_results.append(res)
+
             return standardized_results
 
         except json.JSONDecodeError:

@@ -142,8 +142,17 @@ class ScrapeAndSync:
             candidate_clinical = await self.clinical_fetcher.fetch_clinical_data_async(onemg_url=candidate_1mg_url)
             candidate_salt = candidate_clinical.get('composition', '')
             normalized_candidate = self._normalize_salt(candidate_salt)
-            
-            if self._is_salt_match(normalized_candidate, normalized_ground_truth):
+
+            # Distinguish a FAILED lookup (empty candidate salt) from a real
+            # MISMATCH (non-empty but different). An empty salt means the 1mg
+            # composition fetch came back blank — a data gap, not evidence of
+            # the wrong drug. Since this match already cleared relevance scoring
+            # and is the best result for its platform, accept it rather than
+            # silently dropping valid coverage (e.g. apollo's real Dolo-650).
+            if not normalized_candidate:
+                logger.warning(f"[{platform}] Salt lookup returned empty for '{price_name}' - accepting on relevance (lookup gap, not a mismatch).")
+                valid_matches.append(match)
+            elif self._is_salt_match(normalized_candidate, normalized_ground_truth):
                 valid_matches.append(match)
             else:
                 logger.warning(f"  -> INVALID: Salt mismatch (Truth: {normalized_ground_truth} | Got: {normalized_candidate})")
