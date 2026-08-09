@@ -333,8 +333,10 @@ class ScrapeAndSync:
                 {"_id": 1, "name": 1})
             if not med:
                 logger.error(
-                    f"'{name}' is not in the medicines collection — scrape it "
-                    f"first (--scrape \"{name}\"), then seed its URLs.")
+                    f"'{name}' is not in the medicines collection. --seed-url "
+                    f"adds a URL to a medicine that already exists; to add the "
+                    f"medicine AND its URL in one step, use: "
+                    f"--scrape \"{name}\" --url \"{url}\"")
                 continue
 
             row = self.pdp_fetcher.fetch(platform, url)
@@ -398,27 +400,65 @@ class ScrapeAndSync:
             logger.warning(f"Could not read stored URLs for backfill: {e}")
             return {}
 
+    def _urls_by_platform(self, urls) -> dict:
+        """['https://www.netmeds.com/...', ...] -> {'netmeds': url, ...}
+
+        Platform is inferred from the host, never from a caller-supplied label, so
+        a URL cannot be filed under the wrong pharmacy. An unrecognized host is
+        reported and dropped rather than guessed at.
+        """
+        out = {}
+        for url in urls or []:
+            url = (url or "").strip()
+            if not url.startswith("http"):
+                logger.error(f"[pdp] Not a URL, skipping: {url!r}")
+                continue
+            platform = self._platform_from_url(url)
+            if not platform:
+                logger.error(f"[pdp] Unrecognized pharmacy host, skipping: {url}")
+                continue
+            out[platform] = url
+        return out
+
     async def _pdp_backfill(self, query: str, best_matches: list,
-                            existing_med_id=None) -> list:
+                            existing_med_id=None, extra_urls=None) -> list:
         """Fill platforms search missed by re-fetching their known product page.
 
         Returns the merged, re-scored match list. Every PDP row passes through the
         SAME brand+dose relevance filter as search rows, so a stale URL that now
         points at a different product is rejected rather than written as this
         medicine's price.
+
+        `extra_urls` is a platform -> URL map supplied for THIS run (the --url
+        flag). It exists because the stored-URL path cannot help a medicine that
+        is not in the DB yet: a brand no platform's search will surface never gets
+        a first record, so it never gets a stored URL, so the backfill it needs can
+        never trigger. A hand-collected URL breaks that deadlock.
+
+        Two deliberate differences from stored URLs:
+          * they are fetched even for a platform search already covered, because a
+            human-verified URL is better evidence than a search hit that merely
+            cleared the 0.2 floor. Both go into pick_best_per_platform and the
+            higher-scoring row wins, so this can only improve the pick.
+          * they take precedence over a stored URL for the same platform.
         """
         covered = {m['platform'].lower() for m in best_matches}
         all_platforms = {s.platform_name.lower() for s in self.engine.scrapers}
         gaps = all_platforms - covered
-        if not gaps:
-            return best_matches
 
+        seeded = self._urls_by_platform(extra_urls)
+        # Stored URLs only fill a gap; seeded URLs always compete.
         known = self._known_platform_urls(existing_med_id)
         targets = {p: known[p] for p in gaps if p in known}
+        targets.update(seeded)
+
         if not targets:
+            if not gaps:
+                return best_matches
             logger.info(
                 f"[pdp] {len(gaps)} platform(s) missing for '{query}' and no "
-                f"stored URL to re-fetch: {sorted(gaps)}")
+                f"stored URL to re-fetch: {sorted(gaps)}. Pass "
+                f"--url '<product page URL>' to supply one.")
             return best_matches
 
         logger.info(f"[pdp] Direct re-fetch for {sorted(targets)} on '{query}'")
@@ -442,7 +482,8 @@ class ScrapeAndSync:
             logger.info(f"[pdp] Recovered platform(s) via direct PDP: {sorted(gained)}")
         return merged
 
-    async def _process_medicine(self, query: str, existing_med_id=None, force_clinical=False):
+    async def _process_medicine(self, query: str, existing_med_id=None,
+                                force_clinical=False, seed_urls=None):
         """Searches all platforms and updates MongoDB."""
         logger.info(f"--- Processing: '{query}' ---")
         
@@ -480,7 +521,8 @@ class ScrapeAndSync:
         # fetch the product page directly IF we already know its URL from a
         # previous sync. Product URLs carry unguessable ids, so this only ever
         # re-fetches a URL already stored — it never guesses one.
-        best_matches = await self._pdp_backfill(query, best_matches, existing_med_id)
+        best_matches = await self._pdp_backfill(
+            query, best_matches, existing_med_id, seed_urls)
 
         if not best_matches:
             logger.warning(f"No relevant results matched '{query}'.")
@@ -779,11 +821,26 @@ class ScrapeAndSync:
                 f"falling back to non-transactional bulk write.")
             _ops(session=None)
 
-    def scrape_new(self, query: str):
-        """Scrape a single new medicine."""
+    def scrape_new(self, query: str, seed_urls=None):
+        """Scrape a single new medicine.
+
+        `seed_urls` are hand-collected product-page URLs for this medicine (the
+        --url flag). They are the only way to add a brand whose product page
+        exists but which no platform's search will rank — without them, that
+        medicine never gets a first record, so it never gets a stored URL, so the
+        PDP backfill that would rescue it can never fire.
+
+        A seeded URL is not trusted blindly: the fetched page still has to clear
+        the same relevance score and salt validation as a search result, so a
+        wrong or stale URL is rejected rather than published as this medicine's
+        price. Once the record exists, its URL is stored with the price row and
+        every later sync re-fetches it automatically.
+        """
         async def _run():
             try:
-                return await self._process_medicine(query, existing_med_id=None, force_clinical=True)
+                return await self._process_medicine(
+                    query, existing_med_id=None, force_clinical=True,
+                    seed_urls=seed_urls)
             finally:
                 await self.engine.shutdown_async()
 
@@ -941,6 +998,14 @@ if __name__ == "__main__":
                              "that platform directly when its search cannot find "
                              "the brand. Repeatable. Platform is inferred from the "
                              "URL host. Example: --seed-url 'Pactol 650=https://www.netmeds.com/product/...'")
+    parser.add_argument("--url", action="append", metavar="URL",
+                        help="With --scrape: a known product-page URL for this "
+                             "medicine. Repeatable, one per pharmacy. Use it for "
+                             "a brand no platform's search will surface — the "
+                             "page is fetched directly and still has to pass the "
+                             "same relevance and salt checks as a search result. "
+                             "Platform is inferred from the URL host. Example: "
+                             "--scrape 'Tearday Plus' --url 'https://www.netmeds.com/...'")
     parser.add_argument("--dry-run", action="store_true",
                         help="With --seed-url: validate and print what WOULD be "
                              "written, without touching the database")
@@ -964,7 +1029,7 @@ if __name__ == "__main__":
         if args.ensure_indexes:
             scraper.ensure_indexes()
         elif args.scrape:
-            scraper.scrape_new(args.scrape)
+            scraper.scrape_new(args.scrape, seed_urls=args.url)
         elif args.sync_all:
             scraper.sync_all(
                 skip=args.skip,
