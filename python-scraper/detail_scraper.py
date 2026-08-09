@@ -30,8 +30,33 @@ import re
 from typing import Dict, List, Optional
 from bs4 import BeautifulSoup
 from scrapers.base import BaseScraper
+from medicine_identity import _salt_is_molecular, _normalize_salt_key
 
 logger = logging.getLogger(__name__)
+
+
+def _sanitize_composition(comp: str) -> str:
+    """Keep a scraped `composition` only if it looks like a real molecular salt.
+
+    1mg's JSON-LD `activeIngredient` for combination drugs is PROSE, not a salt
+    ("a combination of Budesonide and Formoterol ..."), and netmeds' `.drug-manu`
+    node likewise sometimes carries boilerplate. Persisting that prose poisons the
+    DB `salt` field, which is later used as ground truth for match validation —
+    the reported budetrol bug, where truth 'a combination of' rejected every
+    correct 'budesonide formoterol' match.
+
+    Salvage the common "(a) combination of X and Y" wrapper (the remainder IS the
+    salt) before judging; if the result still reads as prose (multi-word
+    boilerplate, form words, > 5 tokens), drop it to empty so a cleaner source
+    (the /generics/ link, or a pharmacy API's own composition) can fill instead.
+    """
+    if not comp:
+        return ""
+    salvaged = re.sub(r'^\s*(a\s+)?combination\s+of\s+', '', comp, flags=re.IGNORECASE)
+    if _salt_is_molecular(_normalize_salt_key(salvaged)):
+        return salvaged.strip()
+    logger.warning(f"Discarding prose composition (not a molecular salt): {comp[:60]!r}")
+    return ""
 
 
 class ClinicalDetailScraper(BaseScraper):
@@ -134,6 +159,10 @@ class ClinicalDetailScraper(BaseScraper):
             marketer_el = soup.select_one('a[href*="/marketer/"]')
             if marketer_el:
                 clinical["manufacturer"] = marketer_el.get_text(strip=True)
+
+        # Drop a prose composition so the pharmacy-API fallback (sync_and_scrape
+        # line ~307) can supply a real molecular salt instead of poisoning the DB.
+        clinical["composition"] = _sanitize_composition(clinical.get("composition", ""))
 
         return clinical
 
@@ -648,6 +677,8 @@ class ClinicalDetailScraper(BaseScraper):
                 faqs.append({"question": q, "answer": a})
         if faqs:
             clinical['faqs'] = faqs
+
+        clinical["composition"] = _sanitize_composition(clinical.get("composition", ""))
 
         return clinical
 
