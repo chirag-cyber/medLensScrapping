@@ -19,6 +19,7 @@ from scrapers.truemeds import TruemedsScraper
 from scrapers.platinumrx import PlatinumRxScraper
 from scrapers.medplus import MedplusScraper
 from scrapers import browser_manager
+from scrapers.config import SCRAPER_CONFIG
 
 logger = logging.getLogger(__name__)
 
@@ -164,8 +165,21 @@ class UnifiedSearchEngine:
         """Run search for a single platform asynchronously."""
         name = scraper.platform_name
         try:
-            results = await scraper.search_async(query)
+            # Hard per-platform ceiling: a platform that connects but never
+            # responds must not stall the whole gather() batch (and, in
+            # --sync-all, the entire crawl). On timeout treat it as a 0-hit
+            # search so the drift alarm still counts the query.
+            results = await asyncio.wait_for(
+                scraper.search_async(query),
+                timeout=SCRAPER_CONFIG["per_platform_timeout_s"],
+            )
             logger.info(f"[{name}] Found {len(results)} raw results.")
+        except asyncio.TimeoutError:
+            logger.warning(
+                f"[{name}] Timed out after "
+                f"{SCRAPER_CONFIG['per_platform_timeout_s']}s — skipping this "
+                f"platform for '{query}'.")
+            results = []
         except Exception as e:
             logger.error(f"[{name}] Error: {e}")
             results = []
@@ -190,6 +204,39 @@ class UnifiedSearchEngine:
             return "  (no searches recorded)"
         return "\n".join(lines)
 
+    def drift_alarm(self, min_queries: int = 20, soft_rate: float = 0.10):
+        """Flag platforms whose selectors/API most likely broke this run.
+
+        A platform that ran a meaningful number of queries but returned ZERO hits
+        across ALL of them is almost never "genuinely no products" — it is selector
+        drift, an API/schema change, or an IP block. Silent, that failure hides
+        behind the other seven platforms still returning data; the price grid just
+        quietly loses a column. This turns it into an explicit signal.
+
+        Returns a list of (name, severity, message):
+          * "DEAD" — searched >= min_queries, found 0. Almost certainly broken.
+          * "LOW"  — searched >= min_queries, yield < soft_rate. Possible partial
+                     drift (e.g. only one of several selectors still matches).
+        Platforms with too few queries to judge are skipped.
+        """
+        alarms = []
+        for name, stat in sorted(self._platform_stats.items()):
+            searched = stat["searched"]
+            found = stat["found"]
+            if searched < min_queries:
+                continue  # not enough signal to distinguish drift from "no match"
+            if found == 0:
+                alarms.append((name, "DEAD",
+                    f"[{name}] 0 hits across {searched} queries — selector/API "
+                    f"almost certainly BROKEN (drift/schema-change/block). "
+                    f"Investigate this scraper."))
+            elif found / searched < soft_rate:
+                alarms.append((name, "LOW",
+                    f"[{name}] only {found} hits across {searched} queries "
+                    f"({found / searched * 100:.1f}% yield) — far below peers; "
+                    f"possible partial selector drift."))
+        return alarms
+
     async def search_all_async(self, query: str) -> List[Dict]:
         """
         Search across all platforms concurrently.
@@ -208,6 +255,31 @@ class UnifiedSearchEngine:
             elif isinstance(res, Exception):
                 logger.error(f"Platform search failed: {res}")
 
+        return all_results
+
+    async def search_selected_async(self, query: str, scrapers: List) -> List[Dict]:
+        """
+        Search a SUBSET of platforms concurrently with `query`. Used for the
+        exact-brand second pass: a platform that ranked the exact brand below a
+        multiword query ("Pactol 650" returns only substitutes) often surfaces it
+        for the bare brand ("Pactol"). We retry ONLY the platforms that returned
+        nothing relevant, so the extra requests are bounded to actual misses.
+        Returns ALL raw results (unfiltered) — caller re-filters the merged set.
+        """
+        if not scrapers:
+            return []
+        tasks = [self._search_platform(scraper, query) for scraper in scrapers]
+        logger.info(
+            f"Exact-brand retry for '{query}' across "
+            f"{len(scrapers)} platform(s): "
+            f"{', '.join(s.platform_name for s in scrapers)}")
+        results_lists = await asyncio.gather(*tasks, return_exceptions=True)
+        all_results = []
+        for res in results_lists:
+            if isinstance(res, list):
+                all_results.extend(res)
+            elif isinstance(res, Exception):
+                logger.error(f"Retry platform search failed: {res}")
         return all_results
 
     def search(self, query: str) -> List[Dict]:

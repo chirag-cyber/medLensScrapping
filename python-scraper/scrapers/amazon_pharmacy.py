@@ -3,9 +3,27 @@ import logging
 from typing import List, Dict
 from bs4 import BeautifulSoup
 from scrapers.base import BaseScraper
-from scrapers.interface import PharmacyScraper
+from scrapers.interface import PharmacyScraper, text_in_stock
 
 logger = logging.getLogger(__name__)
+
+
+def _parse_price(text: str) -> float:
+    """Parse an Amazon price string ('₹1,234.00', '1,234.', '45.50') to a float.
+
+    Strips the currency symbol and thousands separators but PRESERVES the decimal
+    point. The old code did .replace('.', ''), which turned a full-precision
+    '1234.00' into '123400' — a 100x price inflation whenever Amazon rendered the
+    whole rupee amount with its fraction in one span. A lone trailing dot (from
+    Amazon's nested `a-price-decimal` span, e.g. '1,234.') is dropped."""
+    if not text:
+        return 0.0
+    cleaned = re.sub(r'[^\d.]', '', text).rstrip('.')
+    try:
+        return float(cleaned) if cleaned else 0.0
+    except ValueError:
+        return 0.0
+
 
 class AmazonPharmacyScraper(BaseScraper, PharmacyScraper):
     """
@@ -81,27 +99,34 @@ class AmazonPharmacyScraper(BaseScraper, PharmacyScraper):
                 continue
             product_url = f"{self.BASE_URL}{link_tag.get('href')}"
 
-            price_tag = item.find('span', class_='a-price-whole')
-            mrp_tag = item.find('span', class_='a-text-price')
-            
+            # Price: prefer the `a-offscreen` span, which always carries the
+            # clean, layout-independent full price ('₹1,234.00'). Fall back to the
+            # visible `a-price-whole` split-span only if offscreen is absent.
+            price_span = item.find('span', class_='a-price')
             sale_price = 0.0
-            if price_tag:
-                price_str = price_tag.get_text(strip=True).replace(',', '').replace('.', '')
-                try:
-                    sale_price = float(price_str)
-                except ValueError:
-                    pass
+            if price_span:
+                off = price_span.find('span', class_='a-offscreen')
+                if off:
+                    sale_price = _parse_price(off.get_text(strip=True))
+                else:
+                    whole = price_span.find('span', class_='a-price-whole')
+                    if whole:
+                        sale_price = _parse_price(whole.get_text(strip=True))
+            if sale_price == 0.0:
+                # Legacy layout: bare a-price-whole not wrapped in a-price.
+                legacy = item.find('span', class_='a-price-whole')
+                if legacy:
+                    sale_price = _parse_price(legacy.get_text(strip=True))
 
             mrp = sale_price
+            mrp_tag = item.find('span', class_='a-text-price')
             if mrp_tag:
                 offscreen = mrp_tag.find('span', class_='a-offscreen')
                 if offscreen:
-                    mrp_str = offscreen.get_text(strip=True).replace('₹', '').replace(',', '')
-                    try:
-                        mrp = float(mrp_str)
-                    except ValueError:
-                        pass
-            
+                    parsed_mrp = _parse_price(offscreen.get_text(strip=True))
+                    if parsed_mrp > 0:
+                        mrp = parsed_mrp
+
             if sale_price == 0:
                 # No price available
                 continue
@@ -118,8 +143,13 @@ class AmazonPharmacyScraper(BaseScraper, PharmacyScraper):
                 mrp=mrp,
                 sale_price=sale_price,
                 pack_size=pack_size,
-                manufacturer="Amazon Seller", # Hard to extract from search
-                in_stock=True
+                # "Amazon Seller" is a marketplace label, not the real maker, and
+                # can't be extracted from the search tile. Emit "" so it never
+                # overwrites the true manufacturer from the detail JSON-LD.
+                manufacturer="",
+                # OOS listings show "Currently unavailable"/"Out of stock" in the
+                # result tile; read the whole tile's text to detect it.
+                in_stock=text_in_stock(item.get_text(" ", strip=True))
             ))
             
         return standardized_results

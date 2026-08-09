@@ -14,6 +14,12 @@ SCRAPER_CONFIG = {
     # ── Search resilience ──
     "search_retries": 2,            # total attempts per platform search (1 initial + 1 retry)
     "retry_backoff_s": 1.5,         # base backoff between retries (scaled by attempt)
+    # Hard ceiling on a single platform's search inside the 8-way fan-out. Without
+    # it, one platform that accepts the connection but never responds (common under
+    # a WAF/throttle) hangs the whole asyncio.gather batch — and in --sync-all that
+    # wedges the entire crawl. On timeout the platform yields [] for that query
+    # (recorded as a 0-hit search, so the drift alarm still sees it).
+    "per_platform_timeout_s": 30,
 
     # ── Politeness ──
     "polite_delay_s": 0.3,          # default per-scraper delay (kept for compat)

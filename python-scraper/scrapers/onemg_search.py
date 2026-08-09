@@ -3,7 +3,7 @@ import logging
 import re
 from typing import List, Dict
 from scrapers.playwright_base import PlaywrightBaseScraper
-from scrapers.interface import PharmacyScraper
+from scrapers.interface import PharmacyScraper, text_in_stock
 
 logger = logging.getLogger(__name__)
 
@@ -82,6 +82,14 @@ class OneMgSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
                         if price_match:
                             mrp = float(price_match.group(1).replace(',', ''))
 
+                    # A tile with no "Discounted Price" label is sold at full MRP
+                    # (no discount) — 1mg only renders that label when a discount
+                    # exists. Fall back to Original Price as the sale price instead
+                    # of dropping the product, otherwise every no-discount medicine
+                    # (e.g. Pactol 650) silently vanishes from results.
+                    if selling_price <= 0 and mrp > 0:
+                        selling_price = mrp
+
                     if selling_price <= 0:
                         continue
                     if mrp <= 0 or mrp < selling_price:
@@ -108,7 +116,9 @@ class OneMgSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
                         sale_price=selling_price,
                         pack_size=pack_size,
                         manufacturer="",
-                        in_stock=True
+                        # OOS tiles carry a "Notify Me"/"Out of Stock" banner in the
+                        # same card text already read above for the pack size.
+                        in_stock=text_in_stock(card_text)
                     ))
 
                 except Exception as e:

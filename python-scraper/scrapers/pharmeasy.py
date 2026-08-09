@@ -51,44 +51,55 @@ class PharmEasyScraper(BaseScraper, PharmacyScraper):
 
             standardized_results = []
             for item in results:
-                # Some items might be categories or generic pages, filter for products
-                # In PharmEasy __NEXT_DATA__, entityType 2 means product
-                if item.get('entityType') != 2 and item.get('entityType') != 'PRODUCT':
+                # Per-item guard: a single malformed record (bad mrpDecimal, odd
+                # shape, etc.) must not sink the whole platform's results. Skip it
+                # and keep the rest, rather than letting the exception unwind to
+                # the outer handler and return [].
+                try:
+                    # Some items might be categories or generic pages, filter for products
+                    # In PharmEasy __NEXT_DATA__, entityType 2 means product
+                    if item.get('entityType') != 2 and item.get('entityType') != 'PRODUCT':
+                        continue
+
+                    name = item.get('name', '')
+                    slug = item.get('slug', '')
+                    if not name or not slug:
+                        continue
+
+                    product_url = f"{self.BASE_URL}/online-medicine-order/{slug}"
+                    mrp = float(item.get('mrpDecimal', 0.0) or 0.0)
+                    sale_price = float(
+                        item.get('salePriceDecimal', item.get('price', mrp)) or mrp)
+                    pack_size = item.get('measurementUnit', item.get('subtitleText', ''))
+                    manufacturer = item.get('manufacturer', '')
+
+                    # Check availability flag
+                    flags = item.get('productAvailabilityFlags', {})
+                    in_stock = flags.get('isAvailable', True)
+
+                    res = self._standardize_result(
+                        name=name,
+                        url=product_url,
+                        mrp=mrp,
+                        sale_price=sale_price,
+                        pack_size=pack_size,
+                        manufacturer=manufacturer,
+                        in_stock=in_stock
+                    )
+
+                    # PharmEasy exposes the salt as `moleculeName` — attach it as
+                    # composition (same optional key truemeds/platinumrx set) so
+                    # salt validation gets this for free.
+                    molecule = item.get('moleculeName', '')
+                    if molecule:
+                        res['composition'] = molecule
+
+                    standardized_results.append(res)
+                except (ValueError, TypeError, KeyError) as e:
+                    logger.warning(
+                        f"[PharmEasy] Skipping malformed item "
+                        f"{item.get('name', '?')!r}: {e}")
                     continue
-
-                name = item.get('name', '')
-                slug = item.get('slug', '')
-                if not name or not slug:
-                    continue
-
-                product_url = f"{self.BASE_URL}/online-medicine-order/{slug}"
-                mrp = float(item.get('mrpDecimal', 0.0))
-                sale_price = float(item.get('salePriceDecimal', item.get('price', mrp)))
-                pack_size = item.get('measurementUnit', item.get('subtitleText', ''))
-                manufacturer = item.get('manufacturer', '')
-                
-                # Check availability flag
-                flags = item.get('productAvailabilityFlags', {})
-                in_stock = flags.get('isAvailable', True)
-
-                res = self._standardize_result(
-                    name=name,
-                    url=product_url,
-                    mrp=mrp,
-                    sale_price=sale_price,
-                    pack_size=pack_size,
-                    manufacturer=manufacturer,
-                    in_stock=in_stock
-                )
-
-                # PharmEasy exposes the salt as `moleculeName` — attach it as
-                # composition (same optional key truemeds/platinumrx set) so
-                # salt validation gets this for free.
-                molecule = item.get('moleculeName', '')
-                if molecule:
-                    res['composition'] = molecule
-
-                standardized_results.append(res)
 
             return standardized_results
 

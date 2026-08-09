@@ -44,36 +44,47 @@ class PlatinumRxScraper(BaseScraper, PharmacyScraper):
             
             standardized_results = []
             for item in items:
-                master = item.get("masterItemData", {})
-                if not master: continue
+                # Per-item guard: one malformed record must not discard the whole
+                # platform's results (a bad mrp/price would otherwise unwind to the
+                # outer handler and return []).
+                try:
+                    master = item.get("masterItemData", {})
+                    if not master: continue
 
-                name = master.get("display_name", "Unknown")
-                drug_id = master.get("master_drug_code", "")
-                
-                # Construct URL (same as the GitHub script)
-                import urllib.parse
-                encoded_name = urllib.parse.quote(name)
-                product_url = f"{self.BASE_URL}/medicines/{encoded_name}/{drug_id}"
-                
-                mrp = float(master.get("mrp", 0))
-                sale_price = float(master.get("discounted_price", mrp))
-                
-                res = self._standardize_result(
-                    name=name,
-                    url=product_url,
-                    mrp=mrp,
-                    sale_price=sale_price,
-                    pack_size=f"{master.get('pack_quantity_value')} {master.get('unit_of_measurement')}",
-                    manufacturer=master.get("manufacturer_name", "PlatinumRx"),
-                    in_stock=bool(master.get("drug_stock", 1))
-                )
-                
-                # Add salt composition if available
-                if master.get("salt_composition"):
-                    res['composition'] = master.get("salt_composition")
-                
-                standardized_results.append(res)
-            
+                    name = master.get("display_name", "Unknown")
+                    drug_id = master.get("master_drug_code", "")
+
+                    # Construct URL (same as the GitHub script)
+                    import urllib.parse
+                    encoded_name = urllib.parse.quote(name)
+                    product_url = f"{self.BASE_URL}/medicines/{encoded_name}/{drug_id}"
+
+                    mrp = float(master.get("mrp", 0) or 0)
+                    sale_price = float(master.get("discounted_price", mrp) or mrp)
+
+                    res = self._standardize_result(
+                        name=name,
+                        url=product_url,
+                        mrp=mrp,
+                        sale_price=sale_price,
+                        pack_size=f"{master.get('pack_quantity_value')} {master.get('unit_of_measurement')}",
+                        # Real maker from the API when present; fall back to ""
+                        # (never the platform name) so a missing value doesn't
+                        # masquerade as the manufacturer.
+                        manufacturer=master.get("manufacturer_name") or "",
+                        in_stock=bool(master.get("drug_stock", 1))
+                    )
+
+                    # Add salt composition if available
+                    if master.get("salt_composition"):
+                        res['composition'] = master.get("salt_composition")
+
+                    standardized_results.append(res)
+                except (ValueError, TypeError, KeyError) as e:
+                    logger.warning(
+                        f"[{self.platform_name}] Skipping malformed item: {e}")
+                    continue
+
             return standardized_results
 
         except Exception as e:

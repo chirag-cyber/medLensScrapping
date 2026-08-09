@@ -4,7 +4,7 @@ import logging
 import re
 from typing import List, Dict
 from scrapers.playwright_base import PlaywrightBaseScraper
-from scrapers.interface import PharmacyScraper
+from scrapers.interface import PharmacyScraper, text_in_stock, coerce_stock
 
 logger = logging.getLogger(__name__)
 
@@ -72,7 +72,10 @@ class NetmedsSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
                         price = float(price_str)
                         results.append(self._standardize_result(
                             name=name, url=direct_url, mrp=price, sale_price=price,
-                            pack_size="", manufacturer="", in_stock=True
+                            pack_size="", manufacturer="",
+                            # PDP fallback: the page body carries an OOS banner
+                            # ("Out of Stock"/"Notify Me") when unavailable.
+                            in_stock=text_in_stock(soup.get_text(" ", strip=True))
                         ))
                     except: pass
 
@@ -109,10 +112,19 @@ class NetmedsSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
                 
                 pack_size = item.get('pack_size_label', '') or item.get('packSize', '')
                 manufacturer = item.get('manufacturer', '') or item.get('brand', '')
-                
+
+                # Real availability from the SSR payload where present (Magento
+                # commonly exposes is_in_stock / stock_status); defaults to True
+                # only when no stock field exists.
+                in_stock = coerce_stock(
+                    item.get('is_in_stock',
+                             item.get('in_stock',
+                                      item.get('available',
+                                               item.get('stock_status')))))
+
                 standardized_results.append(self._standardize_result(
                     name=name, url=product_url, mrp=mrp, sale_price=sale_price,
-                    pack_size=str(pack_size), manufacturer=manufacturer, in_stock=True
+                    pack_size=str(pack_size), manufacturer=manufacturer, in_stock=in_stock
                 ))
             
             return standardized_results
@@ -178,7 +190,8 @@ class NetmedsSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
                 
                 standardized_results.append(self._standardize_result(
                     name=name, url=product_url, mrp=mrp, sale_price=sale_price,
-                    pack_size=pack_size, manufacturer=manufacturer, in_stock=True
+                    pack_size=pack_size, manufacturer=manufacturer,
+                    in_stock=text_in_stock(item.get_text(" ", strip=True))
                 ))
             except Exception as e:
                 logger.debug(f"Error parsing item: {e}")

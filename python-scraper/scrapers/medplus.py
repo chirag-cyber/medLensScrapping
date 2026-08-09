@@ -152,8 +152,10 @@ class MedplusScraper(PlaywrightBaseScraper, PharmacyScraper):
                 if sale_price <= 0: continue
                 if mrp < sale_price: mrp = sale_price
                 
-                # Parse manufacturer if present
-                manufacturer = "Medplus"
+                # Parse manufacturer if present. Default "" (never the platform
+                # name "Medplus") so a missing value doesn't masquerade as the
+                # real maker and overwrite the detail JSON-LD value.
+                manufacturer = ""
                 mfg_el = card.select_one('p[class*="text-secondary"], p.text-muted')
                 if mfg_el:
                     manufacturer = mfg_el.get_text(strip=True)

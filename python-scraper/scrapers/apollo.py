@@ -3,7 +3,7 @@ import logging
 import re
 from typing import List, Dict
 from scrapers.playwright_base import PlaywrightBaseScraper
-from scrapers.interface import PharmacyScraper
+from scrapers.interface import PharmacyScraper, text_in_stock
 
 logger = logging.getLogger(__name__)
 
@@ -127,7 +127,15 @@ class ApolloScraper(PlaywrightBaseScraper, PharmacyScraper):
                 
             standardized_results.append(self._standardize_result(
                 name=name, url=product_url, mrp=mrp, sale_price=sale_price,
-                pack_size=pack_size, manufacturer="Apollo Partner", in_stock=True
+                # Apollo's search cards never expose the real maker — the field on
+                # their page is Apollo's own listing label, not the manufacturer.
+                # Emit "" so the true maker (from the 1mg/netmeds detail JSON-LD
+                # `marketer.legalName`) is never overwritten by a platform name.
+                # The platform itself is already recorded in the `platform` field.
+                pack_size=pack_size, manufacturer="",
+                # OOS tiles carry an "Out of Stock"/"Notify Me"/"Sold Out" label
+                # in the card's own text (full_text is that card, already joined).
+                in_stock=text_in_stock(full_text)
             ))
             
         return standardized_results

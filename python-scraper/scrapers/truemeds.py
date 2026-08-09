@@ -49,32 +49,45 @@ class TruemedsScraper(BaseScraper, PharmacyScraper):
             
             standardized_results = []
             for item in products_list:
-                master = item.get("product", {})
-                if not master: continue
+                # Per-item guard: a single malformed record must not sink the
+                # whole platform's results.
+                try:
+                    master = item.get("product", {})
+                    if not master: continue
 
-                name = master.get("skuName", "Unknown")
-                url_slug = master.get("productUrlSuffix", "")
-                product_url = f"{self.BASE_URL}/{url_slug}" if url_slug else f"{self.BASE_URL}/search?q={query}"
-                
-                mrp = float(master.get("mrp", 0))
-                sale_price = float(master.get("sellingPrice", mrp))
-                
-                res = self._standardize_result(
-                    name=name,
-                    url=product_url,
-                    mrp=mrp,
-                    sale_price=sale_price,
-                    pack_size=master.get("packForm", ""),
-                    manufacturer=master.get("manufacturerName", "Truemeds"),
-                    in_stock=True # API usually returns active products
-                )
-                
-                # Add composition (salt) if available
-                if master.get("composition"):
-                    res['composition'] = master.get("composition")
-                    
-                standardized_results.append(res)
-            
+                    name = master.get("skuName", "Unknown")
+                    url_slug = master.get("productUrlSuffix", "")
+                    product_url = f"{self.BASE_URL}/{url_slug}" if url_slug else f"{self.BASE_URL}/search?q={query}"
+
+                    mrp = float(master.get("mrp", 0) or 0)
+                    sale_price = float(master.get("sellingPrice", mrp) or mrp)
+
+                    res = self._standardize_result(
+                        name=name,
+                        url=product_url,
+                        mrp=mrp,
+                        sale_price=sale_price,
+                        pack_size=master.get("packForm", ""),
+                        # Real maker from the API when present; fall back to ""
+                        # (never the platform name) so a missing value doesn't
+                        # masquerade as the manufacturer.
+                        manufacturer=master.get("manufacturerName") or "",
+                        # Real availability from the API: `available` is a bool and
+                        # `availabilityStatus` reads e.g. "Out of Stock". Many search
+                        # hits are genuinely OOS, so this must not be hardcoded True.
+                        in_stock=bool(master.get("available", True))
+                    )
+
+                    # Add composition (salt) if available
+                    if master.get("composition"):
+                        res['composition'] = master.get("composition")
+
+                    standardized_results.append(res)
+                except (ValueError, TypeError, KeyError) as e:
+                    logger.warning(
+                        f"[{self.platform_name}] Skipping malformed item: {e}")
+                    continue
+
             return standardized_results
         except Exception as e:
             logger.error(f"[{self.platform_name}] Secret API Error: {e}")
