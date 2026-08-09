@@ -401,19 +401,33 @@ def main():
     else:
         # Find medicines that need enrichment or have malformed data
         # BUT skip ones already enriched by v2
+        #
+        # Manufacturer recovery: records whose manufacturer was blanked by
+        # heal_manufacturer.py (a platform self-name like "Apollo Pharmacy" was
+        # removed) must be re-selected here so the real maker can be refetched
+        # from the 1mg/netmeds detail JSON-LD (marketer.legalName). These records
+        # are otherwise fully enriched (they carry clinical_enriched_at), so the
+        # not_already_done gate would skip them. Put the blank-manufacturer clause
+        # OUTSIDE that gate as a top-level OR so it is always eligible.
         query = {
-            '$and': [
-                not_already_done,
-                {'$or': [
-                    # Missing new fields
-                    {'quick_tips': {'$exists': False}},
-                    # Missing existing fields
-                    {'uses': {'$exists': False}},
-                    {'uses': ''},
-                    # Malformed data
-                    {'uses': {'$type': 'string'}},
-                    {'safety_advice': {'$type': 'string'}},
-                    {'side_effects': {'$type': 'string'}},
+            '$or': [
+                # Manufacturer needs recovery (blank or missing) — always eligible,
+                # even if clinical fields are already enriched.
+                {'manufacturer': ''},
+                {'manufacturer': {'$exists': False}},
+                {'$and': [
+                    not_already_done,
+                    {'$or': [
+                        # Missing new fields
+                        {'quick_tips': {'$exists': False}},
+                        # Missing existing fields
+                        {'uses': {'$exists': False}},
+                        {'uses': ''},
+                        # Malformed data
+                        {'uses': {'$type': 'string'}},
+                        {'safety_advice': {'$type': 'string'}},
+                        {'side_effects': {'$type': 'string'}},
+                    ]}
                 ]}
             ]
         }

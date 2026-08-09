@@ -13,3 +13,6 @@ dnspython>=2.4.0
 # Environment
 python-dotenv>=1.0.0
 playwright>=1.41.0
+
+# LLM enrichment (side_effects backfill via Groq)
+groq>=0.11.0
