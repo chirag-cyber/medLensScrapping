@@ -2,3 +2,31 @@ node_modules/
 .env
 scraper.db
 .seo-cache/
+
+# Python bytecode. 23 of these were tracked, so every run of the scraper showed
+# up as a diff and a rebase could conflict on a compiled artifact.
+__pycache__/
+*.py[cod]
+
+# Runtime state, not source. The lock stops two scheduler instances overlapping
+# and the cursor is where a resumable sync left off — both are true only of the
+# machine that wrote them.
+.scheduler.lock
+.sync-cursor.json
+
+# Logs are generated on every run.
+*.log
+
+# One-off collection dumps taken before a destructive heal/dedup run. ~4.8MB of
+# production medicine rows; they belong in object storage or a local backups/
+# dir, not in git history where they cannot be removed later.
+python-scraper/backup_*.json
+
+# Work queues the pipeline rewrites each pass — an output, not an input.
+# python-scraper/resync_list.txt is deliberately absent: it was committed before
+# this rule existed and may be fed in deliberately, so it stays tracked until
+# someone confirms it is generated.
+python-scraper/rescrape_needed.txt
+python-scraper/rescrape_names.txt
+python-scraper/manufacturer_rescrape.txt
+python-scraper/salt_conflicts.txt
