@@ -11,7 +11,7 @@ services:
     plan: free
     region: oregon
     buildCommand: |
-      cd python-scraper && pip install -r requirements.txt && playwright install --with-deps chromium
+      cd python-scraper && pip install -r requirements.txt && playwright install chromium
     startCommand: |
       cd python-scraper && gunicorn render_server:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 0
     healthCheckPath: /health
