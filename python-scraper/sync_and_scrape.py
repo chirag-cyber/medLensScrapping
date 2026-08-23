@@ -747,6 +747,12 @@ class ScrapeAndSync:
                 "in_stock": med.get('in_stock', True),
                 "discount_percent": med.get('discount_percent', 0.0),
                 "match_percentage": med.get('match_percentage', 0),
+                # This platform's own product photo. "" when the platform exposed
+                # none — the UI falls back to that platform's logo and must never
+                # borrow another pharmacy's photo (different pack or strength).
+                # Refreshes with the price on every run, since the whole grid is
+                # rewritten, so no separate image migration is needed.
+                "image_url": med.get('image_url', ''),
                 "updated_at": now
             })
 

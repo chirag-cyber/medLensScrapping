@@ -3,7 +3,7 @@ import logging
 import re
 from typing import List, Dict
 from scrapers.playwright_base import PlaywrightBaseScraper
-from scrapers.interface import PharmacyScraper, text_in_stock
+from scrapers.interface import PharmacyScraper, text_in_stock, img_src_from_soup
 
 logger = logging.getLogger(__name__)
 
@@ -135,7 +135,11 @@ class ApolloScraper(PlaywrightBaseScraper, PharmacyScraper):
                 pack_size=pack_size, manufacturer="",
                 # OOS tiles carry an "Out of Stock"/"Notify Me"/"Sold Out" label
                 # in the card's own text (full_text is that card, already joined).
-                in_stock=text_in_stock(full_text)
+                in_stock=text_in_stock(full_text),
+                # When `cards` fell back to bare <a> tags the anchor may still wrap
+                # the thumbnail; when it doesn't, this returns "" and the UI shows
+                # the Apollo logo rather than another pharmacy's photo.
+                image_url=img_src_from_soup(card, self.BASE_URL)
             ))
             
         return standardized_results

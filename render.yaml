@@ -1,0 +1,35 @@
+# render.yaml — Render Infrastructure as Code (IaC) for the Python scraper
+# Place this in the repo root. Render reads it on deploy.
+#
+# Dashboard: https://dashboard.render.com
+# Docs: https://docs.render.com/infrastructure-as-code
+
+services:
+  - type: web
+    name: medlens-scraper
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: |
+      cd python-scraper && pip install -r requirements.txt && playwright install --with-deps chromium
+    startCommand: |
+      cd python-scraper && gunicorn render_server:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 0
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.7"
+      - key: MONGO_URL
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: DASHBOARD_KEY
+        sync: false
+      # Set this AFTER the first deploy to your service's URL
+      # e.g. https://medlens-scraper.onrender.com
+      - key: RENDER_URL
+        sync: false
+      # Daily scrape time (UTC). Default: 03:15 UTC = 08:45 IST
+      - key: SCRAPE_HOUR
+        value: "3"
+      - key: SCRAPE_MINUTE
+        value: "15"

@@ -4,7 +4,10 @@ import logging
 import re
 from typing import List, Dict
 from scrapers.playwright_base import PlaywrightBaseScraper
-from scrapers.interface import PharmacyScraper, text_in_stock, coerce_stock
+from scrapers.interface import (
+    PharmacyScraper, text_in_stock, coerce_stock, clean_image_url,
+    img_src_from_soup,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -70,12 +73,26 @@ class NetmedsSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
                     price_str = price_tag.get_text(strip=True).replace('M.R.P.: Rs.', '').replace('Rs.', '').replace(',', '').strip()
                     try:
                         price = float(price_str)
+                        # PDP hero image. Prefer the schema.org/og image the PDP
+                        # declares, since the first <img> on a product page is
+                        # often a header/logo rather than the pack shot.
+                        og = soup.select_one(
+                            'meta[property="og:image"], meta[name="og:image"]')
+                        image_url = clean_image_url(
+                            og.get('content') if og else '', self.BASE_URL)
+                        if not image_url:
+                            gallery = soup.select_one(
+                                '.product-img, .pdp-img, [class*="productImage"]')
+                            image_url = img_src_from_soup(
+                                gallery or soup, self.BASE_URL)
+
                         results.append(self._standardize_result(
                             name=name, url=direct_url, mrp=price, sale_price=price,
                             pack_size="", manufacturer="",
                             # PDP fallback: the page body carries an OOS banner
                             # ("Out of Stock"/"Notify Me") when unavailable.
-                            in_stock=text_in_stock(soup.get_text(" ", strip=True))
+                            in_stock=text_in_stock(soup.get_text(" ", strip=True)),
+                            image_url=image_url
                         ))
                     except: pass
 
@@ -122,9 +139,21 @@ class NetmedsSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
                                       item.get('available',
                                                item.get('stock_status')))))
 
+                # Netmeds' SSR payload names this field differently per template;
+                # take whichever is present. `image_url` resolves relative paths
+                # against BASE_URL, so a bare "/assets/..." still works.
+                image_url = (item.get('image') or item.get('imageUrl')
+                             or item.get('image_url') or item.get('thumbnail') or '')
+                if isinstance(image_url, dict):
+                    image_url = image_url.get('url') or image_url.get('src') or ''
+                if isinstance(image_url, list) and image_url:
+                    first = image_url[0]
+                    image_url = first.get('url', '') if isinstance(first, dict) else first
+
                 standardized_results.append(self._standardize_result(
                     name=name, url=product_url, mrp=mrp, sale_price=sale_price,
-                    pack_size=str(pack_size), manufacturer=manufacturer, in_stock=in_stock
+                    pack_size=str(pack_size), manufacturer=manufacturer,
+                    in_stock=in_stock, image_url=image_url
                 ))
             
             return standardized_results
@@ -191,7 +220,11 @@ class NetmedsSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
                 standardized_results.append(self._standardize_result(
                     name=name, url=product_url, mrp=mrp, sale_price=sale_price,
                     pack_size=pack_size, manufacturer=manufacturer,
-                    in_stock=text_in_stock(item.get_text(" ", strip=True))
+                    in_stock=text_in_stock(item.get_text(" ", strip=True)),
+                    # Card thumbnail. "" when the tile has no <img> yet — the UI
+                    # falls back to the Netmeds logo rather than another
+                    # pharmacy's photo.
+                    image_url=img_src_from_soup(item, self.BASE_URL)
                 ))
             except Exception as e:
                 logger.debug(f"Error parsing item: {e}")

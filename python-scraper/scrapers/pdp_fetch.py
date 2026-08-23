@@ -33,8 +33,10 @@ import logging
 import re
 from typing import Dict, Optional
 
+from urllib.parse import urlsplit
+
 from scrapers.base import BaseScraper
-from scrapers.interface import coerce_stock
+from scrapers.interface import coerce_stock, clean_image_url
 
 logger = logging.getLogger(__name__)
 
@@ -106,6 +108,35 @@ def _iter_ld_objects(html: str):
                 yield node
 
 
+_OG_IMAGE_RE = re.compile(
+    r'<meta[^>]+(?:property|name)=["\']og:image["\'][^>]*content=["\']([^"\']+)["\']'
+    r'|<meta[^>]+content=["\']([^"\']+)["\'][^>]*(?:property|name)=["\']og:image["\']',
+    re.IGNORECASE,
+)
+
+
+def _ld_image(value) -> str:
+    """Flatten schema.org `image` into a single URL string.
+
+    The spec allows a bare URL, an array of URLs, or ImageObject dicts — every
+    storefront here uses a different one. Returns "" for anything else; the
+    caller treats that as "this platform has no image" rather than substituting.
+    """
+    if isinstance(value, list):
+        value = next((v for v in value if v), None)
+    if isinstance(value, dict):
+        value = value.get("url") or value.get("contentUrl") or ""
+    return value if isinstance(value, str) else ""
+
+
+def _og_image(html: str) -> str:
+    """Read the page's og:image, the one image tag every storefront emits."""
+    m = _OG_IMAGE_RE.search(html)
+    if not m:
+        return ""
+    return _unescape(m.group(1) or m.group(2) or "").strip()
+
+
 def _extract_from_ld(html: str) -> Optional[Dict]:
     """Pull name/price/mrp/availability from schema.org Product JSON-LD.
 
@@ -137,6 +168,7 @@ def _extract_from_ld(html: str) -> Optional[Dict]:
                 "mrp": mrp if mrp >= sale else sale,
                 "in_stock": in_stock,
                 "manufacturer": _unescape(str(brand)).strip(),
+                "image_url": _unescape(_ld_image(node.get("image"))).strip(),
             }
     return None
 
@@ -245,6 +277,15 @@ class PdpFetcher(BaseScraper):
             logger.debug(f"[pdp:{platform}] no parseable product data in {url}")
             return None
 
+        # Prefer the JSON-LD `image` (the product photo the storefront declares),
+        # else og:image, which every one of these PDPs emits for social sharing.
+        # Resolve relative paths against this URL's own origin, not a hardcoded
+        # base — this fetcher is platform-agnostic. "" means no image for this
+        # platform; the UI falls back to the platform logo.
+        origin = "{0.scheme}://{0.netloc}".format(urlsplit(url))
+        image_url = clean_image_url(parsed.get("image_url"), origin) \
+            or clean_image_url(_og_image(html), origin)
+
         return {
             "platform": platform,
             "name": parsed["name"],
@@ -258,5 +299,6 @@ class PdpFetcher(BaseScraper):
             "pack_size": "",
             "manufacturer": parsed.get("manufacturer", ""),
             "in_stock": bool(parsed["in_stock"]),
+            "image_url": image_url,
             "source": "pdp_direct",
         }

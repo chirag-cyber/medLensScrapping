@@ -77,6 +77,23 @@ class PharmEasyScraper(BaseScraper, PharmacyScraper):
                     flags = item.get('productAvailabilityFlags', {})
                     in_stock = flags.get('isAvailable', True)
 
+                    # `damImages` holds the full-resolution originals; `image` is
+                    # the same photo with a ?dim=80x80 thumbnail transform baked
+                    # in, which looks soft in a gallery. Prefer the front face
+                    # when the array labels one, else the first entry, else fall
+                    # back to the thumbnail rather than showing nothing.
+                    dam = item.get('damImages') or []
+                    image_url = ''
+                    if isinstance(dam, list) and dam:
+                        front = next(
+                            (d.get('url') for d in dam
+                             if isinstance(d, dict) and d.get('face') == 'front'),
+                            None)
+                        image_url = front or (dam[0].get('url', '')
+                                              if isinstance(dam[0], dict) else '')
+                    if not image_url:
+                        image_url = item.get('image', '') or ''
+
                     res = self._standardize_result(
                         name=name,
                         url=product_url,
@@ -84,7 +101,8 @@ class PharmEasyScraper(BaseScraper, PharmacyScraper):
                         sale_price=sale_price,
                         pack_size=pack_size,
                         manufacturer=manufacturer,
-                        in_stock=in_stock
+                        in_stock=in_stock,
+                        image_url=image_url
                     )
 
                     # PharmEasy exposes the salt as `moleculeName` — attach it as

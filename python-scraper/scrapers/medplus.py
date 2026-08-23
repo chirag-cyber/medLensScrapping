@@ -4,7 +4,7 @@ import re
 import base64
 from typing import List, Dict
 from scrapers.playwright_base import PlaywrightBaseScraper
-from scrapers.interface import PharmacyScraper
+from scrapers.interface import PharmacyScraper, img_src_from_soup
 
 logger = logging.getLogger(__name__)
 
@@ -162,7 +162,10 @@ class MedplusScraper(PlaywrightBaseScraper, PharmacyScraper):
                 
                 standardized_results.append(self._standardize_result(
                     name=name, url=product_url, mrp=mrp, sale_price=sale_price,
-                    pack_size="", manufacturer=manufacturer, in_stock=in_stock
+                    pack_size="", manufacturer=manufacturer, in_stock=in_stock,
+                    # Card thumbnail; "" when the tile carries no <img>, in which
+                    # case the UI shows the MedPlus logo.
+                    image_url=img_src_from_soup(card, self.BASE_URL)
                 ))
             except Exception as item_err:
                 logger.debug(f"Error parsing Medplus card item: {item_err}")

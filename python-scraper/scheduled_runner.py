@@ -210,11 +210,7 @@ def run(update_clinical: bool, do_dedup: bool, dedup_apply: bool, do_llm_backfil
     if do_llm_backfill:
         try:
             logger.info("Running LLM side-effects backfill (openai/gpt-oss-20b)...")
-            enrich_dir = os.path.join(HERE, "enrichment")
-            if enrich_dir not in sys.path:
-                sys.path.insert(0, enrich_dir)
-            # pyrefly: ignore [missing-import]
-            import llm_side_effects_fix
+            from enrichment import llm_side_effects_fix
             llm_side_effects_fix.fix_side_effects()
             logger.info("Side-effects backfill finished.")
         except SystemExit as e:

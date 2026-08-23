@@ -72,7 +72,12 @@ class PlatinumRxScraper(BaseScraper, PharmacyScraper):
                         # (never the platform name) so a missing value doesn't
                         # masquerade as the manufacturer.
                         manufacturer=master.get("manufacturer_name") or "",
-                        in_stock=bool(master.get("drug_stock", 1))
+                        in_stock=bool(master.get("drug_stock", 1)),
+                        # `hero_images` is a JSON-encoded string of the same URL
+                        # repeated, so there is nothing extra to gain from it —
+                        # take the single `hero_image`. NOT `manufacturer_logo`:
+                        # that is a company mark, not a photo of the product.
+                        image_url=master.get("hero_image") or ""
                     )
 
                     # Add salt composition if available

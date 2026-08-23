@@ -3,7 +3,7 @@ import logging
 from typing import List, Dict
 from bs4 import BeautifulSoup
 from scrapers.base import BaseScraper
-from scrapers.interface import PharmacyScraper, text_in_stock
+from scrapers.interface import PharmacyScraper, text_in_stock, img_src_from_soup
 
 logger = logging.getLogger(__name__)
 
@@ -149,7 +149,12 @@ class AmazonPharmacyScraper(BaseScraper, PharmacyScraper):
                 manufacturer="",
                 # OOS listings show "Currently unavailable"/"Out of stock" in the
                 # result tile; read the whole tile's text to detect it.
-                in_stock=text_in_stock(item.get_text(" ", strip=True))
+                in_stock=text_in_stock(item.get_text(" ", strip=True)),
+                # `s-image` is Amazon's product thumbnail; scope to it so a Prime
+                # or sponsored badge <img> in the tile can't win. Falls back to
+                # the tile's first <img> when that class is absent.
+                image_url=img_src_from_soup(
+                    item.find('img', class_='s-image') or item, self.BASE_URL)
             ))
             
         return standardized_results

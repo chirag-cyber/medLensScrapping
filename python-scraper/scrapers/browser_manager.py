@@ -23,7 +23,18 @@ logger = logging.getLogger(__name__)
 
 _playwright: Optional[Playwright] = None
 _browser: Optional[Browser] = None
-_lock = asyncio.Lock()
+_lock: Optional[asyncio.Lock] = None
+
+
+def _get_lock() -> asyncio.Lock:
+    """Lazily create the asyncio.Lock inside the running event loop.
+    Creating it at module-import time (outside any loop) causes
+    'Future attached to a different loop' when asyncio.run() spins up
+    a new loop in a background thread (APScheduler / gunicorn)."""
+    global _lock
+    if _lock is None:
+        _lock = asyncio.Lock()
+    return _lock
 
 _LAUNCH_ARGS = [
     "--disable-blink-features=AutomationControlled",
@@ -40,7 +51,7 @@ async def get_browser() -> Browser:
     if _is_alive(_browser):
         return _browser
 
-    async with _lock:
+    async with _get_lock():
         # Re-check under the lock: another task may have launched while we waited.
         if _is_alive(_browser):
             return _browser
@@ -73,7 +84,7 @@ async def get_browser() -> Browser:
 async def shutdown():
     """Close the shared browser and stop Playwright. Call once, inside a live loop."""
     global _playwright, _browser
-    async with _lock:
+    async with _get_lock():
         await _discard_browser_locked()
         if _playwright is not None:
             try:

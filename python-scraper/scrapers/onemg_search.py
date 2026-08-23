@@ -3,7 +3,7 @@ import logging
 import re
 from typing import List, Dict
 from scrapers.playwright_base import PlaywrightBaseScraper
-from scrapers.interface import PharmacyScraper, text_in_stock
+from scrapers.interface import PharmacyScraper, text_in_stock, clean_image_url
 
 logger = logging.getLogger(__name__)
 
@@ -26,6 +26,50 @@ class OneMgSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
 
     async def search_async(self, query: str) -> List[Dict]:
         return await self.retry_search(lambda: self._search_once(query))
+
+    # Attribute order mirrors interface._IMG_ATTRS: `src` is read last because a
+    # tile that has not scrolled into view yet holds a placeholder there while the
+    # real URL sits in a data-* attribute.
+    _IMG_ATTRS = ('data-src', 'data-original', 'data-lazy-src', 'src')
+
+    async def _card_image(self, card) -> str:
+        """Read the pack shot off a product tile, or "" when the tile has none.
+
+        Locator-based rather than BeautifulSoup: this scraper never materialises
+        the card HTML, so `img_src_from_soup` has nothing to parse. Returns "" on
+        any locator failure — a missing image must never block a price result.
+        """
+        try:
+            img = card.locator('img').first
+            if await img.count() == 0:
+                return ""
+            for attr in self._IMG_ATTRS:
+                cleaned = clean_image_url(await img.get_attribute(attr),
+                                          self.BASE_URL)
+                if cleaned:
+                    return cleaned
+            # srcset: "url 80w, url 320w" — take the largest declared width.
+            srcset = await img.get_attribute('srcset') or ''
+            best_url, best_w = "", -1.0
+            for part in srcset.split(','):
+                bits = part.strip().split()
+                if not bits:
+                    continue
+                cleaned = clean_image_url(bits[0], self.BASE_URL)
+                if not cleaned:
+                    continue
+                width = 0.0
+                if len(bits) > 1:
+                    try:
+                        width = float(re.sub(r'[^\d.]', '', bits[1]) or 0)
+                    except ValueError:
+                        width = 0.0
+                if width > best_w:
+                    best_url, best_w = cleaned, width
+            return best_url
+        except Exception as e:
+            logger.debug(f"[{self.platform_name}] image read failed: {e}")
+            return ""
 
     async def _search_once(self, query: str) -> List[Dict]:
         url = f"{self.BASE_URL}/search/all?name={query.replace(' ', '+')}"
@@ -118,7 +162,8 @@ class OneMgSearchScraper(PlaywrightBaseScraper, PharmacyScraper):
                         manufacturer="",
                         # OOS tiles carry a "Notify Me"/"Out of Stock" banner in the
                         # same card text already read above for the pack size.
-                        in_stock=text_in_stock(card_text)
+                        in_stock=text_in_stock(card_text),
+                        image_url=await self._card_image(card)
                     ))
 
                 except Exception as e:
