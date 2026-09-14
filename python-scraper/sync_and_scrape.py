@@ -483,9 +483,10 @@ class ScrapeAndSync:
         return merged
 
     async def _process_medicine(self, query: str, existing_med_id=None,
-                                force_clinical=False, seed_urls=None):
+                                force_clinical=False, seed_urls=None, run_id: str = None):
         """Searches all platforms and updates MongoDB."""
-        logger.info(f"--- Processing: '{query}' ---")
+        t0 = time.time()
+        logger.info(f"--- Processing: '{query}' (run_id: {run_id or 'none'}) ---")
         
         # 1. Search across all platforms
         all_results = await self.engine.search_all_async(query)
@@ -731,6 +732,7 @@ class ScrapeAndSync:
         # Build the full replacement rows up front so the write is one bulk op,
         # not N round trips (removes the crash-mid-loop zero-price window).
         now = datetime.utcnow()
+        import hashlib
         price_entries = []
         for med in priced:
             price_entries.append({
@@ -747,12 +749,14 @@ class ScrapeAndSync:
                 "in_stock": med.get('in_stock', True),
                 "discount_percent": med.get('discount_percent', 0.0),
                 "match_percentage": med.get('match_percentage', 0),
-                # This platform's own product photo. "" when the platform exposed
-                # none — the UI falls back to that platform's logo and must never
-                # borrow another pharmacy's photo (different pack or strength).
-                # Refreshes with the price on every run, since the whole grid is
-                # rewritten, so no separate image migration is needed.
                 "image_url": med.get('image_url', ''),
+                "freshness_state": "Fresh",
+                "scraped_at": now,
+                "sync_run_id": run_id or "legacy_sync",
+                "raw_scraped_title": med['name'],
+                "scraper_engine_version": "v2.5.0",
+                "match_confidence": round(med.get('match_percentage', 100) / 100.0, 2),
+                "payload_hash": hashlib.sha256(med['name'].encode('utf-8')).hexdigest()[:16],
                 "updated_at": now
             })
 
@@ -761,7 +765,15 @@ class ScrapeAndSync:
         # so growth is bounded by real price movement, not run frequency.
         history_rows = self._history_rows_for(med_id, query, price_entries, old_rows, now)
 
-        self._write_prices_atomic(med_id, price_entries, history_rows)
+        if run_id and med_id:
+            from db_queue import finalize_sync_atomic
+            duration_ms = int((time.time() - t0) * 1000)
+            committed, reason = finalize_sync_atomic(self.client, self.db, med_id, run_id, price_entries, history_rows, duration_ms)
+            if not committed:
+                logger.warning(f"Atomic finalize failed for '{query}': {reason}")
+                return False
+        else:
+            self._write_prices_atomic(med_id, price_entries, history_rows)
 
         if history_rows:
             logger.info(
@@ -983,6 +995,55 @@ class ScrapeAndSync:
         if final_cursor.get("current_index", 0) >= total_medicines:
             self.save_cursor(total_medicines, completed=True)
             logger.info("🏁 Sync cycle completed successfully! Next run will start from the beginning.")
+
+    def sync_claimed_batch(self, medicine_ids: list, run_id: str, update_clinical: bool = False) -> dict:
+        """Process an atomically claimed batch from db_queue.py."""
+        from db_queue import update_heartbeat, mark_sync_failure
+        
+        logger.info(f"Syncing batch of {len(medicine_ids)} medicines for run {run_id}...")
+        
+        object_ids = [ObjectId(mid) if isinstance(mid, str) else mid for mid in medicine_ids]
+        id_to_name = {doc["_id"]: doc.get("name") for doc in self.medicines_col.find({"_id": {"$in": object_ids}}, {"name": 1})}
+        
+        success_count = 0
+        failure_count = 0
+
+        async def _run_batch():
+            nonlocal success_count, failure_count
+            try:
+                for i, med_id in enumerate(object_ids):
+                    med_name = id_to_name.get(med_id)
+                    if not med_name:
+                        logger.warning(f"Medicine {med_id} has no name in DB; marking failed.")
+                        mark_sync_failure(self.db, med_id, run_id, "MEDICINE_NAME_NOT_FOUND")
+                        failure_count += 1
+                        continue
+                        
+                    logger.info(f"Syncing [{i + 1}/{len(object_ids)}]: {med_name}")
+                    update_heartbeat(self.db, med_id, run_id)
+                    
+                    try:
+                        ok = await self._process_medicine(med_name, existing_med_id=med_id, force_clinical=update_clinical, run_id=run_id)
+                        if ok:
+                            success_count += 1
+                        else:
+                            mark_sync_failure(self.db, med_id, run_id, "NO_VALID_MATCHES_SALT_CHECK")
+                            failure_count += 1
+                    except Exception as e:
+                        logger.exception(f"Error syncing {med_name}: {e}")
+                        mark_sync_failure(self.db, med_id, run_id, str(e))
+                        failure_count += 1
+                        
+                    await asyncio.sleep(1)
+            finally:
+                self.last_drift_alarms = self.engine.drift_alarm()
+                try:
+                    await self.engine.shutdown_async()
+                except Exception as e:
+                    logger.warning(f"Browser shutdown error (ignoring): {e}")
+
+        asyncio.run(_run_batch())
+        return {"total": len(object_ids), "success": success_count, "failed": failure_count}
 
     def close(self):
         self.engine.close()

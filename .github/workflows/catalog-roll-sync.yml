@@ -1,0 +1,64 @@
+name: Catalog Roll Sync (Sharded Matrix)
+
+on:
+  schedule:
+    # 00:00 UTC daily
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      limit_per_shard:
+        description: 'Limit per shard'
+        type: number
+        default: 400
+
+permissions:
+  contents: read
+
+jobs:
+  sharded-sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 200
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('python-scraper/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install Python dependencies
+        working-directory: python-scraper
+        run: pip install -r requirements.txt
+
+      - name: Install Playwright Chromium (with system deps)
+        run: playwright install --with-deps chromium
+
+      - name: Run Shard Sync
+        working-directory: python-scraper
+        env:
+          MONGO_URL: ${{ secrets.MONGO_URL }}
+        run: |
+          LIMIT=${{ inputs.limit_per_shard || 400 }}
+          python scheduled_runner.py --mode shard --shard ${{ matrix.shard }} --total-shards 4 --limit $LIMIT --no-dedup
+
+      - name: Upload shard log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shard-${{ matrix.shard }}-log
+          path: python-scraper/scheduler.log
+          retention-days: 7

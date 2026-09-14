@@ -366,3 +366,35 @@ def brand_prefix(name: str) -> str:
     (fetch everything sharing this prefix, then confirm with is_same_medicine)."""
     ident = parse_identity(name)
     return ident.brand.split(" ")[0] if ident.brand else ""
+
+
+_FORMULATION_MODIFIERS = {
+    "sr", "cr", "er", "xr", "ds", "dsr", "plus", "forte", "mr", "od", "pr", "la", "tr", "dt"
+}
+
+
+def extract_formulation_modifier(name: str) -> str:
+    """Extract recognized formulation variant (e.g. 'sr', 'ds', 'forte', 'plus')."""
+    if not name:
+        return "standard"
+    tokens = re.findall(r'[a-zA-Z0-9]+', name.lower())
+    found = [t for t in tokens if t in _FORMULATION_MODIFIERS]
+    return "-".join(sorted(found)) if found else "standard"
+
+
+def compute_resolution_signature(raw_name: str, raw_salt: str, raw_form: str = "", pack_info: str = "") -> str:
+    """
+    Deterministic 5-tuple resolution signature:
+    SHA256(brand_tokens | salt_tokens | strength_tokens | form_token | formulation_token)
+    """
+    import hashlib
+    ident = parse_identity(raw_name, raw_salt)
+    brand_tok = "-".join(sorted(ident.brand_tokens)) if ident.brand_tokens else "nobrand"
+    salt_tok = "-".join(sorted(_normalize_salt_key(raw_salt).split())) if raw_salt else "nosalt"
+    strength_tok = "-".join(ident.strength_nums) if ident.strength_nums else "nostrength"
+    form_tok = ident.form or (raw_form.lower().strip() if raw_form else "unspecified")
+    formulation_tok = extract_formulation_modifier(raw_name)
+    
+    composite = f"{brand_tok}|{salt_tok}|{strength_tok}|{form_tok}|{formulation_tok}"
+    return hashlib.sha256(composite.encode("utf-8")).hexdigest()
+

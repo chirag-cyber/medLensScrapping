@@ -152,34 +152,118 @@ def release_lock():
         logger.warning("Could not remove lock file %s: %s", LOCK_FILE, e)
 
 
-def run(update_clinical: bool, do_dedup: bool, dedup_apply: bool, do_llm_backfill: bool) -> int:
+def run(update_clinical: bool, do_dedup: bool, dedup_apply: bool, do_llm_backfill: bool,
+        mode: str = "legacy", shard: int = 0, total_shards: int = 4, limit: int = None, run_id: str = None,
+        dry_run: bool = False) -> int:
     """Run the sync pass, then optional dedup. Returns a process exit code."""
     # Imported lazily so --help / lock-skip do not pay the MongoClient connect.
     from sync_and_scrape import ScrapeAndSync
+    import uuid
 
     t0 = time.time()
     failed = False
     drift_dead = []
 
     logger.info("=" * 70)
-    logger.info("Scheduled run START (update_clinical=%s, dedup=%s, dedup_apply=%s)",
-                update_clinical, do_dedup, dedup_apply)
+    logger.info("Scheduled run START (mode=%s, shard=%d/%d, update_clinical=%s, dry_run=%s)",
+                mode, shard, total_shards, update_clinical, dry_run)
     logger.info("=" * 70)
 
-    # ── Stage 1: price + clinical sync (resumable) ──
+    # ── Stage 1: price + clinical sync (resumable or queue-driven) ──
     scraper = ScrapeAndSync()
     try:
-        scraper.sync_all(update_clinical=update_clinical)
-        logger.info("Sync pass finished.")
-        # A platform that went DEAD (0 hits across all its queries) is almost
-        # certainly broken (selector drift / API change / block). sync_all already
-        # logged it loudly; surface it in the exit code too so the scheduler's own
-        # alerting fires instead of the run reporting clean success.
-        drift_dead = [a for a in getattr(scraper, "last_drift_alarms", [])
-                      if a[1] == "DEAD"]
+        if dry_run:
+            logger.info("DRY-RUN MODE ENABLED: Simulating queue operations without scraper execution.")
+            if mode == "hot":
+                import db_queue
+                db_queue.initialize_sync_states_if_needed(scraper.db, total_shards=total_shards)
+                actual_limit = limit or 5
+                actual_run_id = run_id or f"dryrun_hot_{uuid.uuid4().hex[:8]}"
+                claimed = db_queue.claim_hot_batch_atomic(scraper.db, run_id=actual_run_id, batch_size=actual_limit)
+                logger.info("[DRY-RUN] Claimed %d hot items: %s", len(claimed), claimed[:5])
+                if claimed:
+                    scraper.db.medicine_sync_state.update_many(
+                        {"_id": {"$in": claimed}},
+                        {"$set": {"sync_status": "READY", "sync_run_id": None}}
+                    )
+                    logger.info("[DRY-RUN] Released %d test claims back to READY.", len(claimed))
+
+            elif mode == "shard":
+                import db_queue
+                db_queue.initialize_sync_states_if_needed(scraper.db, total_shards=total_shards)
+                actual_limit = limit or 5
+                actual_run_id = run_id or f"dryrun_shard{shard}_{uuid.uuid4().hex[:8]}"
+                claimed = db_queue.claim_batch_atomic(scraper.db, shard_id=shard, run_id=actual_run_id, batch_size=actual_limit)
+                logger.info("[DRY-RUN] Claimed %d shard %d items: %s", len(claimed), shard, claimed[:5])
+                if claimed:
+                    scraper.db.medicine_sync_state.update_many(
+                        {"_id": {"$in": claimed}},
+                        {"$set": {"sync_status": "READY", "sync_run_id": None}}
+                    )
+                    logger.info("[DRY-RUN] Released %d test claims back to READY.", len(claimed))
+
+            elif mode == "discover":
+                actual_limit = limit or 10
+                misses = list(scraper.db.search_misses.find(
+                    {"status": "PENDING_DISCOVERY", "intent": "QUALIFIED_MEDICINE"}
+                ).sort([("hit_count", -1), ("last_seen_at", -1)]).limit(actual_limit))
+                logger.info("[DRY-RUN] Found %d qualified search misses ready for discovery: %s",
+                            len(misses), [m.get("raw_query") for m in misses[:5]])
+            else:
+                logger.info("[DRY-RUN] Legacy mode checked: medicines in DB = %d", scraper.medicines_col.count_documents({}))
+            logger.info("[DRY-RUN] Simulation successful. No external network requests executed.")
+
+        elif mode == "hot":
+            import db_queue
+            db_queue.initialize_sync_states_if_needed(scraper.db, total_shards=total_shards)
+            actual_limit = limit or 250
+            actual_run_id = run_id or f"hot_{uuid.uuid4().hex[:8]}"
+            logger.info("Claiming top hot/stale batch (limit=%d, run_id=%s)...", actual_limit, actual_run_id)
+            claimed = db_queue.claim_hot_batch_atomic(scraper.db, run_id=actual_run_id, batch_size=actual_limit)
+            logger.info("Claimed %d hot medicines. Beginning sync...", len(claimed))
+            stats = scraper.sync_claimed_batch(claimed, run_id=actual_run_id, update_clinical=update_clinical)
+            logger.info("Hot sync finished: %s", stats)
+
+        elif mode == "shard":
+            import db_queue
+            db_queue.initialize_sync_states_if_needed(scraper.db, total_shards=total_shards)
+            actual_limit = limit or 400
+            actual_run_id = run_id or f"shard{shard}_{uuid.uuid4().hex[:8]}"
+            logger.info("Claiming shard %d batch (limit=%d, run_id=%s)...", shard, actual_limit, actual_run_id)
+            claimed = db_queue.claim_batch_atomic(scraper.db, shard_id=shard, run_id=actual_run_id, batch_size=actual_limit)
+            logger.info("Claimed %d shard medicines. Beginning sync...", len(claimed))
+            stats = scraper.sync_claimed_batch(claimed, run_id=actual_run_id, update_clinical=update_clinical)
+            logger.info("Shard sync finished: %s", stats)
+
+        elif mode == "discover":
+            from pipeline.ingestion_gate import promote_to_canonical
+            actual_limit = limit or 50
+            logger.info("Querying qualified search misses (limit=%d)...", actual_limit)
+            misses = list(scraper.db.search_misses.find(
+                {"status": "PENDING_DISCOVERY", "intent": "QUALIFIED_MEDICINE"}
+            ).sort([("hit_count", -1), ("last_seen_at", -1)]).limit(actual_limit))
+            logger.info("Discovered %d pending qualified misses to scrape.", len(misses))
+            
+            for miss in misses:
+                q = miss["raw_query"]
+                try:
+                    logger.info("Discovery scraping query: '%s'", q)
+                    scraper.scrape_new(q)
+                    scraper.db.search_misses.update_one(
+                        {"_id": miss["_id"]},
+                        {"$set": {"status": "SCRAPED"}}
+                    )
+                except Exception as e:
+                    logger.error("Failed to scrape discovered miss '%s': %s", q, e)
+
+        else:
+            # Legacy whole-catalog file-checkpointed pass
+            scraper.sync_all(update_clinical=update_clinical)
+            logger.info("Sync pass finished.")
+
+        drift_dead = [a for a in getattr(scraper, "last_drift_alarms", []) if a[1] == "DEAD"]
         if drift_dead:
-            logger.error("%d platform(s) DEAD this run: %s",
-                         len(drift_dead), ", ".join(a[0] for a in drift_dead))
+            logger.error("%d platform(s) DEAD this run: %s", len(drift_dead), ", ".join(a[0] for a in drift_dead))
     except Exception as e:
         failed = True
         logger.exception("Sync pass FAILED: %s", e)
@@ -190,78 +274,64 @@ def run(update_clinical: bool, do_dedup: bool, dedup_apply: bool, do_llm_backfil
             logger.warning("scraper.close() error (ignoring): %s", e)
 
     # ── Stage 2: dedup (dry-run unless explicitly applied) ──
-    if do_dedup:
+    if do_dedup and mode in ("legacy", "shard"):
         try:
             from dedup_medicines import report_and_apply
-            mode = "APPLY (writes)" if dedup_apply else "DRY-RUN (report only)"
-            logger.info("Running dedup: %s", mode)
+            mode_str = "APPLY (writes)" if dedup_apply else "DRY-RUN (report only)"
+            logger.info("Running dedup: %s", mode_str)
             report_and_apply(apply=dedup_apply)
             logger.info("Dedup finished.")
         except Exception as e:
             failed = True
             logger.exception("Dedup FAILED: %s", e)
-    else:
-        logger.info("Dedup skipped (--no-dedup).")
 
     # ── Stage 3: LLM side-effects backfill (opt-in, writes) ──
-    # Fills medicines still carrying the placeholder side_effects via Groq
-    # (openai/gpt-oss-20b), deduplicated by salt. OFF by default — it costs LLM
-    # tokens and writes prod, so it only runs with --llm-backfill.
     if do_llm_backfill:
         try:
             logger.info("Running LLM side-effects backfill (openai/gpt-oss-20b)...")
             from enrichment import llm_side_effects_fix
             llm_side_effects_fix.fix_side_effects()
             logger.info("Side-effects backfill finished.")
-        except SystemExit as e:
-            # The module calls sys.exit(1) if MONGO_URL / GROQ key is missing —
-            # convert that into a failed stage rather than killing the runner.
-            failed = True
-            logger.error("Side-effects backfill aborted (missing MONGO_URL or "
-                         "GROQ_API_KEY/GROQ_API_KEYS?): %s", e)
         except Exception as e:
             failed = True
             logger.exception("Side-effects backfill FAILED: %s", e)
-    else:
-        logger.info("Side-effects backfill skipped (pass --llm-backfill to enable).")
 
     elapsed = time.time() - t0
     logger.info("=" * 70)
-    if failed:
-        status = "FAILED"
-    elif drift_dead:
-        status = "OK-BUT-DRIFT"
-    else:
-        status = "OK"
+    status = "FAILED" if failed else ("OK-BUT-DRIFT" if drift_dead else "OK")
     logger.info("Scheduled run END — %s in %.1fs", status, elapsed)
     logger.info("=" * 70)
     if failed:
-        return EXIT_FAIL          # a stage raised — dominates drift
+        return EXIT_FAIL
     if drift_dead:
-        return EXIT_DRIFT         # ran clean but a platform is broken
+        return EXIT_DRIFT
     return EXIT_OK
 
 
 def main():
     ap = argparse.ArgumentParser(
         description="Unattended scheduled scraper run (sync + optional dedup).")
+    ap.add_argument("--mode", choices=["legacy", "hot", "shard", "discover"], default="legacy",
+                    help="Execution mode: legacy (full catalog), hot (trending), shard (matrix), discover (search misses)")
+    ap.add_argument("--shard", type=int, default=0, help="Shard index (0..total_shards-1) for shard mode")
+    ap.add_argument("--total-shards", type=int, default=4, help="Total number of parallel shards")
+    ap.add_argument("--limit", type=int, default=None, help="Maximum medicines to process in this run")
+    ap.add_argument("--run-id", type=str, default=None, help="Explicit runner UUID/Identifier")
     ap.add_argument("--update-clinical", action="store_true",
                     help="Also force re-fetch of clinical fields during the sync pass.")
     ap.add_argument("--no-dedup", action="store_true",
                     help="Skip the dedup stage entirely.")
     ap.add_argument("--dedup-apply", action="store_true",
-                    help="Let the dedup stage WRITE (merge duplicates). Off by default "
-                         "— without this, dedup only reports.")
+                    help="Let the dedup stage WRITE (merge duplicates). Off by default.")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="Simulate queue claim and runner flow without invoking external scrapers or mutating price records.")
     ap.add_argument("--llm-backfill", action="store_true",
-                    help="Also run the Groq LLM side-effects backfill (writes prod, "
-                         "costs tokens). Off by default.")
+                    help="Also run the Groq LLM side-effects backfill.")
     args = ap.parse_args()
 
     _configure_logging()
 
     if not acquire_lock():
-        # Not an error — the previous run is simply still going. Exit distinctly
-        # so the scheduler can tell "skipped" from "failed".
         sys.exit(EXIT_LOCKED)
 
     try:
@@ -270,6 +340,12 @@ def main():
             do_dedup=not args.no_dedup,
             dedup_apply=args.dedup_apply,
             do_llm_backfill=args.llm_backfill,
+            mode=args.mode,
+            shard=args.shard,
+            total_shards=args.total_shards,
+            limit=args.limit,
+            run_id=args.run_id,
+            dry_run=args.dry_run,
         )
     except Exception as e:
         logger.exception("Unhandled error in scheduled run: %s", e)

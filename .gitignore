@@ -13,6 +13,7 @@ __pycache__/
 # machine that wrote them.
 .scheduler.lock
 .sync-cursor.json
+.sync-state-python.json
 
 # Logs are generated on every run.
 *.log
