@@ -1,0 +1,104 @@
+name: Daily Scrape
+
+# ────────────────────────────────────────────────────────────────────
+# Runs the MedLens price scraper on a schedule.
+#
+# Why GitHub Actions instead of Render?
+#   - 7 GB RAM (Render free = 512 MB → Chromium OOM)
+#   - Built-in cron (no self-ping / keep-alive hacks)
+#   - Public repos = unlimited minutes
+#
+# Secrets required (Settings → Secrets → Actions):
+#   MONGO_URL      — MongoDB connection string
+#   GROQ_API_KEY   — Groq API key (for LLM backfill, optional)
+# ────────────────────────────────────────────────────────────────────
+
+on:
+  schedule:
+    # 03:15 UTC = 08:45 IST — daily
+    - cron: '15 3 * * *'
+
+  # Manual trigger from GitHub UI (Actions tab → Run workflow)
+  workflow_dispatch:
+    inputs:
+      update_clinical:
+        description: 'Also re-fetch clinical fields'
+        type: boolean
+        default: false
+      run_dedup:
+        description: 'Run dedup stage (dry-run report only)'
+        type: boolean
+        default: false
+      llm_backfill:
+        description: 'Run LLM side-effects backfill (uses Groq tokens)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180  # 3 hour hard ceiling — kill if stuck
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('python-scraper/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install Python dependencies
+        working-directory: python-scraper
+        run: pip install -r requirements.txt
+
+      - name: Install Playwright Chromium (with system deps)
+        run: playwright install --with-deps chromium
+
+      - name: Run scheduled scraper
+        working-directory: python-scraper
+        env:
+          MONGO_URL: ${{ secrets.MONGO_URL }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          # Build the CLI flags
+          FLAGS=""
+
+          # For scheduled (cron) runs: sync only, no dedup, no LLM
+          # For manual runs: respect the workflow_dispatch inputs
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ "${{ inputs.update_clinical }}" = "true" ]; then
+              FLAGS="$FLAGS --update-clinical"
+            fi
+            if [ "${{ inputs.run_dedup }}" != "true" ]; then
+              FLAGS="$FLAGS --no-dedup"
+            fi
+            if [ "${{ inputs.llm_backfill }}" = "true" ]; then
+              FLAGS="$FLAGS --llm-backfill"
+            fi
+          else
+            # Cron trigger: price sync only
+            FLAGS="--no-dedup"
+          fi
+
+          echo "Running: python scheduled_runner.py $FLAGS"
+          python scheduled_runner.py $FLAGS
+
+      - name: Upload scraper log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraper-log-${{ github.run_number }}
+          path: python-scraper/scheduler.log
+          retention-days: 30
