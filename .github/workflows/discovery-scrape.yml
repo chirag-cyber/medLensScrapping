@@ -1,0 +1,60 @@
+name: Discovery Scrape (Search Misses & New Catalog)
+
+on:
+  schedule:
+    # 02:00 UTC daily
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max qualified search misses to discover'
+        type: number
+        default: 50
+
+permissions:
+  contents: read
+
+jobs:
+  discovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('python-scraper/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install Python dependencies
+        working-directory: python-scraper
+        run: pip install -r requirements.txt
+
+      - name: Install Playwright Chromium (with system deps)
+        run: playwright install --with-deps chromium
+
+      - name: Run Discovery Scrape
+        working-directory: python-scraper
+        env:
+          MONGO_URL: ${{ secrets.MONGO_URL }}
+        run: |
+          LIMIT=${{ inputs.limit || 50 }}
+          python scheduled_runner.py --mode discover --limit $LIMIT --no-dedup
+
+      - name: Upload discovery log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: discovery-log
+          path: python-scraper/scheduler.log
+          retention-days: 7
