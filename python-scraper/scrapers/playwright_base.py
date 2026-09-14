@@ -25,31 +25,10 @@ from scrapers.config import SCRAPER_CONFIG
 logger = logging.getLogger(__name__)
 
 
-# Unified stealth script — installed on every page before any site JS runs.
-STEALTH_JS = """
-    Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
-    window.chrome = window.chrome || { runtime: {} };
-    const _origQuery = window.navigator.permissions && window.navigator.permissions.query;
-    if (_origQuery) {
-        window.navigator.permissions.query = (parameters) => (
-            parameters && parameters.name === 'notifications'
-                ? Promise.resolve({ state: Notification.permission })
-                : _origQuery(parameters)
-        );
-    }
-    Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3, 4, 5] });
-    Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
-    if (navigator.userAgentData) {
-        const mockBrands = [
-            { brand: 'Not_A Brand', version: '24' },
-            { brand: 'Chromium', version: '125' },
-            { brand: 'Google Chrome', version: '125' }
-        ];
-        try {
-            Object.defineProperty(navigator.userAgentData, 'brands', { get: () => mockBrands });
-        } catch (e) {}
-    }
-"""
+# BLK-11: Decommissioned WAF evasion script (STEALTH_JS).
+# Scrapers operate as standard automated browsers without spoofing navigator.webdriver,
+# navigator.plugins, or browser fingerprints.
+STEALTH_JS = ""
 
 
 class PlaywrightBaseScraper:
@@ -116,7 +95,6 @@ class PlaywrightBaseScraper:
                 },
             )
             self._context_browser = browser
-            await self._context.add_init_script(STEALTH_JS)
             if SCRAPER_CONFIG["block_resources"]:
                 await self._context.route("**/*", self._route_filter)
 
